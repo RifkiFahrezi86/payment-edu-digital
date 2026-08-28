@@ -1,0 +1,17 @@
+{
+  "keyframes": {
+    "moveHorizontal": "@keyframes moveHorizontal { \n  0% { transform: translate(-50%) translateY(-10%); }\n  50% { transform: translate(50%) translateY(10%); }\n  100% { transform: translate(-50%) translateY(-10%); }\n}",
+    "moveInCircle": "@keyframes moveInCircle { \n  0% { transform: rotate(0deg); }\n  50% { transform: rotate(180deg); }\n  100% { transform: rotate(360deg); }\n}",
+    "moveVertical": "@keyframes moveVertical { \n  0% { transform: translateY(-50%); }\n  50% { transform: translateY(50%); }\n  100% { transform: translateY(-50%); }\n}",
+    "bannerSheen": "@keyframes bannerSheen { \n  0% { transform: translate(-140%) skew(-18deg); }\n  55% { transform: translate(240%) skew(-18deg); }\n  100% { transform: translate(240%) skew(-18deg); }\n}"
+  },
+  "utils": [
+    ".scrollbar-hide::-webkit-scrollbar { display: none; }",
+    ".scrollbar-hide { scrollbar-width: none; }",
+    ".banner-sheen { animation: 9s cubic-bezier(0.4, 0, 0.2, 1) 0s infinite normal none running bannerSheen; }",
+    ".main-container { width: 100%; max-width: 1440px; padding: 0px 96px; }"
+  ],
+  "inlineStyles": [
+    "\n        .main-container { width: 100%; max-width: 1440px; padding: 0 96px; }\n        .content-container { width: 100%; max-width: 1248px; }\n        @media (max-width: 1024px) { .main-container { padding: 0 40px; } }\n        @media (max-width: 640px) { .main-container { padding: 0 20px; } }\n      "
+  ]
+}

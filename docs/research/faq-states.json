@@ -1,0 +1,26 @@
+[
+  {
+    "q": "01.How do I set up my Payway account?Sign up in minutes and follow the simple onboarding steps to start accepting paymen",
+    "expanded": "01.How do I set up my Payway account?"
+  },
+  {
+    "q": "02.Can I update my account details?",
+    "expanded": "02.Can I update my account details?Yes, you can update your business profile, bank information, and contact details anytime through the merchant dashboard settings."
+  },
+  {
+    "q": "03.What should I do if I forget my password?",
+    "expanded": "03.What should I do if I forget my password?Simply click 'Forgot Password' on the login page. We'll send a secure reset link to your registered email address immediately."
+  },
+  {
+    "q": "04.How fast are payments processed?",
+    "expanded": "04.How fast are payments processed?Payway processes domestic transactions in real-time. Settlements usually arrive in your linked bank account within 24 hours depending on the provider."
+  },
+  {
+    "q": "05.Can I accept international payments?",
+    "expanded": "05.Can I accept international payments?Absolutely! Payway supports over 100+ global currencies and automated mid-market rate conversions for seamless cross-border trade."
+  },
+  {
+    "q": "06.Is there a limit on transactions?",
+    "expanded": "06.Is there a limit on transactions?Standard accounts have flexible limits based on verification levels. High-volume businesses can request custom limit increases via support."
+  }
+]

@@ -1,0 +1,119 @@
+{
+  "header": {
+    "sel": "NAV.flex.items-center.justify-between",
+    "position": "static",
+    "background": "rgba(0, 0, 0, 0)",
+    "backdrop": "none",
+    "boxShadow": "none",
+    "top": "auto",
+    "zIndex": "auto"
+  },
+  "headerScrolled": {
+    "background": "rgba(0, 0, 0, 0)",
+    "backdrop": "none",
+    "boxShadow": "none",
+    "visibleAtTop": false
+  },
+  "animHints": [],
+  "keyframes": [
+    "pulse",
+    "spin",
+    "bounce",
+    "ping",
+    "enter",
+    "exit",
+    "moveHorizontal",
+    "moveInCircle",
+    "moveVertical",
+    "bannerSheen",
+    "accordion-up",
+    "accordion-down",
+    "swipe-out",
+    "sonner-fade-in",
+    "sonner-fade-out",
+    "sonner-spin"
+  ],
+  "tabs": [
+    {
+      "text": "Sign up",
+      "cls": "relative flex items-center overflow-hidden transition-all duration-300"
+    },
+    {
+      "text": "Get 14-days free trial",
+      "cls": "relative flex items-center overflow-hidden transition-all duration-300"
+    },
+    {
+      "text": "Download the app",
+      "cls": "relative flex items-center overflow-hidden transition-all duration-300"
+    },
+    {
+      "text": "Download Now",
+      "cls": "group relative flex items-center bg-[#042718] border border-[#0427180f"
+    },
+    {
+      "text": "Learn more",
+      "cls": "group relative flex items-center bg-[#042718] border border-[#0427180f"
+    },
+    {
+      "text": "Learn more",
+      "cls": "group relative flex items-center bg-[#042718] border border-[#0427180f"
+    },
+    {
+      "text": "Learn more",
+      "cls": "group relative flex items-center bg-[#042718] border border-[#0427180f"
+    },
+    {
+      "text": "Learn more",
+      "cls": "group relative flex items-center bg-[#042718] border border-[#0427180f"
+    },
+    {
+      "text": "Explore All Integrations",
+      "cls": "group relative flex items-center bg-[#042718] border border-[#0427180f"
+    },
+    {
+      "text": "Monthly",
+      "cls": "px-4 sm:px-8 py-2 md:py-2.5 rounded-full text-[14px] sm:text-[16px] fo"
+    },
+    {
+      "text": "Get 14-days free trial",
+      "cls": "group relative flex items-center w-full h-[64px] md:h-[72px] p-2 round"
+    },
+    {
+      "text": "Get 14-days free trial",
+      "cls": "group relative flex items-center w-full h-[64px] md:h-[72px] p-2 round"
+    },
+    {
+      "text": "Contact Support",
+      "cls": "group flex items-center gap-[32px] bg-[#042718] hover:bg-[#063a24] tex"
+    },
+    {
+      "text": "Get 14-days free trial",
+      "cls": "relative flex items-center overflow-hidden transition-all duration-300"
+    }
+  ],
+  "faq": {
+    "hasDetails": false,
+    "clickables": [
+      {
+        "tag": "button",
+        "text": "Contact Support",
+        "cls": "group flex items-center gap-[32px] bg-[#042718] hover:bg-[#0"
+      }
+    ]
+  },
+  "timeDriven": [],
+  "pricingToggle": [
+    {
+      "text": "Monthly",
+      "cls": "px-4 sm:px-8 py-2 md:py-2.5 rounded-full text-[14px] sm:text"
+    },
+    {
+      "text": "Get 14-days free trial",
+      "cls": "group relative flex items-center w-full h-[64px] md:h-[72px]"
+    },
+    {
+      "text": "Get 14-days free trial",
+      "cls": "group relative flex items-center w-full h-[64px] md:h-[72px]"
+    }
+  ]
+}

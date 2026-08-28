@@ -1,0 +1,634 @@
+{
+  "bodyBg": "rgb(255, 255, 255)",
+  "bodyFont": "Inter, \"Inter Fallback\"",
+  "bodyH": 15249,
+  "vars": {
+    "--background": "0 0% 100%",
+    "--foreground": "0 0% 3.9%",
+    "--card": "0 0% 100%",
+    "--card-foreground": "0 0% 3.9%",
+    "--popover": "0 0% 100%",
+    "--popover-foreground": "0 0% 3.9%",
+    "--primary": "262 84% 58%",
+    "--primary-foreground": "0 0% 98%",
+    "--secondary": "0 0% 96.1%",
+    "--secondary-foreground": "0 0% 9%",
+    "--muted": "0 0% 96.1%",
+    "--muted-foreground": "0 0% 45.1%",
+    "--accent": "0 0% 96.1%",
+    "--accent-foreground": "0 0% 9%",
+    "--destructive": "0 84.2% 60.2%",
+    "--destructive-foreground": "0 0% 98%",
+    "--border": "0 0% 89.8%",
+    "--input": "0 0% 89.8%",
+    "--ring": "0 0% 3.9%",
+    "--chart-1": "12 76% 61%",
+    "--chart-2": "173 58% 39%",
+    "--chart-3": "197 37% 24%",
+    "--chart-4": "43 74% 66%",
+    "--chart-5": "27 87% 67%",
+    "--radius": ".5rem",
+    "--white": "#fff",
+    "--black": "#000",
+    "--transparent": "transparent",
+    "--blue-300": "#93c5fd",
+    "--blue-400": "#60a5fa",
+    "--blue-500": "#3b82f6",
+    "--indigo-300": "#a5b4fc",
+    "--violet-200": "#ddd6fe",
+    "--foreground-rgb": "0, 0, 0",
+    "--background-start-rgb": "214, 219, 220",
+    "--background-end-rgb": "255, 255, 255",
+    "--jiro-primary": "#7c3aed"
+  },
+  "fonts": [
+    "Inter, \"Inter Fallback\"",
+    "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""
+  ],
+  "fontLinks": [
+    "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+  ],
+  "images": [
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/Payway%20logo%20with%20name.svg",
+      "alt": "Payway Logo",
+      "w": 125,
+      "h": 31,
+      "cls": "h-[24px] sm:h-[32px] w-auto"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/sofi.svg",
+      "alt": "Sofi",
+      "w": 54,
+      "h": 15,
+      "cls": "w-auto h-[14px] opacity-60"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/visa.svg",
+      "alt": "Visa",
+      "w": 43,
+      "h": 14,
+      "cls": "w-auto h-[14px] opacity-60"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/App%20Store.svg",
+      "alt": "App Store",
+      "w": 32,
+      "h": 32,
+      "cls": "w-full h-full object-contain"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/Google%20Play.svg",
+      "alt": "Google Play",
+      "w": 32,
+      "h": 32,
+      "cls": "w-full h-full object-contain"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/header-Mobile-mockup-payway.png",
+      "alt": "Mobile App Mockup",
+      "w": 1144,
+      "h": 1404,
+      "cls": "object-contain"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/Insights-left%20card.png",
+      "alt": "Insights Data",
+      "w": 896,
+      "h": 760,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/payway-feature-card%202.png",
+      "alt": "AI App View",
+      "w": 1048,
+      "h": 804,
+      "cls": "object-contain object-right-bottom"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/payway-feature-card%203.png",
+      "alt": "Smart Transaction Tracking",
+      "w": 933,
+      "h": 438,
+      "cls": "object-contain mb-[-40px] md:mb-[-60px]"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/payway-feature-card%204.png",
+      "alt": "Payment Options",
+      "w": 706,
+      "h": 623,
+      "cls": "object-contain mb-[-30px] md:mb-[-40px]"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/process-left-img-payway.png",
+      "alt": "Process Step Illustration",
+      "w": 612,
+      "h": 692,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/step-01-payway.png",
+      "alt": "Create your account",
+      "w": 1044,
+      "h": 464,
+      "cls": "object-cover object-top"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/step-01-payway.png",
+      "alt": "Set up payments",
+      "w": 1044,
+      "h": 464,
+      "cls": "object-cover object-top"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/step-01-payway.png",
+      "alt": "Start accepting payments",
+      "w": 1044,
+      "h": 464,
+      "cls": "object-cover object-top"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/feature-payway-01.svg",
+      "alt": "Send your money worldwide",
+      "w": 696,
+      "h": 887,
+      "cls": "object-contain object-bottom"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80&w=1000&auto=format&fit=crop",
+      "alt": "Send money instantly, everywhere",
+      "w": 1000,
+      "h": 667,
+      "cls": "object-contain object-bottom"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/feature-payway-02.svg",
+      "alt": "Pay and get paid on your terms",
+      "w": 738,
+      "h": 746,
+      "cls": "object-contain object-bottom"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/feature%204th%20card.png",
+      "alt": "Your global card for everyday life",
+      "w": 762,
+      "h": 1053,
+      "cls": "object-contain object-bottom"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/quite-icon.svg",
+      "alt": "Quote",
+      "w": 40,
+      "h": 32,
+      "cls": "object-contain"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=200&h=200",
+      "alt": "Jahid Hasan",
+      "w": 200,
+      "h": 200,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://flagcdn.com/gb.svg",
+      "alt": "Country flag",
+      "w": 1200,
+      "h": 600,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/quite-icon.svg",
+      "alt": "Quote",
+      "w": 40,
+      "h": 32,
+      "cls": "object-contain"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=200&h=200",
+      "alt": "Chris Kennedy",
+      "w": 200,
+      "h": 200,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://flagcdn.com/gb.svg",
+      "alt": "Country flag",
+      "w": 1200,
+      "h": 600,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/quite-icon.svg",
+      "alt": "Quote",
+      "w": 40,
+      "h": 32,
+      "cls": "object-contain"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&q=80&w=200&h=200",
+      "alt": "Daniel Smith",
+      "w": 200,
+      "h": 200,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://flagcdn.com/gb.svg",
+      "alt": "Country flag",
+      "w": 1200,
+      "h": 600,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/quite-icon.svg",
+      "alt": "Quote",
+      "w": 40,
+      "h": 32,
+      "cls": "object-contain"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200&h=200",
+      "alt": "Sarah Jones",
+      "w": 200,
+      "h": 200,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://flagcdn.com/us.svg",
+      "alt": "Country flag",
+      "w": 1235,
+      "h": 650,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/quite-icon.svg",
+      "alt": "Quote",
+      "w": 40,
+      "h": 32,
+      "cls": "object-contain"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&h=200",
+      "alt": "Michael Chen",
+      "w": 200,
+      "h": 200,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://flagcdn.com/ca.svg",
+      "alt": "Country flag",
+      "w": 1200,
+      "h": 600,
+      "cls": "object-cover"
+    },
+    {
+      "src": "https://api.iconify.design/logos:stripe.svg",
+      "alt": "Stripe",
+      "w": 38,
+      "h": 16,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:paypal.svg",
+      "alt": "PayPal",
+      "w": 14,
+      "h": 16,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:hubspot.svg",
+      "alt": "HubSpot",
+      "w": 55,
+      "h": 16,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:dropbox.svg",
+      "alt": "Dropbox",
+      "w": 19,
+      "h": 16,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:google-drive.svg",
+      "alt": "Google Drive",
+      "w": 18,
+      "h": 16,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:trello.svg",
+      "alt": "Trello",
+      "w": 16,
+      "h": 16,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:slack-icon.svg",
+      "alt": "Slack",
+      "w": 16,
+      "h": 16,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:notion-icon.svg",
+      "alt": "Notion",
+      "w": 15,
+      "h": 16,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:salesforce.svg",
+      "alt": "Salesforce",
+      "w": 23,
+      "h": 16,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:github-icon.svg",
+      "alt": "Github",
+      "w": 16,
+      "h": 16,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:google-analytics.svg",
+      "alt": "Google Analytics",
+      "w": 15,
+      "h": 16,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20SVG/only%20logo%20intefration.svg",
+      "alt": "Payway Hub",
+      "w": 0,
+      "h": 0,
+      "cls": "object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:shopify.svg",
+      "alt": "Shopify",
+      "w": 0,
+      "h": 0,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:zendesk-icon.svg",
+      "alt": "Zendesk",
+      "w": 0,
+      "h": 0,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:discord-icon.svg",
+      "alt": "Discord",
+      "w": 0,
+      "h": 0,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:vercel-icon.svg",
+      "alt": "Vercel",
+      "w": 0,
+      "h": 0,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://api.iconify.design/logos:asana-icon.svg",
+      "alt": "Asana",
+      "w": 0,
+      "h": 0,
+      "cls": "p-3 sm:p-4 lg:p-5 object-contain"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=1000",
+      "alt": "Smart male customer support representative",
+      "w": 0,
+      "h": 0,
+      "cls": "object-cover grayscale-[0.05] hover:grayscale-0 transition-a"
+    }
+  ],
+  "videos": [
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/Header%2001-BG-payway.mp4",
+      "poster": "",
+      "autoplay": true,
+      "loop": true
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/Header%2001-BG-payway.mp4",
+      "poster": "",
+      "autoplay": true,
+      "loop": true
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/Header%2001-BG-payway.mp4",
+      "poster": "",
+      "autoplay": true,
+      "loop": true
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/Header%2001-BG-payway.mp4",
+      "poster": "",
+      "autoplay": true,
+      "loop": true
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/Header%2001-BG-payway.mp4",
+      "poster": "",
+      "autoplay": true,
+      "loop": true
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/Header%2001-BG-payway.mp4",
+      "poster": "",
+      "autoplay": true,
+      "loop": true
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/Header%2001-BG-payway.mp4",
+      "poster": "",
+      "autoplay": true,
+      "loop": true
+    },
+    {
+      "src": "https://cdn.jiro.build/Amox/Payway/All%20Images/footer%20BG%20payway.mp4",
+      "poster": "",
+      "autoplay": true,
+      "loop": true
+    }
+  ],
+  "bgImgs": [],
+  "svgCount": 65,
+  "favicons": [
+    "https://jiro.build/favicon.ico",
+    "https://jiro.build/apple-touch-icon.png"
+  ],
+  "hasLenis": false,
+  "sections": [
+    {
+      "i": 0,
+      "tag": "section",
+      "cls": "relative w-full overflow-hidden bg-white ",
+      "id": null,
+      "top": 0,
+      "height": 890,
+      "text": "HomeFeaturesPricingAboutLoginSign upIn Partnership With:Accept Payments Globally. Instantl"
+    },
+    {
+      "i": 1,
+      "tag": "section",
+      "cls": "w-full bg-white flex flex-col items-center py-16 lg:py-24 ",
+      "id": null,
+      "top": 890,
+      "height": 781,
+      "text": "ResultInsightsMake smarter payment decisions with real-time insights and full visibility i"
+    },
+    {
+      "i": 2,
+      "tag": "link",
+      "cls": "",
+      "id": null,
+      "top": 0,
+      "height": 0,
+      "text": ""
+    },
+    {
+      "i": 3,
+      "tag": "section",
+      "cls": "w-full bg-white flex justify-center py-24 ",
+      "id": null,
+      "top": 1671,
+      "height": 1467,
+      "text": "FeatureFast, secure payments built to scale globally.Accept, manage, and optimize payments"
+    },
+    {
+      "i": 4,
+      "tag": "link",
+      "cls": "",
+      "id": null,
+      "top": 0,
+      "height": 0,
+      "text": ""
+    },
+    {
+      "i": 5,
+      "tag": "section",
+      "cls": "w-full bg-white flex flex-col items-center ",
+      "id": null,
+      "top": 3138,
+      "height": 2274,
+      "text": "ProcessGet started in just 3 easy simple stepsGet started in just 3 easy steps with a guid"
+    },
+    {
+      "i": 6,
+      "tag": "section",
+      "cls": "w-full bg-white flex flex-col items-center py-24 gap-16 ",
+      "id": null,
+      "top": 5412,
+      "height": 3666,
+      "text": "FeaturesAccept, manage, and scale your payments effortlesslyStreamline your entire payment"
+    },
+    {
+      "i": 7,
+      "tag": "section",
+      "cls": "relative w-full overflow-hidden bg-white ",
+      "id": null,
+      "top": 9078,
+      "height": 1014,
+      "text": "TestimonialsTrusted by fast-growing businesses worldwide“Payway completely streamlined our"
+    },
+    {
+      "i": 8,
+      "tag": "link",
+      "cls": "",
+      "id": null,
+      "top": 0,
+      "height": 0,
+      "text": ""
+    },
+    {
+      "i": 9,
+      "tag": "section",
+      "cls": "w-full bg-white flex flex-col items-center py-24 overflow-hidden ",
+      "id": null,
+      "top": 10092,
+      "height": 1382,
+      "text": ".main-container { width: 100%; max-width: 1440px; padding: 0 96px; } .content-cont"
+    },
+    {
+      "i": 10,
+      "tag": "link",
+      "cls": "",
+      "id": null,
+      "top": 0,
+      "height": 0,
+      "text": ""
+    },
+    {
+      "i": 11,
+      "tag": "section",
+      "cls": "relative w-full bg-white overflow-hidden py-[80px] ",
+      "id": null,
+      "top": 11474,
+      "height": 969,
+      "text": "Pricing PlanSimple, transparent pricing for every businessChoose a plan that fits your nee"
+    },
+    {
+      "i": 12,
+      "tag": "link",
+      "cls": "",
+      "id": null,
+      "top": 0,
+      "height": 0,
+      "text": ""
+    },
+    {
+      "i": 13,
+      "tag": "section",
+      "cls": "w-full py-16 lg:py-24 bg-white overflow-hidden ",
+      "id": null,
+      "top": 12443,
+      "height": 1302,
+      "text": "FAQsEverything you need to know about PaywayFind quick answers about payments, security, "
+    },
+    {
+      "i": 14,
+      "tag": "link",
+      "cls": "",
+      "id": null,
+      "top": 0,
+      "height": 0,
+      "text": ""
+    },
+    {
+      "i": 15,
+      "tag": "section",
+      "cls": "relative w-full overflow-hidden flex flex-col ",
+      "id": null,
+      "top": 13745,
+      "height": 1504,
+      "text": "Let's Start Smart PaymentsSet up quickly and begin accepting payments with no complexity, "
+    }
+  ]
+}
