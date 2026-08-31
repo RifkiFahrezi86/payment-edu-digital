@@ -25,28 +25,28 @@ type FaqItem = { q: string; a: string };
 
 const FAQ_ITEMS: FaqItem[] = [
   {
-    q: "Bagaimana cara daftar Saku Sultan?",
-    a: "Unduh aplikasi dari Google Play Store, buat akun baru, lalu verifikasi data diri Anda dalam hitungan menit.",
+    q: "How do I set up my Payway account?",
+    a: "Sign up in minutes and follow the simple onboarding steps to start accepting payments. Our team is here to guide you through verification and bank linking.",
   },
   {
-    q: "Layanan apa saja yang tersedia?",
-    a: "Pembayaran tagihan, barcode scan di merchant, transfer uang, top-up saldo, transaksi e-commerce, serta keamanan biometrik untuk menjaga akun tetap aman.",
+    q: "Can I update my account details?",
+    a: "Yes, you can update your business profile, bank information, and contact details anytime through the merchant dashboard settings.",
   },
   {
-    q: "Apakah aman bertransaksi lewat Saku Sultan?",
-    a: "Ya, Saku Sultan menggunakan sistem keamanan berlapis, sensor sidik jari, dan garansi uang kembali 100%.",
+    q: "What should I do if I forget my password?",
+    a: "Simply click 'Forgot Password' on the login page. We'll send a secure reset link to your registered email address immediately.",
   },
   {
-    q: "Bagaimana cara mengisi saldo (top up)?",
-    a: "Saldo dapat diisi melalui transfer bank, e-wallet, atau QRIS langsung dari menu Top Up di aplikasi.",
+    q: "How fast are payments processed?",
+    a: "Payway processes domestic transactions in real-time. Settlements usually arrive in your linked bank account within 24 hours depending on the provider.",
   },
   {
-    q: "Bagaimana jika transaksi saya gagal?",
-    a: "Dana otomatis dikembalikan. Hubungi layanan pelanggan melalui WhatsApp untuk bantuan lebih lanjut.",
+    q: "Can I accept international payments?",
+    a: "Absolutely! Payway supports over 100+ global currencies and automated mid-market rate conversions for seamless cross-border trade.",
   },
   {
-    q: "Apakah ada biaya tambahan?",
-    a: "Tidak ada biaya langganan. Anda hanya membayar sejumlah transaksi yang dilakukan.",
+    q: "Is there a limit on transactions?",
+    a: "Standard accounts have flexible limits based on verification levels. High-volume businesses can request custom limit increases via support.",
   },
 ];
 
@@ -57,10 +57,7 @@ export function PwFaq() {
     setOpenIndex((prev) => (prev === index ? null : index));
 
   return (
-    <section
-      id="bantuan"
-      className="w-full py-16 lg:py-24 bg-white overflow-hidden scroll-mt-24 "
-    >
+    <section className="w-full py-16 lg:py-24 bg-white overflow-hidden ">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         {/* Header */}
         <div className="flex flex-col items-center mb-16 lg:mb-24 text-center max-w-[800px]">
@@ -84,16 +81,16 @@ export function PwFaq() {
               <path d="M5 18H3" />
             </svg>
             <span className="font-sans font-semibold text-sm text-[#16A34A] tracking-wider uppercase">
-            FAQ
+              FAQs
             </span>
           </PwReveal>
           <PwReveal delay={100}>
             {/* prettier-ignore */}
-            <h2 className="font-heading text-[28px] sm:text-[42px] lg:text-[52px] font-semibold text-[#042718] leading-[1.1] sm:leading-[58px] tracking-[-0.8px] sm:tracking-[-1.8px]">Hal yang Sering Ditanyakan <br className="hidden lg:block" /> Tentang Saku Sultan</h2>
+            <h2 className="font-heading text-[28px] sm:text-[42px] lg:text-[52px] font-semibold text-[#042718] leading-[1.1] sm:leading-[58px] tracking-[-0.8px] sm:tracking-[-1.8px]">Everything you need to <br className="hidden lg:block" /> know about Payway</h2>
           </PwReveal>
           <PwReveal delay={200}>
             {/* prettier-ignore */}
-            <p className="font-sans text-base sm:text-xl text-[#042718] opacity-70 max-w-[600px]">Temukan jawaban cepat seputar layanan, keamanan, <br className="hidden md:block" /> dan cara menggunakan Saku Sultan.</p>
+            <p className="font-sans text-base sm:text-xl text-[#042718] opacity-70 max-w-[600px]">Find quick answers about payments, security, integrations, <br className="hidden md:block" /> and managing transactions with Payway.</p>
           </PwReveal>
         </div>
 
@@ -101,7 +98,7 @@ export function PwFaq() {
           {/* Kolom kanan — daftar accordion (order-1 di mobile) */}
           <div className="order-1 lg:order-2 w-full lg:w-[718px] lg:pl-[32px] flex flex-col gap-6">
             <h3 className="font-heading font-semibold text-xl md:text-2xl text-[#042718]/40 mb-2">
-              Pertanyaan Umum
+              Account
             </h3>
             <div className="flex flex-col gap-4 md:gap-6">
               {FAQ_ITEMS.map((item, index) => {
@@ -245,27 +242,36 @@ export function PwFaq() {
             <div className="flex flex-col items-start gap-[48px]">
               <div className="flex flex-col gap-[12px]">
                 <h3 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[28px] text-[#042718] leading-tight">
-                  Butuh Bantuan?
+                  Need help with your payments?
                 </h3>
                 {/* prettier-ignore */}
-                <p className="font-sans text-lg text-[#042718] opacity-70 leading-normal">Tim support kami siap membantu Anda 24/7. <br className="hidden sm:block" /> Hubungi kami via WhatsApp.</p>
+                <p className="font-sans text-lg text-[#042718] opacity-70 leading-normal">Our support team is here to assist you with setup, <br className="hidden sm:block" /> transactions, and any payment-related issues.</p>
               </div>
-              <a
-                href="https://wa.me/6281234567890"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
                 className="group flex items-center gap-[32px] bg-[#042718] hover:bg-[#063a24] text-white pl-8 pr-4 py-4 rounded-full transition-all duration-300 shadow-lg"
                 tabIndex={0}
               >
                 <span className="font-sans font-semibold text-base">
-                  Hubungi CS
+                  Contact Support
                 </span>
                 <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-up-right w-5 h-5 text-[#042718]">
-                    <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-arrow-up-right w-5 h-5 text-[#042718]"
+                  >
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
                   </svg>
                 </div>
-              </a>
+              </button>
             </div>
           </div>
         </div>

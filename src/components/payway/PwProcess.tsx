@@ -32,16 +32,17 @@ export function PwProcess() {
                 <path d="M4 17v2" />
                 <path d="M5 18H3" />
               </svg>
-              <span className="text-base tracking-[-0.3px]">Alur Transaksi</span>
+              <span className="text-base tracking-[-0.3px]">Process</span>
             </PwReveal>
             <PwReveal>
               <h2 className="max-w-[604px] text-[32px] sm:text-[42px] lg:text-[52px] font-semibold text-[#042718] leading-[1.1] sm:leading-[58px] tracking-[-1px] sm:tracking-[-1.8px]">
-                Mulai Transaksi dalam 3 Langkah Mudah
+                Get started in just 3 easy simple steps
               </h2>
             </PwReveal>
             <PwReveal>
               <p className="max-w-[550px] text-base sm:text-lg text-[#042718] leading-[28px] opacity-80">
-                  Ikuti langkah sederhana berikut untuk mulai menggunakan Saku Sultan.
+                Get started in just 3 easy steps with a guided onboarding
+                experience designed for speed and simplicity.
               </p>
             </PwReveal>
           </div>
@@ -70,10 +71,11 @@ export function PwProcess() {
                       </div>
                       <div className="flex flex-col items-start gap-[6px] md:gap-[10px] w-full max-w-[460px]">
                         <h3 className="font-semibold tracking-[-0.6px] md:tracking-[-0.8px] leading-[26px] md:leading-[30px] transition-colors duration-500 text-[20px] md:text-[24px] text-[#042718]">
-                          Download Aplikasi
+                          Create your account
                         </h3>
                         <p className="text-[15px] md:text-[18px] leading-[22px] md:leading-[28px] transition-all duration-500 text-[#042718] opacity-80">
-                          Unduh Saku Sultan gratis dari Google Play Store.
+                          Sign up in minutes and set up your business profile to
+                          get started.
                         </p>
                       </div>
                     </div>
@@ -119,10 +121,11 @@ export function PwProcess() {
                       </div>
                       <div className="flex flex-col items-start gap-[6px] md:gap-[10px] w-full max-w-[460px]">
                         <h3 className="font-semibold tracking-[-0.6px] md:tracking-[-0.8px] leading-[26px] md:leading-[30px] transition-colors duration-500 text-[18px] md:text-[24px] text-[#042718]/60">
-                          Daftar Akun
+                          Set up payments
                         </h3>
                         <p className="text-[15px] md:text-[18px] leading-[22px] md:leading-[28px] transition-all duration-500 text-[#042718]/0 h-0 overflow-hidden">
-                          Buat akun baru dalam hitungan menit dan verifikasi data Anda.
+                          Configure payment methods, connect your bank, and
+                          customize your checkout experience.
                         </p>
                       </div>
                     </div>
@@ -168,10 +171,11 @@ export function PwProcess() {
                       </div>
                       <div className="flex flex-col items-start gap-[6px] md:gap-[10px] w-full max-w-[460px]">
                         <h3 className="font-semibold tracking-[-0.6px] md:tracking-[-0.8px] leading-[26px] md:leading-[30px] transition-colors duration-500 text-[18px] md:text-[24px] text-[#042718]/60">
-                          Mulai Transaksi
+                          Start accepting payments
                         </h3>
                         <p className="text-[15px] md:text-[18px] leading-[22px] md:leading-[28px] transition-all duration-500 text-[#042718]/0 h-0 overflow-hidden">
-                          Pilih layanan, bayar tagihan atau beli pulsa, transaksi langsung jadi.
+                          Go live and start receiving secure payments from
+                          customers worldwide.
                         </p>
                       </div>
                     </div>

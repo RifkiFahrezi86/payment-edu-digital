@@ -1,6 +1,3 @@
-"use client";
-
-import { useRef } from "react";
 import { PwReveal } from "@/components/payway/pw-reveal";
 
 /* ---- ikon lucide inline (verbatim dari markup) ---- */
@@ -74,67 +71,56 @@ type PwTestimonial = {
 
 const PW_TESTIMONIALS: PwTestimonial[] = [
   {
-    quote: "Bayar listrik & PDAM jadi gak ribet lagi lewat Saku Sultan. Semuanya bisa dari HP, gak perlu antre.",
-    name: "Budi Santoso",
-    role: "Pedagang Pasar",
+    quote:
+      "“Payway completely streamlined our payment process. Transactions are faster, more reliable, and we’ve seen a noticeable drop in failed payments that used to cost us customers.”",
+    name: "Jahid Hasan",
+    role: "Founder, Ecom Growth",
     avatarSrc: "/images/payway/unsplash-photo-1599566150163-29194dcaad36.jpg",
-    flagSrc: "/images/payway/flag-id.svg",
+    flagSrc: "/images/payway/flag-gb.svg",
   },
   {
-    quote: "Top-up GoPay anak saya kapan aja, praktis banget. Saku Sultan benar-benar membantu kebutuhan sehari-hari keluarga saya.",
-    name: "Sari Dewi",
-    role: "Ibu Rumah Tangga",
-    avatarSrc: "/images/payway/unsplash-photo-1494790108377-be9c29b29330.jpg",
-    flagSrc: "/images/payway/flag-id.svg",
-  },
-  {
-    quote: "Beli pulsa murah dan voucher game, langsung masuk. Promonya juga banyak, cocok buat anak muda.",
-    name: "Ahmad Rizal",
-    role: "Karyawan Swasta",
+    quote:
+      "“Managing payments used to be a huge hassle for our growing team. Now everything is automated, secure, and incredibly easy to track in real-time. This has transformed our operational efficiency and allowed us to focus entirely on scaling our global operations without worrying about financial infrastructure.”",
+    name: "Chris Kennedy",
+    role: "Founder, Global Commerce",
     avatarSrc: "/images/payway/unsplash-photo-1535713875002-d1d0cf377fde.jpg",
-    flagSrc: "/images/payway/flag-id.svg",
+    flagSrc: "/images/payway/flag-gb.svg",
   },
   {
-    quote: "BPJS bayar lewat Saku Sultan, gak perlu antre lagi. Cepat, aman, dan prosesnya transparan.",
-    name: "Dewi Lestari",
-    role: "Mahasiswi",
-    avatarSrc: "/images/payway/unsplash-photo-1543269865-cbf427effbad.jpg",
-    flagSrc: "/images/payway/flag-id.svg",
-  },
-  {
-    quote: "QRIS-nya universal, pelanggan warung saya bisa bayar pakai e-money apa pun. Transaksi jadi lebih mudah dan modern.",
-    name: "Rina Marlina",
-    role: "Pemilik Warung",
+    quote:
+      "“Incredible platform. The security features are top-notch and the support team is very responsive whenever we have questions.”",
+    name: "Daniel Smith",
+    role: "Managing Director, Digital Hub",
     avatarSrc: "/images/payway/unsplash-photo-1527980965255-d3b416303d12.jpg",
-    flagSrc: "/images/payway/flag-id.svg",
+    flagSrc: "/images/payway/flag-gb.svg",
+  },
+  {
+    quote:
+      "“The integration was seamless. Our customers love the new checkout experience, and our conversion rates have improved significantly since we switched to Payway last year.”",
+    name: "Sarah Jones",
+    role: "CEO, Tech Solutions",
+    avatarSrc: "/images/payway/unsplash-photo-1494790108377-be9c29b29330.jpg",
+    flagSrc: "/images/payway/flag-us.svg",
+  },
+  {
+    quote:
+      "“Payway made our global payments effortless. We can now accept payments from anywhere without worrying about technical delays or currency issues.”",
+    name: "Michael Chen",
+    role: "Product Manager, Innovate AI",
+    avatarSrc: "/images/payway/unsplash-photo-1472099645785-5658abf4ff4e.jpg",
+    flagSrc: "/images/payway/flag-ca.svg",
   },
 ];
 
 /* ---- tombol navigasi carousel (muncul 2x: desktop kanan-atas, tablet bawah) ---- */
 
-function CarouselNav({
-  className,
-  onPrev,
-  onNext,
-}: {
-  className: string;
-  onPrev: () => void;
-  onNext: () => void;
-}) {
+function CarouselNav({ className }: { className: string }) {
   return (
     <div className={className}>
-      <button
-        type="button"
-        onClick={onPrev}
-        className="w-12 h-12 flex items-center justify-center transition-all duration-300 bg-white/90 backdrop-blur-sm text-[#042718] rounded-[30px]"
-      >
+      <button className="w-12 h-12 flex items-center justify-center transition-all duration-300 bg-white/90 backdrop-blur-sm text-[#042718] rounded-[30px]">
         {arrowLeftIcon}
       </button>
-      <button
-        type="button"
-        onClick={onNext}
-        className="w-12 h-12 flex items-center justify-center transition-all duration-300 bg-[#042718] text-white rounded-full shadow-[0_4px_20px_0_rgba(4,39,24,0.04)]"
-      >
+      <button className="w-12 h-12 flex items-center justify-center transition-all duration-300 bg-[#042718] text-white rounded-full shadow-[0_4px_20px_0_rgba(4,39,24,0.04)]">
         {arrowRightIcon}
       </button>
     </div>
@@ -144,20 +130,8 @@ function CarouselNav({
 /* ---- section utama ---- */
 
 export function PwTestimonials() {
-  const trackRef = useRef<HTMLDivElement | null>(null);
-
-  const scrollCards = (direction: "prev" | "next") => {
-    const el = trackRef.current;
-    if (!el) return;
-    const amount = direction === "next" ? 440 : -440;
-    el.scrollBy({ left: amount, behavior: "smooth" });
-  };
-
   return (
-    <section
-      id="testimoni"
-      className="relative w-full overflow-hidden bg-white scroll-mt-24 "
-    >
+    <section className="relative w-full overflow-hidden bg-white ">
       <div className="absolute inset-0 w-full h-full z-0">
         <video autoPlay loop muted playsInline className="w-full h-full object-cover">
           <source src="/videos/payway/header-01-bg-payway.mp4" type="video/mp4" />
@@ -168,25 +142,18 @@ export function PwTestimonials() {
           <div className="flex flex-col items-start gap-4">
             <PwReveal className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#198F381A] bg-[#F6FDFF]/80 backdrop-blur-sm text-[#198F38]">
               {sparklesIcon}
-              <span className="font-body text-base tracking-[-0.3px]">Testimoni</span>
+              <span className="font-body text-base tracking-[-0.3px]">Testimonials</span>
             </PwReveal>
             <PwReveal delay={100}>
               <h2 className="max-w-[700px] font-heading text-[32px] sm:text-[42px] lg:text-[52px] font-semibold text-[#042718] leading-[1.1] sm:leading-[58px] tracking-[-1px] sm:tracking-[-1.8px] text-left">
-                Dipercaya Ratusan Ribu Pengguna Indonesia
+                Trusted by fast-growing businesses worldwide
               </h2>
             </PwReveal>
           </div>
-          <CarouselNav
-            className="hidden lg:flex items-center gap-4"
-            onPrev={() => scrollCards("prev")}
-            onNext={() => scrollCards("next")}
-          />
+          <CarouselNav className="hidden lg:flex items-center gap-4" />
         </div>
-        <div
-          ref={trackRef}
-          className="w-full max-w-[1248px] overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth"
-        >
-          <div className="flex -ml-4 lg:-ml-6 items-start min-w-max pr-4">
+        <div className="w-full max-w-[1248px] overflow-hidden">
+          <div className="flex -ml-4 lg:-ml-6 items-start">
             {PW_TESTIMONIALS.map((testimonial, index) => (
               <PwReveal
                 key={testimonial.name}
@@ -242,11 +209,7 @@ export function PwTestimonials() {
             ))}
           </div>
         </div>
-        <CarouselNav
-          className="hidden sm:flex lg:hidden items-center gap-4"
-          onPrev={() => scrollCards("prev")}
-          onNext={() => scrollCards("next")}
-        />
+        <CarouselNav className="hidden sm:flex lg:hidden items-center gap-4" />
       </div>
     </section>
   );

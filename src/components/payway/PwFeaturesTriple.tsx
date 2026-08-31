@@ -212,107 +212,107 @@ type PwFeature = {
 const PW_FEATURES: PwFeature[] = [
   {
     stickyTop: "top-[60px] md:top-[80px]",
-    label: "Pembayaran Tagihan",
-    title: "Bayar Tagihan Bulanan dari Satu Aplikasi",
+    label: "Multicurrency accounts",
+    title: "Send your money worldwide",
     description:
-      "Kelola pembayaran listrik, air, internet, BPJS, dan kebutuhan bulanan lain tanpa berpindah aplikasi.",
+      "Streamline your entire payment process with powerful tools designed to help you collect payments faster.",
     bullets: [
       {
         icon: zapIcon,
-        lead: "Semua tagihan penting",
-        rest: "— PLN, PDAM, internet, BPJS, dan TV kabel tersedia dalam satu alur.",
+        lead: "Fast global payments",
+        rest: "— 70% arrive in 20 seconds and 95% in under 24 hours.*",
       },
       {
         icon: globeIcon,
-        lead: "Cek status lebih cepat",
-        rest: "— Pengguna bisa langsung melihat layanan yang siap dibayar tanpa proses rumit.",
+        lead: "Global coverage",
+        rest: "— Send and receive funds in over 50+ currencies across 180 countries.",
       },
       {
         icon: chartColumnIcon,
-        lead: "Pembayaran praktis",
-        rest: "— Proses transaksi dibuat singkat supaya tidak perlu antre atau pindah channel.",
+        lead: "Volume discounts",
+        rest: "— On monthly transfers over 20,000 GBP or equivalent. Learn more about volume discounts.",
       },
     ],
-    imageSrc: "/images/payway/unsplash-photo-1535713875002-d1d0cf377fde.jpg",
-    imageAlt: "Bayar Tagihan Bulanan dari Satu Aplikasi",
+    imageSrc: "/images/payway/feature-payway-01.svg",
+    imageAlt: "Send your money worldwide",
   },
   {
     stickyTop: "top-[80px] md:top-[100px]",
-    label: "Barcode Scan",
-    title: "Bayar di Merchant dengan QR atau Barcode",
+    label: "Money transfers",
+    title: "Send money instantly, everywhere",
     description:
-      "Fitur barcode scan memudahkan pembayaran cepat tanpa uang tunai, baik di merchant harian maupun outlet partner.",
+      "Experience borderless financial freedom with our instant transfer network that works 24/7.",
     bullets: [
       {
         icon: zapIcon,
-        lead: "Transaksi tanpa tunai",
-        rest: "— Cukup scan QR atau barcode lalu pembayaran langsung diproses.",
+        lead: "Instant settlement",
+        rest: "— Peer-to-peer transfers complete in milliseconds within the Payway ecosystem.",
       },
       {
         icon: shieldCheckIcon,
-        lead: "Cocok untuk merchant",
-        rest: "— Membantu pembayaran retail yang cepat dan mengurangi kesalahan input nominal.",
+        lead: "Secure routing",
+        rest: "— Multi-layered encryption ensures your funds travel safely through our private tunnels.",
       },
       {
         icon: usersIcon,
-        lead: "Realtime dan aman",
-        rest: "— Status transaksi tampil langsung setelah scan selesai.",
+        lead: "Simple batch transfers",
+        rest: "— Pay up to 1,000 contacts in a single click with CSV or API integration.",
       },
     ],
-    imageSrc: "/images/payway/unsplash-photo-1527980965255-d3b416303d12.jpg",
-    imageAlt: "Bayar di Merchant dengan QR atau Barcode",
+    imageSrc: "/images/payway/unsplash-photo-1580519542036-c47de6196ba5.jpg",
+    imageAlt: "Send money instantly, everywhere",
   },
   {
     stickyTop: "top-[100px] md:top-[120px]",
-    label: "Transfer & Top-Up",
-    title: "Transfer Uang dan Isi Saldo Kapan Saja",
+    label: "Payments",
+    title: "Pay and get paid on your terms",
     description:
-      "Saku Sultan mendukung transfer uang serta top-up saldo dari berbagai channel agar transaksi tetap lancar setiap saat.",
+      "Accept or make payments globally and locally with Payway. Choose from QR codes, payment links, or bank transfers.",
     bullets: [
       {
         icon: creditCardIcon,
-        lead: "Transfer fleksibel",
-        rest: "— Kirim uang ke sesama pengguna maupun ke rekening bank lokal.",
+        lead: "Flexible checkouts",
+        rest: "— Increase conversion with dynamic payment methods tailored to local customer habits.",
       },
       {
         icon: smartphoneIcon,
-        lead: "Top-up saldo",
-        rest: "— Isi saldo dari transfer bank, e-wallet, hingga channel retail yang tersedia.",
+        lead: "QR Payments",
+        rest: "— Generate instant QR codes for contactless physical or digital store transactions.",
       },
       {
         icon: chartColumnIcon,
-        lead: "Siap untuk aktivitas harian",
-        rest: "— Saldo yang terisi bisa langsung dipakai untuk belanja, scan, dan bayar tagihan.",
+        lead: "Real-time analytics",
+        rest: "— Monitor success rates and transaction status through our unified merchant dashboard.",
       },
     ],
-    imageSrc: "/images/payway/unsplash-photo-1494790108377-be9c29b29330.jpg",
-    imageAlt: "Transfer Uang dan Isi Saldo Kapan Saja",
+    imageSrc: "/images/payway/feature-payway-02.svg",
+    imageAlt: "Pay and get paid on your terms",
   },
   {
     stickyTop: "top-[120px] md:top-[140px]",
-    label: "E-Commerce & Biometrik",
-    title: "Belanja Online dengan Keamanan Biometrik",
+    label: "Cards",
+    title: "Your global card for everyday life",
     description:
-      "Saku Sultan mendukung transaksi e-commerce dan menjaga keamanan akun dengan perlindungan biometrik berlapis.",
+      "Unlock seamless spending with AstroPay's virtual and physical cards. Shop online or pay in-store with international.",
     bullets: [
       {
         icon: walletIcon,
-        lead: "Siap untuk e-commerce",
-        rest: "— Saldo dan metode pembayaran bisa dipakai untuk transaksi online di berbagai platform.",
+        lead: "Virtual cards",
+        rest: "— Create unlimited virtual cards for secure online shopping and subscription management.",
       },
       {
         icon: shieldCheckIcon,
-        lead: "Biometric security",
-        rest: "— Karakteristik fisiologis pengguna membantu menjaga transaksi tetap aman.",
+        lead: "Freeze anytime",
+        rest: "— Lost your card? Instantly freeze and unfreeze it from the mobile app with one tap.",
       },
       {
         icon: zapIcon,
-        lead: "Perlindungan berlapis",
-        rest: "— Kombinasi validasi akun, keamanan perangkat, dan proses transaksi yang lebih terkontrol.",
+        lead: "Fast global payments",
+        rest: "— Use your card worldwide with competitive interbank exchange rates and no hidden fees.",
       },
     ],
     imageSrc: "/images/payway/feature-4th-card.png",
-    imageAlt: "Belanja Online dengan Keamanan Biometrik",
+    imageAlt: "Your global card for everyday life",
   },
 ];
 
@@ -358,19 +358,14 @@ function FeatureBlock({ feature }: { feature: PwFeature }) {
               </div>
             ))}
           </div>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.saku_sultan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative flex items-center bg-[#042718] border border-[#0427180f] rounded-full overflow-hidden transition-all duration-300 h-[44px] w-fit mt-2 md:mt-0 mb-8 md:mb-16"
-          >
+          <button className="group relative flex items-center bg-[#042718] border border-[#0427180f] rounded-full overflow-hidden transition-all duration-300 h-[44px] w-fit mt-2 md:mt-0 mb-8 md:mb-16">
             <div className="absolute right-[6px] w-8 h-8 bg-white rounded-full flex items-center justify-center z-10">
               {arrowUpRightIcon}
             </div>
             <span className="block pl-[18px] pr-[46px] font-sans font-medium text-base leading-6 tracking-[-0.3px] text-white whitespace-nowrap">
-              Download Aplikasi
+              Learn more
             </span>
-          </a>
+          </button>
         </div>
         <div className="w-full lg:w-[508px] h-[300px] md:h-[400px] lg:h-[702px] relative flex justify-center items-end">
           <PwReveal className="w-full h-full lg:h-[95%] relative" delay={200}>
@@ -393,26 +388,25 @@ function FeatureBlock({ feature }: { feature: PwFeature }) {
 
 export function PwFeaturesTriple() {
   return (
-    <section
-      id="fitur-lengkap"
-      className="w-full bg-white flex flex-col items-center py-24 gap-16 scroll-mt-24"
-    >
+    <section className="w-full bg-white flex flex-col items-center py-24 gap-16">
       <div className="w-full max-w-[1440px] px-6 lg:px-[96px] flex flex-col items-center gap-[64px]">
         <div className="flex flex-col items-center text-center gap-6">
           <PwReveal className="flex items-center gap-2 bg-[#198F380F] pl-[14px] pr-[16px] py-[6px] rounded-full border border-[#198F381A]">
             {sparklesIcon}
             <span className="font-sans font-normal text-base text-[#198F38] tracking-[-0.3px]">
-              Fitur
+              Features
             </span>
           </PwReveal>
           <PwReveal className="w-full max-w-[700px]" delay={100}>
             <h2 className="w-full max-w-[700px] font-semibold text-[32px] md:text-[42px] lg:text-[52px] leading-[38px] md:leading-[48px] lg:leading-[58px] tracking-[-1.2px] md:tracking-[-1.8px] text-[#042718]">
-              Fitur Inti Saku Sultan yang Sudah Selaras dengan MCP
+              Accept, manage, and scale your payments effortlessly
             </h2>
           </PwReveal>
           <PwReveal className="w-full max-w-[800px]" delay={200}>
             <p className="w-full max-w-[800px] font-sans font-normal text-base md:text-lg leading-[24px] md:leading-[28px] text-[#042718cc]">
-              Landing page ini sekarang menonjolkan fitur yang benar-benar ada di data Saku Sultan: tagihan, barcode scan, transfer, top-up, e-commerce, dan keamanan biometrik.
+              Streamline your entire payment process with powerful tools
+              designed to help you collect payments faster, reduce failures,
+              and grow your business without complexity.
             </p>
           </PwReveal>
         </div>
