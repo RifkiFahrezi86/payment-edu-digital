@@ -8,13 +8,10 @@ import { PwCharts } from "@/components/payway/PwCharts";
 import { PwPricing } from "@/components/payway/PwPricing";
 import { PwFaq } from "@/components/payway/PwFaq";
 import { PwCtaFooter } from "@/components/payway/PwCtaFooter";
+import { PwWhatsappButton } from "@/components/payway/PwWhatsappButton";
 
 /**
- * / — halaman utama PayWay landing (project mandiri).
- * Urutan section persis topologi preview asli
- * (docs/research/global-recon.json):
- * hero → insights → feature-intro → process → features (4 blok) →
- * testimonials → charts/integrations → pricing → faq → cta+footer.
+ * / — halaman utama Saku Sultan landing.
  */
 export default function PaywayPage() {
   return (
@@ -29,6 +26,7 @@ export default function PaywayPage() {
       <PwPricing />
       <PwFaq />
       <PwCtaFooter />
+      <PwWhatsappButton />
     </main>
   );
 }
