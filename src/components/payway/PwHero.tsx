@@ -513,11 +513,11 @@ export function PwHero() {
     >
       <div className="absolute inset-0 z-0">
         <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-          <source src="/videos/payway/header-01-bg-payway.mp4" type="video/mp4" />
+          <source src="/videos/payway/header.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-white/78" />
-        <div className="absolute right-[-120px] top-[120px] w-[420px] h-[420px] rounded-full bg-[#CFF0D7] blur-3xl opacity-70" />
-        <div className="absolute left-[-160px] top-[240px] w-[320px] h-[320px] rounded-full bg-[#E6F2FF] blur-3xl opacity-80" />
+        <div className="absolute right-[-120px] top-[120px] w-[420px] h-[420px] rounded-full bg-[#CFF0D7] blur-2xl opacity-55" />
+        <div className="absolute left-[-160px] top-[240px] w-[320px] h-[320px] rounded-full bg-[#E6F2FF] blur-2xl opacity-65" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center w-full pt-5">

@@ -33,7 +33,7 @@ export function PwCtaFooter() {
       {/* Background video full-bleed + overlay gradasi ke ink */}
       <div className="absolute inset-0 z-0">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src="/videos/payway/footer-bg-payway.mp4" type="video/mp4" />
+          <source src="/videos/payway/footer.mp4" type="video/mp4" />
         </video>
         <div
           className="absolute inset-0 z-[1]"
