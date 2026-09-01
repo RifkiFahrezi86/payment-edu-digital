@@ -31,9 +31,9 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Payway — Accept Payments Globally (layout study)",
+  title: "Saku Sultan — Mudahkan Hidupmu dengan Transaksi Kekinian",
   description:
-    "Structural reconstruction of the PayWay fintech landing template: layout, tokens, typography and interaction model.",
+    "Bayar pulsa, listrik, PDAM, BPJS, dan top-up e-money semua dalam satu genggaman. Praktis, cepat, dan aman. #PastiUNTUNG",
   robots: { index: false, follow: false },
 };
 
@@ -42,7 +42,7 @@ export default function PaywayRootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en"
+      lang="id"
       className={`${inter.variable} ${instrumentSerif.variable} ${geist.variable}`}
     >
       <body suppressHydrationWarning className="pw-body min-h-screen">

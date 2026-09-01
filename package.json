@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "mcp:sakusultan": "node ..\\mcp-sakusultan\\dist\\index.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",

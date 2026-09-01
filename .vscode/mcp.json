@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "saku-sultan": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "..\\mcp-sakusultan\\dist\\index.js"
+      ],
+      "description": "MCP server for sakusultan.id — Indonesian fintech e-wallet"
+    }
+  }
+}
