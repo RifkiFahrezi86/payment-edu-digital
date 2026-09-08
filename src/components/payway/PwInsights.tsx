@@ -21,22 +21,105 @@ const sparklesIcon = (
   </svg>
 );
 
-const FEATURE_CHIPS = [
-  "Pembayaran Tagihan",
-  "Barcode Scan",
-  "Transfer Uang",
-  "Top-Up Saldo",
-  "E-Commerce",
-  "Biometric Security",
-] as const;
+function ChipIcon({ children }: { children: React.ReactNode }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="w-4 h-4 shrink-0"
+      aria-hidden="true"
+    >
+      {children}
+    </svg>
+  );
+}
 
-const PW_PARTNER_LOGOS: { name: string }[] = [
-  { name: "QRIS" },
-  { name: "OVO" },
-  { name: "GoPay" },
-  { name: "Dana" },
-  { name: "ShopeePay" },
-  { name: "LinkAja" },
+const FEATURE_CHIPS: { label: string; icon: React.ReactNode }[] = [
+  {
+    label: "Pembayaran Tagihan",
+    icon: (
+      <ChipIcon>
+        <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" />
+        <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+        <path d="M12 17.5v-11" />
+      </ChipIcon>
+    ),
+  },
+  {
+    label: "Barcode Scan",
+    icon: (
+      <ChipIcon>
+        <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+        <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+        <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+        <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+        <path d="M7 12h10" />
+      </ChipIcon>
+    ),
+  },
+  {
+    label: "Transfer Uang",
+    icon: (
+      <ChipIcon>
+        <path d="m16 3 4 4-4 4" />
+        <path d="M20 7H4" />
+        <path d="m8 21-4-4 4-4" />
+        <path d="M4 17h16" />
+      </ChipIcon>
+    ),
+  },
+  {
+    label: "Top-Up Saldo",
+    icon: (
+      <ChipIcon>
+        <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
+        <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />
+      </ChipIcon>
+    ),
+  },
+  {
+    label: "E-Commerce",
+    icon: (
+      <ChipIcon>
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+        <path d="M3 6h18" />
+        <path d="M16 10a4 4 0 0 1-8 0" />
+      </ChipIcon>
+    ),
+  },
+  {
+    label: "Biometric Security",
+    icon: (
+      <ChipIcon>
+        <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" />
+        <path d="M14 13.12c0 2.38 0 6.38-1 8.88" />
+        <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" />
+        <path d="M2 12a10 10 0 0 1 18-6" />
+        <path d="M2 16h.01" />
+        <path d="M21.8 16c.2-2 .131-5.354 0-6" />
+        <path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2" />
+        <path d="M8.65 22c.21-.66.45-1.32.57-2" />
+        <path d="M9 6.8a6 6 0 0 1 9 5.2v2" />
+      </ChipIcon>
+    ),
+  },
+];
+
+const PW_PARTNER_LOGOS: { name: string; logo: string }[] = [
+  { name: "QRIS", logo: "/images/payway/pay/qris.svg" },
+  { name: "OVO", logo: "/images/payway/pay/ovo.svg" },
+  { name: "GoPay", logo: "/images/payway/pay/gopay.svg" },
+  { name: "Dana", logo: "/images/payway/pay/dana.svg" },
+  { name: "ShopeePay", logo: "/images/payway/pay/shopeepay.svg" },
+  { name: "LinkAja", logo: "/images/payway/pay/linkaja.svg" },
+  { name: "BCA", logo: "/images/payway/pay/bca.svg" },
+  { name: "Mandiri", logo: "/images/payway/pay/mandiri.svg" },
+  { name: "BRI", logo: "/images/payway/pay/bri.svg" },
+  { name: "BNI", logo: "/images/payway/pay/bni.svg" },
 ];
 
 export function PwInsights() {
@@ -78,10 +161,11 @@ export function PwInsights() {
                 <div className="grid grid-cols-2 gap-3 mt-5">
                   {FEATURE_CHIPS.map((chip) => (
                     <div
-                      key={chip}
-                      className="rounded-2xl border border-[#042718]/8 bg-white/90 px-4 py-3 text-sm font-medium text-[#042718]/80"
+                      key={chip.label}
+                      className="flex items-center gap-2.5 rounded-2xl border border-[#042718]/8 bg-white/90 px-4 py-3 text-sm font-medium text-[#042718]/80"
                     >
-                      {chip}
+                      <span className="text-[#198F38]">{chip.icon}</span>
+                      <span className="leading-snug">{chip.label}</span>
                     </div>
                   ))}
                 </div>
@@ -180,13 +264,15 @@ export function PwInsights() {
                 PW_PARTNER_LOGOS.map((logo) => (
                   <div
                     key={`${copy}-${logo.name}`}
-                    className="flex items-center gap-2 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 shrink-0"
+                    className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 shrink-0"
                   >
-                    <div className="h-11 w-auto flex items-center justify-center font-bold text-xl text-[#042718] tracking-tight">
-                      <span className="font-heading font-bold text-lg text-[#042718]">
-                        {logo.name}
-                      </span>
-                    </div>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={logo.logo}
+                      alt={`Logo ${logo.name}`}
+                      loading="lazy"
+                      className="h-7 md:h-8 w-auto max-w-[120px] object-contain"
+                    />
                   </div>
                 )),
               )}

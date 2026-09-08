@@ -151,10 +151,13 @@ export function PwCharts() {
             </div>
             <div className="relative z-20 flex justify-center w-full my-4 lg:my-0">
               <PwReveal className="w-[80px] h-[80px] sm:w-[120px] sm:h-[120px] lg:w-[140px] lg:h-[140px] flex items-center justify-center">
-                <div className="w-full h-full flex items-center justify-center bg-[#042718] rounded-[24px] sm:rounded-[32px]">
-                  <span className="font-heading font-bold text-sm sm:text-base lg:text-lg text-white text-center leading-tight px-2">
-                    Saku<br />Sultan
-                  </span>
+                <div className="w-full h-full rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-[0_16px_40px_rgba(4,39,24,0.25)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/saku-sultan-app-icon.png"
+                    alt="Ikon aplikasi Saku Sultan"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </PwReveal>
             </div>
