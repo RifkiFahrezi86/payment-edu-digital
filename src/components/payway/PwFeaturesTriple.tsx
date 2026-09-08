@@ -1,4 +1,7 @@
-import type { ReactElement } from "react";
+"use client";
+
+import { useEffect, useRef, useState, type ReactElement } from "react";
+import { createPortal } from "react-dom";
 import { PwReveal } from "@/components/payway/pw-reveal";
 
 /* ---- ikon lucide inline (verbatim dari markup) ---- */
@@ -199,10 +202,9 @@ type PwFeatureBullet = {
 };
 
 type PwFeature = {
-  /** offset sticky-stack per kartu (persis markup) */
-  stickyTop: string;
   label: string;
   title: string;
+  shortDescription: string;
   description: string;
   bullets: PwFeatureBullet[];
   imageSrc: string;
@@ -211,119 +213,212 @@ type PwFeature = {
 
 const PW_FEATURES: PwFeature[] = [
   {
-    stickyTop: "top-[60px] md:top-[80px]",
-    label: "Pembayaran Tagihan",
-    title: "Bayar Tagihan Bulanan dari Satu Aplikasi",
+    label: "EduDigi",
+    title: "EduDigi",
+    shortDescription:
+      "Belajar menggunakan layanan digital dengan aman, bijak, dan bertanggung jawab.",
     description:
-      "Kelola pembayaran listrik, air, internet, BPJS, dan kebutuhan bulanan lain tanpa berpindah aplikasi.",
+      "EduDigi merupakan program edukasi pada aplikasi SAKU SULTAN yang dirancang untuk meningkatkan pengetahuan dan keterampilan digital para mitra serta masyarakat. Program ini menyajikan pembelajaran yang praktis dan mudah dipahami, khususnya mengenai penggunaan layanan keuangan digital secara bijak, aman, dan bertanggung jawab.\n\nMelalui EduDigi, pengguna dapat mempelajari cara bertransaksi digital, menjaga kerahasiaan PIN dan kode OTP, melindungi data pribadi, mengenali modus penipuan daring, serta memanfaatkan teknologi untuk mengembangkan usaha.\n\nKehadiran EduDigi menegaskan bahwa SAKU SULTAN tidak hanya menyediakan layanan transaksi, tetapi juga turut membangun masyarakat yang semakin cakap dan aman di era digital.\n\nEduDigi — Belajar Digital, Bertransaksi Aman, Usaha Makin Berkembang.",
     bullets: [
       {
         icon: zapIcon,
-        lead: "Semua tagihan penting",
-        rest: "— PLN, PDAM, internet, BPJS, dan TV kabel tersedia dalam satu alur.",
+        lead: "Belajar layanan digital",
+        rest: "Materi praktis dan mudah dipahami untuk mitra serta masyarakat.",
       },
       {
         icon: globeIcon,
-        lead: "Cek status lebih cepat",
-        rest: "— Pengguna bisa langsung melihat layanan yang siap dibayar tanpa proses rumit.",
+        lead: "Bertransaksi dengan aman",
+        rest: "Pelajari cara menjaga PIN, OTP, dan data pribadi.",
       },
       {
         icon: chartColumnIcon,
-        lead: "Pembayaran praktis",
-        rest: "— Proses transaksi dibuat singkat supaya tidak perlu antre atau pindah channel.",
+        lead: "Mendukung perkembangan usaha",
+        rest: "Manfaatkan teknologi untuk mengembangkan usaha di era digital.",
       },
     ],
-    imageSrc: "/images/payway/unsplash-photo-1535713875002-d1d0cf377fde.jpg",
-    imageAlt: "Bayar Tagihan Bulanan dari Satu Aplikasi",
+    imageSrc: "/images/payway/Edudigi.jpg",
+    imageAlt: "EduDigi",
   },
   {
-    stickyTop: "top-[80px] md:top-[100px]",
-    label: "Barcode Scan",
-    title: "Bayar di Merchant dengan QR atau Barcode",
+    label: "PASSOLO",
+    title: "PASSOLO",
+    shortDescription:
+      "Kirim tanda kasih untuk acara pernikahan dan kegiatan sosial secara praktis.",
     description:
-      "Fitur barcode scan memudahkan pembayaran cepat tanpa uang tunai, baik di merchant harian maupun outlet partner.",
+      "PASSOLO merupakan fitur yang mengangkat tradisi masyarakat Sulawesi Selatan dalam memberikan sumbangan atau tanda kasih pada acara pernikahan dan kegiatan sosial lainnya ke dalam layanan digital.\n\nMelalui fitur ini, pengguna dapat mengirim passolo secara lebih mudah, cepat, dan praktis melalui aplikasi SAKU SULTAN, meskipun tidak sempat hadir langsung di lokasi acara. Transaksi juga dapat tercatat dengan rapi sehingga lebih mudah diperiksa kembali.\n\nKehadiran PASSOLO menjadi bentuk perpaduan antara kearifan lokal dan teknologi — melestarikan budaya saling membantu sekaligus menyesuaikannya dengan kebutuhan masyarakat masa kini.\n\nPASSOLO — Tradisi Tetap Terjaga, Berbagi Jadi Lebih Mudah.",
     bullets: [
       {
         icon: zapIcon,
-        lead: "Transaksi tanpa tunai",
-        rest: "— Cukup scan QR atau barcode lalu pembayaran langsung diproses.",
+        lead: "Kirim tanda kasih",
+        rest: "Berikan passolo untuk acara pernikahan dan kegiatan sosial lainnya.",
       },
       {
         icon: shieldCheckIcon,
-        lead: "Cocok untuk merchant",
-        rest: "— Membantu pembayaran retail yang cepat dan mengurangi kesalahan input nominal.",
+        lead: "Tetap terhubung",
+        rest: "Kirim passolo meskipun tidak sempat hadir langsung di lokasi acara.",
       },
       {
         icon: usersIcon,
-        lead: "Realtime dan aman",
-        rest: "— Status transaksi tampil langsung setelah scan selesai.",
+        lead: "Tercatat dengan rapi",
+        rest: "Periksa kembali riwayat transaksi dengan lebih mudah.",
       },
     ],
-    imageSrc: "/images/payway/unsplash-photo-1527980965255-d3b416303d12.jpg",
-    imageAlt: "Bayar di Merchant dengan QR atau Barcode",
+    imageSrc: "/images/payway/Passolo.jpeg",
+    imageAlt: "PasSolo",
   },
   {
-    stickyTop: "top-[100px] md:top-[120px]",
-    label: "Transfer & Top-Up",
-    title: "Transfer Uang dan Isi Saldo Kapan Saja",
+    label: "QTRA",
+    title: "QTRA",
+    shortDescription:
+      "Transfer dana lebih cepat, praktis, dan aman melalui aplikasi SAKU SULTAN.",
     description:
-      "Saku Sultan mendukung transfer uang serta top-up saldo dari berbagai channel agar transaksi tetap lancar setiap saat.",
+      "QTRA atau Quick Transfer merupakan fitur transfer cepat pada aplikasi SAKU SULTAN yang dirancang untuk memudahkan pengguna mengirim dana secara praktis, aman, dan efisien melalui satu aplikasi.\n\nDengan QTRA, pengguna dapat melakukan transfer tanpa harus melalui proses yang panjang. Cukup memilih tujuan transfer, memasukkan nominal, memeriksa kembali data penerima, lalu mengonfirmasi transaksi. Fitur ini membantu pengguna menghemat waktu dalam memenuhi kebutuhan transaksi sehari-hari.\n\nQTRA memberikan beberapa manfaat utama:\n• Proses transfer lebih cepat dan sederhana.\n• Transaksi dapat dilakukan kapan saja melalui ponsel.\n• Mengurangi kesalahan dengan halaman konfirmasi data penerima.\n• Riwayat transaksi tersimpan sehingga mudah diperiksa kembali.\n• Mendukung kebutuhan pribadi maupun aktivitas usaha Mitra SAKU SULTAN.\n\nQTRA menjadi bagian dari komitmen SAKU SULTAN dalam menghadirkan layanan keuangan digital yang mudah digunakan oleh masyarakat. Kehadirannya diharapkan dapat mempercepat perputaran transaksi, mendukung kegiatan usaha para mitra, serta memperluas kebiasaan bertransaksi secara digital.\n\nQTRA — Quick Transfer: Kirim dana lebih cepat, praktis, dan aman bersama SAKU SULTAN.\n\nCatatan: tujuan transfer, biaya layanan, batas nominal, dan waktu pemrosesan mengikuti ketentuan resmi yang berlaku pada aplikasi SAKU SULTAN.",
     bullets: [
       {
         icon: creditCardIcon,
-        lead: "Transfer fleksibel",
-        rest: "— Kirim uang ke sesama pengguna maupun ke rekening bank lokal.",
+        lead: "Proses cepat dan sederhana",
+        rest: "Pilih tujuan, masukkan nominal, periksa data, lalu konfirmasi.",
       },
       {
         icon: smartphoneIcon,
-        lead: "Top-up saldo",
-        rest: "— Isi saldo dari transfer bank, e-wallet, hingga channel retail yang tersedia.",
+        lead: "Transfer kapan saja",
+        rest: "Kirim dana melalui ponsel untuk kebutuhan pribadi maupun usaha.",
       },
       {
         icon: chartColumnIcon,
-        lead: "Siap untuk aktivitas harian",
-        rest: "— Saldo yang terisi bisa langsung dipakai untuk belanja, scan, dan bayar tagihan.",
+        lead: "Riwayat mudah diperiksa",
+        rest: "Konfirmasi penerima dan riwayat transaksi membantu mengurangi kesalahan.",
       },
     ],
-    imageSrc: "/images/payway/unsplash-photo-1494790108377-be9c29b29330.jpg",
-    imageAlt: "Transfer Uang dan Isi Saldo Kapan Saja",
-  },
-  {
-    stickyTop: "top-[120px] md:top-[140px]",
-    label: "E-Commerce & Biometrik",
-    title: "Belanja Online dengan Keamanan Biometrik",
-    description:
-      "Saku Sultan mendukung transaksi e-commerce dan menjaga keamanan akun dengan perlindungan biometrik berlapis.",
-    bullets: [
-      {
-        icon: walletIcon,
-        lead: "Siap untuk e-commerce",
-        rest: "— Saldo dan metode pembayaran bisa dipakai untuk transaksi online di berbagai platform.",
-      },
-      {
-        icon: shieldCheckIcon,
-        lead: "Biometric security",
-        rest: "— Karakteristik fisiologis pengguna membantu menjaga transaksi tetap aman.",
-      },
-      {
-        icon: zapIcon,
-        lead: "Perlindungan berlapis",
-        rest: "— Kombinasi validasi akun, keamanan perangkat, dan proses transaksi yang lebih terkontrol.",
-      },
-    ],
-    imageSrc: "/images/payway/feature-4th-card.png",
-    imageAlt: "Belanja Online dengan Keamanan Biometrik",
+    imageSrc: "/images/payway/Q-tra.jpg",
+    imageAlt: "Q-tra",
   },
 ];
 
 /* ---- sub-komponen kartu fitur (struktur identik antar blok) ---- */
 
-function FeatureBlock({ feature }: { feature: PwFeature }) {
+const checkIcon = (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="3"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-3 w-3"
+    aria-hidden="true"
+  >
+    <path d="M20 6 9 17l-5-5" />
+  </svg>
+);
+
+/* Deskripsi panjang dipecah per blok \n\n: daftar • jadi list ber-ikon,
+   tagline "Nama — ..." jadi kutipan serif, "Catatan:" jadi nota kecil. */
+function FeatureDescription({ feature }: { feature: PwFeature }) {
+  const blocks = feature.description.split("\n\n");
   return (
-    <PwReveal
-      className={`sticky w-full max-w-[1248px] bg-[#F6FDFF] border border-[#04271803] rounded-[30px] shadow-[0_8px_20px_0_rgba(4,39,24,0.04)] overflow-hidden ${feature.stickyTop}`}
-    >
-      <div className="flex flex-col lg:flex-row items-start gap-8 md:gap-14 px-6 md:pl-16 md:pr-12 pt-8 md:pt-12 pb-0">
+    <div className="mx-auto flex max-w-[900px] flex-col gap-5">
+      {blocks.map((block) => {
+        const lines = block.split("\n");
+        const bulletLines = lines.filter((line) => line.trim().startsWith("•"));
+        if (bulletLines.length > 0) {
+          const intro = lines
+            .filter((line) => !line.trim().startsWith("•"))
+            .join(" ")
+            .trim();
+          return (
+            <div key={block} className="rounded-2xl border border-[#198F381A] bg-white/80 p-5 md:p-6">
+              {intro && <p className="mb-4 font-sans font-medium text-[#042718]">{intro}</p>}
+              <ul className="flex flex-col gap-3">
+                {bulletLines.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#198F3818] text-[#198F38]">
+                      {checkIcon}
+                    </span>
+                    <span className="font-sans text-base leading-7 text-[#042718cc]">
+                      {item.replace(/^\s*•\s*/, "")}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        }
+        if (block.startsWith("Catatan:")) {
+          return (
+            <p key={block} className="border-l-2 border-[#198F3840] pl-4 font-sans text-sm italic leading-6 text-[#04271899]">
+              {block}
+            </p>
+          );
+        }
+        if (block.startsWith(`${feature.title} —`)) {
+          return (
+            <p
+              key={block}
+              className="py-1 text-center text-xl leading-relaxed text-[#042718] [font-family:var(--pw-font-serif)] italic md:text-2xl"
+            >
+              “{block}”
+            </p>
+          );
+        }
+        return (
+          <p key={block} className="font-sans text-base leading-7 text-[#042718cc]">
+            {block}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
+
+function FeatureBlock({ feature, index }: { feature: PwFeature; index: number }) {
+  const flip = index % 2 === 1;
+  const [open, setOpen] = useState(false);
+  const wrapRef = useRef<HTMLDivElement | null>(null);
+  // Offset pin dinamis: kalau kartu lebih tinggi dari viewport, pin digeser
+  // ke atas (negatif) supaya bagian bawah kartu — tombol Lihat Detail —
+  // tetap terlihat sebelum kartu berikutnya menimpanya.
+  const [stickyTop, setStickyTop] = useState(80 + index * 20);
+
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const update = () => {
+      const base = (window.innerWidth >= 768 ? 80 : 60) + index * 20;
+      setStickyTop(Math.min(base, window.innerHeight - el.offsetHeight - 24));
+    };
+    update();
+    window.addEventListener("resize", update);
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => {
+      window.removeEventListener("resize", update);
+      ro.disconnect();
+    };
+  }, [index]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  return (
+    <div ref={wrapRef} className="sticky w-full max-w-[1248px]" style={{ top: stickyTop }}>
+      <PwReveal
+        className="pw-feature-card relative w-full bg-[#F6FDFF] border border-[#04271803] rounded-[30px] shadow-[0_8px_20px_0_rgba(4,39,24,0.04)] overflow-hidden"
+      >
+      {/* Nomor raksasa serif sebagai aksen latar */}
+      <span
+        aria-hidden="true"
+        className={`pointer-events-none select-none absolute -top-8 md:-top-12 ${flip ? "left-4 md:left-10" : "right-4 md:right-10"} [font-family:var(--pw-font-serif)] italic text-[120px] md:text-[200px] leading-none text-[#198F380D]`}
+      >
+        0{index + 1}
+      </span>
+      <div className={`flex flex-col ${flip ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 md:gap-14 px-6 md:px-14 py-8 md:py-12`}>
         <div className="w-full lg:w-[572px] pt-4 md:pt-[32px] flex flex-col gap-6 md:gap-8 shrink-0">
           <div className="flex flex-col">
             <div className="flex items-center gap-2 bg-[#198F380F] pl-[14px] pr-[16px] py-[6px] rounded-full border border-[#198F381A] w-fit mb-4">
@@ -332,12 +427,46 @@ function FeatureBlock({ feature }: { feature: PwFeature }) {
                 {feature.label}
               </span>
             </div>
-            <h4 className="max-w-[432px] font-semibold text-[32px] md:text-[42px] leading-[38px] md:leading-[48px] tracking-[-1.2px] md:tracking-[-2px] text-[#042718] mb-4 md:mb-5">
+            <h4 className="max-w-[432px] font-semibold text-[32px] md:text-[42px] leading-[38px] md:leading-[48px] tracking-[-1.2px] md:tracking-[-2px] text-[#042718] mb-3">
               {feature.title}
             </h4>
-            <p className="w-full lg:w-[572px] font-sans font-normal text-base md:text-lg leading-[24px] md:leading-[28px] text-[#042718] opacity-80">
-              {feature.description}
+            <p className="max-w-[508px] font-sans text-base leading-7 text-[#042718cc]">
+              {feature.shortDescription}
             </p>
+            <div className="flex flex-wrap items-center gap-3 mt-6">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.saku_sultan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center bg-[#042718] border border-[#0427180f] rounded-full overflow-hidden transition-all duration-300 h-[44px] w-fit"
+              >
+                <div className="absolute right-[6px] w-8 h-8 bg-white rounded-full flex items-center justify-center z-10">
+                  {arrowUpRightIcon}
+                </div>
+                <span className="block pl-[18px] pr-[46px] font-sans font-medium text-base leading-6 tracking-[-0.3px] text-white whitespace-nowrap">
+                  Download Aplikasi
+                </span>
+              </a>
+              <button
+                type="button"
+                onClick={() => setOpen(true)}
+                className="flex items-center gap-2 h-[44px] px-[18px] rounded-full border border-[#0427181a] bg-white/70 font-sans font-medium text-base tracking-[-0.3px] text-[#042718] transition-colors hover:bg-[#198F380F] whitespace-nowrap"
+              >
+                Lihat Detail
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4 text-[#198F38]"
+                  aria-hidden="true"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
+            </div>
           </div>
           <div className="flex flex-col gap-4 md:gap-5 w-full lg:w-[572px]">
             {feature.bullets.map((bullet, index) => (
@@ -358,34 +487,81 @@ function FeatureBlock({ feature }: { feature: PwFeature }) {
               </div>
             ))}
           </div>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.saku_sultan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative flex items-center bg-[#042718] border border-[#0427180f] rounded-full overflow-hidden transition-all duration-300 h-[44px] w-fit mt-2 md:mt-0 mb-8 md:mb-16"
-          >
-            <div className="absolute right-[6px] w-8 h-8 bg-white rounded-full flex items-center justify-center z-10">
-              {arrowUpRightIcon}
-            </div>
-            <span className="block pl-[18px] pr-[46px] font-sans font-medium text-base leading-6 tracking-[-0.3px] text-white whitespace-nowrap">
-              Download Aplikasi
-            </span>
-          </a>
         </div>
-        <div className="w-full lg:w-[508px] h-[300px] md:h-[400px] lg:h-[702px] relative flex justify-center items-end">
-          <PwReveal className="w-full h-full lg:h-[95%] relative" delay={200}>
+        <div className="w-full lg:flex-1 flex justify-center items-center">
+          <PwReveal className="relative my-4 lg:my-8 w-fit" delay={200}>
+            <div
+              className={`absolute -inset-3 md:-inset-4 rounded-[28px] bg-gradient-to-br from-[#198F3821] via-[#D6EFFF59] to-[#198F380a] ${flip ? "-rotate-3" : "rotate-3"}`}
+            />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt={feature.imageAlt}
               loading="lazy"
               decoding="async"
-              className="object-contain object-bottom absolute inset-0 h-full w-full text-transparent"
+              className={`relative w-auto max-w-full max-h-[320px] md:max-h-[420px] object-contain rounded-[20px] shadow-[0_16px_36px_0_rgba(4,39,24,0.14)] transition-transform duration-500 hover:rotate-0 hover:scale-[1.02] ${flip ? "rotate-2" : "-rotate-2"}`}
               src={feature.imageSrc}
             />
           </PwReveal>
         </div>
       </div>
-    </PwReveal>
+      </PwReveal>
+      {/* Panel detail: modal via portal ke body — wrapper sticky membuat
+          stacking context sendiri sehingga fixed biasa bisa tertimpa kartu lain. */}
+      {open &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[80] flex items-center justify-center bg-[#042718]/40 p-4 backdrop-blur-sm md:p-8"
+            onClick={() => setOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Detail ${feature.title}`}
+          >
+          <div
+            onClick={(event) => event.stopPropagation()}
+            className="flex max-h-[85vh] w-full max-w-[860px] flex-col overflow-hidden rounded-[24px] border border-[#0427181a] bg-[#F6FDFF] shadow-[0_24px_60px_0_rgba(4,39,24,0.3)]"
+          >
+          <div className="relative shrink-0 overflow-hidden bg-gradient-to-r from-[#042718] to-[#11603a] px-6 py-5 pr-16 md:px-8">
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-4 right-14 select-none text-[88px] leading-none text-white/10 [font-family:var(--pw-font-serif)] italic"
+            >
+              0{index + 1}
+            </span>
+            <p className="text-xl font-semibold tracking-[-0.5px] text-white md:text-2xl">
+              Tentang <span className="[font-family:var(--pw-font-serif)] italic font-normal">{feature.title}</span>
+            </p>
+            <p className="mt-1 max-w-[640px] font-sans text-sm leading-6 text-white/70">
+              {feature.shortDescription}
+            </p>
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              aria-label={`Tutup detail ${feature.title}`}
+              className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-white transition-colors hover:bg-white/30"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-4 w-4"
+                aria-hidden="true"
+              >
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </svg>
+            </button>
+          </div>
+          <div className="flex-1 overflow-y-auto overscroll-contain p-6 md:p-8">
+            <FeatureDescription feature={feature} />
+          </div>
+          </div>
+          </div>,
+          document.body,
+        )}
+    </div>
   );
 }
 
@@ -394,7 +570,7 @@ function FeatureBlock({ feature }: { feature: PwFeature }) {
 export function PwFeaturesTriple() {
   return (
     <section
-      id="fitur-lengkap"
+      id="fitur"
       className="w-full bg-white flex flex-col items-center py-24 gap-16 scroll-mt-24"
     >
       <div className="w-full max-w-[1440px] px-6 lg:px-[96px] flex flex-col items-center gap-[64px]">
@@ -402,23 +578,18 @@ export function PwFeaturesTriple() {
           <PwReveal className="flex items-center gap-2 bg-[#198F380F] pl-[14px] pr-[16px] py-[6px] rounded-full border border-[#198F381A]">
             {sparklesIcon}
             <span className="font-sans font-normal text-base text-[#198F38] tracking-[-0.3px]">
-              Fitur
+              Fitur Unggulan
             </span>
           </PwReveal>
-          <PwReveal className="w-full max-w-[700px]" delay={100}>
-            <h2 className="w-full max-w-[700px] font-semibold text-[32px] md:text-[42px] lg:text-[52px] leading-[38px] md:leading-[48px] lg:leading-[58px] tracking-[-1.2px] md:tracking-[-1.8px] text-[#042718]">
-              Fitur Inti Saku Sultan yang Sudah Selaras dengan MCP
+          <PwReveal className="w-full max-w-[760px]" delay={100}>
+            <h2 className="w-full font-semibold text-[32px] md:text-[42px] lg:text-[52px] leading-[38px] md:leading-[48px] lg:leading-[58px] tracking-[-1.2px] md:tracking-[-1.8px] text-[#042718]">
+              Fitur Saku Sultan yang Sesuai dengan Kebutuhan Harian
             </h2>
-          </PwReveal>
-          <PwReveal className="w-full max-w-[800px]" delay={200}>
-            <p className="w-full max-w-[800px] font-sans font-normal text-base md:text-lg leading-[24px] md:leading-[28px] text-[#042718cc]">
-              Landing page ini sekarang menonjolkan fitur yang benar-benar ada di data Saku Sultan: tagihan, barcode scan, transfer, top-up, e-commerce, dan keamanan biometrik.
-            </p>
           </PwReveal>
         </div>
         <div className="flex flex-col gap-12 w-full items-center">
-          {PW_FEATURES.map((feature) => (
-            <FeatureBlock key={feature.title} feature={feature} />
+          {PW_FEATURES.map((feature, index) => (
+            <FeatureBlock key={feature.title} feature={feature} index={index} />
           ))}
         </div>
       </div>

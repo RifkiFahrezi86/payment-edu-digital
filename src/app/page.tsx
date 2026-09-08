@@ -1,6 +1,5 @@
 import { PwHero } from "@/components/payway/PwHero";
 import { PwInsights } from "@/components/payway/PwInsights";
-import { PwFeatureIntro } from "@/components/payway/PwFeatureIntro";
 import { PwProcess } from "@/components/payway/PwProcess";
 import { PwFeaturesTriple } from "@/components/payway/PwFeaturesTriple";
 import { PwTestimonials } from "@/components/payway/PwTestimonials";
@@ -18,9 +17,8 @@ export default function PaywayPage() {
     <main className="w-full overflow-x-clip">
       <PwHero />
       <PwInsights />
-      <PwFeatureIntro />
-      <PwProcess />
       <PwFeaturesTriple />
+      <PwProcess />
       <PwTestimonials />
       <PwCharts />
       <PwPricing />
