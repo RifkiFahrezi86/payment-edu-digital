@@ -16,7 +16,15 @@ const NAV_LINKS = [
 
 export function PwHeroNavigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -34,7 +42,13 @@ export function PwHeroNavigation() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="saku-hero-navbar sticky top-0 z-50 w-full px-5 pt-6 sm:px-8 lg:px-12 xl:px-24">
+    <header
+      className={`saku-hero-navbar fixed inset-x-0 top-0 z-50 w-full px-5 pt-6 pb-3 sm:px-8 lg:px-12 xl:px-24 transition-[background-color,box-shadow,padding] duration-300 ${
+        scrolled
+          ? "bg-[#031E13]/90 backdrop-blur-md shadow-[0_8px_30px_rgba(4,39,24,0.28)] pt-3"
+          : "bg-transparent"
+      }`}
+    >
       <nav
         aria-label="Navigasi utama"
         className="relative mx-auto flex h-[60px] w-full max-w-[1248px] items-center justify-between sm:h-16"

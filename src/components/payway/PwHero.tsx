@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PwHeroNavigation } from "@/components/payway/PwHeroNavigation";
+import { PwReveal } from "@/components/payway/pw-reveal";
 import { PwHeroPhoneMockup } from "@/components/payway/PwHeroPhoneMockup";
 
 const PLAY_STORE_URL =
@@ -100,7 +100,8 @@ export function PwHero() {
       </div>
       <div aria-hidden="true" className="saku-hero-readability-scrim pointer-events-none absolute inset-0 -z-10" />
 
-      <PwHeroNavigation />
+      {/* Spacer pengganti tinggi navbar (fixed tidak memakan ruang) */}
+      <div aria-hidden="true" className="h-[96px] sm:h-[100px]" />
 
       <div className="saku-hero-layout mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-14 px-5 pb-20 pt-14 sm:px-8 sm:pb-24 sm:pt-20 lg:min-h-[calc(100svh-88px)] lg:grid-cols-[minmax(0,1.1fr)_minmax(300px,0.62fr)] lg:gap-16 lg:px-12 lg:pb-16 lg:pt-12 xl:gap-20 xl:px-24">
         <div className="ped-hero-enter relative isolate flex max-w-[720px] flex-col items-center text-center lg:items-start lg:text-left">

@@ -1,4 +1,5 @@
 import { PwHero } from "@/components/payway/PwHero";
+import { PwHeroNavigation } from "@/components/payway/PwHeroNavigation";
 import { PwInsights } from "@/components/payway/PwInsights";
 import { PwProcess } from "@/components/payway/PwProcess";
 import { PwFeaturesTriple } from "@/components/payway/PwFeaturesTriple";
@@ -15,6 +16,7 @@ import { PwWhatsappButton } from "@/components/payway/PwWhatsappButton";
 export default function PaywayPage() {
   return (
     <main className="w-full overflow-x-clip">
+      <PwHeroNavigation />
       <PwHero />
       <PwInsights />
       <PwFeaturesTriple />
