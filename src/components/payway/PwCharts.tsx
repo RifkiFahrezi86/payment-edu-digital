@@ -39,46 +39,50 @@ const arrowUpRightIcon = (
   </svg>
 );
 
-/* ---- data partner pembayaran (teks saja, tanpa gambar) ---- */
+/* ---- data partner pembayaran ---- */
 
-type PwPartner = { label: string };
+type PwPartner = { label: string; logo: string };
 
 const PW_PARTNERS_TOP: PwPartner[] = [
-  { label: "QRIS" },
-  { label: "OVO" },
-  { label: "GoPay" },
-  { label: "Dana" },
-  { label: "ShopeePay" },
-  { label: "LinkAja" },
+  { label: "QRIS", logo: "/images/payway/pay/qris.svg" },
+  { label: "OVO", logo: "/images/payway/pay/ovo.svg" },
+  { label: "GoPay", logo: "/images/payway/pay/gopay.svg" },
+  { label: "Dana", logo: "/images/payway/pay/dana.svg" },
+  { label: "ShopeePay", logo: "/images/payway/pay/shopeepay.svg" },
+  { label: "LinkAja", logo: "/images/payway/pay/linkaja.svg" },
 ];
 
 const PW_PARTNERS_MIDDLE: PwPartner[] = [
-  { label: "BCA" },
-  { label: "Mandiri" },
-  { label: "BRI" },
-  { label: "BNI" },
-  { label: "Permata" },
-  { label: "CIMB Niaga" },
+  { label: "BCA", logo: "/images/payway/pay/bca.svg" },
+  { label: "Mandiri", logo: "/images/payway/pay/mandiri.svg" },
+  { label: "BRI", logo: "/images/payway/pay/bri.svg" },
+  { label: "BNI", logo: "/images/payway/pay/bni.svg" },
+  { label: "Permata", logo: "/images/payway/pay/permata.svg" },
+  { label: "CIMB Niaga", logo: "/images/payway/pay/cimb-niaga.svg" },
 ];
 
 const PW_PARTNERS_BOTTOM: PwPartner[] = [
-  { label: "Telkomsel" },
-  { label: "XL" },
-  { label: "Indosat" },
-  { label: "Tri" },
-  { label: "Smartfren" },
+  { label: "Telkomsel", logo: "/images/payway/pay/telkomsel.svg" },
+  { label: "XL", logo: "/images/payway/pay/xl.svg" },
+  { label: "Indosat", logo: "/images/payway/pay/indosat.svg" },
+  { label: "Tri", logo: "/images/payway/pay/tri.svg" },
+  { label: "Smartfren", logo: "/images/payway/pay/smartfren.svg" },
 ];
 
-/* ---- tile partner: teks bold, tanpa gambar ---- */
+/* ---- tile partner: logo + label ---- */
 
 function PartnerTile({ tile, delay }: { tile: PwPartner; delay: number }) {
   return (
     <PwReveal className="flex justify-center" delay={delay}>
       <div className="flex flex-col items-center gap-2 sm:gap-3">
-        <div className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] flex items-center justify-center rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] bg-white border border-[#E5E7EB] shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-2">
-          <span className="font-heading font-bold text-[11px] sm:text-xs lg:text-sm text-[#042718] text-center leading-tight">
-            {tile.label}
-          </span>
+        <div className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] flex items-center justify-center rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] bg-white border border-[#E5E7EB] shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-3 sm:p-3.5 lg:p-4">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={tile.logo}
+            alt={`Logo ${tile.label}`}
+            loading="lazy"
+            className="w-full h-full object-contain"
+          />
         </div>
         <span className="font-sans font-medium text-sm sm:text-base leading-6 text-[#1F2937] text-center">
           {tile.label}

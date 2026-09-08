@@ -44,7 +44,7 @@ export function PwCtaFooter() {
 
       {/* Blok CTA — headline, subcopy, tombol trial */}
       <div className="relative z-10 w-full pt-[80px] md:pt-[100px] lg:pt-[120px]">
-        <PwReveal className="content-container flex flex-col items-center text-center">
+        <PwReveal className="content-container mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
           <h2 className="w-full max-w-[1103px] font-semibold text-[#042718] text-[32px] sm:text-[64px] md:text-[90px] lg:text-[132px] leading-[1.1] lg:leading-[136px] tracking-[-1px] sm:tracking-[-3px] md:tracking-[-5px] lg:tracking-[-7px] mb-8 sm:mb-10">
             Mulai Transaksi dengan Saku Sultan
           </h2>
@@ -86,7 +86,7 @@ export function PwCtaFooter() {
 
       {/* Email support + baris follow / sosial */}
       <div className="relative z-10 w-full pt-[60px] md:pt-[100px] lg:pt-[130px]">
-        <PwReveal className="content-container flex flex-col items-center">
+        <PwReveal className="content-container mx-auto px-6 lg:px-12 flex flex-col items-center">
           <a
             href="mailto:cs@sakusultan.id"
             className="font-semibold text-white text-[24px] sm:text-[40px] md:text-[52px] lg:text-[68px] leading-[1.2] lg:leading-[80px] tracking-[-0.6px] sm:tracking-[-1px] lg:tracking-[-2.2px] hover:scale-105 transition-transform duration-300"
@@ -98,7 +98,7 @@ export function PwCtaFooter() {
               Punya pertanyaan? Kami siap membantu.
             </p>
             <div className="flex justify-center order-1 md:order-2">
-              <span className="text-base md:text-lg text-white opacity-80 mb-2 md:mb-0">Ikuti</span>
+              <span className="text-base md:text-lg text-white opacity-80">Ikuti Kami</span>
             </div>
             <div className="flex justify-center md:justify-end gap-3 order-3">
               {/* Facebook */}
@@ -146,20 +146,20 @@ export function PwCtaFooter() {
             Saku Sultan
           </span>
         </div>
-        <div className="bg-transparent mt-10 lg:mt-12 pb-8">
-          <div className="content-container flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
-            <div className="flex items-center gap-6 order-2 md:order-1">
-              <a href="/syarat-ketentuan" className="text-[14px] sm:text-[18px] text-white opacity-70 hover:opacity-100 transition-opacity duration-300">
+        <div className="bg-transparent mt-10 lg:mt-12 pb-24 md:pb-8">
+          <div className="content-container mx-auto px-6 lg:px-12 md:pr-24 lg:pr-28 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 border-t border-white/10 pt-8">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 order-2 md:order-1">
+              <a href="/syarat-ketentuan" className="text-[14px] sm:text-[16px] text-white opacity-70 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                 Syarat &amp; Ketentuan
               </a>
-              <a href="/kebijakan-privasi" className="text-[14px] sm:text-[18px] text-white opacity-70 hover:opacity-100 transition-opacity duration-300">
+              <a href="/kebijakan-privasi" className="text-[14px] sm:text-[16px] text-white opacity-70 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                 Kebijakan Privasi
               </a>
             </div>
-            <p className="text-[14px] sm:text-[18px] text-white opacity-70 order-3 md:order-2">
-              © 2026 Saku Sultan. All rights reserved.
+            <p className="text-[14px] sm:text-[16px] text-white opacity-70 text-center order-3 md:order-2">
+              &copy; 2026 Saku Sultan. All rights reserved.
             </p>
-            <span className="text-[14px] sm:text-[18px] text-white opacity-70 order-1 md:order-3">
+            <span className="text-[14px] sm:text-[16px] font-semibold text-white opacity-80 order-1 md:order-3 whitespace-nowrap">
               #PastiUNTUNG
             </span>
           </div>
