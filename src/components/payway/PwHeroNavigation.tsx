@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.saku_sultan";
-const SAKU_SULTAN_URL = "https://sakusultan.id";
 
 const NAV_LINKS = [
   { label: "Beranda", href: "#beranda" },
@@ -94,15 +93,6 @@ export function PwHeroNavigation() {
 
         <div className="hidden items-center gap-5 lg:flex">
           <a
-            href={SAKU_SULTAN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="saku-hero-nav-text py-2 text-sm font-semibold text-white transition-colors duration-200 hover:text-white/85 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/30"
-          >
-            Masuk
-          </a>
-
-          <a
             href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -155,15 +145,6 @@ export function PwHeroNavigation() {
                   </svg>
                 </a>
               ))}
-              <a
-                href={SAKU_SULTAN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={closeMenu}
-                className="flex min-h-12 items-center px-3 text-sm font-semibold text-[#173B2B] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/20"
-              >
-                Masuk
-              </a>
               <a
                 href={PLAY_STORE_URL}
                 target="_blank"

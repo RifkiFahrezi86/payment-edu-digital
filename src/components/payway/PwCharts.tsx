@@ -1,43 +1,6 @@
 import { PwReveal } from "@/components/payway/pw-reveal";
-
-const sparklesIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="lucide lucide-sparkles w-4 h-4 text-[#198F38] fill-[#198F38]"
-  >
-    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
-    <path d="M20 3v4" />
-    <path d="M22 5h-4" />
-    <path d="M4 17v2" />
-    <path d="M5 18H3" />
-  </svg>
-);
-
-const arrowUpRightIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="lucide lucide-arrow-up-right w-4 h-4 text-[#042718]"
-  >
-    <path d="M7 7h10v10" />
-    <path d="M7 17 17 7" />
-  </svg>
-);
+import { PwButton } from "@/components/payway/pw-button";
+import { PwSectionHeader } from "@/components/payway/pw-section-header";
 
 /* ---- data partner pembayaran ---- */
 
@@ -74,8 +37,8 @@ const PW_PARTNERS_BOTTOM: PwPartner[] = [
 function PartnerTile({ tile, delay }: { tile: PwPartner; delay: number }) {
   return (
     <PwReveal className="flex justify-center" delay={delay}>
-      <div className="flex flex-col items-center gap-2 sm:gap-3">
-        <div className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] flex items-center justify-center rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] bg-white border border-[#E5E7EB] shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-3 sm:p-3.5 lg:p-4">
+      <div className="pw-lift flex flex-col items-center gap-2 sm:gap-3">
+        <div className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] flex items-center justify-center rounded-[20px] lg:rounded-[24px] bg-white border border-[#E5E7EB] shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-3 sm:p-3.5 lg:p-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={tile.logo}
@@ -98,41 +61,21 @@ export function PwCharts() {
   return (
     <section
       id="metode-pembayaran"
-      className="w-full bg-white flex flex-col items-center py-24 overflow-hidden scroll-mt-24"
+      className="pw-section-y w-full bg-white flex flex-col items-center overflow-hidden scroll-mt-24"
     >
       <div className="main-container flex flex-col items-center">
         <div className="content-container flex flex-col items-center gap-16 relative">
-          <div className="flex flex-col items-center text-center gap-6 z-10 pt-12 md:pt-16 lg:pt-[80px]">
-            <PwReveal className="flex items-center gap-2 bg-[#198F380F] pl-[14px] pr-[16px] py-[6px] rounded-full border border-[#198F381A]">
-              {sparklesIcon}
-              <span className="font-sans font-normal text-base text-[#198F38] tracking-[-0.3px]">
-                Metode Pembayaran
-              </span>
-            </PwReveal>
-            <PwReveal delay={100}>
-              <h2 className="max-w-[800px] font-sans font-semibold text-[32px] sm:text-[42px] lg:text-[52px] leading-[1.1] lg:leading-[58px] tracking-[-1.2px] lg:tracking-[-1.8px] text-[#042718]">
-                Didukung Payment Gateway &amp; Bank Terbesar di Indonesia
-              </h2>
-            </PwReveal>
-            <PwReveal delay={200}>
-              <p className="max-w-[700px] font-sans font-normal text-lg leading-[28px] text-[#042718cc]">
-                Terhubung dengan berbagai metode pembayaran, e-wallet, dan bank untuk kemudahan bertransaksi.
-              </p>
-            </PwReveal>
+          <div className="flex flex-col items-center gap-6 z-10">
+            <PwSectionHeader
+              eyebrow="Metode Pembayaran"
+              title={<>Didukung Payment Gateway &amp; Bank Terbesar di Indonesia</>}
+            >
+              Terhubung dengan berbagai metode pembayaran, e-wallet, dan bank untuk kemudahan bertransaksi.
+            </PwSectionHeader>
             <PwReveal delay={300}>
-              <a
-                href="#promo"
-                className="group relative flex items-center bg-[#042718] border border-[#0427180f] rounded-full overflow-hidden transition-all duration-500 p-1.5 h-[48px] min-w-[160px] w-fit pl-5 pr-1.5 "
-              >
-                <div className="flex items-center justify-between w-full h-full gap-3 flex-row">
-                  <span className="font-sans font-medium text-base text-white whitespace-nowrap">
-                    Lihat Semua Metode
-                  </span>
-                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shrink-0">
-                    {arrowUpRightIcon}
-                  </div>
-                </div>
-              </a>
+              <PwButton href="#promo" external={false}>
+                Lihat Semua Metode
+              </PwButton>
             </PwReveal>
           </div>
           <div
@@ -170,12 +113,6 @@ export function PwCharts() {
           </div>
         </div>
       </div>
-      <style>{`
-        .main-container { width: 100%; max-width: 1440px; padding: 0 96px; }
-        .content-container { width: 100%; max-width: 1248px; }
-        @media (max-width: 1024px) { .main-container { padding: 0 40px; } }
-        @media (max-width: 640px) { .main-container { padding: 0 20px; } }
-      `}</style>
     </section>
   );
 }

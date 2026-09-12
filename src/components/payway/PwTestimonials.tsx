@@ -2,29 +2,9 @@
 
 import { useRef } from "react";
 import { PwReveal } from "@/components/payway/pw-reveal";
+import { PwEyebrow } from "@/components/payway/pw-eyebrow";
 
 /* ---- ikon lucide inline (verbatim dari markup) ---- */
-
-const sparklesIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="lucide lucide-sparkles"
-  >
-    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
-    <path d="M20 3v4" />
-    <path d="M22 5h-4" />
-    <path d="M4 17v2" />
-    <path d="M5 18H3" />
-  </svg>
-);
 
 const arrowLeftIcon = (
   <svg
@@ -126,14 +106,16 @@ function CarouselNav({
       <button
         type="button"
         onClick={onPrev}
-        className="w-12 h-12 flex items-center justify-center transition-all duration-300 bg-white/90 backdrop-blur-sm text-[#042718] rounded-[30px]"
+        aria-label="Testimoni sebelumnya"
+        className="pw-lift w-12 h-12 flex items-center justify-center bg-white/90 backdrop-blur-sm text-[#042718] rounded-full focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#198F38]/30"
       >
         {arrowLeftIcon}
       </button>
       <button
         type="button"
         onClick={onNext}
-        className="w-12 h-12 flex items-center justify-center transition-all duration-300 bg-[#042718] text-white rounded-full shadow-[0_4px_20px_0_rgba(4,39,24,0.04)]"
+        aria-label="Testimoni berikutnya"
+        className="pw-lift w-12 h-12 flex items-center justify-center bg-[#042718] text-white rounded-full shadow-[0_4px_20px_0_rgba(4,39,24,0.04)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#198F38]/30"
       >
         {arrowRightIcon}
       </button>
@@ -158,17 +140,25 @@ export function PwTestimonials() {
       id="testimoni"
       className="relative w-full overflow-hidden bg-white scroll-mt-24 "
     >
-      <div className="absolute inset-0 w-full h-full z-0">
-        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-          <source src="/videos/payway/header-01-bg-payway.mp4" type="video/mp4" />
+      <div className="absolute inset-0 w-full h-full z-0 bg-[#EAF3EC]">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          className="pw-bg-video"
+        >
+          <source src="/videos/payway/header.mp4" type="video/mp4" />
         </video>
+        <div aria-hidden="true" className="pw-media-scrim-light" />
       </div>
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-[96px] py-12 md:py-16 lg:py-[80px] flex flex-col items-center gap-12 lg:gap-16">
+      <div className="pw-section-y relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-[96px] flex flex-col items-center gap-12 lg:gap-16">
         <div className="w-full max-w-[1248px] flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 lg:gap-8">
           <div className="flex flex-col items-start gap-4">
-            <PwReveal className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#198F381A] bg-[#F6FDFF]/80 backdrop-blur-sm text-[#198F38]">
-              {sparklesIcon}
-              <span className="font-body text-base tracking-[-0.3px]">Testimoni</span>
+            <PwReveal>
+              <PwEyebrow tone="media">Testimoni</PwEyebrow>
             </PwReveal>
             <PwReveal delay={100}>
               <h2 className="max-w-[700px] font-heading text-[32px] sm:text-[42px] lg:text-[52px] font-semibold text-[#042718] leading-[1.1] sm:leading-[58px] tracking-[-1px] sm:tracking-[-1.8px] text-left">

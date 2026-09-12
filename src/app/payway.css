@@ -5,27 +5,83 @@
 @source not "../../public";
 
 /* ============================================================
-   PayWay clone — design tokens & global patterns.
-   Sumber: preview jiro.build PayWay (fintech landing), diekstrak
-   via getComputedStyle + stylesheet dump. Lihat
-   docs/research/jiro-payway/.
-   Template aslinya utility-first (Tailwind inline di markup),
-   jadi file ini hanya memuat: font, keyframes custom, dan util
-   yang dipakai lintas section.
+   Saku Sultan — design tokens & global patterns.
+   Satu sumber kebenaran untuk warna, tipografi, radius, shadow,
+   motion, container, dan scrim pembaca di atas media.
+   Komponen memakai utility Tailwind inline; file ini memuat
+   token, keyframes, dan pola yang dipakai lintas section.
    ============================================================ */
 
 :root {
-  /* ---- palette inti (dari markup section) ---- */
+  /* ---- palette inti ---- */
   --pw-ink: #042718; /* hijau tinta gelap — tombol, teks pekat */
   --pw-ink-hover: #06381f;
-  --pw-green: #16a34a; /* aksen hijau */
+  --pw-ink-deep: #031e13; /* navbar saat scroll, overlay pekat */
+  --pw-green: #198f38; /* aksen hijau brand — ikon, fill, border */
+  --pw-green-hover: #147a2f;
+  /* #198F38 hanya 4.18:1 di atas putih, gagal untuk teks kecil.
+     Varian ini 5.02:1 dan dipakai untuk teks/label hijau. */
+  --pw-green-text: #15803d;
+  --pw-lime: #d9f36a; /* aksen sorot di atas media gelap */
   --pw-surface: #ffffff;
   --pw-mist: #f4f6f5; /* latar kartu abu kehijauan */
+  --pw-card: #f6fdff; /* latar kartu fitur */
   --pw-line: rgba(4, 39, 24, 0.1);
 
-  /* ---- primary typography (di-inject next/font di layout) ---- */
+  /* ---- teks: alpha minimum sudah lolos kontras di latar terang ---- */
+  --pw-text: var(--pw-ink);
+  --pw-text-muted: rgba(4, 39, 24, 0.78);
+  --pw-text-subtle: rgba(4, 39, 24, 0.62);
+
+  /* ---- teks di atas media gelap ---- */
+  --pw-on-media: #ffffff;
+  --pw-on-media-muted: rgba(255, 255, 255, 0.88);
+
+  /* ---- scrim pembaca di atas video/foto ---- */
+  --pw-scrim-soft: rgba(3, 26, 16, 0.42);
+  --pw-scrim-strong: rgba(3, 26, 16, 0.72);
+  --pw-text-shadow: 0 1px 2px rgba(2, 20, 12, 0.45), 0 2px 12px rgba(2, 20, 12, 0.3);
+
+  /* ---- tipografi (di-inject next/font di layout) ---- */
   --pw-font-sans: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --pw-font-serif: var(--font-instrument-serif), "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+
+  /* ---- skala tipografi ---- */
+  --pw-h1: clamp(2.125rem, calc(1.5rem + 3.5vw), 4.5rem);
+  --pw-h2: clamp(1.75rem, calc(1.05rem + 2.2vw), 3.25rem);
+  --pw-h3: clamp(1.5rem, calc(1.15rem + 1.1vw), 2.25rem);
+  --pw-h4: clamp(1.25rem, calc(1.05rem + 0.6vw), 1.5rem);
+  --pw-body-lg: clamp(1rem, calc(0.95rem + 0.25vw), 1.125rem);
+  --pw-body: 1rem;
+
+  /* ---- radius ---- */
+  --pw-r-xs: 10px;
+  --pw-r-sm: 14px;
+  --pw-r-md: 20px;
+  --pw-r-lg: 24px;
+  --pw-r-xl: 30px;
+  --pw-r-2xl: 40px;
+  --pw-r-pill: 999px;
+
+  /* ---- shadow ---- */
+  --pw-shadow-1: 0 4px 16px rgba(4, 39, 24, 0.06);
+  --pw-shadow-2: 0 12px 32px rgba(4, 39, 24, 0.1);
+  --pw-shadow-3: 0 24px 60px rgba(4, 39, 24, 0.18);
+
+  /* ---- spasi vertikal section ---- */
+  --pw-section-y: clamp(56px, 6vw, 96px);
+
+  /* ---- motion ---- */
+  --pw-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --pw-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --pw-dur-fast: 180ms;
+  --pw-dur: 260ms;
+  --pw-dur-slow: 520ms;
+
+  /* ---- offset navbar ---- */
+  --pw-nav-h: 96px;
 }
+
 
 .pw-body {
   background: var(--pw-surface);
@@ -43,26 +99,44 @@ html {
   font-family: var(--pw-font-sans);
 }
 
+.font-display {
+  font-family: var(--pw-font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Hero memakai teks terang di atas media: satu keluarga warna
+   (putih + lime) supaya kontras terjaga di seluruh frame video. */
 .saku-hero-title {
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.03);
+  text-shadow: var(--pw-text-shadow);
 }
 
 .saku-hero-hashtag {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  text-shadow: var(--pw-text-shadow);
 }
 
 .saku-hero-support {
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 2px rgba(2, 20, 12, 0.5), 0 2px 10px rgba(2, 20, 12, 0.34);
 }
 
+/* Scrim mobile: gelap merata karena teks di tengah frame. */
 .saku-hero-readability-scrim {
-  background: radial-gradient(
-    ellipse 95% 44% at 50% 35%,
-    rgba(2, 33, 19, 0.22) 0%,
-    rgba(2, 33, 19, 0.09) 58%,
-    transparent 86%
-  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 26, 16, 0.62) 0%,
+      rgba(3, 26, 16, 0.34) 24%,
+      rgba(3, 26, 16, 0.38) 60%,
+      rgba(3, 26, 16, 0.68) 100%
+    ),
+    radial-gradient(
+      ellipse 130% 85% at 50% 46%,
+      rgba(3, 26, 16, 0.4) 0%,
+      rgba(3, 26, 16, 0.2) 56%,
+      transparent 100%
+    );
 }
+
 
 .saku-service-rail {
   isolation: isolate;
@@ -75,8 +149,8 @@ html {
   inset: -64px -96px -60px -64px;
   background: radial-gradient(
     ellipse 78% 72% at 24% 52%,
-    rgba(4, 35, 24, 0.42) 0%,
-    rgba(4, 35, 24, 0.24) 54%,
+    rgba(3, 26, 16, 0.62) 0%,
+    rgba(3, 26, 16, 0.38) 54%,
     transparent 100%
   );
   filter: blur(24px);
@@ -89,8 +163,8 @@ html {
     inset: -240px -48px -80px;
     background: radial-gradient(
       ellipse 125% 50% at 8% 64%,
-      rgba(4, 35, 24, 0.4) 0%,
-      rgba(4, 35, 24, 0.2) 58%,
+      rgba(3, 26, 16, 0.62) 0%,
+      rgba(3, 26, 16, 0.36) 58%,
       transparent 100%
     );
   }
@@ -100,14 +174,19 @@ html {
   isolation: isolate;
 }
 
+/* Scrim navbar: teks putih harus tetap lolos 4.5:1 bahkan ketika
+   frame video di belakangnya berupa langit putih. Alpha minimum yang
+   diperlukan untuk itu ~0.62, jadi nilai kuat ditahan sampai 58%
+   sebelum memudar. */
 .saku-hero-navbar::before {
   position: absolute;
   z-index: -1;
-  inset: 0 0 -28px;
+  inset: 0 0 -44px;
   background: linear-gradient(
     to bottom,
-    rgba(3, 30, 19, 0.3) 0%,
-    rgba(3, 30, 19, 0.12) 58%,
+    rgba(3, 26, 16, 0.82) 0%,
+    rgba(3, 26, 16, 0.72) 58%,
+    rgba(3, 26, 16, 0.32) 82%,
     transparent 100%
   );
   content: "";
@@ -115,12 +194,12 @@ html {
 }
 
 .saku-hero-nav-text {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  text-shadow: 0 1px 2px rgba(2, 20, 12, 0.5);
 }
 
 .saku-hero-nav-link {
   position: relative;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.94);
   transition: color 0.3s ease;
 }
 
@@ -283,13 +362,24 @@ html {
 }
 
 @media (min-width: 1024px) {
+  /* Desktop: teks rata kiri, jadi scrim diberatkan ke sisi kiri
+     plus gradient vertikal tipis untuk navbar & rail. */
   .saku-hero-readability-scrim {
-    background: linear-gradient(
-      90deg,
-      rgba(2, 33, 19, 0.16) 0%,
-      rgba(2, 33, 19, 0.07) 38%,
-      transparent 66%
-    );
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 26, 16, 0.8) 0%,
+        rgba(3, 26, 16, 0.62) 32%,
+        rgba(3, 26, 16, 0.28) 58%,
+        rgba(3, 26, 16, 0.1) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(3, 26, 16, 0.4) 0%,
+        transparent 28%,
+        transparent 70%,
+        rgba(3, 26, 16, 0.44) 100%
+      );
   }
 
   .saku-hero-phone {
@@ -312,7 +402,7 @@ html {
 }
 
 .ped-hero-enter {
-  animation: pedHeroEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: pedHeroEnter 0.8s var(--pw-ease-out) both;
 }
 
 .ped-hero-enter-delay {
@@ -330,12 +420,23 @@ html {
   }
 }
 
-/* Container utama template: 1440px, padding samping 96px (desktop) */
+/* ---- container tunggal: 1440px, padding samping 96px (desktop) ----
+   Sebelumnya .main-container didefinisikan dua kali dengan nilai
+   berbeda dan .content-container hanya ada di <style> lokal PwCharts
+   sehingga tanpa efek di PwCtaFooter. Sekarang satu sumber. */
 .main-container {
   width: 100%;
   max-width: 1440px;
+  margin-inline: auto;
   padding: 0 96px;
 }
+
+.content-container {
+  width: 100%;
+  max-width: 1248px;
+  margin-inline: auto;
+}
+
 @media (max-width: 1024px) {
   .main-container {
     padding: 0 32px;
@@ -345,6 +446,11 @@ html {
   .main-container {
     padding: 0 20px;
   }
+}
+
+/* ---- ritme vertikal section ---- */
+.pw-section-y {
+  padding-block: var(--pw-section-y);
 }
 
 /* ---- util dari template asli ---- */
@@ -411,15 +517,52 @@ html {
 /* ---- reveal on scroll (pengganti framer-motion di original) ---- */
 .pw-reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(18px);
   transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity var(--pw-dur-slow) var(--pw-ease-out),
+    transform var(--pw-dur-slow) var(--pw-ease-out);
 }
 .pw-reveal.pw-in {
   opacity: 1;
   transform: none;
 }
+
+/* ---- hover angkat seragam untuk kartu & tombol ---- */
+.pw-lift {
+  transition:
+    transform var(--pw-dur) var(--pw-ease),
+    box-shadow var(--pw-dur) var(--pw-ease),
+    background-color var(--pw-dur) var(--pw-ease),
+    border-color var(--pw-dur) var(--pw-ease);
+}
+.pw-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--pw-shadow-2);
+}
+
+/* ---- mode kontras tinggi: tebalkan scrim & padatkan teks sekunder ---- */
+@media (prefers-contrast: more) {
+  :root {
+    --pw-text-muted: rgba(4, 39, 24, 0.92);
+    --pw-text-subtle: rgba(4, 39, 24, 0.82);
+    --pw-on-media-muted: #ffffff;
+    --pw-scrim-soft: rgba(3, 26, 16, 0.62);
+    --pw-scrim-strong: rgba(3, 26, 16, 0.86);
+  }
+
+  .saku-hero-readability-scrim {
+    background: rgba(3, 26, 16, 0.72);
+  }
+
+  .saku-hero-navbar::before {
+    background: rgba(3, 26, 16, 0.86);
+  }
+
+  .pw-media-scrim {
+    background: rgba(3, 26, 16, 0.78);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -429,7 +572,10 @@ html {
     animation: none;
   }
 
-  .ped-hero-video {
+  /* Semua video dekoratif dimatikan, bukan hanya video hero.
+     Poster/latar solid di belakangnya tetap tampil. */
+  .ped-hero-video,
+  .pw-bg-video {
     display: none;
   }
 
@@ -438,6 +584,19 @@ html {
     transform: none;
     transition: none;
   }
+
+  .pw-lift:hover {
+    transform: none;
+  }
+
+  .banner-sheen,
+  .pw-insights-marquee {
+    animation: none !important;
+  }
+
+  .pw-whatsapp-pulse {
+    animation: none !important;
+  }
 }
 
 /* ---- animasi pulse tombol WhatsApp floating ---- */
@@ -445,4 +604,49 @@ html {
   0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
   70%  { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
   100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* ---- video latar section + scrim pembaca di atasnya ----
+   .pw-bg-video dipakai agar reduced-motion bisa mematikan seluruh
+   video dekoratif, bukan hanya video hero. */
+.pw-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pw-media-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    var(--pw-scrim-soft) 0%,
+    rgba(3, 26, 16, 0.3) 34%,
+    rgba(3, 26, 16, 0.34) 66%,
+    var(--pw-scrim-soft) 100%
+  );
+}
+
+/* Varian terang: dipakai saat teks di atas media berwarna ink,
+   mis. section testimoni yang memakai kartu putih. */
+.pw-media-scrim-light {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.62) 22%,
+    rgba(255, 255, 255, 0.58) 74%,
+    rgba(255, 255, 255, 0.88) 100%
+  );
+}
+
+@media (prefers-contrast: more) {
+  .pw-media-scrim-light {
+    background: rgba(255, 255, 255, 0.88);
+  }
 }

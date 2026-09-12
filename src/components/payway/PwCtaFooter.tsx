@@ -1,4 +1,5 @@
 import { PwReveal } from "@/components/payway/pw-reveal";
+import { PwButton } from "@/components/payway/pw-button";
 
 /**
  * Section 09 — CTA + Footer.
@@ -30,16 +31,29 @@ export function PwCtaFooter() {
             "radial-gradient(100% 100% at 50% 0%, rgb(214, 239, 255) 0%, rgba(214, 239, 255, 0) 100%)",
         }}
       />
-      {/* Background video full-bleed + overlay gradasi ke ink */}
+      {/* Background video full-bleed + overlay gradasi ke ink.
+          Gradasi diperkuat lebih awal supaya blok email & baris legal
+          (teks putih) tetap terbaca di atas frame video yang terang. */}
       <div className="absolute inset-0 z-0">
-        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="none"
+          aria-hidden="true"
+          className="pw-bg-video"
+        >
           <source src="/videos/payway/footer.mp4" type="video/mp4" />
         </video>
         <div
           className="absolute inset-0 z-[1]"
-          style={{ background: "linear-gradient(rgba(4, 39, 24, 0) 33.33%, rgb(4, 39, 24) 100%)" }}
+          style={{
+            background:
+              "linear-gradient(rgba(4, 39, 24, 0) 18%, rgba(4, 39, 24, 0.55) 42%, rgba(4, 39, 24, 0.84) 62%, rgb(4, 39, 24) 84%)",
+          }}
         />
-        <div className="absolute inset-0 -z-10 bg-lightgray" />
+        <div className="absolute inset-0 -z-10 bg-[#042718]" />
       </div>
 
       {/* Blok CTA — headline, subcopy, tombol trial */}
@@ -48,39 +62,16 @@ export function PwCtaFooter() {
           <h2 className="w-full max-w-[1103px] font-semibold text-[#042718] text-[32px] sm:text-[64px] md:text-[90px] lg:text-[132px] leading-[1.1] lg:leading-[136px] tracking-[-1px] sm:tracking-[-3px] md:tracking-[-5px] lg:tracking-[-7px] mb-8 sm:mb-10">
             Mulai Transaksi dengan Saku Sultan
           </h2>
-          <p className="w-full max-w-[580px] text-[14px] sm:text-[18px] lg:text-[24px] text-[#042718] opacity-80 leading-[1.5] tracking-[-0.2px] sm:tracking-[-0.48px] mb-10 sm:mb-12">
+          <p className="w-full max-w-[580px] text-[14px] sm:text-[18px] lg:text-[24px] text-[#042718]/85 leading-[1.5] tracking-[-0.2px] sm:tracking-[-0.48px] mb-10 sm:mb-12">
             Download sekarang dan nikmati kemudahan transaksi digital. Praktis, cepat, dan aman. #PastiUNTUNG
           </p>
-          <a
+          <PwButton
             href="https://play.google.com/store/apps/details?id=com.saku_sultan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative flex items-center overflow-hidden transition-all duration-300 group cursor-pointer bg-[#042718] text-white p-2 rounded-full h-[64px] w-full lg:w-auto pl-6"
+            size="lg"
+            className="w-full justify-between lg:w-auto lg:justify-start lg:gap-6"
           >
-            <div
-              className="flex items-center gap-4 w-full lg:w-auto justify-between lg:justify-start px-4"
-              style={{ flexDirection: "row" }}
-            >
-              <span className="font-medium text-lg text-white whitespace-nowrap">Download Gratis</span>
-              <div className="flex items-center justify-center w-11 h-11 rounded-full bg-white shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#042718"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-arrow-up-right"
-                >
-                  <path d="M7 7h10v10" />
-                  <path d="M7 17 17 7" />
-                </svg>
-              </div>
-            </div>
-          </a>
+            Download Gratis
+          </PwButton>
         </PwReveal>
       </div>
 
@@ -93,28 +84,28 @@ export function PwCtaFooter() {
           >
             cs@sakusultan.id
           </a>
-          <div className="grid grid-cols-1 md:grid-cols-3 items-center w-full gap-6 md:gap-4 border-t border-white/10 mt-12 md:mt-20 lg:mt-24 pt-8 md:pt-10">
-            <p className="text-sm md:text-lg text-white opacity-80 text-center md:text-left order-2 md:order-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 items-center w-full gap-6 md:gap-4 border-t border-white/20 mt-12 md:mt-20 lg:mt-24 pt-8 md:pt-10">
+            <p className="text-sm md:text-lg text-white/90 text-center md:text-left order-2 md:order-1">
               Punya pertanyaan? Kami siap membantu.
             </p>
             <div className="flex justify-center order-1 md:order-2">
-              <span className="text-base md:text-lg text-white opacity-80">Ikuti Kami</span>
+              <span className="text-base md:text-lg text-white/90">Ikuti Kami</span>
             </div>
             <div className="flex justify-center md:justify-end gap-3 order-3">
               {/* Facebook */}
-              <a href="https://web.facebook.com/sakusultanind" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/20 transition-colors duration-300" tabIndex={0}>
+              <a href="https://web.facebook.com/sakusultanind" target="_blank" rel="noopener noreferrer" aria-label="Facebook Saku Sultan" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/20 transition-colors duration-300" tabIndex={0}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="0" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                 </svg>
               </a>
               {/* Twitter/X */}
-              <a href="https://twitter.com/sakusultanind" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/20 transition-colors duration-300" tabIndex={0}>
+              <a href="https://twitter.com/sakusultanind" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X Saku Sultan" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/20 transition-colors duration-300" tabIndex={0}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="0" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
                 </svg>
               </a>
               {/* Instagram */}
-              <a href="https://www.instagram.com/sakusultanind/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/20 transition-colors duration-300" tabIndex={0}>
+              <a href="https://www.instagram.com/sakusultanind/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Saku Sultan" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/20 transition-colors duration-300" tabIndex={0}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
@@ -122,7 +113,7 @@ export function PwCtaFooter() {
                 </svg>
               </a>
               {/* YouTube */}
-              <a href="https://www.youtube.com/channel/UCxnNwYx24S0y9Subcv04OIA" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/20 transition-colors duration-300" tabIndex={0}>
+              <a href="https://www.youtube.com/channel/UCxnNwYx24S0y9Subcv04OIA" target="_blank" rel="noopener noreferrer" aria-label="YouTube Saku Sultan" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/20 transition-colors duration-300" tabIndex={0}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff" stroke="currentColor" strokeWidth="0">
                   <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
                   <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#042718"/>
@@ -147,19 +138,19 @@ export function PwCtaFooter() {
           </span>
         </div>
         <div className="bg-transparent mt-10 lg:mt-12 pb-24 md:pb-8">
-          <div className="content-container mx-auto px-6 lg:px-12 md:pr-24 lg:pr-28 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 border-t border-white/10 pt-8">
+          <div className="content-container mx-auto px-6 lg:px-12 md:pr-24 lg:pr-28 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 border-t border-white/20 pt-8">
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 order-2 md:order-1">
-              <a href="/syarat-ketentuan" className="text-[14px] sm:text-[16px] text-white opacity-70 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+              <a href="/syarat-ketentuan" className="text-[14px] sm:text-[16px] text-white/88 hover:text-white transition-colors duration-300 whitespace-nowrap">
                 Syarat &amp; Ketentuan
               </a>
-              <a href="/kebijakan-privasi" className="text-[14px] sm:text-[16px] text-white opacity-70 hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+              <a href="/kebijakan-privasi" className="text-[14px] sm:text-[16px] text-white/88 hover:text-white transition-colors duration-300 whitespace-nowrap">
                 Kebijakan Privasi
               </a>
             </div>
-            <p className="text-[14px] sm:text-[16px] text-white opacity-70 text-center order-3 md:order-2">
+            <p className="text-[14px] sm:text-[16px] text-white/88 text-center order-3 md:order-2">
               &copy; 2026 Saku Sultan. All rights reserved.
             </p>
-            <span className="text-[14px] sm:text-[16px] font-semibold text-white opacity-80 order-1 md:order-3 whitespace-nowrap">
+            <span className="text-[14px] sm:text-[16px] font-semibold text-[#D9F36A] order-1 md:order-3 whitespace-nowrap">
               #PastiUNTUNG
             </span>
           </div>

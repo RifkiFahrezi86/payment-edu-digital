@@ -19,7 +19,7 @@ export function PwWhatsappButton() {
 
       {/* Tombol lingkaran WhatsApp */}
       <div
-        className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
+        className="pw-whatsapp-pulse w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
         style={{ animation: "whatsappPulse 2s ease-out infinite" }}
       >
         {/* Ikon WhatsApp inline SVG */}

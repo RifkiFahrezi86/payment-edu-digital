@@ -2,6 +2,7 @@
 
 import { useState, type KeyboardEvent } from "react";
 import { PwReveal } from "@/components/payway/pw-reveal";
+import { PwSectionHeader } from "@/components/payway/pw-section-header";
 
 /**
  * Section 08 — FAQ ("Everything you need to know about Payway").
@@ -59,51 +60,25 @@ export function PwFaq() {
   return (
     <section
       id="bantuan"
-      className="w-full py-16 lg:py-24 bg-white overflow-hidden scroll-mt-24 "
+      className="pw-section-y w-full bg-white overflow-hidden scroll-mt-24 "
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         {/* Header */}
-        <div className="flex flex-col items-center mb-16 lg:mb-24 text-center max-w-[800px]">
-          <PwReveal className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] mb-6">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-sparkles w-4 h-4 text-[#16A34A]"
-            >
-              <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
-              <path d="M20 3v4" />
-              <path d="M22 5h-4" />
-              <path d="M4 17v2" />
-              <path d="M5 18H3" />
-            </svg>
-            <span className="font-sans font-semibold text-sm text-[#16A34A] tracking-wider uppercase">
-            FAQ
-            </span>
-          </PwReveal>
-          <PwReveal delay={100}>
-            {/* prettier-ignore */}
-            <h2 className="font-heading text-[28px] sm:text-[42px] lg:text-[52px] font-semibold text-[#042718] leading-[1.1] sm:leading-[58px] tracking-[-0.8px] sm:tracking-[-1.8px]">Hal yang Sering Ditanyakan <br className="hidden lg:block" /> Tentang Saku Sultan</h2>
-          </PwReveal>
-          <PwReveal delay={200}>
-            {/* prettier-ignore */}
-            <p className="font-sans text-base sm:text-xl text-[#042718] opacity-70 max-w-[600px]">Temukan jawaban cepat seputar layanan, keamanan, <br className="hidden md:block" /> dan cara menggunakan Saku Sultan.</p>
-          </PwReveal>
-        </div>
+        <PwSectionHeader
+          eyebrow="FAQ"
+          title={<>Hal yang Sering Ditanyakan <br className="hidden lg:block" /> Tentang Saku Sultan</>}
+          className="mb-16 lg:mb-24 max-w-[800px]"
+        >
+          Temukan jawaban cepat seputar layanan, keamanan, dan cara menggunakan Saku Sultan.
+        </PwSectionHeader>
 
         <div className="w-full max-w-[1300px] flex flex-col lg:flex-row gap-12 lg:gap-0">
           {/* Kolom kanan — daftar accordion (order-1 di mobile) */}
           <div className="order-1 lg:order-2 w-full lg:w-[718px] lg:pl-[32px] flex flex-col gap-6">
-            <h3 className="font-heading font-semibold text-xl md:text-2xl text-[#042718]/40 mb-2">
+            <h3 className="font-heading font-semibold text-xl md:text-2xl text-[#042718]/70 mb-2">
               Pertanyaan Umum
             </h3>
-            <div className="flex flex-col gap-4 md:gap-6">
+            <div className="flex flex-col gap-2 md:gap-2.5">
               {FAQ_ITEMS.map((item, index) => {
                 const open = openIndex === index;
                 const number = `${String(index + 1).padStart(2, "0")}.`;
@@ -123,21 +98,23 @@ export function PwFaq() {
                     className={
                       open
                         ? "w-full lg:w-[686px] cursor-pointer transition-all duration-500 overflow-hidden relative p-5 md:p-6 rounded-[20px] border border-black/5 bg-[#042718] shadow-[0_4px_20px_0_rgba(0,0,0,0.06)]"
-                        : "w-full lg:w-[686px] cursor-pointer transition-all duration-500 overflow-hidden relative p-4 md:p-6 flex items-center border border-transparent"
+                        : "w-full lg:w-[686px] cursor-pointer transition-all duration-300 overflow-hidden relative px-4 md:px-6 py-3.5 md:py-4 rounded-[20px] flex items-center border border-transparent hover:border-[#0427181a] hover:bg-[#0427180a]"
                     }
                   >
                     {open ? (
                       <div className="absolute inset-0 z-0">
-                        <div className="absolute inset-0 bg-[#042718]/60 z-10" />
+                        <div className="absolute inset-0 bg-[#042718]/72 z-10" />
                         <video
                           autoPlay
                           loop
                           muted
                           playsInline
-                          className="w-full h-full object-cover opacity-60"
+                          preload="none"
+                          aria-hidden="true"
+                          className="pw-bg-video opacity-60"
                         >
                           <source
-                            src="/videos/payway/header-01-bg-payway.mp4"
+                            src="/videos/payway/header.mp4"
                             type="video/mp4"
                           />
                         </video>

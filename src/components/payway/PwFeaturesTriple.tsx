@@ -1,31 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState, type ReactElement } from "react";
 import { createPortal } from "react-dom";
 import { PwReveal } from "@/components/payway/pw-reveal";
+import { PwEyebrow } from "@/components/payway/pw-eyebrow";
+import { PwSectionHeader } from "@/components/payway/pw-section-header";
 
 /* ---- ikon lucide inline (verbatim dari markup) ---- */
-
-const sparklesIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="lucide lucide-sparkles w-4 h-4 text-[#198F38] fill-[#198F38]"
-  >
-    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
-    <path d="M20 3v4" />
-    <path d="M22 5h-4" />
-    <path d="M4 17v2" />
-    <path d="M5 18H3" />
-  </svg>
-);
 
 const zapIcon = (
   <svg
@@ -378,21 +360,31 @@ function FeatureBlock({ feature, index }: { feature: PwFeature; index: number })
   // Offset pin dinamis: kalau kartu lebih tinggi dari viewport, pin digeser
   // ke atas (negatif) supaya bagian bawah kartu — tombol Lihat Detail —
   // tetap terlihat sebelum kartu berikutnya menimpanya.
-  const [stickyTop, setStickyTop] = useState(80 + index * 20);
-
+  // Nilainya ditulis langsung ke CSS custom property, bukan ke state React,
+  // supaya resize/ResizeObserver tidak memicu re-render tiap frame.
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const update = () => {
+
+    let frame = 0;
+    const apply = () => {
+      frame = 0;
       const base = (window.innerWidth >= 768 ? 80 : 60) + index * 20;
-      setStickyTop(Math.min(base, window.innerHeight - el.offsetHeight - 24));
+      const top = Math.min(base, window.innerHeight - el.offsetHeight - 24);
+      el.style.setProperty("--pw-sticky-top", `${top}px`);
     };
-    update();
-    window.addEventListener("resize", update);
-    const ro = new ResizeObserver(update);
+    const schedule = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(apply);
+    };
+
+    apply();
+    window.addEventListener("resize", schedule, { passive: true });
+    const ro = new ResizeObserver(schedule);
     ro.observe(el);
     return () => {
-      window.removeEventListener("resize", update);
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("resize", schedule);
       ro.disconnect();
     };
   }, [index]);
@@ -407,7 +399,11 @@ function FeatureBlock({ feature, index }: { feature: PwFeature; index: number })
   }, [open]);
 
   return (
-    <div ref={wrapRef} className="sticky w-full max-w-[1248px]" style={{ top: stickyTop }}>
+    <div
+      ref={wrapRef}
+      className="pw-feature-sticky sticky w-full max-w-[1248px]"
+      style={{ top: `var(--pw-sticky-top, ${80 + index * 20}px)` }}
+    >
       <PwReveal
         className="pw-feature-card relative w-full bg-[#F6FDFF] border border-[#04271803] rounded-[30px] shadow-[0_8px_20px_0_rgba(4,39,24,0.04)] overflow-hidden"
       >
@@ -421,15 +417,10 @@ function FeatureBlock({ feature, index }: { feature: PwFeature; index: number })
       <div className={`flex flex-col ${flip ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 md:gap-14 px-6 md:px-14 py-8 md:py-12`}>
         <div className="w-full lg:w-[572px] pt-4 md:pt-[32px] flex flex-col gap-6 md:gap-8 shrink-0">
           <div className="flex flex-col">
-            <div className="flex items-center gap-2 bg-[#198F380F] pl-[14px] pr-[16px] py-[6px] rounded-full border border-[#198F381A] w-fit mb-4">
-              {sparklesIcon}
-              <span className="font-sans font-normal text-base text-[#198F38] tracking-[-0.3px]">
-                {feature.label}
-              </span>
-            </div>
-            <h4 className="max-w-[432px] font-semibold text-[32px] md:text-[42px] leading-[38px] md:leading-[48px] tracking-[-1.2px] md:tracking-[-2px] text-[#042718] mb-3">
+            <PwEyebrow className="mb-4">{feature.label}</PwEyebrow>
+            <h3 className="max-w-[432px] font-semibold text-[32px] md:text-[42px] leading-[38px] md:leading-[48px] tracking-[-1.2px] md:tracking-[-2px] text-[#042718] mb-3">
               {feature.title}
-            </h4>
+            </h3>
             <p className="max-w-[508px] font-sans text-base leading-7 text-[#042718cc]">
               {feature.shortDescription}
             </p>
@@ -493,13 +484,13 @@ function FeatureBlock({ feature, index }: { feature: PwFeature; index: number })
             <div
               className={`absolute -inset-3 md:-inset-4 rounded-[28px] bg-gradient-to-br from-[#198F3821] via-[#D6EFFF59] to-[#198F380a] ${flip ? "-rotate-3" : "rotate-3"}`}
             />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               alt={feature.imageAlt}
-              loading="lazy"
-              decoding="async"
-              className={`relative w-auto max-w-full max-h-[320px] md:max-h-[420px] object-contain rounded-[20px] shadow-[0_16px_36px_0_rgba(4,39,24,0.14)] transition-transform duration-500 hover:rotate-0 hover:scale-[1.02] ${flip ? "rotate-2" : "-rotate-2"}`}
               src={feature.imageSrc}
+              width={860}
+              height={860}
+              sizes="(min-width: 1024px) 560px, 90vw"
+              className={`relative h-auto w-auto max-w-full max-h-[320px] md:max-h-[420px] object-contain rounded-[20px] shadow-[0_16px_36px_0_rgba(4,39,24,0.14)] transition-transform duration-500 hover:rotate-0 hover:scale-[1.02] ${flip ? "rotate-2" : "-rotate-2"}`}
             />
           </PwReveal>
         </div>
@@ -571,22 +562,13 @@ export function PwFeaturesTriple() {
   return (
     <section
       id="fitur"
-      className="w-full bg-white flex flex-col items-center py-24 gap-16 scroll-mt-24"
+      className="pw-section-y w-full bg-white flex flex-col items-center gap-16 scroll-mt-24"
     >
       <div className="w-full max-w-[1440px] px-6 lg:px-[96px] flex flex-col items-center gap-[64px]">
-        <div className="flex flex-col items-center text-center gap-6">
-          <PwReveal className="flex items-center gap-2 bg-[#198F380F] pl-[14px] pr-[16px] py-[6px] rounded-full border border-[#198F381A]">
-            {sparklesIcon}
-            <span className="font-sans font-normal text-base text-[#198F38] tracking-[-0.3px]">
-              Fitur Unggulan
-            </span>
-          </PwReveal>
-          <PwReveal className="w-full max-w-[760px]" delay={100}>
-            <h2 className="w-full font-semibold text-[32px] md:text-[42px] lg:text-[52px] leading-[38px] md:leading-[48px] lg:leading-[58px] tracking-[-1.2px] md:tracking-[-1.8px] text-[#042718]">
-              Fitur Saku Sultan yang Sesuai dengan Kebutuhan Harian
-            </h2>
-          </PwReveal>
-        </div>
+        <PwSectionHeader
+          eyebrow="Fitur Unggulan"
+          title="Fitur Saku Sultan yang Sesuai dengan Kebutuhan Harian"
+        />
         <div className="flex flex-col gap-12 w-full items-center">
           {PW_FEATURES.map((feature, index) => (
             <FeatureBlock key={feature.title} feature={feature} index={index} />
