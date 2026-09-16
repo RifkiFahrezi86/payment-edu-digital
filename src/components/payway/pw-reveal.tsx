@@ -8,6 +8,11 @@ import { cn } from "@/lib/utils";
  * Original merender elemen dengan opacity/transform via framer-motion;
  * di sini: IntersectionObserver + kelas .pw-reveal/.pw-in (payway.css),
  * threshold 0.2, sekali jalan (unobserve setelah masuk).
+ *
+ * Fallback wajib: di HP, observer bisa gagal memicu (race hydration saat
+ * browser lompat langsung ke section via #hash, in-app webview dengan
+ * IntersectionObserver yang tidak stabil, dll) sehingga elemen mentok di
+ * opacity 0 selamanya. Timer pengaman memaksa tampil walau observer diam.
  */
 export function PwReveal({
   children,
@@ -26,19 +31,36 @@ export function PwReveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const reveal = () => el.classList.add("pw-in");
+
+    if (typeof IntersectionObserver === "undefined") {
+      reveal();
+      return;
+    }
+
+    // Jaring pengaman: jika observer tidak pernah melaporkan interseksi
+    // (race hydration, browser aneh, dll), tetap paksa tampil.
+    const safetyTimer = window.setTimeout(reveal, 1800 + delay);
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            window.setTimeout(() => el.classList.add("pw-in"), delay);
+            window.clearTimeout(safetyTimer);
+            window.setTimeout(reveal, delay);
             io.unobserve(el);
           }
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" },
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(safetyTimer);
+    };
   }, [delay]);
 
   return (
