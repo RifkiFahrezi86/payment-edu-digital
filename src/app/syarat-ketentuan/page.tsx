@@ -587,6 +587,15 @@ export default function TermsPage() {
           }}
         />
         <div className="relative mx-auto flex max-w-[1440px] flex-col items-center px-4 text-center sm:px-6 lg:px-8">
+          <PwReveal className="mb-6 w-full max-w-[720px] text-left">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white/80 backdrop-blur-sm transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+            >
+              <ChevronRightIcon className="h-4 w-4 rotate-180" />
+              Kembali ke Beranda
+            </Link>
+          </PwReveal>
           <PwReveal>
             <PwEyebrow tone="media" className="mb-5">
               Legal

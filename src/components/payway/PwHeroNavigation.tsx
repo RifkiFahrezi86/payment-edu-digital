@@ -42,6 +42,9 @@ export function PwHeroNavigation() {
 
   const closeMenu = () => setIsOpen(false);
 
+  /** Di luar halaman utama, hash link harus diarahkan balik ke "/" dulu. */
+  const resolveHref = (hash: string) => (pathname === "/" ? hash : `/${hash}`);
+
   const isItemActive = (href: string) => {
     if (pathname !== "/") return false;
     if (activeHash === href) return true;
@@ -190,7 +193,7 @@ export function PwHeroNavigation() {
       >
         <div className="flex items-center lg:gap-10 xl:gap-12">
           <a
-            href="#beranda"
+            href={resolveHref("#beranda")}
             onClick={(e) => handleNavClick(e, "#beranda")}
             className="flex w-[150px] items-center gap-2.5 py-2 sm:w-[172px] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/20"
             aria-label="Saku Sultan, kembali ke beranda"
@@ -215,7 +218,7 @@ export function PwHeroNavigation() {
               return (
                 <a
                   key={item.label}
-                  href={item.href}
+                  href={resolveHref(item.href)}
                   aria-current={active ? "page" : undefined}
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`saku-hero-nav-link saku-hero-nav-text py-2 text-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/20 ${
@@ -275,7 +278,7 @@ export function PwHeroNavigation() {
                 return (
                   <a
                     key={item.label}
-                    href={item.href}
+                    href={resolveHref(item.href)}
                     aria-current={active ? "page" : undefined}
                     onClick={(e) => handleNavClick(e, item.href)}
                     className={`flex min-h-12 items-center justify-between border-b border-[#0A5332]/10 px-3 text-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/20 ${
