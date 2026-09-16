@@ -2,7 +2,12 @@
 
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
-import { ShieldCheckIcon, ChevronRightIcon } from "@/components/payway/pw-icons";
+import { ChevronRightIcon } from "@/components/payway/pw-icons";
+import { PwHeroNavigation } from "@/components/payway/PwHeroNavigation";
+import { PwCtaFooter } from "@/components/payway/PwCtaFooter";
+import { PwWhatsappButton } from "@/components/payway/PwWhatsappButton";
+import { PwReveal } from "@/components/payway/pw-reveal";
+import { PwEyebrow } from "@/components/payway/pw-eyebrow";
 
 interface Entry {
   label?: string;
@@ -569,24 +574,38 @@ export default function TermsPage() {
     setOpenSlugs((prev) => ({ ...prev, [slug]: true }));
 
   return (
-    <main className="min-h-screen bg-[#FBFEFF] px-6 py-16 text-[#042718]">
-      <div className="mx-auto max-w-3xl">
-        <header className="mb-10 text-center sm:text-left">
-          <div className="mx-auto mb-5 flex w-fit items-center gap-2 rounded-full border border-[#198F381A] bg-[#198F380F] px-4 py-1.5 text-[#198F38] sm:mx-0">
-            <ShieldCheckIcon className="h-4 w-4" />
-            <span className="text-sm font-medium">Saku Sultan &middot; Legal</span>
-          </div>
-          <h1 className="font-heading text-4xl font-semibold tracking-tight text-[#042718] sm:text-5xl">
-            Syarat &amp; Ketentuan
-          </h1>
-          <p className="mt-3 text-lg font-medium text-[#042718]/70">
-            Aplikasi SAKU SULTAN
-          </p>
-          <p className="mt-1 text-sm text-[#042718]/50">
-            Berlaku efektif sejak 01 Januari 2023
-          </p>
-        </header>
+    <main className="w-full overflow-x-clip bg-[#FBFEFF]">
+      <PwHeroNavigation />
 
+      {/* Hero band gelap — selaras dengan nuansa hero halaman utama */}
+      <section className="relative w-full overflow-hidden bg-[#042718] pb-16 pt-[132px] sm:pb-20 sm:pt-[156px]">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-40"
+          style={{
+            background:
+              "radial-gradient(100% 100% at 50% 0%, rgba(214,239,255,0.28) 0%, rgba(214,239,255,0) 70%)",
+          }}
+        />
+        <div className="relative mx-auto flex max-w-[1440px] flex-col items-center px-4 text-center sm:px-6 lg:px-8">
+          <PwReveal>
+            <PwEyebrow tone="media" className="mb-5">
+              Legal
+            </PwEyebrow>
+          </PwReveal>
+          <PwReveal delay={100}>
+            <h1 className="max-w-[720px] font-heading text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              Syarat &amp; Ketentuan
+            </h1>
+          </PwReveal>
+          <PwReveal delay={200}>
+            <p className="mt-4 max-w-[560px] text-base text-white/70 sm:text-lg">
+              Aplikasi SAKU SULTAN &middot; berlaku efektif sejak 01 Januari 2023
+            </p>
+          </PwReveal>
+        </div>
+      </section>
+
+      <div className="pw-section-y mx-auto max-w-3xl px-6 text-[#042718]">
         <div className="mb-8 space-y-4 rounded-3xl border border-[#042718]/10 bg-white p-6 sm:p-8">
           {INTRO_PARAGRAPHS.map((paragraph, index) => (
             <p key={index} className="leading-7 text-[#042718]/80">
@@ -671,6 +690,9 @@ export default function TermsPage() {
           })}
         </div>
       </div>
+
+      <PwCtaFooter />
+      <PwWhatsappButton />
     </main>
   );
 }
