@@ -176,7 +176,7 @@ export function PwTestimonials() {
           ref={trackRef}
           className="w-full max-w-[1248px] overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth"
         >
-          <div className="flex -ml-4 lg:-ml-6 items-start min-w-max pr-4">
+          <div className="flex -ml-4 lg:-ml-6 items-start pr-4">
             {PW_TESTIMONIALS.map((testimonial, index) => (
               <PwReveal
                 key={testimonial.name}
