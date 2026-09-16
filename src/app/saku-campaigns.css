@@ -186,200 +186,461 @@
   content: "";
 }
 
-/* Decorative documents: the legal process stays in real text alongside them. */
+/* Proportional document scene: one scale keeps every layer aligned on mobile. */
 .edu-legal-visual {
   position: relative;
-  min-height: 510px;
-  perspective: 1000px;
+  width: 100%;
+  align-self: center;
+  container-type: inline-size;
+}
+
+.edu-legal-stage {
+  --edu-brand-green: #113112;
+  --edu-brand-lime: #c3dc08;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 600 / 560;
+  font-size: 1cqw;
   background:
-    linear-gradient(180deg, transparent 77%, #dfcead 78%, #fff9ed 79%, #c2b69e 100%),
-    linear-gradient(90deg, #fff0 0%, #e4dfd2aa 35%, #c2bda9 100%);
+    radial-gradient(ellipse at 65% 46%, #dfe9b870, transparent 65%),
+    radial-gradient(ellipse at 75% 70%, #c7d6c870, transparent 58%);
 }
 
 .edu-office-window {
   position: absolute;
   z-index: -1;
-  inset: -165px 30% 25% -10%;
-  transform: skewY(-8deg);
-  background: repeating-linear-gradient(90deg, #f8fffa, #f8fffa 64px, #c7ddd3 66px, #dce9e2 78px);
-  filter: blur(3px);
-  opacity: 0.7;
+  inset: -10% 0 12% 16%;
+  transform: skewY(-5deg);
+  background: repeating-linear-gradient(90deg, #ffffff99 0 16%, #cfddd250 17%, #eff5ed55 18% 20%);
+  mask-image: radial-gradient(ellipse, #000 30%, transparent 72%);
+  filter: blur(0.35em);
 }
 
 .edu-office-brand {
   position: absolute;
-  top: -30px;
-  right: 2%;
-  transform: rotate(-6deg) scale(0.72);
-  transform-origin: top right;
-  filter: drop-shadow(4px 6px 2px #152b253b);
+  top: 2%;
+  right: 9%;
+  display: flex;
+  width: 43%;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.8em 2.2em 1.5em;
+  transform: rotate(-3deg);
+  border: 1px solid #9bac7790;
+  border-radius: 1.1em;
+  background: linear-gradient(130deg, #294728, var(--edu-brand-green) 65%);
+  box-shadow: 0 0.6em 0 #09240f, 0 2em 3.8em #0e2e1922, inset 0 1px #ffffff30;
+}
+
+.edu-office-brand > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.edu-office-brand > span {
+  margin-top: 0.8em;
+  color: #d9e4c1;
+  font-size: 1.2em;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+}
+
+.edu-display-plinth {
+  position: absolute;
+  right: -1%;
+  bottom: 4%;
+  left: 1%;
+  height: 20%;
+  border: 1px solid #c3cec1;
+  border-radius: 50% / 27%;
+  background: linear-gradient(90deg, #a6b4a3, #e8eee1 18%, #f0f2e6 53%, #b8c9ae 90%, #829a81);
+  box-shadow: 0 3em 4em -1.5em #1d3c2a33, inset 0 -0.5em 0.8em #637a5922;
+}
+
+.edu-display-plinth::before {
+  position: absolute;
+  inset: -1px -1px 25%;
+  border: 1px solid #fff;
+  border-bottom-color: #bac8b3;
+  border-radius: 50% / 36%;
+  background:
+    radial-gradient(ellipse at 48% 44%, #173a231e, transparent 60%),
+    linear-gradient(155deg, #fffef8, #eef2e4 65%, #dce6d4);
+  content: "";
 }
 
 .edu-document {
   position: absolute;
-  top: 110px;
+  top: 26%;
   display: flex;
-  width: 185px;
-  height: 288px;
+  width: 29%;
+  height: 53%;
   align-items: center;
   flex-direction: column;
-  padding: 22px 16px;
-  border: 8px solid #f7f2e6;
-  outline: 1px solid #c6ba9d;
-  background: #fffefa;
-  box-shadow: 5px 10px 16px #10281f33, inset 0 0 0 1px #d6c79e;
-  color: #172520;
+  padding: 3.6em 2.7em;
+  border: 0.8em solid #f8f7ee;
+  outline: 1px solid #cfc4a4;
+  background:
+    repeating-linear-gradient(0deg, #ae997508 0 1px, transparent 1px 3px),
+    linear-gradient(120deg, #fffefa, #faf7ed 75%, #efeadb);
+  box-shadow: 0.6em 0.5em 0 #e6e4d8, 0.8em 0.65em 0 #bec4b4, 1.5em 2em 3em #102b2420;
+  color: #173a2a;
   text-align: center;
 }
 
+.edu-document::before {
+  position: absolute;
+  inset: 0.5em;
+  border: 1px solid #c9b777;
+  outline: 1px solid #c9b77755;
+  outline-offset: 0.55em;
+  content: "";
+}
+
 .edu-document-kbli {
-  right: 0;
-  transform: rotate(-4deg);
+  right: 2%;
+  transform: rotate(3deg);
 }
 
 .edu-document-nib {
-  top: 84px;
-  right: 25%;
-  transform: rotate(-8deg);
+  z-index: 1;
+  top: 21%;
+  right: 26%;
+  transform: rotate(-6deg);
 }
 
 .edu-document-crest {
-  color: #a67a2d;
-  font-size: 30px;
+  display: grid;
+  width: 5em;
+  height: 5em;
+  flex-shrink: 0;
+  margin-bottom: 1.5em;
+  place-items: center;
+  border: 1px solid #b3a06888;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f6edcd, #e9dba9);
+  color: #8b7744;
+}
+
+.edu-document-crest > svg {
+  width: 2.9em;
+  height: 2.9em;
+}
+
+.edu-document-kicker {
+  margin: 0.6em 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .edu-document > strong {
-  margin-top: 8px;
-  font-size: 23px;
-  letter-spacing: 0.03em;
+  margin-top: 0.2em;
+  font-size: 4em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
 }
 
 .edu-document > small {
-  margin-top: 4px;
-  font-size: 7px;
+  margin-top: 0.7em;
+  font-size: 1.15em;
+  letter-spacing: 0.025em;
+  line-height: 1.6;
   text-transform: uppercase;
 }
 
 .edu-oss {
-  color: #144693;
-  font-size: 26px;
+  color: #275a57;
+  font-size: 3em;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
 }
 
 .edu-document-lines {
+  display: flex;
   width: 100%;
-  height: 84px;
-  margin-top: 20px;
-  background: repeating-linear-gradient(180deg, #a7aea1 0 1px, transparent 1px 7px);
-  opacity: 0.45;
+  flex-direction: column;
+  gap: 0.9em;
+  margin-top: 3em;
+}
+
+.edu-document-lines > i {
+  height: 1px;
+  background: #8a99845c;
+}
+
+.edu-document-lines > i:nth-child(3n) {
+  width: 76%;
+  margin-bottom: 0.7em;
+}
+
+.edu-document-signature {
+  position: absolute;
+  bottom: 5em;
+  left: 3em;
+  width: 7em;
+  height: 2em;
+  transform: rotate(-12deg) skewX(-25deg);
+  border-top: 1px solid #496d594f;
+  border-bottom: 1px solid #496d5977;
+  border-radius: 50%;
 }
 
 .edu-document-seal {
   position: absolute;
-  right: 16px;
-  bottom: 15px;
-  width: 32px;
-  color: #516959;
+  right: 2.7em;
+  bottom: 2.7em;
+  display: grid;
+  width: 5.3em;
+  height: 5.3em;
+  place-items: center;
+  border: 1px dashed #aa9151;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 20%, #fff2c2, #d6b975);
+  box-shadow: inset 0 0 0 0.4em #fff8dc77;
+  color: #806931;
+}
+
+.edu-document-seal > svg {
+  width: 2.8em;
+  height: 2.8em;
 }
 
 .edu-notary-book {
   position: absolute;
   z-index: 2;
-  top: 65px;
-  left: 0;
-  display: flex;
-  width: 205px;
-  height: 335px;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  transform: rotateY(-15deg) rotateZ(7deg);
-  border: 9px solid #172521;
-  border-left: 14px solid #091811;
-  outline: 2px solid #b19652;
-  background: linear-gradient(135deg, #263833, #0b1513 75%);
-  box-shadow: inset 0 0 0 2px #a58a48, 10px 20px 22px #06211944;
-  color: #dfc176;
-  font-family: Georgia, serif;
-  font-size: 18px;
-  line-height: 1.4;
+  top: 19%;
+  left: 4%;
+  width: 35%;
+  height: 65%;
+  transform: perspective(1000px) rotateY(-10deg) rotateZ(6deg);
+  border: 0.7em solid #15341e;
+  border-left: 2em solid #0b2514;
+  border-radius: 0.6em 1em 1em 0.6em;
+  background: #12301a;
+  box-shadow: -0.3em 0.1em 0 #6a7757, 0.5em 0.6em 0 #0b2112, 1.8em 2.8em 3.5em #0c2b2633;
+  color: #e2c886;
   text-align: center;
   text-transform: uppercase;
 }
 
-.edu-notary-book > svg {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 8px;
+.edu-notary-book::before {
+  position: absolute;
+  top: 1.1em;
+  right: -1.5em;
+  bottom: 0.3em;
+  width: 1.5em;
+  transform: skewY(24deg);
+  border-right: 0.45em solid #19331d;
+  background: repeating-linear-gradient(0deg, #ede8d5 0 1px, #bbbda9 1px 2px);
+  content: "";
 }
 
-.edu-notary-book > strong {
-  font-size: 28px;
+.edu-notary-cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3em 1.7em;
+  border: 1px solid #bea369;
+  border-radius: 0.4em;
+  background:
+    linear-gradient(125deg, #b8d28015, transparent 48%),
+    repeating-radial-gradient(ellipse at 25% 20%, #bec98708 0 1px, transparent 1px 3px),
+    linear-gradient(120deg, #17391e, #113112 55%, #0c2514);
+  box-shadow: inset 0 0 0 0.8em #102d18, inset 0 0 0 0.95em #9e8a4d88;
+}
+
+.edu-notary-logo {
+  display: block;
+  width: 10em;
+  height: 10em;
+  margin-bottom: 1.1em;
+  border-radius: 1.8em;
+  object-fit: contain;
+}
+
+.edu-notary-brand {
+  margin-bottom: 2.4em;
+  color: #e9efd6;
+  font-size: 1.35em;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.edu-notary-heading {
+  font-family: Georgia, serif;
+  font-size: 2.5em;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  text-shadow: 0 1px #061b0d;
+}
+
+.edu-notary-cover > strong {
+  margin-top: 0.35em;
+  font-family: Georgia, serif;
+  font-size: 4.2em;
   font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 1.25;
+  text-shadow: 0 1px #061b0d;
 }
 
-.edu-notary-book > i {
-  width: 44px;
-  height: 2px;
-  background: #c9a557;
+.edu-notary-subtitle {
+  margin-top: 0.8em;
+  font-family: Georgia, serif;
+  font-size: 2em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.edu-notary-ornament {
+  position: relative;
+  width: 8em;
+  height: 1px;
+  margin-top: 3em;
+  background: linear-gradient(90deg, transparent, #d0b271 20% 80%, transparent);
+}
+
+.edu-notary-ornament::after {
+  position: absolute;
+  top: -0.35em;
+  left: calc(50% - 0.35em);
+  width: 0.7em;
+  height: 0.7em;
+  transform: rotate(45deg);
+  background: #d0b271;
+  content: "";
 }
 
 .edu-book-stack {
   position: absolute;
   z-index: 3;
-  right: -12px;
-  bottom: 24px;
-  width: 235px;
-  transform: rotate(-3deg);
+  right: 0;
+  bottom: 14%;
+  width: 45%;
+  transform: rotate(-2deg);
+  filter: drop-shadow(0.8em 1.4em 1em #0e2f2430);
 }
 
-.edu-book-stack > span {
-  display: block;
-  margin-top: 3px;
-  padding: 9px 22px;
-  border: 1px solid #8b773e;
-  border-radius: 7px 2px 2px 7px;
-  background: linear-gradient(180deg, #34483a, #10231c 30%, #05190f 80%, #516045);
-  box-shadow: 3px 4px 8px #07261f33, inset 5px 0 #a58c52, inset 8px 0 #0c2118;
-  color: #e8c675;
+.edu-stack-book {
+  position: relative;
+  display: flex;
+  height: 7.2em;
+  align-items: center;
+  gap: 1.7em;
+  margin-top: 0.65em;
+  padding: 0 7em 0 3em;
+  border: 1px solid #af985e;
+  border-radius: 1.4em 0.35em 0.35em 1.4em;
+  background:
+    linear-gradient(90deg, #0d2518, #23452b 7%, #152f1d 11%, transparent 12%),
+    linear-gradient(180deg, #496443, #16381c 20%, #0c2917 78%, #627245);
+  box-shadow: inset 0 0.35em 0 #74845a44, inset 0 -0.3em 0 #081f1266;
+  color: #e8d59a;
+}
+
+.edu-stack-book:first-child::before {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 1px);
+  left: 0.8em;
+  height: 1.4em;
+  transform: skewX(-24deg);
+  transform-origin: bottom;
+  border: 1px solid #91a06b;
+  border-radius: 0.5em 0.7em 0 0;
+  background: linear-gradient(0deg, #29472b, #5f754f);
+  content: "";
+}
+
+.edu-stack-book:nth-child(2n) {
+  transform: translateX(-0.8em);
+}
+
+.edu-stack-book-number {
+  padding-block: 0.5em;
+  border-block: 1px solid #a89c6180;
+  color: #c2ba7d;
+  font-size: 1.25em;
+  letter-spacing: 0.1em;
+}
+
+.edu-stack-book-title {
+  flex: 1;
   font-family: Georgia, serif;
-  font-size: 19px;
+  font-size: 2.6em;
+  line-height: 1;
   text-align: center;
+  text-shadow: 0 1px #00170a;
   text-transform: uppercase;
+}
+
+.edu-stack-book-pages {
+  position: absolute;
+  top: 0.9em;
+  right: 0.1em;
+  bottom: 0.9em;
+  width: 4.3em;
+  border-left: 0.6em solid #b5b98c;
+  border-radius: 0.3em 0 0 0.3em;
+  background: repeating-linear-gradient(0deg, #e5e4ce 0 1px, #bdbfa2 1px 2px);
+  box-shadow: inset 0.5em 0 0.8em #6f78512b;
 }
 
 .edu-desk-pen {
   position: absolute;
-  bottom: 64px;
-  left: 7%;
-  width: 195px;
-  height: 11px;
-  transform: rotate(10deg);
-  border-right: 30px solid #bf994d;
-  border-radius: 60% 12px 12px 60%;
-  background: linear-gradient(#081c11, #687368 45%, #06150e 75%);
-  box-shadow: 0 7px 6px #15261355;
-}
-
-.edu-plant {
-  position: absolute;
   z-index: 4;
-  right: -65px;
-  bottom: 20px;
-  width: 75px;
-  height: 210px;
-  transform: rotate(-28deg);
-  border-radius: 0 100% 0 100%;
-  background: linear-gradient(95deg, #568a15, #90bc2a 48%, #1a622e 51%, #28511e);
-  filter: blur(1px);
+  bottom: 12%;
+  left: 10%;
+  width: 35%;
+  height: 1.7em;
+  transform: rotate(8deg);
+  border-right: 1.1em solid #c3a364;
+  border-left: 0.4em solid #c3a364;
+  border-radius: 0.6em;
+  background: linear-gradient(#10271a, #768471 34%, #27422c 46%, #0a2112 74%);
+  box-shadow: 0 1.3em 0.8em -0.2em #163a2938;
 }
 
-.edu-plant-two {
-  right: -35px;
-  bottom: -80px;
-  transform: rotate(-70deg) scale(0.85);
+.edu-desk-pen::before {
+  position: absolute;
+  top: 0;
+  left: -3.5em;
+  width: 3.5em;
+  height: 100%;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  background: linear-gradient(#ad8b43, #f5e1a4 42%, #a8843d 48%, #e1c786);
+  content: "";
+}
+
+.edu-desk-pen::after {
+  position: absolute;
+  top: -0.2em;
+  right: 1em;
+  width: 9em;
+  height: 0.5em;
+  border-radius: 1em;
+  background: linear-gradient(#fae6af, #b4914c);
+  content: "";
+}
+
+.edu-desk-pen > span {
+  position: absolute;
+  top: 0;
+  right: 36%;
+  width: 0.8em;
+  height: 100%;
+  background: linear-gradient(#927438, #fff0bd 35%, #b49b5a 60%, #796332);
 }
 
 .edu-campaign-footer {
@@ -700,24 +961,27 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
+  gap: 7px;
   transform: rotate(-9deg);
-  border: 2px solid #e8d296;
+  border: 1px solid #b1ce64;
   border-radius: 22px;
-  background: linear-gradient(130deg, #fff, #fff9eb);
-  box-shadow: 4px 7px 0 #b59a43, 5px 10px 15px #082c2833;
+  background: linear-gradient(130deg, #284523, #113112 70%);
+  box-shadow: 3px 5px 0 #092710, 5px 10px 15px #082c2833, inset 0 1px #e1eecb55;
+  color: #fff;
   text-align: center;
 }
 
-.edu-sponsor-badge > svg {
-  width: 36px;
-  height: 36px;
-  color: #b28b15;
+.edu-sponsor-badge > img {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: contain;
 }
 
 .edu-sponsor-badge > strong {
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
   line-height: 1.2;
 }
 
@@ -768,6 +1032,18 @@
 .edu-benefit-icon > svg {
   width: 36px;
   height: 36px;
+}
+
+.edu-benefit-brand-icon {
+  overflow: hidden;
+  border-radius: 16px;
+  background: #113112;
+}
+
+.edu-benefit-brand-icon > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .edu-benefit > h4 {
@@ -1293,14 +1569,6 @@
   .edu-learning-motto { gap: 10px; font-size: 9px; letter-spacing: 0.16em; }
   .edu-future-motto { font-size: 9px; }
   .edu-legal-content { grid-template-columns: 1.2fr 1fr; gap: 20px; }
-  .edu-legal-visual { min-height: 500px; }
-  .edu-notary-book { top: 125px; left: -5px; width: 170px; height: 280px; font-size: 15px; }
-  .edu-notary-book > strong { font-size: 24px; }
-  .edu-document { top: 150px; width: 145px; height: 245px; }
-  .edu-document-nib { top: 120px; }
-  .edu-book-stack { right: -10px; bottom: 45px; width: 190px; }
-  .edu-book-stack > span { padding-block: 8px; font-size: 15px; }
-  .edu-desk-pen { bottom: 47px; width: 135px; }
   .edu-step-icon { width: 64px; height: 64px; }
   .edu-step-icon > svg { width: 34px; height: 34px; }
   .edu-legal-steps > li { font-size: 11px; }
@@ -1347,13 +1615,7 @@
   .edu-legal-steps > li { font-size: 13px; }
   .edu-step-icon { width: 76px; height: 76px; }
   .edu-legal-steps > li:not(:last-child)::after { top: 30px; }
-  .edu-legal-visual { width: 100%; max-width: 600px; min-height: 450px; margin-inline: auto; }
-  .edu-notary-book { top: 80px; left: 10%; width: 185px; height: 300px; }
-  .edu-document { top: 105px; width: 170px; height: 260px; }
-  .edu-document-nib { top: 90px; }
-  .edu-book-stack { bottom: 24px; width: 215px; }
-  .edu-office-brand { top: -5px; }
-  .edu-office-window { inset: 0 10% 20% 0; }
+  .edu-legal-visual { max-width: 600px; margin-inline: auto; }
   .edu-campaign-footer { background: linear-gradient(110deg, #146327, #064021); color: white; }
   .edu-trust-values { flex-wrap: wrap; justify-content: flex-end; }
   .edu-join-layout { grid-template-columns: minmax(0, 1fr); }
@@ -1407,22 +1669,7 @@
   .edu-legal-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 20px; }
   .edu-legal-steps > li { font-size: 12px; }
   .edu-legal-steps > li:not(:last-child)::after { display: none; }
-  .edu-legal-visual { min-height: 330px; margin-top: 10px; }
-  .edu-office-brand { top: 0; transform: scale(0.6) rotate(-6deg); }
-  .edu-notary-book { top: 80px; left: 0; width: 125px; height: 207px; gap: 7px; border-width: 6px; font-size: 11px; }
-  .edu-notary-book > svg { width: 32px; height: 32px; margin: 0; }
-  .edu-notary-book > strong { font-size: 19px; }
-  .edu-document { top: 95px; width: 108px; height: 180px; border-width: 5px; padding: 8px; }
-  .edu-document-nib { top: 75px; right: 24%; }
-  .edu-document-crest { font-size: 19px; }
-  .edu-oss { font-size: 18px; }
-  .edu-document > strong { font-size: 16px; }
-  .edu-document > small { font-size: 5px; }
-  .edu-document-lines { height: 40px; margin-top: 10px; }
-  .edu-document-seal { width: 22px; bottom: 10px; }
-  .edu-book-stack { right: -7px; bottom: 17px; width: 145px; }
-  .edu-book-stack > span { margin-top: 1px; padding: 6px 10px; font-size: 11px; }
-  .edu-desk-pen { width: 98px; height: 7px; bottom: 18px; }
+  .edu-legal-visual { margin-top: 10px; }
   .edu-campaign-footer { flex-direction: column; align-items: flex-start; gap: 18px; margin-inline: -20px; padding: 22px 20px; }
   .edu-campaign-footer > p { max-width: none; }
   .edu-trust-values { gap: 8px; justify-content: flex-start; }
