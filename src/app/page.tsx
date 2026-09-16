@@ -2,6 +2,7 @@ import { PwHero } from "@/components/payway/PwHero";
 import { PwHeroNavigation } from "@/components/payway/PwHeroNavigation";
 import { PwInsights } from "@/components/payway/PwInsights";
 import { PwProcess } from "@/components/payway/PwProcess";
+import { PwOnboardingSteps } from "@/components/payway/PwOnboardingSteps";
 import { PwFeaturesTriple } from "@/components/payway/PwFeaturesTriple";
 import { PwTestimonials } from "@/components/payway/PwTestimonials";
 import { PwCharts } from "@/components/payway/PwCharts";
@@ -23,6 +24,7 @@ export default function PaywayPage() {
       <div id="fitur" className="scroll-mt-24">
         <PwEduDigi />
         <PwPricing />
+        <PwOnboardingSteps />
         <PwProcess />
         <PwFeaturesTriple />
       </div>
