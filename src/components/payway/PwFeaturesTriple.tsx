@@ -196,7 +196,7 @@ type PwFeature = {
 const PW_FEATURES: PwFeature[] = [
   {
     label: "EduDigi",
-    title: "EduDigi",
+    title: "Edukasi Digital",
     shortDescription:
       "Belajar menggunakan layanan digital dengan aman, bijak, dan bertanggung jawab.",
     description:
