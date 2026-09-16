@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.saku_sultan";
@@ -13,17 +14,154 @@ const NAV_LINKS = [
   { label: "Bantuan", href: "#bantuan" },
 ] as const;
 
+const SECTIONS = [
+  { id: "beranda", href: "#beranda" },
+  { id: "fitur", href: "#fitur" },
+  { id: "promo", href: "#promo" },
+  { id: "bantuan", href: "#bantuan" },
+] as const;
+
+function normalizeHash(hash: string): string {
+  const clean = hash.toLowerCase().replace(/^#/, "");
+  if (clean === "fitur" || clean === "produk") return "#fitur";
+  if (clean === "promo") return "#promo";
+  if (clean === "bantuan" || clean === "faq") return "#bantuan";
+  if (clean === "beranda" || clean === "hero") return "#beranda";
+  return "";
+}
+
 export function PwHeroNavigation() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeHash, setActiveHash] = useState<string>("#beranda");
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const isClickingRef = useRef(false);
+  const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastSectionRef = useRef<string>("#beranda");
+
+  const closeMenu = () => setIsOpen(false);
+
+  const isItemActive = (href: string) => {
+    if (pathname !== "/") return false;
+    if (activeHash === href) return true;
+    if (href === "#fitur" && activeHash === "#produk") return true;
+    return false;
+  };
+
+  const handleNavClick = (
+    _e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    const normalized = normalizeHash(href) || href;
+    setActiveHash(normalized);
+    lastSectionRef.current = normalized;
+
+    isClickingRef.current = true;
+    if (clickTimeoutRef.current) {
+      clearTimeout(clickTimeoutRef.current);
+    }
+    clickTimeoutRef.current = setTimeout(() => {
+      isClickingRef.current = false;
+    }, 1000);
+
+    closeMenu();
+  };
+
+  const updateActiveSection = useCallback(() => {
+    if (isClickingRef.current) return;
+
+    if (window.scrollY < 80) {
+      if (lastSectionRef.current !== "#beranda") {
+        lastSectionRef.current = "#beranda";
+        setActiveHash("#beranda");
+        if (typeof window !== "undefined" && window.history?.replaceState) {
+          window.history.replaceState(null, "", window.location.pathname);
+        }
+      }
+      return;
+    }
+
+    const isBottom =
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 60;
+    if (isBottom) {
+      if (lastSectionRef.current !== "#bantuan") {
+        lastSectionRef.current = "#bantuan";
+        setActiveHash("#bantuan");
+        if (typeof window !== "undefined" && window.history?.replaceState) {
+          window.history.replaceState(null, "", "#bantuan");
+        }
+      }
+      return;
+    }
+
+    let current = "#beranda";
+    for (const section of SECTIONS) {
+      const el = document.getElementById(section.id);
+      if (!el) continue;
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= 160) {
+        current = section.href;
+      }
+    }
+
+    if (current !== lastSectionRef.current) {
+      lastSectionRef.current = current;
+      setActiveHash(current);
+      if (typeof window !== "undefined" && window.history?.replaceState) {
+        window.history.replaceState(null, "", current);
+      }
+    }
+  }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    if (pathname !== "/") return;
+
+    const initialHash = window.location.hash;
+    const normalized = normalizeHash(initialHash);
+    if (normalized) {
+      setActiveHash(normalized);
+      lastSectionRef.current = normalized;
+      if (initialHash === "#produk") {
+        const el = document.getElementById("fitur");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    } else {
+      updateActiveSection();
+    }
+
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      updateActiveSection();
+    };
+
+    const onHashChange = () => {
+      const hash = window.location.hash;
+      const norm = normalizeHash(hash);
+      if (norm) {
+        setActiveHash(norm);
+        lastSectionRef.current = norm;
+      } else if (window.scrollY < 80) {
+        setActiveHash("#beranda");
+        lastSectionRef.current = "#beranda";
+      }
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    window.addEventListener("hashchange", onHashChange);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("hashchange", onHashChange);
+      if (clickTimeoutRef.current) {
+        clearTimeout(clickTimeoutRef.current);
+      }
+    };
+  }, [pathname, updateActiveSection]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -37,8 +175,6 @@ export function PwHeroNavigation() {
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [isOpen]);
-
-  const closeMenu = () => setIsOpen(false);
 
   return (
     <header
@@ -55,7 +191,7 @@ export function PwHeroNavigation() {
         <div className="flex items-center lg:gap-10 xl:gap-12">
           <a
             href="#beranda"
-            onClick={closeMenu}
+            onClick={(e) => handleNavClick(e, "#beranda")}
             className="flex w-[150px] items-center gap-2.5 py-2 sm:w-[172px] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/20"
             aria-label="Saku Sultan, kembali ke beranda"
           >
@@ -74,20 +210,24 @@ export function PwHeroNavigation() {
           </a>
 
           <div className="hidden items-center gap-8 lg:flex xl:gap-9">
-            {NAV_LINKS.map((item, index) => (
-              <a
-                key={item.label}
-                href={item.href}
-                aria-current={index === 0 ? "page" : undefined}
-                className={`saku-hero-nav-link saku-hero-nav-text py-2 text-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/20 ${
-                  index === 0
-                    ? "is-active font-bold"
-                    : "font-medium"
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((item) => {
+              const active = isItemActive(item.href);
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`saku-hero-nav-link saku-hero-nav-text py-2 text-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/20 ${
+                    active
+                      ? "is-active font-bold"
+                      : "font-medium"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -130,21 +270,27 @@ export function PwHeroNavigation() {
             className="absolute inset-x-0 top-[calc(100%+0.75rem)] rounded-[22px] border border-white/80 bg-white/96 p-3 shadow-[0_22px_54px_rgba(4,39,24,0.16)] backdrop-blur-2xl lg:hidden"
           >
             <div className="grid">
-              {NAV_LINKS.map((item, index) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={closeMenu}
-                  className={`flex min-h-12 items-center justify-between border-b border-[#0A5332]/10 px-3 text-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/20 ${
-                    index === 0 ? "font-bold text-[#073B24]" : "font-medium text-[#29493C] hover:text-[#073B24]"
-                  }`}
-                >
-                  {item.label}
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-[#168344]">
-                    <path d="m9 18 6-6-6-6" />
-                  </svg>
-                </a>
-              ))}
+              {NAV_LINKS.map((item) => {
+                const active = isItemActive(item.href);
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`flex min-h-12 items-center justify-between border-b border-[#0A5332]/10 px-3 text-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/20 ${
+                      active
+                        ? "font-bold text-[#073B24]"
+                        : "font-medium text-[#29493C] hover:text-[#073B24]"
+                    }`}
+                  >
+                    {item.label}
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-[#168344]">
+                      <path d="m9 18 6-6-6-6" />
+                    </svg>
+                  </a>
+                );
+              })}
               <a
                 href={PLAY_STORE_URL}
                 target="_blank"

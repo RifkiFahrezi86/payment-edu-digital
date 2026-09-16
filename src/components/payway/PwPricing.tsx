@@ -51,14 +51,21 @@ export function PwPricing() {
               <div className="edu-join-phone-visual" aria-hidden="true">
                 <p>Investasi terbaik<br />untuk diri Anda</p>
                 <div className="edu-mini-phone"><PwEduDigiBrand id="phone" compact /><span>Belajar · Praktik · Produktif</span></div>
-                <div className="edu-sponsor-badge"><PwCampaignIcon name="crown" /><strong>SAKU<br />SULTAN</strong></div>
+                <div className="edu-sponsor-badge">
+                  <Image src="/images/saku-sultan-app-icon.png" alt="" width={56} height={56} />
+                  <strong>SAKU SULTAN</strong>
+                </div>
               </div>
             </div>
             <h3 className="edu-benefits-title">Fasilitas yang Anda Dapatkan:</h3>
             <div className="edu-class-benefits">
               {CLASS_BENEFITS.map((benefit) => (
                 <div className={`edu-benefit edu-benefit-${benefit.color}`} key={benefit.title}>
-                  <span className="edu-benefit-icon"><PwCampaignIcon name={benefit.icon} /></span>
+                  <span className={`edu-benefit-icon${benefit.color === "purple" ? " edu-benefit-brand-icon" : ""}`}>
+                    {benefit.color === "purple" ? (
+                      <Image src="/images/saku-sultan-app-icon.png" alt="Logo Saku Sultan" width={66} height={66} />
+                    ) : <PwCampaignIcon name={benefit.icon} />}
+                  </span>
                   <h4>{benefit.title}</h4>
                   <p>{benefit.description}</p>
                   {benefit.highlight && <strong className="edu-benefit-highlight">{benefit.highlight}</strong>}

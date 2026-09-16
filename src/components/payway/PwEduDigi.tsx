@@ -1,5 +1,6 @@
 import { PwCampaignIcon, type CampaignIconName } from "@/components/payway/pw-campaign-icon";
-import { PwEduDigiBrand, PwEduDigiHeader } from "@/components/payway/pw-edudigi-brand";
+import { PwEduDigiHeader } from "@/components/payway/pw-edudigi-brand";
+import { PwLegalIllustration } from "@/components/payway/PwLegalIllustration";
 
 const LEGAL_STEPS: { icon: CampaignIconName; label: string }[] = [
   { icon: "document", label: "Akta Pendirian YAYASAN EDUDIGI Notaris" },
@@ -7,42 +8,6 @@ const LEGAL_STEPS: { icon: CampaignIconName; label: string }[] = [
   { icon: "certificate", label: "NIB serta KBLI melalui Sistem OSS" },
   { icon: "shield", label: "Perizinan Operasional Lembaga Pendidikan/Kursus dan Pelatihan" },
 ];
-
-function LegalDocuments() {
-  return (
-    <div className="edu-legal-visual" aria-hidden="true">
-      <div className="edu-office-brand"><PwEduDigiBrand id="office" compact /></div>
-      <div className="edu-office-window" />
-      <div className="edu-document edu-document-kbli">
-        <span className="edu-document-crest">✦</span>
-        <strong>KBLI</strong>
-        <small>Klasifikasi Baku<br />Lapangan Usaha Indonesia</small>
-        <div className="edu-document-lines" />
-      </div>
-      <div className="edu-document edu-document-nib">
-        <span className="edu-document-crest">✦</span>
-        <span className="edu-oss">OSS</span>
-        <strong>NIB</strong>
-        <small>Nomor Induk Berusaha</small>
-        <div className="edu-document-lines" />
-        <div className="edu-document-seal"><PwCampaignIcon name="shield" /></div>
-      </div>
-      <div className="edu-notary-book">
-        <PwCampaignIcon name="graduate" />
-        <span>Akta Pendirian<br />Yayasan</span>
-        <strong>EDUDIGI</strong>
-        <span>Notaris</span>
-        <i />
-      </div>
-      <div className="edu-book-stack">
-        {["Regulasi", "Pendidikan", "Pelatihan", "Masa Depan"].map((book) => <span key={book}>{book}</span>)}
-      </div>
-      <div className="edu-desk-pen" />
-      <span className="edu-plant edu-plant-one" />
-      <span className="edu-plant edu-plant-two" />
-    </div>
-  );
-}
 
 export function PwEduDigi() {
   return (
@@ -71,7 +36,7 @@ export function PwEduDigi() {
               ))}
             </ol>
           </div>
-          <LegalDocuments />
+          <PwLegalIllustration />
         </div>
         <div className="edu-campaign-footer">
           <p>Pendidikan digital<br />untuk masa depan yang lebih baik</p>
