@@ -9,6 +9,7 @@ import { PwPricing } from "@/components/payway/PwPricing";
 import { PwFaq } from "@/components/payway/PwFaq";
 import { PwCtaFooter } from "@/components/payway/PwCtaFooter";
 import { PwWhatsappButton } from "@/components/payway/PwWhatsappButton";
+import { PwEduDigi } from "@/components/payway/PwEduDigi";
 
 /**
  * / — halaman utama Saku Sultan landing.
@@ -19,11 +20,14 @@ export default function PaywayPage() {
       <PwHeroNavigation />
       <PwHero />
       <PwInsights />
-      <PwFeaturesTriple />
-      <PwProcess />
+      <div id="fitur" className="scroll-mt-24">
+        <PwEduDigi />
+        <PwPricing />
+        <PwProcess />
+        <PwFeaturesTriple />
+      </div>
       <PwTestimonials />
       <PwCharts />
-      <PwPricing />
       <PwFaq />
       <PwCtaFooter />
       <PwWhatsappButton />

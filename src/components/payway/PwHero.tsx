@@ -57,17 +57,17 @@ function StoreBadge({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="pw-lift group flex h-[58px] min-w-0 items-center gap-2.5 rounded-[14px] border border-white/15 bg-[#07130D] px-3 text-left text-white shadow-[0_16px_34px_rgba(4,39,24,0.16)] hover:bg-[#0B2518] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/30 sm:w-[174px] sm:px-3.5"
+      className="pw-lift group flex h-[58px] min-w-0 items-center gap-2 rounded-[14px] border border-white/15 bg-[#07130D] px-2 text-left text-white shadow-[0_16px_34px_rgba(4,39,24,0.16)] hover:bg-[#0B2518] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/30 sm:w-[174px] sm:gap-2.5 sm:px-3.5"
     >
       <Image
         src={icon}
         alt=""
         width={32}
         height={32}
-        className="h-8 w-8 shrink-0"
+        className="h-7 w-7 shrink-0 sm:h-8 sm:w-8"
       />
       <span className="min-w-0 leading-none">
-        <span className="block whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.06em] text-white/85">
+        <span className="block whitespace-nowrap text-[8px] font-medium uppercase text-white/85 min-[375px]:text-[9px] sm:text-[10px]">
           {eyebrow}
         </span>
         <span className="mt-1 block whitespace-nowrap text-[14px] font-semibold tracking-[-0.02em] sm:text-[15px]">
@@ -103,21 +103,27 @@ export function PwHero() {
 
       <div className="saku-hero-layout mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-14 px-5 pb-20 pt-14 sm:px-8 sm:pb-24 sm:pt-20 lg:min-h-[calc(100svh-88px)] lg:grid-cols-[minmax(0,1.1fr)_minmax(300px,0.62fr)] lg:gap-16 lg:px-12 lg:pb-16 lg:pt-12 xl:gap-20 xl:px-24">
         <div className="ped-hero-enter relative isolate flex max-w-[720px] flex-col items-center text-center lg:items-start lg:text-left">
-          <h1 className="saku-hero-title max-w-[720px] text-[clamp(2.125rem,calc(1.5rem+3.5vw),4.5rem)] font-extrabold leading-[0.96] tracking-[-0.05em] text-white">
-            Mudahkan hidupmu dengan{" "}
-            <span className="font-bold italic tracking-[-0.038em] text-[#D9F36A]">
-              transaksi kekinian.
+          <h1 className="saku-hero-title font-extrabold text-white">
+            <span className="saku-hero-line saku-hero-line-primary">
+              <span className="text-[#00C66B]">M</span>elangkah Lebih Awal
+            </span>{" "}
+            <span className="saku-hero-line saku-hero-line-secondary">
+              <span className="text-[#83D955]">B</span>ergerak Secara Digital
+            </span>{" "}
+            <span className="saku-hero-line saku-hero-line-tertiary">
+              <span className="text-[#C2F77B]">G</span>o Future to The{" "}
+              <span className="text-[#FFDD59]">Ocean of Wealth</span>
             </span>
           </h1>
 
-          <p className="saku-hero-hashtag mt-5 text-[clamp(2rem,3.2vw,2.875rem)] font-extrabold leading-none tracking-[-0.03em] text-white sm:mt-6">
+          <p className="saku-hero-hashtag mt-8 text-[clamp(2rem,3.2vw,2.875rem)] font-extrabold leading-none tracking-[-0.03em] text-white lg:mt-12">
             #CUAN PERDETIK
           </p>
 
-          <p className="saku-hero-support mt-4 max-w-[580px] text-base font-medium leading-[1.62] text-white sm:mt-5 sm:text-lg lg:text-[19px]">
-            Satu aplikasi untuk pulsa, paket data, tagihan bulanan, top-up
-            e-money, hingga pembayaran digital. Praktis, cepat, dan aman dalam
-            satu genggaman.
+          <p className="saku-hero-support mt-4 max-w-[720px] text-base font-medium leading-[1.4] text-white sm:mt-5 sm:text-lg lg:text-[21px]">
+            Saku Sultan, inovasi transaksi digital, yang akan cuan di tiap transaksi
+            kamu dan mereka. Kamu dapat membangun Aset Digital Bergerak
+            yang dapat terus menghasilkan dan terus cuan.
           </p>
 
           <div className="mt-8 flex w-full flex-col items-center gap-3 sm:mt-9 sm:w-auto sm:flex-row sm:gap-4 lg:items-start">
@@ -168,7 +174,7 @@ export function PwHero() {
               ))}
 
               <a
-                href="#fitur"
+                href="#layanan"
                 className="group mt-1 inline-flex w-fit items-center gap-2 whitespace-nowrap text-[12.5px] font-semibold text-white underline decoration-white/45 underline-offset-4 transition-colors duration-200 hover:text-[#D9F36A] hover:decoration-[#D9F36A]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9F36A]/70 sm:mt-0 sm:justify-self-end sm:pb-0.5"
               >
                 Lihat semua layanan

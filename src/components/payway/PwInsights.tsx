@@ -90,9 +90,6 @@ const FEATURE_CHIPS: { label: string; icon: React.ReactNode }[] = [
 ];
 
 const PW_PARTNER_LOGOS: { name: string; logo: string }[] = [
-  { name: "QRIS", logo: "/images/payway/pay/qris.svg" },
-  { name: "OVO", logo: "/images/payway/pay/ovo.svg" },
-  { name: "GoPay", logo: "/images/payway/pay/gopay.svg" },
   { name: "Dana", logo: "/images/payway/pay/dana.svg" },
   { name: "ShopeePay", logo: "/images/payway/pay/shopeepay.svg" },
   { name: "LinkAja", logo: "/images/payway/pay/linkaja.svg" },
@@ -100,15 +97,18 @@ const PW_PARTNER_LOGOS: { name: string; logo: string }[] = [
   { name: "Mandiri", logo: "/images/payway/pay/mandiri.svg" },
   { name: "BRI", logo: "/images/payway/pay/bri.svg" },
   { name: "BNI", logo: "/images/payway/pay/bni.svg" },
+  { name: "QRIS", logo: "/images/payway/pay/qris.svg" },
+  { name: "OVO", logo: "/images/payway/pay/ovo.svg" },
+  { name: "GoPay", logo: "/images/payway/pay/gopay.svg" },
 ];
 
 export function PwInsights() {
   return (
-    <section className="pw-section-y w-full bg-white flex flex-col items-center">
-      <div className="w-full max-w-[1440px] px-6 flex flex-col items-center">
-        <div className="w-full max-w-[1248px] flex flex-col gap-12 lg:gap-16">
-          <div className="w-full flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-20">
-            <PwReveal className="flex flex-col gap-5 md:gap-8 w-full lg:w-[430px] order-2 lg:order-1">
+    <section id="ringkasan" aria-labelledby="ringkasan-title" className="saku-insights pw-section-y w-full bg-white scroll-mt-24">
+      <div className="main-container">
+        <div className="flex w-full flex-col gap-12 lg:gap-16">
+          <div className="saku-insights-grid">
+            <PwReveal className="flex min-w-0 flex-col gap-5 md:gap-8">
               <p className="font-semibold text-lg md:text-xl lg:text-2xl leading-[26px] md:leading-[30px] tracking-[-0.6px] md:tracking-[-0.8px] text-[#042718]">
                 Ringkasan Layanan
               </p>
@@ -118,11 +118,11 @@ export function PwInsights() {
                     <p className="text-xs uppercase tracking-[0.18em] text-[#15803D] font-semibold">
                       Aktivitas Harian
                     </p>
-                    <p className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-[#042718]">
+                    <p className="mt-2 text-[clamp(1.25rem,2.1vw,1.875rem)] font-semibold tracking-tight text-[#042718]">
                       Praktis, cepat, aman
                     </p>
                   </div>
-                  <div className="w-14 h-14 rounded-2xl bg-[#042718] text-white flex items-center justify-center shadow-lg">
+                  <div className="w-14 h-14 shrink-0 rounded-2xl bg-[#042718] text-white flex items-center justify-center shadow-lg">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -131,6 +131,7 @@ export function PwInsights() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       className="w-6 h-6"
+                      aria-hidden="true"
                     >
                       <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
                       <path d="m9 12 2 2 4-4" />
@@ -142,7 +143,7 @@ export function PwInsights() {
                   {FEATURE_CHIPS.map((chip) => (
                     <div
                       key={chip.label}
-                      className="flex items-center gap-2.5 rounded-2xl border border-[#042718]/8 bg-white/90 px-4 py-3 text-sm font-medium text-[#042718]/80"
+                      className="flex items-center gap-2.5 rounded-2xl border border-[#042718]/8 bg-white/90 px-3 py-3 text-sm font-medium text-[#042718]/80 sm:px-4"
                     >
                       <span className="text-[#198F38]">{chip.icon}</span>
                       <span className="leading-snug">{chip.label}</span>
@@ -150,82 +151,65 @@ export function PwInsights() {
                   ))}
                 </div>
 
-                <div className="mt-5 rounded-[24px] bg-[#042718] px-5 py-4 text-white">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-white/55">
+                <div className="mt-5 rounded-[24px] bg-[#042718] p-6 text-white">
+                  <p className="text-sm font-bold uppercase text-white/55">
                     Fokus utama
                   </p>
-                  <p className="mt-2 text-base md:text-lg font-medium leading-7 text-white/90">
-                    Satu aplikasi untuk bayar tagihan, scan QR/barcode, transfer,
-                    dan top-up saldo dengan keamanan biometrik.
+                  <p className="mt-2 text-base font-medium leading-6 text-white/95">
+                    Saatnya bertransaksi di Saku Sultan, praktis, aman dan cuan.
+                    Ajak keluarga, rekan, dan mitra untuk cuan bersama.
                   </p>
                 </div>
               </div>
             </PwReveal>
 
-            <div className="flex flex-col w-full flex-1 order-1 lg:order-2">
+            <div className="flex min-w-0 flex-col">
               <div className="flex flex-col w-full">
                 <PwReveal className="mb-4 md:mb-6">
                   <PwEyebrow>Ringkasan</PwEyebrow>
                 </PwReveal>
-                <h2 className="font-semibold text-[28px] md:text-[36px] lg:text-[42px] leading-[36px] md:leading-[44px] lg:leading-[48px] tracking-[-0.8px] md:tracking-[-1.5px] lg:tracking-[-2px] inline-flex flex-wrap whitespace-pre-wrap mb-3 md:mb-4">
-                  Kemudahan Transaksi untuk Semua Kebutuhanmu
+                <h2 id="ringkasan-title" className="mb-6 text-[clamp(1.75rem,2.5vw,2.375rem)] font-extrabold leading-[1.3] tracking-[-0.035em] text-black md:mb-8">
+                  Cuan di setiap transaksi untuk Semua Kebutuhanmu
                 </h2>
                 <PwReveal delay={100}>
-                  <p className="font-normal text-base md:text-lg leading-6 md:leading-7 text-[#042718cc] max-w-[655px] mb-10 lg:mb-20 opacity-80">
-                    Bayar tagihan, scan QR/barcode, top-up saldo, transfer uang,
-                    dan belanja online dalam satu aplikasi yang cepat, mudah,
-                    dan aman.
+                  <p className="max-w-[800px] text-base leading-[1.5] text-[#73887C] md:text-xl">
+                    Hasilkan cuan saat bayar tagihan, beli pulsa, token dan games,
+                    scan QR-Code (Q-Tra), transfer sesama saku sultan, serta
+                    transfer bank dan BI-Fast.
                   </p>
                 </PwReveal>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 lg:gap-0 h-fit border-t lg:border-t-0 border-[#E6E6E6] pt-10 lg:pt-0">
-                <PwReveal className="flex flex-col gap-1 lg:pr-10 lg:w-[253px]">
-                  <div className="flex items-baseline gap-1">
-                    <span className="font-semibold text-[36px] md:text-[52px] leading-[42px] md:leading-[58px] tracking-[-0.8px] md:tracking-[-1.8px] text-[#042718]">
-                      4.8
-                    </span>
-                    <span className="font-semibold text-[28px] md:text-[42px] leading-[34px] md:leading-[48px] tracking-[-1px] md:tracking-[-2px] text-[rgba(0,0,0,0.52)]">
-                      {" star"}
-                    </span>
+              <div className="saku-insights-stats">
+                <PwReveal className="saku-insights-stat">
+                  <div className="saku-stat-value saku-stat-rating">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" className="saku-rating-star" fill="currentColor">
+                      <path d="m12 1.8 3.08 6.25 6.9 1a1 1 0 0 1 .55 1.71l-5 4.87 1.18 6.87a1 1 0 0 1-1.45 1.05L12 20.3l-6.17 3.25a1 1 0 0 1-1.45-1.05l1.18-6.87-5-4.87a1 1 0 0 1 .55-1.71l6.9-1L11.1 1.8a1 1 0 0 1 1.8 0Z" />
+                    </svg>
+                    <span>4.8</span>
                   </div>
-                  <p className="font-medium text-base md:text-lg leading-[24px] md:leading-[28px] text-[#042718cc] lg:w-[200px]">
-                    Kepuasan Pengguna
+                  <p className="saku-stat-label">
+                    Rating Play Store
                   </p>
                 </PwReveal>
                 <PwReveal
-                  className="flex flex-col gap-1 sm:border-l lg:border-x border-[#E6E6E6] sm:pl-10 lg:pl-10 lg:pr-0 border-y sm:border-y-0 py-10 sm:py-0 my-0 lg:w-[252px]"
+                  className="saku-insights-stat"
                   delay={100}
                 >
-                  <div className="flex items-baseline gap-1">
-                    <span className="font-semibold text-[32px] md:text-[52px] leading-[38px] md:leading-[58px] tracking-[-0.8px] md:tracking-[-1.8px] text-[#042718]">
-                      Rp
-                    </span>
-                    <div className="flex items-baseline gap-1">
-                      <span className="font-semibold text-[36px] md:text-[52px] leading-[42px] md:leading-[58px] tracking-[-0.8px] md:tracking-[-1.8px] text-[#042718]">
-                        500
-                      </span>
-                      <span className="font-semibold text-[28px] md:text-[42px] leading-[34px] md:leading-[48px] tracking-[-1px] md:tracking-[-2px] text-[rgba(0,0,0,0.52)]">
-                        M+
-                      </span>
-                    </div>
+                  <div className="saku-stat-value">
+                    <span>Rp500</span><span className="saku-stat-suffix">M+</span>
                   </div>
-                  <p className="font-medium text-base md:text-lg leading-[24px] md:leading-[28px] text-[#042718cc] lg:w-[200px]">
+                  <p className="saku-stat-label">
                     Total Transaksi Diproses
                   </p>
                 </PwReveal>
                 <PwReveal
-                  className="flex flex-col gap-1 lg:pl-10 pt-0 sm:pt-0 lg:pt-0 lg:w-[252px]"
+                  className="saku-insights-stat"
                   delay={200}
                 >
-                  <div className="flex items-baseline gap-1">
-                    <span className="font-semibold text-[36px] md:text-[52px] leading-[42px] md:leading-[58px] tracking-[-0.8px] md:tracking-[-1.8px] text-[#042718]">
-                      100
-                    </span>
-                    <span className="font-semibold text-[28px] md:text-[42px] leading-[34px] md:leading-[48px] tracking-[-1px] md:tracking-[-2px] text-[rgba(0,0,0,0.52)]">
-                      K+
-                    </span>
+                  <div className="saku-stat-value">
+                    <span>100</span><span className="saku-stat-suffix">K+</span>
                   </div>
-                  <p className="font-medium text-base md:text-lg leading-[24px] md:leading-[28px] text-[#042718cc] lg:w-[200px]">
+                  <p className="saku-stat-label">
                     Pengguna Aktif
                   </p>
                 </PwReveal>

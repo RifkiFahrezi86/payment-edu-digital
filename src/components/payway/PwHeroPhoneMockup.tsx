@@ -1,22 +1,6 @@
-"use client";
-
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useState } from "react";
-
-const THEME_DURATION_MS = 5_000;
-
 export function PwHeroPhoneMockup() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setIsDark((currentTheme) => !currentTheme);
-    }, THEME_DURATION_MS);
-
-    return () => window.clearInterval(intervalId);
-  }, []);
-
   return (
     <figure
       role="img"
@@ -36,18 +20,7 @@ export function PwHeroPhoneMockup() {
             width={749}
             height={1545}
             fetchPriority="high"
-            className={`saku-hero-phone-screen-image transition-opacity duration-700 ease-in-out ${
-              isDark ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <img
-            src="/images/DARK.jpeg"
-            alt=""
-            width={720}
-            height={1455}
-            className={`saku-hero-phone-screen-image transition-opacity duration-700 ease-in-out ${
-              isDark ? "opacity-100" : "opacity-0"
-            }`}
+            className="saku-hero-phone-screen-image"
           />
 
           <span aria-hidden="true" className="saku-phone-dynamic-island">

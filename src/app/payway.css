@@ -105,10 +105,33 @@ html {
   font-weight: 400;
 }
 
-/* Hero memakai teks terang di atas media: satu keluarga warna
-   (putih + lime) supaya kontras terjaga di seluruh frame video. */
+/* Tiga baris headline mengikuti hierarki dan aksen referensi. */
 .saku-hero-title {
   text-shadow: var(--pw-text-shadow);
+  width: 100%;
+  letter-spacing: -0.035em;
+}
+
+.saku-hero-line {
+  display: block;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.saku-hero-line + .saku-hero-line {
+  margin-top: 8px;
+}
+
+.saku-hero-line-primary {
+  font-size: clamp(2rem, 3.45vw, 3.5rem);
+}
+
+.saku-hero-line-secondary {
+  font-size: clamp(1.65rem, 2.75vw, 2.75rem);
+}
+
+.saku-hero-line-tertiary {
+  font-size: clamp(1.3rem, 2.34vw, 2.375rem);
 }
 
 .saku-hero-hashtag {
@@ -451,6 +474,126 @@ html {
 /* ---- ritme vertikal section ---- */
 .pw-section-y {
   padding-block: var(--pw-section-y);
+}
+
+/* Ringkasan: kolom dan statistik tetap menyusut tanpa saling menimpa. */
+.saku-insights-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 430px) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+}
+
+.saku-insights-stats {
+  display: grid;
+  grid-template-columns: 0.95fr 1.15fr 0.95fr;
+  margin-top: 72px;
+}
+
+.saku-insights-stat {
+  min-width: 0;
+  padding-inline: 26px;
+}
+
+.saku-insights-stat:first-child {
+  padding-left: 0;
+}
+
+.saku-insights-stat + .saku-insights-stat {
+  border-left: 1px solid #e6e6e6;
+}
+
+.saku-stat-value {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+  font-size: clamp(30px, 3.25vw, 54px);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1.2;
+}
+
+.saku-stat-rating {
+  align-items: center;
+  gap: 8px;
+  color: #000;
+  font-weight: 800;
+}
+
+.saku-rating-star {
+  width: 0.88em;
+  height: 0.88em;
+  flex-shrink: 0;
+  color: #ffcc3e;
+}
+
+.saku-stat-suffix {
+  font-size: 0.72em;
+  color: #7c7c7c;
+}
+
+.saku-stat-label {
+  margin-top: 4px;
+  color: #4f6255;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .saku-insights-grid {
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .saku-insights .main-container {
+    padding-inline: 32px;
+  }
+
+  .saku-insights-stat {
+    padding-inline: 12px;
+  }
+
+  .saku-stat-label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .saku-insights-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .saku-insights-grid > :first-child {
+    width: 100%;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .saku-insights-stats {
+    margin-top: 36px;
+  }
+
+  .saku-stat-value {
+    font-size: clamp(24px, 5vw, 46px);
+  }
+}
+
+@media (max-width: 639px) {
+  .saku-insights-stat {
+    padding-inline: 10px;
+  }
+
+  .saku-stat-value {
+    font-size: clamp(20px, 5.5vw, 32px);
+  }
+
+  .saku-stat-rating {
+    gap: 4px;
+  }
+
+  .saku-stat-label {
+    font-size: 12px;
+    line-height: 1.5;
+  }
 }
 
 /* ---- util dari template asli ---- */

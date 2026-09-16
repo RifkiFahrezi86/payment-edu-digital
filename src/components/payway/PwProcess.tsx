@@ -1,188 +1,89 @@
-"use client";
+import { PwCampaignIcon, type CampaignIconName } from "@/components/payway/pw-campaign-icon";
 
-import Image from "next/image";
-import { useState } from "react";
-import { PwReveal } from "@/components/payway/pw-reveal";
-import { PwSectionHeader } from "@/components/payway/pw-section-header";
-
-/**
- * Section 03 — Process ("Mulai Transaksi dalam 3 Langkah Mudah").
- * Accordion interaktif: klik langkah untuk membuka detail + visual
- * bertema Saku Sultan (menggantikan screenshot template Payway).
- */
-
-type PwStep = {
-  title: string;
-  description: string;
-  visual: React.ReactNode;
-};
-
-const checkIcon = (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
-    <path d="M20 6 9 17l-5-5" />
-  </svg>
-);
-
-const PW_STEPS: PwStep[] = [
-  {
-    title: "Download Aplikasi",
-    description: "Unduh Saku Sultan gratis dari Google Play Store.",
-    visual: (
-      <div className="w-full h-full bg-[linear-gradient(160deg,#042718_0%,#0A5332_100%)] flex items-center justify-center px-6">
-        <div className="flex flex-col items-center gap-3">
-          <span className="font-semibold text-white text-xl tracking-tight">Saku Sultan</span>
-          <p className="text-sm text-white/85">Gratis di Google Play Store</p>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.saku_sultan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-1 hover:scale-105 transition-transform duration-300"
-            aria-label="Download Saku Sultan di Google Play"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/payway/google-play.svg" alt="Google Play" className="h-12 w-auto" />
-          </a>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: "Daftar Akun",
-    description: "Buat akun baru dalam hitungan menit dan verifikasi data Anda.",
-    visual: (
-      <div className="w-full h-full bg-[linear-gradient(160deg,#EAF7EF_0%,#D9F0E2_100%)] flex items-center justify-center px-6">
-        <div className="w-full max-w-[340px] rounded-2xl bg-white shadow-[0_16px_40px_rgba(4,39,24,0.12)] p-5 flex flex-col gap-3">
-          <p className="text-sm font-semibold text-[#042718]">Buat Akun Baru</p>
-          <div className="rounded-xl border border-[#042718]/12 px-3.5 py-2.5 text-[13px] text-[#042718]/62">
-            Nama lengkap
-          </div>
-          <div className="rounded-xl border border-[#042718]/12 px-3.5 py-2.5 text-[13px] text-[#042718]/62">
-            Nomor HP
-          </div>
-          <div className="flex items-center gap-2 rounded-xl bg-[#198F38]/12 px-3.5 py-2.5 text-[13px] font-medium text-[#15803D]">
-            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#198F38] text-white">
-              {checkIcon}
-            </span>
-            Verifikasi berhasil
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: "Mulai Transaksi",
-    description: "Pilih layanan, bayar tagihan atau beli pulsa, transaksi langsung jadi.",
-    visual: (
-      <div className="w-full h-full bg-[linear-gradient(160deg,#042718_0%,#198F38_130%)] flex items-center justify-center px-6">
-        <div className="w-full max-w-[340px] rounded-2xl bg-white shadow-[0_16px_40px_rgba(4,39,24,0.3)] p-5 flex flex-col gap-3">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center justify-center w-9 h-9 rounded-full bg-[#198F38] text-white">
-              {checkIcon}
-            </span>
-            <div>
-              <p className="text-sm font-semibold text-[#042718]">Transaksi Berhasil</p>
-              <p className="text-xs text-[#042718]/72">Pembayaran listrik PLN</p>
-            </div>
-          </div>
-          <div className="flex items-center justify-between rounded-xl bg-[#F4FAF6] px-3.5 py-2.5">
-            <span className="text-[13px] text-[#042718]/72">Total</span>
-            <span className="text-sm font-semibold text-[#042718]">Rp 250.000</span>
-          </div>
-          <div className="flex items-center justify-between rounded-xl bg-[#F4FAF6] px-3.5 py-2.5">
-            <span className="text-[13px] text-[#042718]/72">Metode</span>
-            <span className="text-sm font-semibold text-[#042718]">Saldo Saku Sultan</span>
-          </div>
-        </div>
-      </div>
-    ),
-  },
+const TRANSACTION_SERVICES: { icon: CampaignIconName; label: string; color: string }[] = [
+  { icon: "cart", label: "Belanja Online/Offline", color: "green" },
+  { icon: "phone", label: "Pulsa & Data", color: "blue" },
+  { icon: "zap", label: "PLN", color: "gold" },
+  { icon: "droplet", label: "PDAM", color: "cyan" },
+  { icon: "tv", label: "TV & Internet", color: "red" },
+  { icon: "plane", label: "Tiket Transportasi", color: "violet" },
+  { icon: "users", label: "Travel & Pariwisata", color: "pink" },
+  { icon: "bank", label: "Perbankan", color: "teal" },
+  { icon: "heart", label: "Donasi & Sosial", color: "orange" },
+  { icon: "more", label: "Dan Lainnya", color: "slate" },
 ];
 
-export function PwProcess() {
-  const [activeStep, setActiveStep] = useState(0);
+const VTN_BENEFITS: { icon: CampaignIconName; title: string; detail: string; color: string }[] = [
+  { icon: "chart", title: "Skala Nasional", detail: "Potensi tanpa batas", color: "green" },
+  { icon: "infinity", title: "Berulang Setiap Hari", detail: "Pendapatan berkelanjutan", color: "blue" },
+  { icon: "users", title: "Semua Orang Terlibat", detail: "Pasar yang sangat luas", color: "violet" },
+  { icon: "shield", title: "Sistem Aman & Terpercaya", detail: "Didukung teknologi modern", color: "gold" },
+  { icon: "leaf", title: "Pertumbuhan Jangka Panjang", detail: "Untuk Anda, keluarga & Indonesia", color: "red" },
+];
 
+function VtnEngine() {
   return (
-    <section className="w-full bg-white flex flex-col items-center">
-      <div className="pw-section-y w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-        <div className="w-full max-w-[1248px] mx-auto flex flex-col items-center gap-12 lg:gap-[64px]">
-          <PwSectionHeader
-            eyebrow="Alur Transaksi"
-            title="Mulai Transaksi dalam 3 Langkah Mudah"
-          >
-            Ikuti langkah sederhana berikut untuk mulai menggunakan Saku Sultan.
-          </PwSectionHeader>
-          <div className="w-full flex flex-col lg:flex-row items-center lg:items-stretch gap-6 sm:gap-8 lg:gap-6">
-            <div className="w-full lg:w-[612px]">
-              <PwReveal className="relative w-full aspect-[6/5] sm:aspect-square lg:aspect-auto lg:h-full min-h-[320px] rounded-[32px] overflow-hidden">
-                <Image
-                  alt="Ilustrasi langkah transaksi Saku Sultan"
-                  src="/images/payway/process-left-img-payway.png"
-                  fill
-                  sizes="(min-width: 1024px) 612px, 100vw"
-                  className="object-cover"
-                />
-              </PwReveal>
-            </div>
-            <div className="w-full lg:w-[612px] flex flex-col items-start gap-4">
-              {PW_STEPS.map((step, index) => {
-                const isActive = index === activeStep;
-                return (
-                  <PwReveal key={step.title} delay={index * 120} className="w-full">
-                    <div
-                      className={`flex flex-col items-start self-stretch transition-all duration-500 ease-out rounded-[24px] overflow-hidden border ${
-                        isActive
-                          ? "pt-5 md:pt-6 px-5 md:px-6 pb-0 gap-5 border-[#042718]/5 shadow-[0_4px_20px_0_rgba(4,39,24,0.02),0_4px_10px_0_rgba(4,39,24,0.04)] bg-[#f6fdff]"
-                          : "p-5 md:p-8 pb-0 gap-0 border-transparent bg-[#f6fdff]/0"
-                      }`}
-                    >
-                      <button
-                        type="button"
-                        onClick={() => setActiveStep(index)}
-                        aria-expanded={isActive}
-                        className="flex items-start gap-3 md:gap-4 w-full text-left cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#198F38]/25 rounded-2xl"
-                      >
-                        <div
-                          className={`flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border transition-all duration-500 shrink-0 ${
-                            isActive
-                              ? "bg-[#042718] border-[#042718] text-white"
-                              : "bg-[#0427180D] border-[#0427181A] text-[#042718]"
-                          }`}
-                        >
-                          <span className="font-semibold text-base md:text-lg">{index + 1}</span>
-                        </div>
-                        <div className="flex flex-col items-start gap-[6px] md:gap-[10px] w-full max-w-[460px]">
-                          <h3
-                            className={`font-semibold tracking-[-0.6px] md:tracking-[-0.8px] leading-[26px] md:leading-[30px] transition-colors duration-500 text-[18px] md:text-[24px] ${
-                              isActive ? "text-[#042718]" : "text-[#042718]/72"
-                            }`}
-                          >
-                            {step.title}
-                          </h3>
-                          <p
-                            className={`text-[15px] md:text-[18px] leading-[22px] md:leading-[28px] transition-all duration-500 ${
-                              isActive
-                                ? "text-[#042718] opacity-80"
-                                : "text-[#042718]/0 h-0 overflow-hidden"
-                            }`}
-                          >
-                            {step.description}
-                          </p>
-                        </div>
-                      </button>
-                      <div
-                        className={`relative w-full overflow-hidden rounded-t-[20px] md:rounded-t-[32px] max-w-[548px] transition-all duration-500 ${
-                          isActive ? "h-[240px] opacity-100 mt-6" : "h-0 opacity-0 mt-0"
-                        }`}
-                      >
-                        {step.visual}
-                      </div>
-                    </div>
-                  </PwReveal>
-                );
-              })}
-            </div>
-          </div>
+    <div className="vtn-visual" aria-hidden="true">
+      <p className="vtn-visual-motto">Transaksi<br /><span>Menggerakkan</span><br />Indonesia</p>
+      <div className="vtn-growth-bars"><i /><i /><i /><i /><i /></div>
+      <svg className="vtn-growth-arrow" viewBox="0 0 280 320" fill="none">
+        <path d="M12 297C110 250 161 163 229 49" stroke="#063C25" strokeWidth="39" />
+        <path d="M12 291C110 244 161 157 229 43" stroke="#BAF853" strokeWidth="29" />
+        <path d="m188 44 64-32 2 76" fill="#BAF853" stroke="#E5FF95" strokeWidth="3" />
+      </svg>
+      <div className="vtn-engine">
+        <div className="vtn-engine-top"><i /><i /><i /></div>
+        <span className="vtn-engine-port vtn-engine-port-left" />
+        <span className="vtn-engine-port vtn-engine-port-right" />
+        <div className="vtn-engine-face">
+          <strong><span>V</span>TN</strong>
+          <span>Volume Transaksi Nasional</span>
+          <i className="vtn-engine-bolt vtn-bolt-tl" /><i className="vtn-engine-bolt vtn-bolt-tr" />
+          <i className="vtn-engine-bolt vtn-bolt-bl" /><i className="vtn-engine-bolt vtn-bolt-br" />
         </div>
+        <div className="vtn-engine-base" />
+      </div>
+      <div className="vtn-coins"><span>Rp</span><span>Rp</span><span>Rp</span><span>Rp</span></div>
+      <p className="vtn-everyone">Cuan<br />untuk semua</p>
+    </div>
+  );
+}
+
+export function PwProcess() {
+  return (
+    <section id="alur-transaksi" aria-labelledby="vtn-title" className="saku-campaign-section scroll-mt-24">
+      <div className="saku-campaign vtn-campaign">
+        <div className="vtn-network" aria-hidden="true" />
+        <div className="vtn-campaign-header">
+          <p><span /> Indonesia Digital Ecosystem</p>
+          <span className="vtn-flow-label">“ALUR TRANSAKSI” Saku Sultan dengan “VTN System”</span>
+          <p className="vtn-future">Transaksi hari ini<br />masa depan lebih baik</p>
+        </div>
+        <div className="vtn-main">
+          <div className="vtn-copy">
+            <div className="vtn-wordmark"><span>VTN</span><p>Volume<br />Transaksi<br />Nasional</p></div>
+            <h2 id="vtn-title">Sebagai <span>Mesin CUAN</span><br />JANGKA PANJANG</h2>
+            <p className="vtn-description">Semakin besar volume transaksi di seluruh Indonesia, semakin besar <strong>peluang cuan</strong> yang terus mengalir secara berkelanjutan.</p>
+            <ul className="vtn-services">
+              {TRANSACTION_SERVICES.map((service) => (
+                <li className={`vtn-service vtn-color-${service.color}`} key={service.label}>
+                  <span><PwCampaignIcon name={service.icon} /></span>
+                  <p>{service.label}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <VtnEngine />
+        </div>
+        <div className="vtn-benefits">
+          {VTN_BENEFITS.map((benefit) => (
+            <div className={`vtn-benefit vtn-color-${benefit.color}`} key={benefit.title}>
+              <PwCampaignIcon name={benefit.icon} />
+              <div><h3>{benefit.title}</h3><p>{benefit.detail}</p></div>
+            </div>
+          ))}
+        </div>
+        <p className="vtn-bottom-line">Transaksi membangun Indonesia <span>|</span> Cuan untuk semua</p>
       </div>
     </section>
   );

@@ -1,105 +1,73 @@
-import { PwButton } from "@/components/payway/pw-button";
-import { PwSectionHeader } from "@/components/payway/pw-section-header";
+import Image from "next/image";
+import { PwCampaignIcon, type CampaignIconName } from "@/components/payway/pw-campaign-icon";
+import { PwEduDigiBrand, PwEduDigiHeader } from "@/components/payway/pw-edudigi-brand";
 
-/**
- * Section 07 — Harga Saku Sultan.
- * Model: GRATIS — 1 kartu sentral, tanpa toggle Monthly/Yearly.
- */
-
-const PRICING_FEATURES = [
-  "Gratis download & registrasi",
-  "Tanpa biaya langganan bulanan",
-  "Cashback & promo setiap transaksi",
-  "Layanan pelanggan 24/7",
-  "Keamanan berlapis & garansi",
+const CLASS_BENEFITS: { icon: CampaignIconName; title: string; description: string; color: string; highlight?: string }[] = [
+  { icon: "ticket", title: "Voucher EduDigi", description: "Rp. 200.000,-", color: "green" },
+  { icon: "book", title: "Modul EduDigi", description: "Materi lengkap dan aplikatif", color: "gold" },
+  { icon: "certificate", title: "Sertifikat EduDigi", description: "Sebagai bukti keikutsertaan", color: "blue" },
+  { icon: "wallet", title: "Support Master Sponsor by SAKU SULTAN", description: "Aplikasi dompet digital", highlight: "+ Saldo Rp.50.000,-", color: "purple" },
 ];
 
 export function PwPricing() {
   return (
-    <section
-      id="promo"
-      className="pw-section-y relative w-full bg-white overflow-hidden scroll-mt-24"
-    >
-      <div className="main-container relative z-10 flex flex-col items-center px-4 md:px-10 lg:px-0">
-        <div className="content-container flex flex-col items-center w-full max-w-[1248px] mx-auto">
-          {/* Header */}
-          <PwSectionHeader
-            eyebrow="Harga"
-            title="Gratis! Tanpa Biaya Langganan"
-            className="mb-[64px]"
-          >
-            Download dan gunakan Saku Sultan tanpa biaya langganan. Hanya bayar saat transaksi. #PastiUNTUNG
-          </PwSectionHeader>
-
-          {/* 1 kartu sentral */}
-          <div className="w-full max-w-[620px]">
-            <div className="relative cursor-pointer transition-all duration-500 overflow-hidden flex flex-col p-8 w-full bg-[#042718] rounded-[48px]">
-              <div className="absolute inset-0 z-0">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="none"
-                  aria-hidden="true"
-                  className="pw-bg-video"
-                >
-                  <source src="/videos/payway/header.mp4" type="video/mp4" />
-                </video>
-                <div className="absolute inset-0 bg-[#042718]/72 z-10" />
-              </div>
-              <div className="relative z-20 flex flex-col gap-6">
-                <div className="flex flex-col items-start">
-                  <h3 className="font-heading text-[32px] md:text-[36px] font-semibold leading-tight tracking-[-1px] mb-1.5 text-white">
-                    Saku Sultan
-                  </h3>
-                  <p className="font-body text-base font-normal leading-6 tracking-[-0.3px] mb-5 text-white/80">
-                    Download dan mulai transaksi tanpa biaya langganan.
-                  </p>
-                  <div className="flex items-end gap-2">
-                    <span className="font-heading text-[52px] font-semibold leading-[58px] tracking-[-1.8px] text-white">
-                      GRATIS
-                    </span>
-                    <span className="font-body text-base font-normal mb-2 text-white/80">
-                      / Tanpa biaya langganan
-                    </span>
-                  </div>
-                </div>
-
-                {/* fitur */}
-                <div className="flex flex-col gap-3">
-                  <span className="font-body text-sm font-medium text-white/80 uppercase tracking-wider">
-                    Termasuk
-                  </span>
-                  <ul className="flex flex-col gap-3">
-                    {PRICING_FEATURES.map((feature) => (
-                      <li key={feature} className="flex items-center gap-4">
-                        <div className="flex items-center justify-center w-6 h-6 rounded-full border border-white/10 bg-white/8 shrink-0">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check text-white">
-                            <path d="M20 6 9 17l-5-5"/>
-                          </svg>
-                        </div>
-                        <span className="font-body text-base font-normal text-white/90 leading-6 tracking-[-0.3px]">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* CTA */}
-                <PwButton
+    <section id="promo" aria-labelledby="edudigi-join-title" className="saku-campaign-section scroll-mt-24">
+      <div className="saku-campaign edu-join">
+        <PwEduDigiHeader id="join" />
+        <div className="edu-join-layout">
+          <div className="edu-student-visual">
+            <div className="edu-student-photo">
+              <Image
+                src="/images/payway/unsplash-photo-1543269865-cbf427effbad.jpg"
+                alt="Peserta belajar dan berdiskusi bersama menggunakan perangkat digital"
+                fill
+                sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 90vw"
+                className="object-cover"
+              />
+            </div>
+            <p className="edu-student-note">Mulai langkah kecil<br />menuju masa depan <strong>besar!</strong></p>
+            <blockquote><span aria-hidden="true">“</span>Skill Digital Hari Ini,<br />Peluang Lebih Besar<br />di Masa Depan</blockquote>
+          </div>
+          <div className="edu-join-content">
+            <p className="edu-join-question">Bagaimana cara menjadi bagian dari</p>
+            <h2 id="edudigi-join-title">EKOSISTEM <span>EduDigi</span>?</h2>
+            <p className="edu-join-intro">Bersama membangun generasi digital yang lebih siap, produktif, dan berdaya saing.</p>
+            <div className="edu-offer-layout">
+              <div className="edu-offer">
+                <a
                   href="https://play.google.com/store/apps/details?id=com.saku_sultan"
-                  variant="secondary"
-                  size="lg"
-                  className="mt-4 w-full justify-between"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="edu-join-button"
                 >
-                  Download Sekarang
-                </PwButton>
+                  <span><PwCampaignIcon name="arrow" /></span>
+                  JOIN KELAS EDUDIGI
+                </a>
+                <div className="edu-price">
+                  <p>Biaya terJANGKAU hanya</p>
+                  <strong><span>Rp.</span> 200.000,-</strong>
+                </div>
               </div>
+              <div className="edu-join-phone-visual" aria-hidden="true">
+                <p>Investasi terbaik<br />untuk diri Anda</p>
+                <div className="edu-mini-phone"><PwEduDigiBrand id="phone" compact /><span>Belajar · Praktik · Produktif</span></div>
+                <div className="edu-sponsor-badge"><PwCampaignIcon name="crown" /><strong>SAKU<br />SULTAN</strong></div>
+              </div>
+            </div>
+            <h3 className="edu-benefits-title">Fasilitas yang Anda Dapatkan:</h3>
+            <div className="edu-class-benefits">
+              {CLASS_BENEFITS.map((benefit) => (
+                <div className={`edu-benefit edu-benefit-${benefit.color}`} key={benefit.title}>
+                  <span className="edu-benefit-icon"><PwCampaignIcon name={benefit.icon} /></span>
+                  <h4>{benefit.title}</h4>
+                  <p>{benefit.description}</p>
+                  {benefit.highlight && <strong className="edu-benefit-highlight">{benefit.highlight}</strong>}
+                </div>
+              ))}
             </div>
           </div>
         </div>
+        <div className="edu-join-bottom"><span>Belajar hari ini.</span> Tumbuh dan produktif bersama EduDigi.</div>
       </div>
     </section>
   );

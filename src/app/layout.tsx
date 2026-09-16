@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google";
 import "./payway.css";
+import "./saku-campaigns.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -19,9 +20,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Saku Sultan - Mudahkan Hidupmu dengan Transaksi Kekinian",
+  title: "Saku Sultan — Melangkah Lebih Awal, Bergerak Secara Digital",
   description:
-    "Bayar pulsa, listrik, PDAM, BPJS, dan top-up e-money dalam satu genggaman bersama Saku Sultan.",
+    "Cuan di setiap transaksi bersama Saku Sultan. Jelajahi layanan digital, kelas EduDigi, dan ekosistem Volume Transaksi Nasional. #CUANPERDETIK",
   robots: { index: false, follow: false },
 };
 

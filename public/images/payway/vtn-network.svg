@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" fill="none">
+  <defs>
+    <linearGradient id="island" x1="450" y1="40" x2="500" y2="320" gradientUnits="userSpaceOnUse"><stop stop-color="#AAEB37"/><stop offset=".45" stop-color="#16A652"/><stop offset="1" stop-color="#004A36"/></linearGradient>
+    <linearGradient id="city" x1="500" y1="350" x2="500" y2="680" gradientUnits="userSpaceOnUse"><stop stop-color="#183E53"/><stop offset="1" stop-color="#011D2B"/></linearGradient>
+    <radialGradient id="sky"><stop stop-color="#8BD7FF" stop-opacity=".65"/><stop offset="1" stop-color="#1161CB" stop-opacity="0"/></radialGradient>
+    <radialGradient id="sunset"><stop stop-color="#FFDD7F" stop-opacity=".9"/><stop offset="1" stop-color="#FBC258" stop-opacity="0"/></radialGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
+    <pattern id="windows" width="14" height="19" patternUnits="userSpaceOnUse"><rect x="4" y="4" width="3" height="7" fill="#FFDA87" opacity=".35"/></pattern>
+  </defs>
+  <ellipse cx="590" cy="190" rx="440" ry="275" fill="url(#sky)"/>
+  <ellipse cx="875" cy="420" rx="240" ry="280" fill="url(#sunset)"/>
+  <g fill="url(#island)" stroke="#B4FFBA" stroke-width="1.3" stroke-linejoin="round">
+    <path d="m164 65 16 9 18 26 10 2 17 26 15 9 8 24 16 13 6 22 20 24 12 33-13 4-19-24-18-10-10-25-15-12-13-28-15-16-15-25-8-21-14-16Z"/>
+    <path d="m288 262 29 2 24 9 26 2 19 9 35 3 12 8 31-1 13 8-5 9-36-4-17 2-24-9-27-2-31-12-32-5Z"/>
+    <path d="m341 125 18-2 14 13 26-7 17-22 15 6 7 27 14 12-7 23 8 17-17 14-5 23-18 3-16-15-19-3-8-17-20-9 3-21-13-12Z"/>
+    <path d="m489 146 11-15 13 8-2 22 16 6 14-8 19 2 9 13-20 5-20-2-7 12 4 18 11 12-2 24-10-3-10-20-9-13-10 6-6 22-12 13-10-8 13-20 5-24-9-13 9-12 7-6-4-12Z"/>
+    <path d="m578 188 9-14 7 5-2 13 12 12-7 4-12-10-6 7-8-3Z"/>
+    <path d="m626 200 9-20 8 4-5 18 9 7-6 12-8-9-10 4-5-7Z"/>
+    <path d="m697 212 20 4 11-9 17 15 29-1 27 16 20 3 17 12 24 3 25 17-1 51-26-13-19-22-25-10-21 4-17-13-15-1-9-16-23-3-11-13-16-4-8-8-5-4Z"/>
+    <path d="m473 308 12-3 12 5-5 7-14-2Zm28 4 19-1 10 7-13 5-15-6Zm32 10 15-4 17 9-2 8-22-4Zm39 10 20-1 11 5-9 7-18-4Zm45 4 20-5 22 2 9 9-29 4Z"/>
+    <path d="m606 260 8-3 6 9-6 8-9-3Zm31-13 7-7 8 8-4 10-9-3Zm-45 41 8-6 9 7-5 7-11-1Z"/>
+  </g>
+  <g stroke="#B1F9FF" stroke-width="1.4" opacity=".6">
+    <path d="M211 132Q370-55 412 174M211 132Q284 99 335 278M335 278Q453 78 507 190M412 174Q631-34 755 252M507 190Q645 71 755 252M335 278Q475 237 610 340M610 340Q710 223 755 252M412 174Q486 213 610 340"/>
+    <path d="M172 93Q577-133 851 288M172 93Q302 389 610 340M755 252Q595 463 335 278" opacity=".35"/>
+  </g>
+  <g fill="#AEFF86" filter="url(#glow)"><circle cx="211" cy="132" r="12"/><circle cx="335" cy="278" r="12"/><circle cx="412" cy="174" r="13"/><circle cx="507" cy="190" r="12"/><circle cx="610" cy="340" r="10"/><circle cx="755" cy="252" r="13"/></g>
+  <g fill="#E9FFF4"><circle cx="211" cy="132" r="4"/><circle cx="335" cy="278" r="4"/><circle cx="412" cy="174" r="5"/><circle cx="507" cy="190" r="4"/><circle cx="610" cy="340" r="4"/><circle cx="755" cy="252" r="5"/></g>
+  <path d="M115 680V507h35v-36h35v-69h36v18h15v260h13V530h31v-62h49v212h20V488h39v-87h43v279h20V471h42v-91h17v-14h12v14h17v300h21V502h40v-44h49v222h19V462h22v-15h14v15h22v218h20V519h41v-64h48v225h17V448h33v-38h27v270h22V519h34v-44h39v205h26V530h34v-24h23v174Z" fill="url(#city)"/>
+  <path d="M115 680V507h35v-36h35v-69h36v18h15v260h13V530h31v-62h49v212h20V488h39v-87h43v279h20V471h42v-91h17v-14h12v14h17v300h21V502h40v-44h49v222h19V462h22v-15h14v15h22v218h20V519h41v-64h48v225h17V448h33v-38h27v270h22V519h34v-44h39v205h26V530h34v-24h23v174Z" fill="url(#windows)"/>
+  <path d="M841 586h46m-40 0 10-152h15l10 152m-31-152h28l-7-12h-14Zm14-12V386" stroke="#FAD893" stroke-width="5"/>
+</svg>
