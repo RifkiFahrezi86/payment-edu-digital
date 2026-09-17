@@ -1,0 +1,276 @@
+/* Light follows the landscape reference. Auto always uses this website palette. */
+:root {
+  color-scheme: light;
+  --saku-theme-surface: #fff;
+  --saku-theme-card: #f6fdff;
+  --saku-theme-raised: #f3f8ee;
+}
+
+.pw-body {
+  color: var(--pw-text);
+}
+
+.saku-startup-label {
+  color: #fff;
+  text-shadow: 0 1px 5px #042718cc;
+}
+
+/* Only the root attribute controls the website; the phone has its own theme. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --pw-surface: #0b0f0e;
+  --pw-card: #131917;
+  --pw-mist: #1b2520;
+  --pw-text: #f5f7f6;
+  --pw-text-muted: #c2c9c5;
+  --pw-text-subtle: #8e9993;
+  --pw-green-text: #b7f34a;
+  --pw-line: #26302c;
+  --saku-theme-surface: #0b0f0e;
+  --saku-theme-card: #131917;
+  --saku-theme-raised: #1b2520;
+}
+
+/* Map the existing light surface utilities across sections, dialogs, and legal pages. */
+html[data-theme="dark"] :is(
+  [class~="bg-white"], [class~="bg-white/70"], [class~="bg-white/80"],
+  [class~="bg-white/85"], [class~="bg-white/90"], [class~="bg-white/96"],
+  [class~="bg-[#F6FDFF]"], [class~="bg-[#f6fdff]"], [class~="bg-[#F8FAF9]"],
+  [class~="bg-[#F4FAF6]"], [class~="bg-[#F4F6F5]"], [class~="bg-[#F3F4F6]"]
+) {
+  background-color: var(--saku-theme-card);
+}
+
+html[data-theme="dark"] :is(section[class~="bg-white"], main[class~="bg-[#FBFEFF]"], .saku-campaign-section) {
+  background: var(--saku-theme-surface);
+}
+
+html[data-theme="dark"] :is([class*="text-[#042718"], [class~="text-[#5A7061]"], [class~="text-[#29493C]"]) {
+  color: var(--pw-text-muted);
+}
+
+html[data-theme="dark"] :is([class~="text-[#042718]"], [class~="text-[#1F2937]"], [class~="text-[#374151]"], [class~="text-black"]) {
+  color: var(--pw-text);
+}
+
+html[data-theme="dark"] :is([class~="text-[#198F38]"], [class~="text-[#15803D]"]) {
+  color: var(--saku-lime);
+}
+
+html[data-theme="dark"] :is([class*="border-[#042718"], [class~="border-[#E6E6E6]"], [class~="border-[#E5E7EB]"]) {
+  border-color: var(--pw-line);
+}
+
+html[data-theme="dark"] [class~="bg-[#04271810]"] {
+  background: var(--pw-line);
+}
+
+html[data-theme="dark"] .pw-eyebrow {
+  border-color: #b7f34a38;
+  background: #b7f34a12;
+  color: var(--saku-lime);
+}
+
+/* Dark hero reproduces the charcoal/lime version without replacing its landscape. */
+html[data-theme="dark"] .saku-hero {
+  background-color: var(--saku-charcoal);
+}
+
+html[data-theme="dark"] .saku-hero-readability-scrim {
+  background: linear-gradient(180deg, #0b0f0edb 0%, #0b0f0ed6 58%, #0b0f0ead 100%);
+}
+
+html[data-theme="dark"] .saku-startup-label,
+html[data-theme="dark"] .saku-hero-support,
+html[data-theme="dark"] .saku-hero-line-tertiary,
+html[data-theme="dark"] .saku-hero-line-tertiary > span:first-child {
+  color: var(--saku-on-dark-muted);
+}
+
+html[data-theme="dark"] .saku-hero-title,
+html[data-theme="dark"] .saku-hero-line-primary > span,
+html[data-theme="dark"] .saku-hero-line-secondary > span {
+  color: var(--saku-on-dark);
+}
+
+html[data-theme="dark"] .saku-hero-hashtag,
+html[data-theme="dark"] .saku-hero-line-tertiary > span:last-child {
+  color: var(--saku-lime);
+}
+
+html[data-theme="dark"] .saku-hero-navbar::before {
+  background: linear-gradient(180deg, #0b0f0ef0 0%, #0b0f0ef0 58%, #0b0f0e80 82%, transparent);
+}
+
+html[data-theme="dark"] .saku-hero-navbar[data-scrolled="true"] {
+  background-color: #0b0f0ef2;
+}
+
+html[data-theme="dark"] .saku-hero-nav-link {
+  color: #b7bfbb;
+}
+
+html[data-theme="dark"] .saku-hero-nav-link:is(:hover, .is-active) {
+  color: var(--saku-on-dark);
+}
+
+html[data-theme="dark"] #hero-mobile-menu {
+  border-color: var(--pw-line);
+  background: #131917f5;
+}
+
+html[data-theme="dark"] #hero-mobile-menu a:not(.saku-glass-action) {
+  color: var(--pw-text-muted);
+  border-color: var(--pw-line);
+}
+
+html[data-theme="dark"] #hero-mobile-menu a[aria-current="page"] {
+  color: var(--saku-lime);
+}
+
+html[data-theme="dark"] :is(.saku-nav-register, #hero-mobile-menu .saku-glass-action) {
+  border-color: var(--saku-lime);
+  border-radius: 12px;
+  background: var(--saku-lime);
+  color: #08100c;
+}
+
+html[data-theme="dark"] :is(.saku-nav-register, #hero-mobile-menu .saku-glass-action):hover {
+  background: var(--saku-lime-hover);
+}
+
+html[data-theme="dark"] .saku-hero .saku-glass-action {
+  border-color: var(--saku-lime);
+  background: #0b0f0ed1;
+  color: var(--saku-lime);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .saku-hero .saku-glass-action > span:last-child {
+  background: var(--saku-lime);
+  color: #08100c;
+}
+
+/* Reusable CTAs keep their foreground and arrow colors in sync with the shell. */
+html[data-theme="dark"] :is(.pw-button-primary, .saku-feature-download, .saku-primary-action) {
+  border-color: var(--saku-lime);
+  background: var(--saku-lime);
+  color: #08100c;
+}
+
+html[data-theme="dark"] :is(.pw-button-primary, .saku-feature-download, .saku-primary-action):hover {
+  background: var(--saku-lime-hover);
+}
+
+html[data-theme="dark"] .saku-feature-download > span {
+  color: #08100c;
+}
+
+html[data-theme="dark"] :is(.pw-button-primary > span:last-child, .saku-feature-download > div) {
+  background: var(--saku-charcoal);
+  color: var(--saku-on-dark);
+}
+
+html[data-theme="dark"] .pw-button-secondary:not(.saku-primary-action) {
+  border-color: #60725e;
+  background: var(--saku-theme-raised);
+  color: var(--pw-text);
+}
+
+/* Service summary and partner brands. */
+html[data-theme="dark"] .saku-summary-card {
+  border-color: var(--pw-line);
+  background: linear-gradient(160deg, #17231c, #131917);
+  box-shadow: 0 20px 45px #0003;
+}
+
+html[data-theme="dark"] .saku-summary-card [class~="bg-white/90"] {
+  background: var(--saku-theme-raised);
+}
+
+html[data-theme="dark"] .saku-stat-rating { color: var(--pw-text); }
+html[data-theme="dark"] .saku-stat-label { color: var(--pw-text-muted); }
+html[data-theme="dark"] .saku-stat-suffix { color: var(--pw-text-subtle); }
+html[data-theme="dark"] .saku-insights-stat + .saku-insights-stat { border-color: var(--pw-line); }
+html[data-theme="dark"] .saku-insights .pw-insights-marquee img { filter: grayscale(1) invert(1); }
+html[data-theme="dark"] .saku-insights [class~="bg-gradient-to-r"] { background: linear-gradient(to right, var(--pw-surface), transparent); }
+html[data-theme="dark"] .saku-insights [class~="bg-gradient-to-l"] { background: linear-gradient(to left, var(--pw-surface), transparent); }
+
+html[data-theme="dark"] .pw-logo-tile {
+  background: #f4f6f5;
+  border-color: #dfe5df;
+}
+
+/* Original artwork stays intact; its surrounding gallery follows the theme. */
+html[data-theme="dark"] :is(.saku-poster-frame, .saku-original-campaign, .saku-gallery-thumbnail, .pw-feature-card) {
+  border-color: var(--pw-line);
+  background: var(--saku-theme-card);
+  color: var(--pw-text);
+}
+
+html[data-theme="dark"] :is(.saku-gallery-current > span, .saku-poster-sponsor, .saku-edudigi-card-controls small) {
+  color: var(--pw-text-subtle);
+}
+
+html[data-theme="dark"] :is(.saku-class-offer h2 + p, .saku-vtn-next p) {
+  color: var(--pw-text-muted);
+}
+
+html[data-theme="dark"] :is(.saku-poster-kicker, .saku-poster-original, .saku-class-offer h2 > span) {
+  color: var(--saku-lime);
+}
+
+html[data-theme="dark"] .saku-poster-sponsor strong {
+  color: var(--pw-text);
+}
+
+html[data-theme="dark"] .saku-gallery-thumbnail:is(:hover, .is-selected) {
+  border-color: var(--saku-lime);
+  background: #1c2c1d;
+  color: var(--pw-text);
+}
+
+html[data-theme="dark"] :is(.saku-gallery-actions > button, .saku-edudigi-card-controls > button) {
+  border-color: #618056;
+  background: var(--saku-theme-raised);
+  color: var(--saku-lime);
+}
+
+html[data-theme="dark"] :is(.saku-gallery-actions > button, .saku-edudigi-card-controls > button):hover {
+  background: var(--saku-lime);
+  color: #08100c;
+}
+
+html[data-theme="dark"] .saku-edudigi-card-stage::before {
+  background: linear-gradient(145deg, #203629, #17211b 50%, #293822);
+}
+
+html[data-theme="dark"] .pw-media-scrim-light {
+  background: linear-gradient(180deg, #0b0f0ef2, #0b0f0ec9 50%, #0b0f0ef2);
+}
+
+html[data-theme="dark"] #testimoni > div:first-child {
+  background: var(--saku-theme-surface);
+}
+
+html[data-theme="dark"] [class~="bg-[#F8FAF9]"]:hover {
+  background: var(--saku-theme-raised);
+}
+
+html[data-theme="dark"] [class~="hover:bg-white"]:hover {
+  background-color: var(--saku-theme-raised);
+}
+
+@media (min-width: 1024px) {
+  html[data-theme="dark"] .saku-hero-readability-scrim {
+    background:
+      linear-gradient(90deg, #0b0f0ed6 0%, #0b0f0ed6 62%, #0b0f0e59 82%, #0b0f0e29 100%),
+      linear-gradient(180deg, #031a1066 0%, transparent 28% 70%, #031a1070 100%);
+  }
+}
+
+@media (prefers-contrast: more) {
+  html[data-theme="dark"] .saku-hero-readability-scrim {
+    background: #0b0f0ef2;
+  }
+}

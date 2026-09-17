@@ -112,7 +112,7 @@ export function PwInsights() {
               <p className="font-semibold text-lg md:text-xl lg:text-2xl leading-[26px] md:leading-[30px] tracking-[-0.6px] md:tracking-[-0.8px] text-[#042718]">
                 Ringkasan Layanan
               </p>
-              <div className="rounded-[32px] border border-[#042718]/6 bg-[linear-gradient(180deg,#F7FDF9_0%,#ECF8F1_100%)] p-6 md:p-7 shadow-[0_24px_50px_rgba(4,39,24,0.08)]">
+              <div className="saku-summary-card rounded-[32px] border border-[#042718]/6 bg-[linear-gradient(180deg,#F7FDF9_0%,#ECF8F1_100%)] p-6 md:p-7 shadow-[0_24px_50px_rgba(4,39,24,0.08)]">
                 <div className="flex items-center justify-between gap-4 pb-5 border-b border-[#042718]/8">
                   <div>
                     <p className="text-xs uppercase tracking-[0.18em] text-[#15803D] font-semibold">
@@ -172,7 +172,7 @@ export function PwInsights() {
                   Cuan di setiap transaksi untuk Semua Kebutuhanmu
                 </h2>
                 <PwReveal delay={100}>
-                  <p className="max-w-[800px] text-base leading-[1.5] text-[#73887C] md:text-xl">
+                  <p className="max-w-[800px] text-base leading-[1.5] text-[#5A7061] md:text-xl">
                     Hasilkan cuan saat bayar tagihan, beli pulsa, token dan games,
                     scan QR-Code (Q-Tra), transfer sesama saku sultan, serta
                     transfer bank dan BI-Fast.

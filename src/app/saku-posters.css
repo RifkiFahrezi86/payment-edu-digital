@@ -1,0 +1,389 @@
+/* Original campaign artwork: preserve its proportions and make details accessible. */
+.saku-poster-section {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-block: 32px;
+}
+
+.saku-poster-picture,
+.saku-poster-image {
+  display: block;
+  width: 100%;
+}
+
+.saku-poster-image {
+  height: auto;
+  object-fit: contain;
+}
+
+.saku-poster-frame {
+  overflow: hidden;
+  border: 1px solid #e1e9df;
+  border-radius: 18px;
+  background: #f6f9f3;
+}
+
+.saku-poster-gallery {
+  min-width: 0;
+}
+
+.saku-gallery-toolbar {
+  display: flex;
+  min-height: 92px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 4px;
+}
+
+.saku-gallery-current {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.saku-gallery-current > span {
+  flex-shrink: 0;
+  color: #5a775e;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
+.saku-gallery-current > h3 {
+  font-size: clamp(16px, 1.5vw, 21px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.saku-gallery-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.saku-gallery-actions > button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid #dce6d7;
+  border-radius: 50%;
+  background: #f3f8ee;
+  color: #143922;
+  cursor: pointer;
+  transition: background-color 180ms, color 180ms;
+}
+
+.saku-gallery-actions > button:hover {
+  background: #143922;
+  color: #d9f36a;
+}
+
+.saku-poster-original {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #326943;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  text-underline-offset: 4px;
+}
+
+.saku-poster-original:hover {
+  text-decoration: underline;
+}
+
+.saku-gallery-actions > .saku-poster-original {
+  margin-right: 12px;
+}
+
+.saku-gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  padding: 4px;
+}
+
+.saku-gallery-thumbnail {
+  min-width: 0;
+  overflow: hidden;
+  border: 2px solid #e2e9df;
+  border-radius: 12px;
+  background: #fff;
+  color: #43624a;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 180ms, background-color 180ms;
+}
+
+.saku-gallery-thumbnail:hover,
+.saku-gallery-thumbnail.is-selected {
+  border-color: #408a37;
+  background: #f2f8e9;
+  color: #113112;
+}
+
+.saku-gallery-thumbnail > span {
+  display: block;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.saku-gallery-thumbnail:focus-visible,
+.saku-gallery-actions > button:focus-visible,
+.saku-poster-original:focus-visible {
+  outline: 3px solid #48883d;
+  outline-offset: 2px;
+}
+
+.saku-original-campaign {
+  border: 1px solid #e2e9df;
+  border-radius: 22px;
+  background: #f8fbf4;
+}
+
+.saku-original-campaign .saku-poster-frame {
+  border: 0;
+  border-radius: 0;
+}
+
+.saku-class-offer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 32px 40px 20px;
+}
+
+.saku-poster-kicker {
+  color: #50743b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.saku-class-offer h2 {
+  margin-top: 8px;
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.3;
+}
+
+.saku-class-offer h2 > span {
+  display: inline-block;
+  color: #198037;
+}
+
+.saku-class-offer h2 + p {
+  max-width: 680px;
+  margin-top: 10px;
+  color: #546852;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.saku-class-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.saku-poster-sponsor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 40px 28px;
+  color: #4e614c;
+  font-size: 12px;
+}
+
+.saku-poster-sponsor > img {
+  border-radius: 8px;
+}
+
+.saku-poster-sponsor strong {
+  color: #14381e;
+}
+
+.saku-edudigi-cards {
+  width: 100%;
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.saku-edudigi-card-stage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  touch-action: pan-y;
+}
+
+.saku-edudigi-card-stage::before {
+  position: absolute;
+  z-index: -1;
+  inset: 9% 3% 4% 4%;
+  transform: rotate(3deg);
+  border-radius: 30px;
+  background: linear-gradient(145deg, #daf0e3, #eef9fb 50%, #e2efda);
+  content: "";
+}
+
+.saku-edudigi-card {
+  position: absolute;
+  display: block;
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 18px 20px #082c241c);
+  transition: top 420ms var(--pw-ease), left 420ms var(--pw-ease), width 420ms var(--pw-ease);
+}
+
+.saku-edudigi-card-artwork {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Exterior-only masks preserve the original white lettering and brand colors. */
+.saku-edudigi-card[data-card="startup"] > img {
+  -webkit-mask-image: url("/images/payway/startup-card-mask.svg");
+  mask-image: url("/images/payway/startup-card-mask.svg");
+}
+
+.saku-edudigi-card[data-card="edudigi"] > img {
+  -webkit-mask-image: url("/images/payway/edudigi-card-mask.svg");
+  mask-image: url("/images/payway/edudigi-card-mask.svg");
+}
+
+.saku-edudigi-card-back {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 93%;
+}
+
+.saku-edudigi-card-front {
+  z-index: 2;
+  top: 30%;
+  left: 4%;
+  width: 96%;
+}
+
+.saku-edudigi-card:focus-visible {
+  outline: 3px solid #43843a;
+  outline-offset: 4px;
+  border-radius: 18px;
+}
+
+.saku-edudigi-card-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.saku-edudigi-card-controls > button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid #04271820;
+  border-radius: 50%;
+  background: #ffffffb3;
+  color: #124c2c;
+  cursor: pointer;
+}
+
+.saku-edudigi-card-controls > button:hover,
+.saku-edudigi-card-controls > button:focus-visible {
+  border-color: #1b6c3a;
+  background: #e3f2dc;
+  outline: 2px solid #1b6c3a;
+  outline-offset: 2px;
+}
+
+.saku-edudigi-card-controls > span {
+  min-width: 0;
+  text-align: center;
+}
+
+.saku-edudigi-card-controls strong,
+.saku-edudigi-card-controls small {
+  display: block;
+  line-height: 1.5;
+}
+
+.saku-edudigi-card-controls strong { font-size: 13px; }
+.saku-edudigi-card-controls small { color: #607762; font-size: 11px; }
+
+.saku-vtn-next {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  padding: 0 4px;
+}
+
+.saku-vtn-next > div {
+  flex: 1 1 420px;
+}
+
+.saku-vtn-next h3 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.saku-vtn-next p {
+  margin-top: 6px;
+  color: #566a53;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+  .saku-poster-section { gap: 24px; padding-block: 24px; }
+  .saku-gallery-toolbar { align-items: flex-start; flex-direction: column; gap: 10px; padding-block: 18px; }
+  .saku-gallery-current { gap: 12px; }
+  .saku-gallery-actions { width: 100%; justify-content: flex-end; }
+  .saku-gallery-actions > .saku-poster-original { margin-right: auto; }
+  .saku-gallery-thumbnails { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .saku-gallery-thumbnail > span { padding: 8px 6px; font-size: 10px; }
+  .saku-gallery-thumbnail { border-radius: 8px; }
+  .saku-poster-frame { border-radius: 12px; }
+  .saku-class-offer { flex-direction: column; align-items: flex-start; gap: 18px; padding: 24px 20px 12px; }
+  .saku-class-actions { width: 100%; align-items: stretch; }
+  .saku-class-actions > a:first-child { justify-content: space-between; }
+  .saku-poster-sponsor { padding: 0 20px 24px; }
+  .saku-vtn-next > div { flex-basis: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .saku-gallery-thumbnail,
+  .saku-gallery-actions > button,
+  .saku-edudigi-card { transition: none; }
+}

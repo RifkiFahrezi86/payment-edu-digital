@@ -38,7 +38,7 @@ function PartnerTile({ tile, delay }: { tile: PwPartner; delay: number }) {
   return (
     <PwReveal className="flex justify-center" delay={delay}>
       <div className="pw-lift flex flex-col items-center gap-2 sm:gap-3">
-        <div className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] flex items-center justify-center rounded-[20px] lg:rounded-[24px] bg-white border border-[#E5E7EB] shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-3 sm:p-3.5 lg:p-4">
+        <div className="pw-logo-tile w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] flex items-center justify-center rounded-[20px] lg:rounded-[24px] bg-white border border-[#E5E7EB] shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-3 sm:p-3.5 lg:p-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={tile.logo}
@@ -73,7 +73,7 @@ export function PwCharts() {
               Terhubung dengan berbagai metode pembayaran, e-wallet, dan bank untuk kemudahan bertransaksi.
             </PwSectionHeader>
             <PwReveal delay={300}>
-              <PwButton href="#promo" external={false}>
+              <PwButton href="#integration-grid-container" external={false}>
                 Lihat Semua Metode
               </PwButton>
             </PwReveal>

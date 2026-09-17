@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google";
+import { PwThemeProvider } from "@/components/payway/PwThemeProvider";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
 import "./payway.css";
 import "./saku-campaigns.css";
+import "./saku-posters.css";
+import "./saku-theme.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -32,10 +36,14 @@ export default function PaywayRootLayout({
   return (
     <html
       lang="id"
+      data-theme="light"
+      data-display-mode="auto"
+      suppressHydrationWarning
       className={`${plusJakartaSans.variable} ${instrumentSerif.variable}`}
     >
+      <head><script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} /></head>
       <body suppressHydrationWarning className="pw-body min-h-screen">
-        {children}
+        <PwThemeProvider>{children}</PwThemeProvider>
       </body>
     </html>
   );

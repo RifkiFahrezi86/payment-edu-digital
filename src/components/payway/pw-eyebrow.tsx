@@ -25,7 +25,7 @@ export function PwEyebrow({
 
   return (
     <span
-      className={`inline-flex w-fit items-center gap-2 rounded-full border px-4 py-1.5 text-[color:var(--pw-green-text)] ${toneClass} ${className}`}
+      className={`pw-eyebrow inline-flex w-fit items-center gap-2 rounded-full border px-4 py-1.5 text-[color:var(--pw-green-text)] ${toneClass} ${className}`}
     >
       <SparklesIcon className="h-4 w-4 shrink-0 md:h-[18px] md:w-[18px]" />
       <span className="text-sm font-medium tracking-[-0.3px] md:text-base">

@@ -1,39 +1,11 @@
 import { PwReveal } from "@/components/payway/pw-reveal";
 import { PwButton } from "@/components/payway/pw-button";
 
-/**
- * Section 09 — CTA + Footer.
- * Sumber markup: docs/research/jiro-payway/sections/09-cta-footer.html (kelas 1:1)
- * Referensi visual: docs/design-references/jiro-payway/sec-09-cta-footer.png
- * + bagian bawah full-desktop-1440.png (wordmark raksasa & legal row).
- *
- * Catatan konversi:
- * - Video background: autoPlay loop muted playsInline + source lokal (konvensi #5).
- * - style="opacity: 0; transform: translateY(30px)" (residu framer) pada dua blok
- *   content-container -> <PwReveal> dengan className identik.
- * - Inline gradient (fade putih atas, radial glow, overlay ink, clip-text wordmark)
- *   BUKAN residu framer -> dipertahankan sebagai style JSX.
- * - `bg-lightgray` dipertahankan persis dari markup (kelas template asli).
- */
+/** CTA and contact footer with readable foreground text over the landscape. */
 export function PwCtaFooter() {
   return (
-    <section className="relative w-full overflow-hidden flex flex-col ">
-      {/* Fade putih dari section sebelumnya */}
-      <div
-        className="absolute top-0 left-0 w-full h-[300px] z-[5] pointer-events-none"
-        style={{ background: "linear-gradient(rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%)" }}
-      />
-      {/* Radial glow langit */}
-      <div
-        className="absolute top-0 left-0 w-full h-[600px] z-[2] pointer-events-none opacity-40 shrink-0"
-        style={{
-          background:
-            "radial-gradient(100% 100% at 50% 0%, rgb(214, 239, 255) 0%, rgba(214, 239, 255, 0) 100%)",
-        }}
-      />
-      {/* Background video full-bleed + overlay gradasi ke ink.
-          Gradasi diperkuat lebih awal supaya blok email & baris legal
-          (teks putih) tetap terbaca di atas frame video yang terang. */}
+    <section id="unduh-aplikasi" aria-labelledby="saku-footer-title" className="saku-footer relative flex w-full flex-col overflow-hidden bg-[#0B0F0E] scroll-mt-24">
+      {/* Keep the landscape clear, with a darker backdrop behind white text. */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -50,25 +22,27 @@ export function PwCtaFooter() {
           className="absolute inset-0 z-[1]"
           style={{
             background:
-              "linear-gradient(rgba(4, 39, 24, 0) 18%, rgba(4, 39, 24, 0.55) 42%, rgba(4, 39, 24, 0.84) 62%, rgb(4, 39, 24) 84%)",
+              "linear-gradient(180deg, rgba(11, 15, 14, 0.72) 0%, rgba(11, 15, 14, 0.72) 34%, rgba(11, 15, 14, 0.86) 64%, rgb(11, 15, 14) 88%)",
           }}
         />
-        <div className="absolute inset-0 -z-10 bg-[#042718]" />
+        <div className="absolute inset-0 -z-10 bg-[#0B0F0E]" />
       </div>
 
-      {/* Blok CTA — headline, subcopy, tombol trial */}
-      <div className="relative z-10 w-full pt-[80px] md:pt-[100px] lg:pt-[120px]">
+      {/* Download CTA */}
+      <div className="relative z-10 w-full pt-16 sm:pt-20 lg:pt-28">
         <PwReveal className="content-container mx-auto px-6 lg:px-12 flex flex-col items-center text-center">
-          <h2 className="w-full max-w-[1103px] font-semibold text-[#042718] text-[32px] sm:text-[64px] md:text-[90px] lg:text-[132px] leading-[1.1] lg:leading-[136px] tracking-[-1px] sm:tracking-[-3px] md:tracking-[-5px] lg:tracking-[-7px] mb-8 sm:mb-10">
+          <h2 id="saku-footer-title" className="saku-footer-heading mb-6 w-full max-w-[1060px] text-[36px] font-bold leading-[1.12] tracking-[-1.2px] text-white sm:text-[54px] md:text-[72px] lg:text-[100px] xl:text-[112px] sm:tracking-[-2px] lg:tracking-[-4px]">
             Mulai Transaksi dengan Saku Sultan
           </h2>
-          <p className="w-full max-w-[580px] text-[14px] sm:text-[18px] lg:text-[24px] text-[#042718]/85 leading-[1.5] tracking-[-0.2px] sm:tracking-[-0.48px] mb-10 sm:mb-12">
-            Download sekarang dan nikmati kemudahan transaksi digital. Praktis, cepat, dan aman. #PastiUNTUNG
+          <p className="saku-footer-description mb-8 w-full max-w-[580px] text-base font-medium leading-[1.65] text-white/95 sm:text-lg lg:text-xl">
+            Download sekarang dan nikmati kemudahan transaksi digital. Praktis, cepat, dan aman.
+            <span className="mx-auto mt-4 block w-fit rounded-full border border-[#B7F34A]/25 bg-[#0B0F0E]/90 px-4 py-1.5 font-bold tracking-[0.04em] text-[#B7F34A]">#CUANPERDETIK</span>
           </p>
           <PwButton
             href="https://play.google.com/store/apps/details?id=com.saku_sultan"
-            size="lg"
-            className="w-full justify-between lg:w-auto lg:justify-start lg:gap-6"
+             size="lg"
+             variant="secondary"
+             className="saku-primary-action w-full max-w-[320px] justify-between sm:w-auto sm:max-w-none sm:gap-6"
           >
             Download Gratis
           </PwButton>
@@ -138,7 +112,7 @@ export function PwCtaFooter() {
           </span>
         </div>
         <div className="bg-transparent mt-10 lg:mt-12 pb-24 md:pb-8">
-          <div className="content-container mx-auto px-6 lg:px-12 md:pr-24 lg:pr-28 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 border-t border-white/20 pt-8">
+          <div className="content-container mx-auto px-6 lg:px-12 md:pr-24 lg:pr-28 flex flex-col xl:flex-row items-center justify-between gap-6 xl:gap-4 border-t border-white/20 pt-8">
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 order-2 md:order-1">
               <a href="/syarat-ketentuan" className="text-[14px] sm:text-[16px] text-white/88 hover:text-white transition-colors duration-300 whitespace-nowrap">
                 Syarat &amp; Ketentuan
@@ -150,8 +124,8 @@ export function PwCtaFooter() {
             <p className="text-[14px] sm:text-[16px] text-white/88 text-center order-3 md:order-2">
               &copy; 2026 Saku Sultan. All rights reserved.
             </p>
-            <span className="text-[14px] sm:text-[16px] font-semibold text-[#D9F36A] order-1 md:order-3 whitespace-nowrap">
-              #PastiUNTUNG
+            <span className="text-[14px] sm:text-[16px] font-semibold text-[#B7F34A] order-1 md:order-3 whitespace-nowrap">
+              #CUANPERDETIK
             </span>
           </div>
         </div>

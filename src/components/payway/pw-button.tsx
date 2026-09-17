@@ -50,7 +50,7 @@ export function PwButton({
       {...(external
         ? { target: "_blank", rel: "noopener noreferrer" }
         : {})}
-      className={`pw-lift group inline-flex w-fit items-center justify-between gap-4 overflow-hidden rounded-full border font-medium tracking-[-0.3px] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#198F38]/30 ${sizing} ${shell} ${className}`}
+      className={`pw-button pw-button-${variant} pw-lift group inline-flex w-fit items-center justify-between gap-4 overflow-hidden rounded-full border font-medium tracking-[-0.3px] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#198F38]/30 ${sizing} ${shell} ${className}`}
     >
       <span className="whitespace-nowrap">{children}</span>
       <span

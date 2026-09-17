@@ -196,9 +196,9 @@ export function PwFaq() {
           Temukan jawaban cepat seputar layanan, keamanan, dan cara menggunakan Saku Sultan.
         </PwSectionHeader>
 
-        <div className="w-full max-w-[1300px] flex flex-col lg:flex-row gap-12 lg:gap-0">
+        <div className="w-full max-w-[1300px] grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)]">
           {/* Kolom kanan — daftar dropdown kategori (order-1 di mobile) */}
-          <div className="order-1 lg:order-2 w-full lg:w-[718px] lg:pl-[32px] flex flex-col gap-6">
+          <div className="order-1 lg:order-2 w-full min-w-0 flex flex-col gap-6">
             <h3 className="font-heading font-semibold text-xl md:text-2xl text-[#042718]/70 mb-2">
               Pertanyaan Umum
             </h3>
@@ -208,7 +208,7 @@ export function PwFaq() {
                 return (
                   <div
                     key={group.category}
-                    className="w-full lg:w-[686px] rounded-[20px] border border-[#0427181a] overflow-hidden"
+                    className="w-full rounded-[20px] border border-[#0427181a] overflow-hidden"
                   >
                     <button
                       type="button"
@@ -280,18 +280,18 @@ export function PwFaq() {
                                 ) : null}
                                 <div className="relative z-20 w-full flex items-start gap-4 md:gap-8">
                                   <div
-                                    className={`flex gap-3 md:gap-5 w-full flex-shrink-0 ${
-                                      open ? "items-start w-5/6" : "items-center w-full"
+                                    className={`flex min-w-0 flex-1 gap-3 md:gap-5 ${
+                                      open ? "items-start" : "items-center"
                                     }`}
                                   >
                                     <span
-                                      className={`font-heading font-semibold text-xl md:text-2xl leading-[26px] md:leading-[30px] tracking-[-0.6px] md:tracking-[-0.8px] ${
+                                      className={`shrink-0 font-heading font-semibold text-xl md:text-2xl leading-[26px] md:leading-[30px] tracking-[-0.6px] md:tracking-[-0.8px] ${
                                         open ? "text-white" : "text-[#042718]"
                                       }`}
                                     >
                                       {number}
                                     </span>
-                                    <div className="flex flex-col gap-[8px] md:gap-[10px]">
+                                    <div className="flex min-w-0 flex-1 flex-col gap-[8px] md:gap-[10px]">
                                       <h4
                                         className={`font-heading font-semibold text-xl md:text-2xl leading-[26px] md:leading-[30px] tracking-[-0.6px] md:tracking-[-0.8px] ${
                                           open ? "text-white" : "text-[#042718]"
@@ -308,7 +308,7 @@ export function PwFaq() {
                                       >
                                         <div className="overflow-hidden min-h-0 max-h-[60vh] overflow-y-auto">
                                           <p
-                                            className={`whitespace-pre-line font-sans text-base md:text-lg text-white md:leading-7 transition-opacity duration-300 ${
+                                            className={`break-words whitespace-pre-line font-sans text-base md:text-lg text-white md:leading-7 transition-opacity duration-300 ${
                                               open ? "opacity-80" : "opacity-0"
                                             }`}
                                           >
@@ -371,8 +371,8 @@ export function PwFaq() {
           </div>
 
           {/* Kolom kiri — foto support + CTA (order-2 di mobile) */}
-          <div className="order-2 lg:order-1 w-full lg:w-[506px] lg:pr-[32px] flex flex-col gap-12 items-start mt-8 lg:mt-0">
-            <PwReveal className="w-full lg:w-[474px] h-[300px] sm:h-[400px] lg:h-[480px] rounded-[24px] overflow-hidden shadow-xl relative">
+          <div className="order-2 lg:order-1 w-full min-w-0 flex flex-col gap-12 items-start mt-8 lg:mt-0">
+            <PwReveal className="w-full h-[300px] sm:h-[400px] lg:h-[480px] rounded-[24px] overflow-hidden shadow-xl relative">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 alt="Smart male customer support representative"

@@ -103,11 +103,11 @@ export function PwOnboardingSteps() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="w-full bg-white flex flex-col items-center">
+    <section id="registrasi" aria-label="Registrasi Saku Sultan" className="w-full bg-white flex flex-col items-center scroll-mt-24">
       <div className="pw-section-y w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         <div className="w-full max-w-[1248px] mx-auto flex flex-col items-center gap-12 lg:gap-[64px]">
           <PwSectionHeader
-            eyebrow="Alur Transaksi"
+            eyebrow="Registrasi"
             title="Mulai Transaksi dalam 3 Langkah Mudah"
           >
             Ikuti langkah sederhana berikut untuk mulai menggunakan Saku Sultan.

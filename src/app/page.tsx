@@ -24,10 +24,10 @@ export default function PaywayPage() {
       <div id="fitur" className="scroll-mt-24">
         <PwEduDigi />
         <PwPricing />
-        <PwProcess />
         <PwFeaturesTriple />
       </div>
       <PwTestimonials />
+      <PwProcess />
       <PwOnboardingSteps />
       <PwCharts />
       <PwFaq />

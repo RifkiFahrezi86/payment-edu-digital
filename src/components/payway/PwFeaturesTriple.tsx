@@ -6,6 +6,7 @@ import { createPortal } from "react-dom";
 import { PwReveal } from "@/components/payway/pw-reveal";
 import { PwEyebrow } from "@/components/payway/pw-eyebrow";
 import { PwSectionHeader } from "@/components/payway/pw-section-header";
+import { PwEduDigiCards } from "@/components/payway/PwEduDigiCards";
 
 /* ---- ikon lucide inline (verbatim dari markup) ---- */
 
@@ -191,6 +192,9 @@ type PwFeature = {
   bullets: PwFeatureBullet[];
   imageSrc: string;
   imageAlt: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageLayout?: "stacked-cards";
 };
 
 const PW_FEATURES: PwFeature[] = [
@@ -198,28 +202,31 @@ const PW_FEATURES: PwFeature[] = [
     label: "EduDigi",
     title: "Edukasi Digital",
     shortDescription:
-      "Belajar menggunakan layanan digital dengan aman, bijak, dan bertanggung jawab.",
+      "Kelas online yang dirancang untuk membangun pemahaman dasar dan keterampilan praktis dalam menghadapi perkembangan teknologi digital, kecerdasan buatan (AI), keamanan transaksi, pembuatan konten, serta pemanfaatan ekosistem digital secara produktif.",
     description:
-      "EduDigi merupakan program edukasi pada aplikasi SAKU SULTAN yang dirancang untuk meningkatkan pengetahuan dan keterampilan digital para mitra serta masyarakat. Program ini menyajikan pembelajaran yang praktis dan mudah dipahami, khususnya mengenai penggunaan layanan keuangan digital secara bijak, aman, dan bertanggung jawab.\n\nMelalui EduDigi, pengguna dapat mempelajari cara bertransaksi digital, menjaga kerahasiaan PIN dan kode OTP, melindungi data pribadi, mengenali modus penipuan daring, serta memanfaatkan teknologi untuk mengembangkan usaha.\n\nKehadiran EduDigi menegaskan bahwa SAKU SULTAN tidak hanya menyediakan layanan transaksi, tetapi juga turut membangun masyarakat yang semakin cakap dan aman di era digital.\n\nEduDigi — Belajar Digital, Bertransaksi Aman, Usaha Makin Berkembang.",
+      "EduDigi menghadirkan kelas online untuk membangun pemahaman dasar dan keterampilan praktis dalam menghadapi perkembangan teknologi digital, kecerdasan buatan (AI), keamanan transaksi, pembuatan konten, serta pemanfaatan ekosistem digital secara produktif.\n\nBELAJAR — Kelas online dengan 2 sesi pertemuan dan materi praktis yang mudah dipahami, bahkan oleh pemula.\n\nPRAKTIK — Setelah memahami materi, peserta diarahkan untuk mempraktikkan keterampilan digital dan menghasilkan karya atau aktivitas nyata.\n\nPRODUKTIF — Peserta menerapkan karya di media sosial untuk mengembangkan peluang penghasilan sesuai usaha dan ketekunan masing-masing.\n\nEdukasi Digital — Belajar, Praktik, Produktif bersama EduDigi dan Saku Sultan.",
     bullets: [
       {
         icon: zapIcon,
-        lead: "Belajar layanan digital",
-        rest: "Materi praktis dan mudah dipahami untuk mitra serta masyarakat.",
+        lead: "BELAJAR —",
+        rest: "Kelas online dengan 2 sesi pertemuan, dengan materi praktis dan mudah dipahami bahkan oleh pemula.",
       },
       {
         icon: globeIcon,
-        lead: "Bertransaksi dengan aman",
-        rest: "Pelajari cara menjaga PIN, OTP, dan data pribadi.",
+        lead: "PRAKTIK —",
+        rest: "Setelah memahami materi, peserta diarahkan untuk mempraktikkan keterampilan digital dan menghasilkan karya atau aktivitas nyata.",
       },
       {
         icon: chartColumnIcon,
-        lead: "Mendukung perkembangan usaha",
-        rest: "Manfaatkan teknologi untuk mengembangkan usaha di era digital.",
+        lead: "PRODUKTIF —",
+        rest: "Pengaplikasian karya di media sosial untuk menghasilkan cuan secara berkelanjutan, sesuai dengan usaha dan ketekunan Anda.",
       },
     ],
-    imageSrc: "/images/payway/Edudigi.jpg",
-    imageAlt: "EduDigi",
+    imageSrc: "/images/IMAGE/4.jpeg",
+    imageAlt: "EduDigi: pahami, praktikkan, manfaatkan, dan jadi produktif",
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageLayout: "stacked-cards",
   },
   {
     label: "PASSOLO",
@@ -272,8 +279,10 @@ const PW_FEATURES: PwFeature[] = [
         rest: "Konfirmasi penerima dan riwayat transaksi membantu mengurangi kesalahan.",
       },
     ],
-    imageSrc: "/images/payway/Q-tra.jpg",
-    imageAlt: "Q-tra",
+    imageSrc: "/images/IMAGE/12.jpeg",
+    imageAlt: "QTRA — kirim uang lebih cepat, lebih mudah bersama Saku Sultan",
+    imageWidth: 1600,
+    imageHeight: 820,
   },
 ];
 
@@ -401,7 +410,8 @@ function FeatureBlock({ feature, index }: { feature: PwFeature; index: number })
   return (
     <div
       ref={wrapRef}
-      className="pw-feature-sticky sticky w-full max-w-[1248px]"
+      data-feature={feature.label}
+      className="pw-feature-sticky w-full max-w-[1248px] lg:sticky"
       style={{ top: `var(--pw-sticky-top, ${80 + index * 20}px)` }}
     >
       <PwReveal
@@ -415,7 +425,7 @@ function FeatureBlock({ feature, index }: { feature: PwFeature; index: number })
         0{index + 1}
       </span>
       <div className={`flex flex-col ${flip ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 md:gap-14 px-6 md:px-14 py-8 md:py-12`}>
-        <div className="w-full lg:w-[572px] pt-4 md:pt-[32px] flex flex-col gap-6 md:gap-8 shrink-0">
+        <div className="w-full lg:w-1/2 pt-4 md:pt-[32px] flex flex-col gap-6 md:gap-8 shrink-0">
           <div className="flex flex-col">
             <PwEyebrow className="mb-4">{feature.label}</PwEyebrow>
             <h3 className="max-w-[432px] font-semibold text-[32px] md:text-[42px] leading-[38px] md:leading-[48px] tracking-[-1.2px] md:tracking-[-2px] text-[#042718] mb-3">
@@ -429,7 +439,7 @@ function FeatureBlock({ feature, index }: { feature: PwFeature; index: number })
                 href="https://play.google.com/store/apps/details?id=com.saku_sultan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center bg-[#042718] border border-[#0427180f] rounded-full overflow-hidden transition-all duration-300 h-[44px] w-fit"
+                className="saku-feature-download group relative flex items-center bg-[#042718] border border-[#0427180f] rounded-full overflow-hidden transition-all duration-300 h-[44px] w-fit"
               >
                 <div className="absolute right-[6px] w-8 h-8 bg-white rounded-full flex items-center justify-center z-10">
                   {arrowUpRightIcon}
@@ -459,7 +469,7 @@ function FeatureBlock({ feature, index }: { feature: PwFeature; index: number })
               </button>
             </div>
           </div>
-          <div className="flex flex-col gap-4 md:gap-5 w-full lg:w-[572px]">
+          <div className="flex flex-col gap-4 md:gap-5 w-full">
             {feature.bullets.map((bullet, index) => (
               <div key={bullet.lead} className="flex flex-col gap-4 md:gap-5">
                 <div className="flex gap-4 items-start w-full">
@@ -479,7 +489,12 @@ function FeatureBlock({ feature, index }: { feature: PwFeature; index: number })
             ))}
           </div>
         </div>
-        <div className="w-full lg:flex-1 flex justify-center items-center">
+        <div className="w-full min-w-0 lg:flex-1 flex justify-center items-center">
+          {feature.imageLayout === "stacked-cards" ? (
+            <PwReveal className="relative w-full py-4 lg:py-8" delay={200}>
+              <PwEduDigiCards />
+            </PwReveal>
+          ) : (
           <PwReveal className="relative my-4 lg:my-8 w-fit" delay={200}>
             <div
               className={`absolute -inset-3 md:-inset-4 rounded-[28px] bg-gradient-to-br from-[#198F3821] via-[#D6EFFF59] to-[#198F380a] ${flip ? "-rotate-3" : "rotate-3"}`}
@@ -487,12 +502,13 @@ function FeatureBlock({ feature, index }: { feature: PwFeature; index: number })
             <Image
               alt={feature.imageAlt}
               src={feature.imageSrc}
-              width={860}
-              height={860}
+              width={feature.imageWidth ?? 860}
+              height={feature.imageHeight ?? 860}
               sizes="(min-width: 1024px) 560px, 90vw"
               className={`relative h-auto w-auto max-w-full max-h-[320px] md:max-h-[420px] object-contain rounded-[20px] shadow-[0_16px_36px_0_rgba(4,39,24,0.14)] transition-transform duration-500 hover:rotate-0 hover:scale-[1.02] ${flip ? "rotate-2" : "-rotate-2"}`}
             />
           </PwReveal>
+          )}
         </div>
       </div>
       </PwReveal>
@@ -501,7 +517,7 @@ function FeatureBlock({ feature, index }: { feature: PwFeature; index: number })
       {open &&
         createPortal(
           <div
-            className="fixed inset-0 z-[80] flex items-center justify-center bg-[#042718]/40 p-4 backdrop-blur-sm md:p-8"
+            className="pw-feature-dialog fixed inset-0 z-[80] flex items-center justify-center bg-[#042718]/40 p-4 backdrop-blur-sm md:p-8"
             onClick={() => setOpen(false)}
             role="dialog"
             aria-modal="true"

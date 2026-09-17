@@ -103,6 +103,9 @@ export function PwHero() {
 
       <div className="saku-hero-layout mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-14 px-5 pb-20 pt-14 sm:px-8 sm:pb-24 sm:pt-20 lg:min-h-[calc(100svh-88px)] lg:grid-cols-[minmax(0,1.1fr)_minmax(300px,0.62fr)] lg:gap-16 lg:px-12 lg:pb-16 lg:pt-12 xl:gap-20 xl:px-24">
         <div className="ped-hero-enter relative isolate flex max-w-[720px] flex-col items-center text-center lg:items-start lg:text-left">
+          <p className="saku-startup-label mb-4 text-[10px] font-semibold uppercase tracking-[0.14em] sm:text-xs">
+            Startup · Ekosistem Digital Indonesia
+          </p>
           <h1 className="saku-hero-title font-extrabold text-white">
             <span className="saku-hero-line saku-hero-line-primary">
               <span className="text-[#00C66B]">M</span>elangkah Lebih Awal
@@ -117,7 +120,7 @@ export function PwHero() {
           </h1>
 
           <p className="saku-hero-hashtag mt-8 text-[clamp(2rem,3.2vw,2.875rem)] font-extrabold leading-none tracking-[-0.03em] text-white lg:mt-12">
-            #CUAN PERDETIK
+            #CUANPERDETIK
           </p>
 
           <p className="saku-hero-support mt-4 max-w-[720px] text-base font-medium leading-[1.4] text-white sm:mt-5 sm:text-lg lg:text-[21px]">
@@ -144,10 +147,10 @@ export function PwHero() {
 
             <a
               href="#fitur"
-              className="group inline-flex min-h-[58px] w-full items-center justify-between gap-5 rounded-[15px] border border-[#0A5332]/35 bg-white/78 py-2 pl-5 pr-2 text-sm font-semibold text-[#062B1B] shadow-[0_10px_24px_rgba(4,39,24,0.1),inset_0_1px_0_rgba(255,255,255,0.82)] backdrop-blur-sm transition-[transform,background-color,border-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-[#0A5332]/65 hover:bg-white/92 hover:shadow-[0_13px_28px_rgba(4,39,24,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/20 sm:w-auto"
+              className="saku-glass-action group inline-flex min-h-[58px] w-full items-center justify-between gap-5 rounded-[15px] border py-2 pl-5 pr-2 text-sm font-semibold backdrop-blur-sm transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 sm:w-auto"
             >
               <span>Jelajahi Fitur</span>
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-[#073B24] text-white shadow-[0_5px_12px_rgba(4,39,24,0.18)] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-[#073B24] text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                 <ArrowUpRightIcon />
               </span>
             </a>

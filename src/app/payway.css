@@ -13,6 +13,12 @@
    ============================================================ */
 
 :root {
+  --saku-charcoal: #0b0f0e;
+  --saku-dark-surface: #131917;
+  --saku-lime: #b7f34a;
+  --saku-lime-hover: #c9ff63;
+  --saku-on-dark: #f5f7f6;
+  --saku-on-dark-muted: #c2c9c5;
   /* ---- palette inti ---- */
   --pw-ink: #042718; /* hijau tinta gelap — tombol, teks pekat */
   --pw-ink-hover: #06381f;
@@ -22,7 +28,7 @@
   /* #198F38 hanya 4.18:1 di atas putih, gagal untuk teks kecil.
      Varian ini 5.02:1 dan dipakai untuk teks/label hijau. */
   --pw-green-text: #15803d;
-  --pw-lime: #d9f36a; /* aksen sorot di atas media gelap */
+  --pw-lime: var(--saku-lime); /* aksen sorot di atas media gelap */
   --pw-surface: #ffffff;
   --pw-mist: #f4f6f5; /* latar kartu abu kehijauan */
   --pw-card: #f6fdff; /* latar kartu fitur */
@@ -160,6 +166,46 @@ html {
     );
 }
 
+.saku-primary-action {
+  border-color: var(--saku-lime);
+  border-radius: 12px;
+  background: var(--saku-lime);
+  color: #08100c;
+  box-shadow: 0 6px 18px #08100c18;
+}
+
+.saku-primary-action:hover {
+  border-color: var(--saku-lime-hover);
+  background: var(--saku-lime-hover);
+}
+
+.saku-glass-action {
+  border-color: #0a533259;
+  background: #ffffffc7;
+  color: #062b1b;
+  box-shadow: 0 10px 24px #0427181a, inset 0 1px 0 #ffffffd1;
+}
+
+.saku-glass-action:hover {
+  border-color: #0a5332a6;
+  background: #ffffffeb;
+  box-shadow: 0 13px 28px #04271821, inset 0 1px 0 #ffffffe6;
+}
+
+.saku-nav-register {
+  background: #ffffff8c;
+}
+
+.saku-nav-register:hover {
+  background: #ffffffb8;
+}
+
+.saku-primary-action:focus-visible,
+.saku-glass-action:focus-visible {
+  outline: 3px solid #628f3a;
+  outline-offset: 4px;
+}
+
 
 .saku-service-rail {
   isolation: isolate;
@@ -233,7 +279,7 @@ html {
   left: 18%;
   height: 2px;
   border-radius: 999px;
-  background: #d9f36a;
+  background: var(--saku-lime);
   content: "";
   transform: scaleX(0);
   transform-origin: center;
@@ -252,6 +298,58 @@ html {
 
 .saku-hero-phone {
   max-width: 270px;
+}
+
+.saku-phone-preview {
+  width: 100%;
+  max-width: 100%;
+}
+
+.saku-phone-theme-image {
+  opacity: 0;
+  transition: opacity 650ms ease-in-out;
+}
+
+.saku-phone-theme-image.is-visible {
+  opacity: 1;
+}
+
+.saku-phone-theme-controls {
+  display: flex;
+  width: fit-content;
+  gap: 4px;
+  margin: 16px auto 0;
+  padding: 4px;
+  border: 1px solid #ffffff38;
+  border-radius: 999px;
+  background: #082a20e6;
+  box-shadow: 0 5px 18px #001a1833;
+}
+
+.saku-phone-theme-controls > button {
+  min-width: 62px;
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 180ms, color 180ms;
+}
+
+.saku-phone-theme-controls > button:hover {
+  background: #ffffff1a;
+}
+
+.saku-phone-theme-controls > button[aria-pressed="true"] {
+  background: var(--saku-lime);
+  color: #042718;
+}
+
+.saku-phone-theme-controls > button:focus-visible {
+  outline: 2px solid #d9f36a;
+  outline-offset: 2px;
 }
 
 .saku-hero-phone-frame {
@@ -407,6 +505,10 @@ html {
 
   .saku-hero-phone {
     max-width: none;
+  }
+
+  .saku-phone-preview {
+    width: fit-content;
   }
 
   .saku-hero-phone-frame {
@@ -694,7 +796,7 @@ html {
   }
 
   .saku-hero-readability-scrim {
-    background: rgba(3, 26, 16, 0.72);
+    background: rgba(11, 15, 14, 0.92);
   }
 
   .saku-hero-navbar::before {
@@ -713,6 +815,11 @@ html {
 
   .ped-hero-enter {
     animation: none;
+  }
+
+  .saku-phone-theme-image,
+  .saku-phone-theme-controls > button {
+    transition: none;
   }
 
   /* Semua video dekoratif dimatikan, bukan hanya video hero.
@@ -786,6 +893,16 @@ html {
     rgba(255, 255, 255, 0.58) 74%,
     rgba(255, 255, 255, 0.88) 100%
   );
+}
+
+.saku-footer-heading,
+.saku-footer-description {
+  text-shadow: 0 2px 14px #001a14aa;
+}
+
+.saku-footer a[aria-label] {
+  min-width: 44px;
+  min-height: 44px;
 }
 
 @media (prefers-contrast: more) {
