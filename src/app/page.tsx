@@ -1,38 +1,36 @@
-import { PwHero } from "@/components/payway/PwHero";
-import { PwHeroNavigation } from "@/components/payway/PwHeroNavigation";
-import { PwInsights } from "@/components/payway/PwInsights";
-import { PwProcess } from "@/components/payway/PwProcess";
-import { PwOnboardingSteps } from "@/components/payway/PwOnboardingSteps";
-import { PwFeaturesTriple } from "@/components/payway/PwFeaturesTriple";
-import { PwTestimonials } from "@/components/payway/PwTestimonials";
-import { PwCharts } from "@/components/payway/PwCharts";
-import { PwPricing } from "@/components/payway/PwPricing";
-import { PwFaq } from "@/components/payway/PwFaq";
-import { PwCtaFooter } from "@/components/payway/PwCtaFooter";
-import { PwWhatsappButton } from "@/components/payway/PwWhatsappButton";
-import { PwEduDigi } from "@/components/payway/PwEduDigi";
+import { SsNav } from "@/components/saku/SsNav";
+import { SsHero } from "@/components/saku/SsHero";
+import { SsQuickBar } from "@/components/saku/SsQuickBar";
+import { SsFeatures } from "@/components/saku/SsFeatures";
+import { SsRingkasan } from "@/components/saku/SsRingkasan";
+import { SsShowcase } from "@/components/saku/SsShowcase";
+import { SsProcess } from "@/components/saku/SsProcess";
+import { SsVtn } from "@/components/saku/SsVtn";
+import { SsEdudigi } from "@/components/saku/SsEdudigi";
+import { SsEcosystem } from "@/components/saku/SsEcosystem";
+import { SsPartners } from "@/components/saku/SsPartners";
+import { SsTestimonials } from "@/components/saku/SsTestimonials";
+import { SsCtaFooter } from "@/components/saku/SsCtaFooter";
+import { SsWhatsapp } from "@/components/saku/SsWhatsapp";
 
-/**
- * / — halaman utama Saku Sultan landing.
- */
-export default function PaywayPage() {
+/** / — halaman utama SAKU SULTAN (redesign total mengikuti referensi). */
+export default function SakuSultanPage() {
   return (
-    <main className="w-full overflow-x-clip">
-      <PwHeroNavigation />
-      <PwHero />
-      <PwInsights />
-      <div id="fitur" className="scroll-mt-24">
-        <PwEduDigi />
-        <PwPricing />
-        <PwFeaturesTriple />
-      </div>
-      <PwTestimonials />
-      <PwProcess />
-      <PwOnboardingSteps />
-      <PwCharts />
-      <PwFaq />
-      <PwCtaFooter />
-      <PwWhatsappButton />
+    <main className="w-full overflow-x-clip bg-white">
+      <SsNav />
+      <SsHero />
+      <SsQuickBar />
+      <SsFeatures />
+      <SsRingkasan />
+      <SsShowcase />
+      <SsProcess />
+      <SsVtn />
+      <SsEdudigi />
+      <SsEcosystem />
+      <SsPartners />
+      <SsTestimonials />
+      <SsCtaFooter />
+      <SsWhatsapp />
     </main>
   );
 }

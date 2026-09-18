@@ -1,0 +1,9 @@
+export type ShowcaseTab = "edudigi" | "qtra" | "transfer" | "ppob" | "passolo" | "merchant";
+
+export const SHOWCASE_TAB_EVENT = "ss-showcase-tab";
+
+/** Buka tab showcase dari komponen mana pun lalu scroll ke #fitur. */
+export function openShowcaseTab(tab: ShowcaseTab) {
+  window.dispatchEvent(new CustomEvent<ShowcaseTab>(SHOWCASE_TAB_EVENT, { detail: tab }));
+  document.getElementById("fitur")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}

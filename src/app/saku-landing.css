@@ -1,0 +1,282 @@
+/* ============================================================
+   SAKU SULTAN — redesign 2026 (mengikuti referensi Reverensi/)
+   Token + pola khusus yang tidak praktis lewat utility inline.
+   ============================================================ */
+
+:root {
+  --ss-ink: #08170f; /* teks near-black green */
+  --ss-dark: #071f16; /* section gelap */
+  --ss-darker: #04130c; /* navbar/footer */
+  --ss-pine: #0c3b2a; /* kartu/banner hijau pekat */
+  --ss-pine-2: #10462f;
+  --ss-green: #12874b; /* aksen heading hijau */
+  --ss-green-deep: #0c5c35;
+  --ss-lime: #cdf463; /* aksen utama CTA */
+  --ss-lime-strong: #b9f13e;
+  --ss-mint: #e9f6ee;
+  --ss-mist: #f4f7f4;
+  --ss-line: rgba(8, 23, 15, 0.1);
+  --ss-muted: rgba(8, 23, 15, 0.64);
+  --ss-script: var(--font-caveat), "Caveat", "Segoe Script", cursive;
+}
+
+/* -------- tipografi khusus -------- */
+.ss-script {
+  font-family: var(--ss-script);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.ss-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.ss-h1 {
+  font-size: clamp(2.4rem, 1.6rem + 4vw, 4.6rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.ss-h2 {
+  font-size: clamp(1.9rem, 1.3rem + 2.4vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+
+.ss-h3 {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.15rem);
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+/* -------- tombol -------- */
+.ss-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.6rem;
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1), background-color 180ms, color 180ms,
+    border-color 180ms, box-shadow 180ms;
+  cursor: pointer;
+}
+
+.ss-btn:active {
+  transform: scale(0.97);
+}
+
+.ss-btn-lime {
+  background: var(--ss-lime);
+  color: var(--ss-ink);
+  box-shadow: 0 10px 30px rgba(205, 244, 99, 0.28);
+}
+
+.ss-btn-lime:hover {
+  background: #ddff7d;
+  transform: translateY(-2px);
+}
+
+.ss-btn-outline-light {
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+}
+
+.ss-btn-outline-light:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.ss-btn-outline-dark {
+  border: 1.5px solid rgba(8, 23, 15, 0.28);
+  color: var(--ss-ink);
+  background: transparent;
+}
+
+.ss-btn-outline-dark:hover {
+  border-color: var(--ss-ink);
+  background: rgba(8, 23, 15, 0.05);
+}
+
+.ss-btn-dark {
+  background: var(--ss-pine);
+  color: #fff;
+}
+
+.ss-btn-dark:hover {
+  background: var(--ss-pine-2);
+  transform: translateY(-2px);
+}
+
+/* -------- frame ponsel -------- */
+.ss-phone {
+  border-radius: 44px;
+  border: 10px solid #10130f;
+  background: #10130f;
+  box-shadow: 0 40px 90px rgba(2, 16, 10, 0.5), 0 6px 18px rgba(2, 16, 10, 0.35);
+  overflow: hidden;
+  position: relative;
+}
+
+/* komposisi dua ponsel miring (frame PNG 3D) di hero */
+.ss-hero-phones {
+  position: relative;
+  height: 500px;
+  width: 300px;
+}
+
+.ss-frame-front {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 10;
+  transform: translateX(-50%) scale(0.62);
+  transform-origin: top center;
+  filter: drop-shadow(0 40px 60px rgba(2, 16, 10, 0.55));
+}
+
+.ss-frame-back {
+  position: absolute;
+  right: -120px;
+  top: 34px;
+  display: none;
+  filter: drop-shadow(0 34px 50px rgba(2, 16, 10, 0.5));
+}
+
+@media (min-width: 640px) {
+  .ss-hero-phones {
+    width: 470px;
+    height: 700px;
+  }
+
+  .ss-frame-front {
+    left: -120px;
+    top: -46px;
+    transform: none;
+  }
+
+  .ss-frame-back {
+    display: block;
+  }
+}
+
+.ss-phone::after {
+  /* notch */
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 24px;
+  border-radius: 999px;
+  background: #10130f;
+  z-index: 30;
+}
+
+/* -------- teks glow VTN -------- */
+.ss-vtn-glow {
+  background: linear-gradient(180deg, #eaffb0 0%, var(--ss-lime-strong) 55%, #5da728 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 26px rgba(185, 241, 62, 0.45));
+}
+
+/* -------- watermark footer -------- */
+.ss-watermark {
+  font-size: clamp(4rem, 14vw, 13rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* -------- pola dekoratif -------- */
+.ss-grid-glow {
+  background-image: linear-gradient(rgba(205, 244, 99, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(205, 244, 99, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.ss-noscrollbar {
+  scrollbar-width: none;
+}
+
+.ss-noscrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* garis penghubung timeline langkah */
+.ss-step-line::before {
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 56px;
+  bottom: -18px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(18, 135, 75, 0.45), rgba(18, 135, 75, 0.08));
+}
+
+.ss-step-item:last-child .ss-step-line::before {
+  display: none;
+}
+
+/* animasi float halus untuk kartu mengambang */
+@keyframes ss-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.ss-float {
+  animation: ss-float 5.5s ease-in-out infinite;
+}
+
+.ss-float-slow {
+  animation: ss-float 7.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ss-float,
+  .ss-float-slow {
+    animation: none;
+  }
+}
+
+/* reveal on scroll */
+.ss-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ss-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ss-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
