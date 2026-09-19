@@ -131,7 +131,7 @@
 /* komposisi dua ponsel miring (frame PNG 3D) di hero */
 .ss-hero-phones {
   position: relative;
-  height: 500px;
+  height: 440px;
   width: 300px;
 }
 
@@ -140,9 +140,20 @@
   left: 50%;
   top: 0;
   z-index: 10;
-  transform: translateX(-50%) scale(0.62);
+  transform: translateX(-50%) scale(0.55);
   transform-origin: top center;
   filter: drop-shadow(0 40px 60px rgba(2, 16, 10, 0.55));
+}
+
+/* layar sangat sempit (mis. iPhone SE lama): kecilkan lagi agar tidak terpotong */
+@media (max-width: 359px) {
+  .ss-hero-phones {
+    height: 390px;
+  }
+
+  .ss-frame-front {
+    transform: translateX(-50%) scale(0.48);
+  }
 }
 
 .ss-frame-back {

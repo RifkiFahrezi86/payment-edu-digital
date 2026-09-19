@@ -56,7 +56,7 @@ export function SsNav() {
             <span className="block text-[17px] font-extrabold tracking-wide text-white">
               SAKU <span className="text-[var(--ss-lime)]">SULTAN</span>
             </span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--ss-lime)]/90">
+            <span className="hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--ss-lime)]/90 min-[400px]:block">
               Dompet Digital, Sumber Cuan
             </span>
           </span>
@@ -140,7 +140,7 @@ export function SsNav() {
               </div>
             ) : null}
           </div>
-          <a href="#bantuan" className="ss-btn ss-btn-lime !px-5 !py-2.5 !text-[14px]">
+          <a href="#bantuan" className="ss-btn ss-btn-lime !hidden !px-5 !py-2.5 !text-[14px] sm:!inline-flex">
             Daftar Sekarang
             <IcArrowUpRight width={16} height={16} />
           </a>
@@ -163,7 +163,7 @@ export function SsNav() {
       <div
         className={cn(
           "overflow-hidden border-t border-white/10 bg-[#04130c] transition-[max-height] duration-300 lg:hidden",
-          open ? "max-h-[420px]" : "max-h-0 border-t-0"
+          open ? "max-h-[480px]" : "max-h-0 border-t-0"
         )}
       >
         <ul className="space-y-1 px-5 py-4">
@@ -179,6 +179,16 @@ export function SsNav() {
             </li>
           ))}
         </ul>
+        <div className="px-5 pb-5 sm:hidden">
+          <a
+            href="#bantuan"
+            onClick={() => setOpen(false)}
+            className="ss-btn ss-btn-lime w-full !py-3 !text-[14px]"
+          >
+            Daftar Sekarang
+            <IcArrowUpRight width={16} height={16} />
+          </a>
+        </div>
       </div>
     </header>
   );
