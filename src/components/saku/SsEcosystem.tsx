@@ -28,7 +28,7 @@ export function SsEcosystem() {
           {/* Ponsel brand */}
           <SsReveal className="relative order-2 mx-auto lg:order-1">
             <div className="absolute -inset-10 -z-10 rounded-full bg-[var(--ss-lime)]/12 blur-[90px]" />
-            <div className="ss-phone w-[280px] rotate-[-5deg]">
+            <div className="ss-phone w-[280px] max-w-full rotate-[-5deg]">
               <div className="flex h-[540px] flex-col items-center justify-center gap-5 bg-gradient-to-b from-[#0c3b2a] via-[#071f16] to-[#04130c] px-8 text-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

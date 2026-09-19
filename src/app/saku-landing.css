@@ -132,7 +132,7 @@
 .ss-hero-phones {
   position: relative;
   height: 440px;
-  width: 300px;
+  width: min(300px, 100vw - 40px);
 }
 
 .ss-frame-front {

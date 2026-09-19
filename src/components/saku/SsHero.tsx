@@ -43,12 +43,12 @@ export function SsHero() {
         <div>
           <SsReveal>
             <p className="ss-eyebrow flex items-center gap-3 text-[var(--ss-lime)]">
-              <span className="h-px w-10 bg-[var(--ss-lime)]/70" />
+              <span className="hidden h-px w-10 bg-[var(--ss-lime)]/70 sm:block" />
               Ekosistem Digital Saku Sultan
             </p>
           </SsReveal>
           <SsReveal delay={80}>
-            <h1 className="ss-h1 mt-5 !text-[clamp(2.3rem,1.3rem+3.2vw,3.9rem)] text-white">
+            <h1 className="ss-h1 mt-5 !text-[clamp(1.5rem,0.75rem+4.5vw,2.3rem)] text-white sm:!text-[clamp(2.3rem,1.3rem+3.2vw,3.9rem)]">
               Melangkah Lebih Awal.
               <br />
               Bergerak Secara <span className="text-[var(--ss-lime)]">Digital.</span>

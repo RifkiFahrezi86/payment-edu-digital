@@ -39,7 +39,7 @@ const APP_SERVICES = [
 
 function ProcessPhone() {
   return (
-    <div className="ss-phone w-[280px]">
+    <div className="ss-phone w-[280px] max-w-full">
       <div className="flex h-[560px] flex-col bg-[#071f16] text-white">
         {/* header */}
         <div className="px-5 pb-4 pt-12">
