@@ -1,27 +1,15 @@
 import { SsReveal } from "./SsReveal";
 import { IcArrowUpRight, IcSparkle, IcTrendingUp, IcZap } from "./ss-icons";
 
-const CARDS = [
-  {
-    icon: IcZap,
-    title: "Transaksi Lebih Mudah",
-    desc: "Semua kebutuhan pembayaran dan transfer selesai dalam hitungan detik, langsung dari genggaman.",
-  },
-  {
-    icon: IcTrendingUp,
-    title: "Peluang Lebih Luas",
-    desc: "Setiap transaksi membuka akses ke program loyalitas, komunitas, dan peluang penghasilan tambahan.",
-  },
-  {
-    icon: IcSparkle,
-    title: "Masa Depan Lebih Baik",
-    desc: "Bersama ekosistem SAKU SULTAN, tumbuh dan melangkah lebih awal menuju masa depan digital.",
-  },
+const VALUES = [
+  { icon: IcZap, title: "Transaksi Lebih Mudah", description: "Kebutuhan digital sehari-hari dalam satu genggaman." },
+  { icon: IcTrendingUp, title: "Peluang Lebih Luas", description: "Terhubung dengan komunitas dan ekosistem yang terus berkembang." },
+  { icon: IcSparkle, title: "Masa Depan Lebih Baik", description: "Belajar, bertumbuh, dan melangkah lebih awal bersama." },
 ];
 
-/** Section gelap "Ekosistem yang Memberikan Peluang" + #CuanPerDetik. */
 export function SsEcosystem() {
   return (
+<<<<<<< HEAD
     <section id="tentang" className="ss-grid-glow scroll-mt-24 overflow-hidden bg-[var(--ss-dark)]">
       <div className="mx-auto w-full max-w-[1320px] px-5 py-20 md:px-8 lg:py-24">
         <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
@@ -81,21 +69,38 @@ export function SsEcosystem() {
                 <IcArrowUpRight width={17} height={17} />
               </a>
             </SsReveal>
+=======
+    <section id="tentang" className="ss-reference-ecosystem scroll-mt-24">
+      <div className="ss-ecosystem-layout">
+        <SsReveal className="ss-ecosystem-device">
+          <div className="ss-ecosystem-brand-phone" aria-hidden="true">
+            <span className="ss-ecosystem-notch" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/saku-sultan-app-icon.png" alt="" width={74} height={74} />
+            <strong>SAKU SULTAN</strong>
+            <small>Dompet Digital,<br />Sumber Cuan</small>
           </div>
-        </div>
-
-        <div className="mt-16 grid gap-5 md:grid-cols-3">
-          {CARDS.map(({ icon: Icon, title, desc }, i) => (
-            <SsReveal key={title} delay={i * 100}>
-              <article className="h-full rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--ss-lime)]/40 hover:bg-white/[0.07]">
-                <span className="flex h-13 w-13 items-center justify-center rounded-2xl bg-[var(--ss-lime)]/12 p-3.5 text-[var(--ss-lime)]">
-                  <Icon width={22} height={22} />
-                </span>
-                <h3 className="mt-5 text-[19px] font-extrabold text-white">{title}</h3>
-                <p className="mt-2.5 text-[13.5px] leading-relaxed text-white/65">{desc}</p>
-              </article>
-            </SsReveal>
-          ))}
+        </SsReveal>
+        <SsReveal className="ss-ecosystem-copy" delay={100}>
+          <p className="ss-eyebrow">Lebih dari transaksi</p>
+          <h2>Ekosistem yang<br />Memberikan Peluang</h2>
+          <p>Bergabunglah dan rasakan lebih dari kemudahan transaksi. Bangun keterampilan dan temukan berbagai peluang melalui ekosistem SAKU SULTAN.</p>
+          <a href="#registrasi" className="ss-btn ss-btn-lime">Mulai Sekarang <IcArrowUpRight width={17} height={17} /></a>
+        </SsReveal>
+        <div className="ss-ecosystem-values-wrap">
+          <p className="ss-script ss-ecosystem-hashtag">#CUANPERDETIK</p>
+          <div className="ss-ecosystem-values">
+            {VALUES.map(({ icon: Icon, title, description }, index) => (
+              <SsReveal key={title} delay={index * 80}>
+                <article className="ss-ecosystem-value">
+                  <Icon width={36} height={36} />
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </article>
+              </SsReveal>
+            ))}
+>>>>>>> 1044a1b (Update project)
+          </div>
         </div>
       </div>
     </section>

@@ -108,7 +108,7 @@ export function SsTestimonials() {
 
         {/* Kontrol carousel */}
         <SsReveal delay={100}>
-          <div className="mt-12 flex items-end justify-between">
+          <div className="ss-testimonial-controls mt-12 flex items-end justify-between">
             <p className="ss-script text-[30px] text-[var(--ss-green)]">
               Cerita Nyata, <span className="text-[var(--ss-ink)]">Dampak Nyata</span>
             </p>
@@ -116,6 +116,7 @@ export function SsTestimonials() {
               <button
                 type="button"
                 aria-label="Testimoni sebelumnya"
+                aria-controls="ss-testimonial-cards"
                 onClick={() => setPage((p) => (p - 1 + pages) % pages)}
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--ss-line)] bg-white text-[var(--ss-ink)] transition-colors hover:border-[var(--ss-green)] hover:text-[var(--ss-green)]"
               >
@@ -124,6 +125,7 @@ export function SsTestimonials() {
               <button
                 type="button"
                 aria-label="Testimoni berikutnya"
+                aria-controls="ss-testimonial-cards"
                 onClick={() => setPage((p) => (p + 1) % pages)}
                 className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--ss-pine)] text-[var(--ss-lime)] transition-transform hover:scale-105"
               >
@@ -134,18 +136,18 @@ export function SsTestimonials() {
         </SsReveal>
 
         {/* Kartu testimoni */}
-        <div key={page} className="mt-7 grid gap-5 md:grid-cols-3">
+        <div id="ss-testimonial-cards" key={page} className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((t, i) => (
             <SsReveal key={t.name} delay={i * 90}>
               <article className="flex h-full flex-col rounded-3xl border border-[var(--ss-line)] bg-white p-7 shadow-[0_12px_36px_rgba(8,23,15,.05)]">
-                <div className="flex items-center gap-3.5">
+                <div className="flex flex-wrap items-center gap-3.5">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={t.avatar} alt={t.name} className="h-12 w-12 rounded-full object-cover" />
-                  <div className="flex-1 leading-tight">
+                  <div className="min-w-[100px] flex-1 basis-[110px] leading-tight">
                     <p className="text-[14.5px] font-extrabold text-[var(--ss-ink)]">{t.name}</p>
                     <p className="text-[11.5px] font-semibold text-[var(--ss-muted)]">{t.role}</p>
                   </div>
-                  <span className="rounded-full bg-[var(--ss-mint)] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wide text-[var(--ss-green-deep)]">
+                  <span className="ml-auto whitespace-nowrap rounded-full bg-[var(--ss-mint)] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wide text-[var(--ss-green-deep)]">
                     {t.tag}
                   </span>
                 </div>
@@ -155,7 +157,7 @@ export function SsTestimonials() {
                   ))}
                 </div>
                 <IcQuote width={26} height={26} className="mt-4 text-[var(--ss-green)]/70" />
-                <p className="mt-2 flex-1 text-[13.5px] leading-relaxed text-[var(--ss-ink)]/85">{t.quote}</p>
+                <p className="mt-2 flex-1 text-base leading-relaxed text-[var(--ss-ink)]/85">{t.quote}</p>
                 <p className="mt-5 border-t border-[var(--ss-line)] pt-4 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--ss-muted)]">
                   Pengguna Terverifikasi — SAKU SULTAN
                 </p>
@@ -171,12 +173,13 @@ export function SsTestimonials() {
               key={i}
               type="button"
               aria-label={`Halaman testimoni ${i + 1}`}
+              aria-pressed={i === page}
+              aria-controls="ss-testimonial-cards"
               onClick={() => setPage(i)}
-              className={cn(
-                "h-2.5 rounded-full transition-all duration-300",
-                i === page ? "w-8 bg-[var(--ss-green)]" : "w-2.5 bg-[var(--ss-ink)]/15 hover:bg-[var(--ss-ink)]/30"
-              )}
-            />
+              className="flex h-8 w-11 items-center justify-center rounded-full"
+            >
+              <span aria-hidden="true" className={cn("h-2.5 rounded-full transition-all duration-300", i === page ? "w-8 bg-[var(--ss-green)]" : "w-2.5 bg-[var(--ss-ink)]/15")} />
+            </button>
           ))}
         </div>
 

@@ -27,8 +27,8 @@ const ITEMS: { label: string; icon: typeof IcSend; tab: ShowcaseTab }[] = [
 /** Strip putih "Semua Kebutuhan Digital dalam Satu Aplikasi". */
 export function SsQuickBar() {
   return (
-    <section className="border-b border-[var(--ss-line)] bg-white">
-      <div className="mx-auto flex w-full max-w-[1320px] flex-col gap-8 px-5 py-10 md:px-8 lg:flex-row lg:items-center lg:gap-14">
+    <section className="ss-quick-section border-b border-[var(--ss-line)] bg-white">
+      <div className="mx-auto flex w-full max-w-[1320px] flex-col gap-7 px-5 py-8 md:px-8 lg:flex-row lg:items-center lg:gap-12">
         <SsReveal className="shrink-0 lg:max-w-[300px]">
           <h2 className="text-[20px] font-extrabold leading-snug text-[var(--ss-ink)]">
             Semua Kebutuhan Digital dalam Satu Aplikasi
@@ -43,6 +43,7 @@ export function SsQuickBar() {
               <li key={label}>
                 <button
                   type="button"
+                  aria-label={`Lihat layanan ${label}`}
                   onClick={() => openShowcaseTab(tab)}
                   className="group flex w-full cursor-pointer flex-col items-center gap-2.5 text-center"
                 >

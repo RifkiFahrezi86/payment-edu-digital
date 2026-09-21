@@ -12,23 +12,25 @@ import { SsPartners } from "@/components/saku/SsPartners";
 import { SsTestimonials } from "@/components/saku/SsTestimonials";
 import { SsCtaFooter } from "@/components/saku/SsCtaFooter";
 import { SsWhatsapp } from "@/components/saku/SsWhatsapp";
+import { PwFaq } from "@/components/payway/PwFaq";
 
 /** / — halaman utama SAKU SULTAN (redesign total mengikuti referensi). */
 export default function SakuSultanPage() {
   return (
-    <main className="w-full overflow-x-clip bg-white">
+    <main className="ss-site w-full overflow-x-clip">
       <SsNav />
       <SsHero />
       <SsQuickBar />
       <SsFeatures />
-      <SsRingkasan />
-      <SsShowcase />
-      <SsProcess />
-      <SsVtn />
-      <SsEdudigi />
       <SsEcosystem />
       <SsPartners />
+      <SsRingkasan />
+      <SsShowcase />
+      <SsEdudigi />
       <SsTestimonials />
+      <SsVtn />
+      <SsProcess />
+      <PwFaq />
       <SsCtaFooter />
       <SsWhatsapp />
     </main>
