@@ -60,7 +60,7 @@ export function SsPartners() {
                 <p>Literasi digital untuk semua. Tingkatkan pengetahuan dan keterampilan bersama EduDigi.</p>
                 <span>Jelajahi EduDigi <IcArrowRight width={14} height={14} /></span>
               </div>
-              <div className="ss-program-art ss-program-student">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/IMAGE/4.jpeg" alt="Peserta program EduDigi" loading="lazy" /></div>
+              <div className="ss-program-art ss-program-student">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/saku/reference-edudigi-portrait.png" alt="Peserta program EduDigi" loading="lazy" /></div>
             </a>
           </SsReveal>
           <SsReveal delay={160}>

@@ -16,18 +16,6 @@ export function SsHero() {
       <div className="ss-reference-hero-layout">
         <div className="ss-reference-hero-copy">
           <SsReveal>
-<<<<<<< HEAD
-            <p className="ss-eyebrow flex items-center gap-3 text-[var(--ss-lime)]">
-              <span className="hidden h-px w-10 bg-[var(--ss-lime)]/70 sm:block" />
-              Ekosistem Digital Saku Sultan
-            </p>
-          </SsReveal>
-          <SsReveal delay={80}>
-            <h1 className="ss-h1 mt-5 !text-[clamp(1.5rem,0.75rem+4.5vw,2.3rem)] text-white sm:!text-[clamp(2.3rem,1.3rem+3.2vw,3.9rem)]">
-              Melangkah Lebih Awal.
-              <br />
-              Bergerak Secara <span className="text-[var(--ss-lime)]">Digital.</span>
-=======
             <p className="ss-eyebrow ss-startup-label">Startup · Ekosistem Digital Indonesia</p>
           </SsReveal>
           <SsReveal delay={80}>
@@ -36,7 +24,6 @@ export function SsHero() {
               <span className="ss-headline-line">Lebih Awal.</span>
               <span className="ss-headline-line">Bergerak Secara</span>
               <span className="ss-headline-line ss-headline-accent">Digital.</span>
->>>>>>> 1044a1b (Update project)
             </h1>
           </SsReveal>
           <SsReveal delay={160}>

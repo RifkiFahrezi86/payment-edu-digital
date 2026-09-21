@@ -90,26 +90,9 @@ export function SsNav() {
       <nav className="ss-nav" aria-label="Navigasi utama">
         <Link href={resolveHref("#beranda")} onClick={closeMenus} className="ss-nav-brand" aria-label="Saku Sultan, kembali ke beranda">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-<<<<<<< HEAD
-          <img
-            src="/images/saku-sultan-app-icon.png"
-            alt="Logo Saku Sultan"
-            className="h-11 w-11 rounded-xl object-cover shadow-[0_6px_18px_rgba(0,0,0,.4)]"
-          />
-          <span className="leading-tight">
-            <span className="block text-[17px] font-extrabold tracking-wide text-white">
-              SAKU <span className="text-[var(--ss-lime)]">SULTAN</span>
-            </span>
-            <span className="hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--ss-lime)]/90 min-[400px]:block">
-              Dompet Digital, Sumber Cuan
-            </span>
-          </span>
-        </a>
-=======
           <img src="/images/saku-sultan-app-icon.png" alt="" width={42} height={42} />
           <span><strong>SAKU SULTAN</strong><small>Dompet Digital, Sumber Cuan</small></span>
         </Link>
->>>>>>> 1044a1b (Update project)
 
         <ul className="ss-nav-desktop">
           {NAV_LINKS.map(link => (
@@ -146,58 +129,6 @@ export function SsNav() {
               </div>
             )}
           </div>
-<<<<<<< HEAD
-          <a href="#bantuan" className="ss-btn ss-btn-lime !hidden !px-5 !py-2.5 !text-[14px] sm:!inline-flex">
-            Daftar Sekarang
-            <IcArrowUpRight width={16} height={16} />
-          </a>
-          {/* Burger mobile */}
-          <button
-            type="button"
-            aria-label="Buka menu"
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full border border-white/25 lg:hidden"
-          >
-            <span className={cn("h-[2px] w-4 rounded bg-white transition-transform", open && "translate-y-[7px] rotate-45")} />
-            <span className={cn("h-[2px] w-4 rounded bg-white transition-opacity", open && "opacity-0")} />
-            <span className={cn("h-[2px] w-4 rounded bg-white transition-transform", open && "-translate-y-[7px] -rotate-45")} />
-          </button>
-        </div>
-      </nav>
-
-      {/* Menu mobile */}
-      <div
-        className={cn(
-          "overflow-hidden border-t border-white/10 bg-[#04130c] transition-[max-height] duration-300 lg:hidden",
-          open ? "max-h-[480px]" : "max-h-0 border-t-0"
-        )}
-      >
-        <ul className="space-y-1 px-5 py-4">
-          {NAV_LINKS.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="block rounded-xl px-4 py-3 text-[15px] font-semibold text-white/85 hover:bg-white/5 hover:text-[var(--ss-lime)]"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className="px-5 pb-5 sm:hidden">
-          <a
-            href="#bantuan"
-            onClick={() => setOpen(false)}
-            className="ss-btn ss-btn-lime w-full !py-3 !text-[14px]"
-          >
-            Daftar Sekarang
-            <IcArrowUpRight width={16} height={16} />
-          </a>
-        </div>
-      </div>
-=======
           <Link href={resolveHref("#registrasi")} className="ss-btn ss-nav-register" onClick={closeMenus}>Daftar Sekarang<IcArrowUpRight width={17} height={17} /></Link>
           <button ref={menuRef} type="button" aria-label={open ? "Tutup menu navigasi" : "Buka menu navigasi"} aria-expanded={open} aria-controls="ss-mobile-menu" onClick={() => { setOpen(value => !value); setQuickOpen(false); }} className="ss-nav-icon-button ss-nav-burger">
             {open ? <IcX width={20} height={20} /> : <span aria-hidden="true"><i /><i /><i /></span>}
@@ -210,7 +141,6 @@ export function SsNav() {
           <Link href={resolveHref("#registrasi")} className="ss-btn ss-nav-register ss-mobile-register" onClick={closeMenus}>Daftar Sekarang<IcArrowUpRight width={16} height={16} /></Link>
         </nav>
       )}
->>>>>>> 1044a1b (Update project)
     </header>
   );
 }
