@@ -4,6 +4,7 @@ import { EDUDIGI_CLASS_POSTER, EDUDIGI_POSTERS } from "@/components/payway/pw-ca
 import { PwEduDigiBrand } from "@/components/payway/pw-edudigi-brand";
 import { SsReferenceArtwork } from "./SsReferenceArtwork";
 import { SsPartnerSupport } from "./SsPartnerSupport";
+import { LEGAL_PARTNERS } from "./ss-partners-data";
 import {
   IcArrowRight,
   IcBook,
@@ -206,7 +207,7 @@ export function SsEdudigi() {
           </SsReveal>
         </div>
 
-        <SsPartnerSupport />
+        <SsPartnerSupport heading="Dasar Legalitas" logos={LEGAL_PARTNERS} />
 
         <details className="ss-edudigi-gallery">
           <summary><span>Kenali EduDigi lebih dekat<small>Profil, tujuan, praktik, visi & misi, dan legalitas.</small></span><IcArrowRight width={20} height={20} /></summary>

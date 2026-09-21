@@ -409,15 +409,23 @@ html[data-theme="dark"] .ss-trusted-logo { padding: 10px; border-radius: 10px; b
 .ss-panel-tiles > li:hover { transform: translateY(-2px); border-color: var(--ss-green); }
 .ss-panel-tiles > li > span { display: grid; width: 32px; height: 32px; flex-shrink: 0; place-items: center; border-radius: 10px; background: var(--ss-pine); color: var(--ss-lime); }
 html[data-theme="dark"] .ss-panel-art-frame { border-color: #ffffff1f; }
-.ss-partner-support-strip { display: flex; align-items: center; gap: 32px; margin-top: 32px; padding: 22px 4px; border-top: 1px solid var(--ss-line); border-bottom: 1px solid var(--ss-line); }
+/* Strip pendukung: diberi jarak lebih longgar dari blok di atasnya, dan tiap
+   logo punya ruang sendiri lewat gap alih-alih padding pemisah. */
+.ss-partner-support-strip { display: flex; align-items: center; gap: 36px; margin-top: 56px; padding: 30px 4px; border-top: 1px solid var(--ss-line); border-bottom: 1px solid var(--ss-line); }
 .ss-partner-support-strip > p { flex-shrink: 0; color: var(--ss-muted); font-size: 12px; line-height: 1.6; }
 .ss-partner-support-strip > p > strong { color: var(--ss-ink); font-weight: 600; }
-.ss-partner-support-strip > ul { display: flex; align-items: center; flex-wrap: wrap; gap: 0; list-style: none; }
-.ss-partner-support-strip li { display: flex; min-height: 44px; align-items: center; justify-content: center; padding-inline: 25px; border-left: 1px solid var(--ss-line); }
-.ss-partner-support-strip img { display: block; width: 160px; height: 44px; object-fit: contain; }
-.ss-partner-support-strip [data-partner="Bank Indonesia"] img { width: 180px; }
-.ss-partner-support-strip [data-partner="BRICK"] img { width: 150px; }
-.ss-partner-support-strip [data-partner="BMT"] img { width: 100px; }
+.ss-partner-support-strip > ul { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 0; margin: 0; padding: 0; list-style: none; }
+.ss-partner-support-strip li { display: flex; min-height: 52px; align-items: center; justify-content: center; padding-inline: 28px; border-left: 1px solid var(--ss-line); }
+.ss-partner-support-strip img { display: block; width: 150px; max-height: 40px; height: auto; object-fit: contain; }
+.ss-partner-support-strip [data-partner="Bank Indonesia"] img { width: 172px; }
+.ss-partner-support-strip [data-partner="BRICK"] img { width: 140px; }
+.ss-partner-support-strip [data-partner="BMT"] img { width: 96px; }
+.ss-partner-support-strip [data-partner="OJK"] img { width: 130px; }
+.ss-partner-support-strip [data-partner="BI-FAST"] img { width: 128px; }
+.ss-partner-support-strip [data-partner="OSS"] img { width: 126px; }
+.ss-partner-support-strip [data-partner="NIB"] img { width: 118px; }
+.ss-partner-support-strip [data-partner="KBLI"] img { width: 122px; }
+.ss-partner-support-strip [data-partner="Saku Sultan"] img { width: 154px; }
 html[data-theme="dark"] .ss-partner-support-strip li { margin-right: 14px; padding: 8px 14px; border: 0; border-radius: 10px; background: #fff; }
 
 /* Compact, complete footer instead of a large watermark block. */
