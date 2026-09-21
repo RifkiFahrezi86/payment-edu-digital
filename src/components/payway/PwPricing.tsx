@@ -20,7 +20,7 @@ export function PwPricing() {
           </div>
         </div>
         <div className="saku-poster-sponsor">
-          <Image src="/images/saku-sultan-app-icon.png" alt="Logo Saku Sultan" width={32} height={32} />
+          <Image src="/images/saku-sultan-app-icon.webp" alt="Logo Saku Sultan" width={32} height={32} />
           <span>Didukung oleh <strong>SAKU SULTAN</strong></span>
         </div>
       </div>

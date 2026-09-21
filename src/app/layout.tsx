@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   description:
     "Cuan di setiap transaksi bersama Saku Sultan. Jelajahi layanan digital, kelas EduDigi, dan ekosistem Volume Transaksi Nasional. #CUANPERDETIK",
   robots: { index: false, follow: false },
-  icons: { icon: "/images/saku-sultan-app-icon.png", apple: "/images/saku-sultan-app-icon.png" },
+  icons: { icon: "/images/saku-sultan-app-icon.webp", apple: "/images/saku-sultan-app-icon.webp" },
 };
 
 export default function PaywayRootLayout({

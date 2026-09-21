@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SsReveal } from "./SsReveal";
 import { IcArrowRight, IcGift, IcGraduation, IcShieldCheck } from "./ss-icons";
+import { SsArtEdudigi, SsArtProgram, SsArtSecurity } from "./SsCardArt";
 import { CORE_PARTNERS } from "./ss-partners-data";
 
 const PARTNERS = [
@@ -49,7 +50,7 @@ export function SsPartners() {
                 <p>Kenali cara kami menjaga data dan kenyamanan Anda dalam bertransaksi.</p>
                 <span>Pelajari Keamanan <IcArrowRight width={14} height={14} /></span>
               </div>
-              <div className="ss-program-art ss-program-shield" aria-hidden="true"><IcShieldCheck width={108} height={108} /></div>
+              <div className="ss-program-art ss-program-scene"><SsArtSecurity /></div>
             </Link>
           </SsReveal>
           <SsReveal delay={80}>
@@ -60,7 +61,7 @@ export function SsPartners() {
                 <p>Literasi digital untuk semua. Tingkatkan pengetahuan dan keterampilan bersama EduDigi.</p>
                 <span>Jelajahi EduDigi <IcArrowRight width={14} height={14} /></span>
               </div>
-              <div className="ss-program-art ss-program-student">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/IMAGE/4.jpeg" alt="Peserta program EduDigi" loading="lazy" /></div>
+              <div className="ss-program-art ss-program-scene"><SsArtEdudigi /></div>
             </a>
           </SsReveal>
           <SsReveal delay={160}>
@@ -71,7 +72,7 @@ export function SsPartners() {
                 <p>Temukan kelas, fasilitas, dan berbagai peluang dalam ekosistem Saku Sultan.</p>
                 <span>Lihat Program <IcArrowRight width={14} height={14} /></span>
               </div>
-              <div className="ss-program-art ss-program-gift" aria-hidden="true"><IcGift width={105} height={105} /></div>
+              <div className="ss-program-art ss-program-scene"><SsArtProgram /></div>
             </a>
           </SsReveal>
         </div>

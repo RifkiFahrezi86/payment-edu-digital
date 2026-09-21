@@ -15,7 +15,7 @@ export function SsEcosystem() {
         <SsReveal className="ss-ecosystem-device">
           <div className="ss-ecosystem-brand-phone" aria-hidden="true">
             <span className="ss-ecosystem-notch" />
-            <Image src="/images/saku-sultan-app-icon.png" alt="" width={74} height={74} loading="lazy" />
+            <Image src="/images/saku-sultan-app-icon.webp" alt="" width={74} height={74} loading="lazy" />
             <strong>SAKU SULTAN</strong>
             <small>Dompet Digital,<br />Sumber Cuan</small>
           </div>

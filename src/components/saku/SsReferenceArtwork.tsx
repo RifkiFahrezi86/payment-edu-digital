@@ -11,15 +11,16 @@ const ARTWORK = {
 
 export function SsReferenceArtwork({ kind }: { kind: keyof typeof ARTWORK }) {
   const artwork = ARTWORK[kind];
-  const src = `/images/saku/reference-${artwork.file}.png`;
+  // Berkas .webp hasil scripts/build-display-assets.cjs; PNG asli tetap ada
+  // sebagai sumber dan jadi tujuan tautan "ukuran penuh".
+  const src = `/images/saku/reference-${artwork.file}.webp`;
+  const fullSize = `/images/saku/reference-${artwork.file}.png`;
   return (
     <figure className={`ss-reference-artwork ss-artwork-${kind}`}>
-      <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Perbesar ilustrasi ${artwork.title}`}>
-        {/* Tanpa unoptimized: berkas asli ~750-910 KB, tampil <900px.
-            Tautan figcaption tetap menunjuk berkas penuh untuk yang perlu. */}
-        <Image src={src} alt={artwork.alt} width={artwork.width} height={artwork.height} sizes="(min-width: 1024px) 880px, 92vw" className="ss-reference-artwork-image" />
+      <a href={fullSize} target="_blank" rel="noopener noreferrer" aria-label={`Perbesar ilustrasi ${artwork.title}`}>
+        <Image src={src} alt={artwork.alt} width={artwork.width} height={artwork.height} className="ss-reference-artwork-image" />
       </a>
-      <figcaption><a href={src} target="_blank" rel="noopener noreferrer">Lihat ilustrasi ukuran penuh<IcArrowUpRight width={14} height={14} /></a></figcaption>
+      <figcaption><a href={fullSize} target="_blank" rel="noopener noreferrer">Lihat ilustrasi ukuran penuh<IcArrowUpRight width={14} height={14} /></a></figcaption>
     </figure>
   );
 }

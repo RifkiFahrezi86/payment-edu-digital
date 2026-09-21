@@ -172,7 +172,7 @@ function PanelQtra() {
 
         <div className="relative min-w-0 w-full">
           <SsReferenceArtwork kind="qtra" />
-          <details className="ss-product-original"><summary>Lihat ilustrasi Q-Tra <IcArrowRight width={15} height={15} /></summary><a href="/images/IMAGE/12.jpeg" target="_blank" rel="noopener noreferrer">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/IMAGE/12.jpeg" alt="Q-Tra — transfer dana lebih cepat dan mudah" loading="lazy" /></a></details>
+          <details className="ss-product-original"><summary>Lihat ilustrasi Q-Tra <IcArrowRight width={15} height={15} /></summary><a href="/images/saku/qtra-poster.webp" target="_blank" rel="noopener noreferrer">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/saku/qtra-poster.webp" alt="Q-Tra — transfer dana lebih cepat dan mudah" loading="lazy" /></a></details>
         </div>
       </div>
 

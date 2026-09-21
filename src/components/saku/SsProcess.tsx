@@ -22,7 +22,7 @@ function StepPreview({ step }: { step: number }) {
     <div className="ss-register-download">
       <div>
         <div className="ss-register-app-brand">
-          <Image src="/images/saku-sultan-app-icon.png" alt="" width={48} height={48} />
+          <Image src="/images/saku-sultan-app-icon.webp" alt="" width={48} height={48} />
           <span><strong>Saku Sultan</strong><small>Dompet Digital untuk Semua</small><span className="ss-register-rating"><IcStar width={13} height={13} />4.8 · Rating Play Store</span></span>
         </div>
         <a href={PLAY_STORE} target="_blank" rel="noopener noreferrer" className="ss-register-store">
@@ -78,7 +78,7 @@ export function SsProcess() {
               </ul>
               <div className="ss-register-device" aria-hidden="true">
                 <div className="ss-register-device-halo" />
-                <Image src="/images/saku/phone-back.png" alt="" fill sizes="(min-width: 1024px) 300px, 280px" className="object-cover" />
+                <Image src="/images/saku/phone-back.webp" alt="" fill sizes="(min-width: 1024px) 300px, 280px" className="object-cover" />
                 <p className="ss-script">Dompet Digital<br />untuk Masa Depan<br />Lebih Baik</p>
               </div>
             </div>

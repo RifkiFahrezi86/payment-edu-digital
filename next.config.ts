@@ -1,21 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Tanpa ini Next memblokir /_next/webpack-hmr saat halaman dibuka lewat IP
+  // LAN atau 127.0.0.1, sehingga hot reload mati dan perubahan tidak tampil.
+  allowedDevOrigins: ["127.0.0.1", "localhost", "192.168.100.27"],
   experimental: {
     // `next build` spawn 1 worker per core (24 di mesin ini) dan tiap worker boot
     // isolate V8 sendiri, jadi RAM sistem habis sebelum build/render selesai.
     cpus: 2,
-    // sharp default concurrency = jumlah core. Dekode penuh ke RAM:
-    // hero-bg.jpg 2200x1467 = 12 MB raster per job, dikali 24 job paralel.
-    imgOptConcurrency: 1,
-    imgOptSequentialRead: true,
-    imgOptMaxInputPixels: 6e6,
   },
   images: {
-    // ponytail: default 8 deviceSizes x 46 file = ratusan job optimize.
-    // Naikkan lagi kalau butuh varian retina spesifik.
-    deviceSizes: [640, 828, 1080, 1920],
-    imageSizes: [32, 64, 128, 384],
+    // Optimizer dimatikan: di dev ia mengubah gambar per request sehingga
+    // panel terasa lama dibuka. Ganti strateginya — aset sudah disiapkan pada
+    // ukuran tampil oleh scripts/build-display-assets.cjs, jadi berkas di
+    // public/ langsung dikirim apa adanya.
+    unoptimized: true,
   },
 };
 
