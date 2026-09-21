@@ -1,11 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { SsReveal } from "./SsReveal";
 import { PwEduDigiCards } from "@/components/payway/PwEduDigiCards";
 import { SsReferenceArtwork } from "./SsReferenceArtwork";
-import { SsArtMerchant, SsArtPpob, SsArtTransfer } from "./SsPanelArt";
 import { PwEduDigiBrand } from "@/components/payway/pw-edudigi-brand";
 import { SHOWCASE_TAB_EVENT, type ShowcaseTab } from "./ss-showcase-bus";
 import {
@@ -252,6 +252,7 @@ function PanelSimple({
   features,
   tiles,
   art,
+  artAlt,
 }: {
   badge: string;
   badgeIcon: typeof IcSend;
@@ -261,7 +262,9 @@ function PanelSimple({
   cta: string;
   features: { icon: typeof IcSend; title: string; desc: string }[];
   tiles: { icon: typeof IcSend; label: string }[];
-  art: React.ReactNode;
+  /** Berkas di /images/saku; render 3D kampanye, bukan ilustrasi vektor. */
+  art: string;
+  artAlt: string;
 }) {
   return (
     <div className="grid gap-10 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
@@ -288,7 +291,9 @@ function PanelSimple({
         </ul>
       </div>
       <div className="min-w-0">
-        <figure className="ss-panel-art-frame">{art}</figure>
+        <figure className="ss-panel-art-frame">
+          <Image src={art} alt={artAlt} width={880} height={620} sizes="(min-width: 1024px) 560px, 92vw" className="ss-panel-art" />
+        </figure>
         <ul className="ss-panel-tiles">
           {tiles.map(({ icon: Icon, label }) => (
             <li key={label}>
@@ -406,7 +411,8 @@ export function SsShowcase() {
                   { icon: IcUsers, label: "Sesama Sultan" },
                   { icon: IcQr, label: "Via QR" },
                 ]}
-                art={<SsArtTransfer />}
+                art="/images/saku/panel-transfer.webp"
+                artAlt="Transfer Rp 250.000 dari aplikasi Saku Sultan ke rekening bank, e-wallet, dan sesama pengguna"
               />
             ) : null}
             {active === "ppob" ? (
@@ -428,7 +434,8 @@ export function SsShowcase() {
                   { icon: IcShieldCheck, label: "BPJS" },
                   { icon: IcGrid, label: "PDAM & Lainnya" },
                 ]}
-                art={<SsArtPpob />}
+                art="/images/saku/panel-ppob.webp"
+                artAlt="Total tagihan Rp 283.800 untuk pulsa, token PLN, BPJS, dan PDAM dibayar sekaligus"
               />
             ) : null}
             {active === "merchant" ? (
@@ -450,7 +457,8 @@ export function SsShowcase() {
                   { icon: IcChart, label: "Analitik Usaha" },
                   { icon: IcWallet, label: "Settlement Fleksibel" },
                 ]}
-                art={<SsArtMerchant />}
+                art="/images/saku/panel-merchant.webp"
+                artAlt="Standee QRIS Saku Sultan di konter usaha dengan penjualan harian Rp 1.482.000 dan laporan mingguan"
               />
             ) : null}
           </div>

@@ -379,9 +379,8 @@ html[data-theme="dark"] .ss-qtra-brand > strong { color: #dceaff; }
 .ss-program-copy p { margin-top: 9px; color: var(--ss-muted); font-size: 11px; line-height: 1.6; }
 .ss-program-copy > span { display: flex; align-items: center; gap: 5px; margin-top: auto; padding-top: 15px; color: var(--ss-green-deep); font-size: 10px; font-weight: 700; }
 .ss-program-art { position: absolute; right: 8px; bottom: 10px; display: grid; width: 36%; height: 86%; place-items: center; pointer-events: none; }
-/* Tiga kartu kini memakai adegan SVG senada, bukan ikon raksasa atau foto stok. */
-.ss-program-scene > svg { width: 100%; height: 100%; object-fit: contain; }
-.ss-card-art { display: block; max-height: 100%; }
+/* Tiga kartu memakai render 3D kampanye, bukan ikon raksasa atau foto stok. */
+.ss-program-scene > img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
 html[data-theme="dark"] .ss-partner-marks li { background: #fff; }
 html[data-theme="dark"] .ss-partner-marks li > small { color: #455d4c; }
 
@@ -400,14 +399,15 @@ html[data-theme="dark"] .ss-partner-marks li > small { color: #455d4c; }
 @keyframes ss-partner-marquee { to { transform: translateX(-50%); } }
 html[data-theme="dark"] .ss-trusted-logo { padding: 10px; border-radius: 10px; background: #fff; }
 
-/* Ilustrasi panel showcase: SVG skalabel, tanpa aset bitmap. */
-.ss-panel-art-frame { margin: 0; overflow: hidden; border: 1px solid var(--ss-line); border-radius: 24px; background: linear-gradient(160deg, var(--ss-mint), var(--ss-mist)); }
+/* Ilustrasi panel showcase: render 3D kampanye. Gambar sudah punya latar
+   sendiri, jadi frame hanya memotong sudut tanpa menambah gradien. */
+.ss-panel-art-frame { margin: 0; overflow: hidden; border: 1px solid var(--ss-line); border-radius: 24px; }
 .ss-panel-art { display: block; width: 100%; height: auto; }
 .ss-panel-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 14px 0 0; padding: 0; list-style: none; }
 .ss-panel-tiles > li { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid var(--ss-line); border-radius: 14px; background: var(--ss-card); color: var(--ss-ink); font-size: 12.5px; font-weight: 700; transition: transform 200ms, border-color 200ms; }
 .ss-panel-tiles > li:hover { transform: translateY(-2px); border-color: var(--ss-green); }
 .ss-panel-tiles > li > span { display: grid; width: 32px; height: 32px; flex-shrink: 0; place-items: center; border-radius: 10px; background: var(--ss-pine); color: var(--ss-lime); }
-html[data-theme="dark"] .ss-panel-art-frame { background: linear-gradient(160deg, #10261c, #0d1a14); }
+html[data-theme="dark"] .ss-panel-art-frame { border-color: #ffffff1f; }
 .ss-partner-support-strip { display: flex; align-items: center; gap: 32px; margin-top: 32px; padding: 22px 4px; border-top: 1px solid var(--ss-line); border-bottom: 1px solid var(--ss-line); }
 .ss-partner-support-strip > p { flex-shrink: 0; color: var(--ss-muted); font-size: 12px; line-height: 1.6; }
 .ss-partner-support-strip > p > strong { color: var(--ss-ink); font-weight: 600; }

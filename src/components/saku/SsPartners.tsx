@@ -1,7 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SsReveal } from "./SsReveal";
 import { IcArrowRight, IcGift, IcGraduation, IcShieldCheck } from "./ss-icons";
-import { SsArtEdudigi, SsArtProgram, SsArtSecurity } from "./SsCardArt";
 import { CORE_PARTNERS } from "./ss-partners-data";
 
 const PARTNERS = [
@@ -50,7 +50,7 @@ export function SsPartners() {
                 <p>Kenali cara kami menjaga data dan kenyamanan Anda dalam bertransaksi.</p>
                 <span>Pelajari Keamanan <IcArrowRight width={14} height={14} /></span>
               </div>
-              <div className="ss-program-art ss-program-scene"><SsArtSecurity /></div>
+              <div className="ss-program-art ss-program-scene"><Image src="/images/saku/card-security.webp" alt="" width={215} height={280} loading="lazy" /></div>
             </Link>
           </SsReveal>
           <SsReveal delay={80}>
@@ -61,7 +61,7 @@ export function SsPartners() {
                 <p>Literasi digital untuk semua. Tingkatkan pengetahuan dan keterampilan bersama EduDigi.</p>
                 <span>Jelajahi EduDigi <IcArrowRight width={14} height={14} /></span>
               </div>
-              <div className="ss-program-art ss-program-scene"><SsArtEdudigi /></div>
+              <div className="ss-program-art ss-program-scene"><Image src="/images/saku/card-edudigi.webp" alt="" width={225} height={280} loading="lazy" /></div>
             </a>
           </SsReveal>
           <SsReveal delay={160}>
@@ -72,7 +72,7 @@ export function SsPartners() {
                 <p>Temukan kelas, fasilitas, dan berbagai peluang dalam ekosistem Saku Sultan.</p>
                 <span>Lihat Program <IcArrowRight width={14} height={14} /></span>
               </div>
-              <div className="ss-program-art ss-program-scene"><SsArtProgram /></div>
+              <div className="ss-program-art ss-program-scene"><Image src="/images/saku/card-program.webp" alt="" width={250} height={285} loading="lazy" /></div>
             </a>
           </SsReveal>
         </div>

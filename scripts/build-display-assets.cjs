@@ -24,6 +24,16 @@ const assets = [
   { source: "images/saku/reference-edudigi-legal.png", output: "images/saku/reference-edudigi-legal.webp", width: null },
   { source: "images/IMAGE/4.jpeg", output: "images/saku/edudigi-class.webp", width: 720 },
   { source: "images/IMAGE/12.jpeg", output: "images/saku/qtra-poster.webp", width: 1280 },
+
+  // Render 3D kampanye: satu berkas sumber memuat seluruh komposisi section,
+  // `crop` mengambil bagian ilustrasinya saja. Koordinat mengacu pada berkas
+  // di images/saku/source yang berukuran 1568 px lebar.
+  { source: "images/saku/source/campaign-transfer.webp", output: "images/saku/panel-transfer.webp", width: 880, crop: { left: 692, top: 128, width: 762, height: 530 } },
+  { source: "images/saku/source/campaign-ppob.webp", output: "images/saku/panel-ppob.webp", width: 880, crop: { left: 682, top: 112, width: 816, height: 520 } },
+  { source: "images/saku/source/campaign-merchant.webp", output: "images/saku/panel-merchant.webp", width: 880, crop: { left: 702, top: 104, width: 740, height: 568 } },
+  { source: "images/saku/source/campaign-cards.webp", output: "images/saku/card-security.webp", width: 300, crop: { left: 320, top: 390, width: 215, height: 280 } },
+  { source: "images/saku/source/campaign-cards.webp", output: "images/saku/card-edudigi.webp", width: 300, crop: { left: 790, top: 390, width: 225, height: 280 } },
+  { source: "images/saku/source/campaign-cards.webp", output: "images/saku/card-program.webp", width: 300, crop: { left: 1255, top: 385, width: 250, height: 285 } },
 ];
 
 (async () => {
@@ -35,8 +45,16 @@ const assets = [
     const sourceBytes = fs.statSync(from).size;
 
     let pipeline = sharp(from, { sequentialRead: true });
+    if (asset.crop) {
+      const meta = await sharp(from).metadata();
+      const { left, top, width, height } = asset.crop;
+      if (left + width > meta.width || top + height > meta.height) {
+        throw new Error(`Crop melewati batas ${asset.source}: butuh ${left + width}×${top + height}, tersedia ${meta.width}×${meta.height}`);
+      }
+      pipeline = pipeline.extract(asset.crop);
+    }
     if (asset.width) pipeline = pipeline.resize(asset.width, null, { withoutEnlargement: true });
-    const info = await pipeline.webp({ quality: 82, effort: 5 }).toFile(path.join(publicDir, asset.output));
+    const info = await pipeline.webp({ quality: 84, effort: 5 }).toFile(path.join(publicDir, asset.output));
 
     before += sourceBytes;
     after += info.size;
