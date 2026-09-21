@@ -4,6 +4,7 @@ import { useState, type KeyboardEvent } from "react";
 import { PwReveal } from "@/components/payway/pw-reveal";
 import { PwSectionHeader } from "@/components/payway/pw-section-header";
 import { ChevronRightIcon } from "@/components/payway/pw-icons";
+import { SsBgVideo } from "@/components/saku/SsBgVideo";
 
 /**
  * Section 08 — FAQ ("Everything you need to know about Payway").
@@ -262,20 +263,10 @@ export function PwFaq() {
                                 {open ? (
                                   <div className="absolute inset-0 z-0">
                                     <div className="absolute inset-0 bg-[#042718]/72 z-10" />
-                                    <video
-                                      autoPlay
-                                      loop
-                                      muted
-                                      playsInline
-                                      preload="none"
-                                      aria-hidden="true"
+                                    <SsBgVideo
+                                      src="/videos/payway/header.mp4"
                                       className="pw-bg-video opacity-60"
-                                    >
-                                      <source
-                                        src="/videos/payway/header.mp4"
-                                        type="video/mp4"
-                                      />
-                                    </video>
+                                    />
                                   </div>
                                 ) : null}
                                 <div className="relative z-20 w-full flex items-start gap-4 md:gap-8">

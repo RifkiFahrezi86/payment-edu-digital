@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { observeReveal } from "@/components/saku/ss-reveal-observer";
 
 /**
  * Reveal-on-scroll pengganti framer-motion pada template asli.
@@ -31,36 +32,12 @@ export function PwReveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    const reveal = () => el.classList.add("pw-in");
-
-    if (typeof IntersectionObserver === "undefined") {
-      reveal();
-      return;
-    }
-
-    // Jaring pengaman: jika observer tidak pernah melaporkan interseksi
-    // (race hydration, browser aneh, dll), tetap paksa tampil.
-    const safetyTimer = window.setTimeout(reveal, 1800 + delay);
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            window.clearTimeout(safetyTimer);
-            window.setTimeout(reveal, delay);
-            io.unobserve(el);
-          }
-        }
-      },
-      { threshold: 0, rootMargin: "0px 0px -10% 0px" },
-    );
-    io.observe(el);
-
-    return () => {
-      io.disconnect();
-      window.clearTimeout(safetyTimer);
-    };
+    return observeReveal(el, {
+      cls: "pw-in",
+      delay,
+      rootMargin: "0px 0px -10% 0px",
+      safety: 1800,
+    });
   }, [delay]);
 
   return (

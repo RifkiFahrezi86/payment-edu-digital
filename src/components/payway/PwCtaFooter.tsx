@@ -1,4 +1,5 @@
 import { PwReveal } from "@/components/payway/pw-reveal";
+import { SsBgVideo } from "@/components/saku/SsBgVideo";
 import { PwButton } from "@/components/payway/pw-button";
 
 /** CTA and contact footer with readable foreground text over the landscape. */
@@ -7,17 +8,7 @@ export function PwCtaFooter() {
     <section id="unduh-aplikasi" aria-labelledby="saku-footer-title" className="saku-footer relative flex w-full flex-col overflow-hidden bg-[#0B0F0E] scroll-mt-24">
       {/* Keep the landscape clear, with a darker backdrop behind white text. */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="none"
-          aria-hidden="true"
-          className="pw-bg-video"
-        >
-          <source src="/videos/payway/footer.mp4" type="video/mp4" />
-        </video>
+        <SsBgVideo src="/videos/payway/footer.mp4" className="pw-bg-video" />
         <div
           className="absolute inset-0 z-[1]"
           style={{

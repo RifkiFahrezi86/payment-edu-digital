@@ -15,7 +15,9 @@ export function SsReferenceArtwork({ kind }: { kind: keyof typeof ARTWORK }) {
   return (
     <figure className={`ss-reference-artwork ss-artwork-${kind}`}>
       <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Perbesar ilustrasi ${artwork.title}`}>
-        <Image src={src} alt={artwork.alt} width={artwork.width} height={artwork.height} unoptimized className="ss-reference-artwork-image" />
+        {/* Tanpa unoptimized: berkas asli ~750-910 KB, tampil <900px.
+            Tautan figcaption tetap menunjuk berkas penuh untuk yang perlu. */}
+        <Image src={src} alt={artwork.alt} width={artwork.width} height={artwork.height} sizes="(min-width: 1024px) 880px, 92vw" className="ss-reference-artwork-image" />
       </a>
       <figcaption><a href={src} target="_blank" rel="noopener noreferrer">Lihat ilustrasi ukuran penuh<IcArrowUpRight width={14} height={14} /></a></figcaption>
     </figure>

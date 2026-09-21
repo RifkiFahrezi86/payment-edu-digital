@@ -1,3 +1,4 @@
+import { SsBgVideo } from "./SsBgVideo";
 import { SsReveal } from "./SsReveal";
 import { SsPhonePreview } from "./SsPhonePreview";
 import { SsVideoLauncher } from "./SsVideoModal";
@@ -7,9 +8,7 @@ export function SsHero() {
   return (
     <section id="beranda" className="ss-reference-hero relative isolate overflow-hidden bg-[var(--ss-dark)]">
       <div className="absolute inset-0 -z-10" aria-hidden="true">
-        <video autoPlay muted loop playsInline preload="metadata" poster="/images/saku/hero-bg.jpg" className="ss-hero-background h-full w-full object-cover">
-          <source src="/videos/payway/header.mp4" type="video/mp4" />
-        </video>
+        <SsBgVideo src="/videos/payway/header.mp4" poster="/images/saku/hero-bg.jpg" className="ss-hero-background h-full w-full object-cover" />
         <div className="ss-reference-hero-scrim absolute inset-0" />
       </div>
 

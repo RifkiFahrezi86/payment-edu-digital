@@ -23,7 +23,7 @@ export function SsPartners() {
               {PARTNERS.map(partner => (
                 <li key={partner.name} data-partner={partner.name}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={partner.logo} alt={`Logo ${partner.name}`} width={136} height={44} className="ss-partner-original-logo" />
+                  <img src={partner.logo} alt={`Logo ${partner.name}`} width={136} height={44} loading="lazy" decoding="async" className="ss-partner-original-logo" />
                   {partner.sub && <small>{partner.sub}</small>}
                 </li>
               ))}

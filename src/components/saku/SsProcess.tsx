@@ -32,7 +32,7 @@ function StepPreview({ step }: { step: number }) {
       </div>
       <a href={PLAY_STORE} target="_blank" rel="noopener noreferrer" className="ss-register-qr" aria-label="Unduh Saku Sultan di Google Play, atau pindai kode QR">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/saku/app-download-qr.svg" alt="Kode QR unduh Saku Sultan di Google Play" width={112} height={112} />
+        <img src="/images/saku/app-download-qr.svg" alt="Kode QR unduh Saku Sultan di Google Play" width={112} height={112} loading="lazy" decoding="async" />
         <strong>Scan QR</strong><small>untuk download</small>
       </a>
     </div>

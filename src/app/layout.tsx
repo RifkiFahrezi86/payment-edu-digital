@@ -9,14 +9,16 @@ import "./saku-theme.css";
 import "./saku-landing.css";
 import "./saku-polish.css";
 
+// Hanya berat/gaya yang benar-benar dipakai CSS diunduh: setiap kombinasi
+// weight x style adalah satu berkas woff2 tambahan pada first paint.
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta-sans",
   weight: ["400", "500", "600", "700", "800"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
+// Italic dipakai .font-display dan aksen serif; tegak dipakai angka display.
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   variable: "--font-instrument-serif",
@@ -28,7 +30,7 @@ const instrumentSerif = Instrument_Serif({
 const caveat = Caveat({
   subsets: ["latin"],
   variable: "--font-caveat",
-  weight: ["500", "600", "700"],
+  weight: ["600"],
   display: "swap",
 });
 

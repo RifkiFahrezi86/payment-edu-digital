@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { SsReveal } from "./SsReveal";
 import { PwEduDigiCards } from "@/components/payway/PwEduDigiCards";
 import { SsReferenceArtwork } from "./SsReferenceArtwork";
+import { SsArtMerchant, SsArtPpob, SsArtTransfer } from "./SsPanelArt";
 import { PwEduDigiBrand } from "@/components/payway/pw-edudigi-brand";
 import { SHOWCASE_TAB_EVENT, type ShowcaseTab } from "./ss-showcase-bus";
 import {
@@ -181,7 +182,7 @@ function PanelQtra() {
           {["bca", "bri", "mandiri", "bni", "cimb-niaga"].map((b) => (
             <li key={b}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`/images/payway/pay/${b}.svg`} alt={b.toUpperCase()} className="h-5 w-auto opacity-75" />
+              <img src={`/images/payway/pay/${b}.svg`} alt={b.toUpperCase()} width={40} height={20} loading="lazy" decoding="async" className="h-5 w-auto opacity-75" />
             </li>
           ))}
         </ul>
@@ -250,6 +251,7 @@ function PanelSimple({
   cta,
   features,
   tiles,
+  art,
 }: {
   badge: string;
   badgeIcon: typeof IcSend;
@@ -259,6 +261,7 @@ function PanelSimple({
   cta: string;
   features: { icon: typeof IcSend; title: string; desc: string }[];
   tiles: { icon: typeof IcSend; label: string }[];
+  art: React.ReactNode;
 }) {
   return (
     <div className="grid gap-10 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
@@ -284,18 +287,18 @@ function PanelSimple({
           ))}
         </ul>
       </div>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-2">
-        {tiles.map(({ icon: Icon, label }) => (
-          <div
-            key={label}
-            className="flex flex-col items-start gap-3 rounded-2xl border border-[var(--ss-line)] bg-[var(--ss-mist)] p-5 transition-transform duration-200 hover:-translate-y-1"
-          >
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--ss-pine)] text-[var(--ss-lime)]">
-              <Icon width={19} height={19} />
-            </span>
-            <span className="text-[14px] font-extrabold text-[var(--ss-ink)]">{label}</span>
-          </div>
-        ))}
+      <div className="min-w-0">
+        <figure className="ss-panel-art-frame">{art}</figure>
+        <ul className="ss-panel-tiles">
+          {tiles.map(({ icon: Icon, label }) => (
+            <li key={label}>
+              <span>
+                <Icon width={17} height={17} />
+              </span>
+              {label}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
@@ -403,6 +406,7 @@ export function SsShowcase() {
                   { icon: IcUsers, label: "Sesama Sultan" },
                   { icon: IcQr, label: "Via QR" },
                 ]}
+                art={<SsArtTransfer />}
               />
             ) : null}
             {active === "ppob" ? (
@@ -424,6 +428,7 @@ export function SsShowcase() {
                   { icon: IcShieldCheck, label: "BPJS" },
                   { icon: IcGrid, label: "PDAM & Lainnya" },
                 ]}
+                art={<SsArtPpob />}
               />
             ) : null}
             {active === "merchant" ? (
@@ -445,6 +450,7 @@ export function SsShowcase() {
                   { icon: IcChart, label: "Analitik Usaha" },
                   { icon: IcWallet, label: "Settlement Fleksibel" },
                 ]}
+                art={<SsArtMerchant />}
               />
             ) : null}
           </div>
