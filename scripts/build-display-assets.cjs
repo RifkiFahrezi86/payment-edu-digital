@@ -25,6 +25,9 @@ const assets = [
   { source: "images/IMAGE/4.jpeg", output: "images/saku/edudigi-class.webp", width: 720 },
   { source: "images/IMAGE/12.jpeg", output: "images/saku/qtra-poster.webp", width: 1280 },
 
+  // Latar hero beranda: menggantikan video header.mp4 yang dulu diputar otomatis.
+  { source: "images/saku/hero-bg.jpg", output: "images/saku/hero-bg-home.webp", width: 1920 },
+
   // Render 3D kampanye: satu berkas sumber memuat seluruh komposisi section,
   // `crop` mengambil bagian ilustrasinya saja. Koordinat mengacu pada berkas
   // di images/saku/source yang berukuran 1568 px lebar.

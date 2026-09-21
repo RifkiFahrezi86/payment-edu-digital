@@ -1,7 +1,6 @@
-"use client";
-
+import Link from "next/link";
 import { SsReveal } from "./SsReveal";
-import { openShowcaseTab, type ShowcaseTab } from "./ss-showcase-bus";
+import type { ShowcaseTab } from "./ss-showcase-bus";
 import { IcArrowRight, IcArrowUpRight, IcPhoneSignal, IcQr, IcScan, IcSend } from "./ss-icons";
 
 const FEATURES: { title: string; desc: string; icon: typeof IcSend; tab: ShowcaseTab }[] = [
@@ -57,11 +56,8 @@ export function SsFeatures() {
         <div className="ss-reference-feature-grid">
           {FEATURES.map(({ title, desc, icon: Icon, tab }, i) => (
             <SsReveal key={title} delay={i * 90}>
-              <button
-                type="button"
-                onClick={() => openShowcaseTab(tab)}
-                className="ss-reference-feature-card"
-              >
+              {/* Slug rute sama dengan kunci tab showcase, jadi tidak perlu peta terpisah. */}
+              <Link href={`/produk/${tab}`} className="ss-reference-feature-card">
                 <span>
                   <Icon width={24} height={24} />
                 </span>
@@ -71,7 +67,7 @@ export function SsFeatures() {
                   Pelajari
                   <IcArrowRight width={15} height={15} className="transition-transform group-hover:translate-x-1" />
                 </span>
-              </button>
+              </Link>
             </SsReveal>
           ))}
         </div>

@@ -29,10 +29,38 @@ const FACILITIES = [
 ];
 
 const LEGAL_STEPS = [
-  { num: "01", title: "Akta Pendirian", status: "Terbit", done: true },
-  { num: "02", title: "Administrasi & Identitas Kelembagaan", status: "Selesai", done: true },
-  { num: "03", title: "NIB & KBLI", status: "Terbit", done: true },
-  { num: "04", title: "Perizinan Operasional", status: "Dalam Proses", done: false },
+  {
+    num: "01",
+    title: "Akta Pendirian Yayasan",
+    status: "Terbit",
+    done: true,
+    detail: "Akta notaris memuat nama yayasan, maksud dan tujuan, serta susunan pembina, pengurus, dan pengawas.",
+    basis: "Dibuat di hadapan notaris, lalu disahkan Kementerian Hukum dan HAM.",
+  },
+  {
+    num: "02",
+    title: "Administrasi & Identitas Kelembagaan",
+    status: "Selesai",
+    done: true,
+    detail: "NPWP yayasan, surat keterangan domisili, dan rekening operasional atas nama lembaga.",
+    basis: "Menjadi dasar pencatatan keuangan dan pelaporan pajak lembaga.",
+  },
+  {
+    num: "03",
+    title: "NIB & KBLI",
+    status: "Terbit",
+    done: true,
+    detail: "Nomor Induk Berusaha terbit melalui sistem OSS dengan klasifikasi bidang pendidikan nonformal.",
+    basis: "NIB berlaku sekaligus sebagai tanda daftar penyelenggara pelatihan.",
+  },
+  {
+    num: "04",
+    title: "Perizinan Operasional",
+    status: "Dalam Proses",
+    done: false,
+    detail: "Izin penyelenggaraan pelatihan dari dinas terkait beserta pemenuhan standar sarana dan tenaga pengajar.",
+    basis: "Tahap akhir sebelum program dapat menerbitkan sertifikat berlisensi.",
+  },
 ];
 
 function EdudigiLockup() {
@@ -159,7 +187,7 @@ export function SsEdudigi() {
                   <li key={s.num}>
                     <span
                       className={
-                        "flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[13px] font-extrabold " +
+                        "ss-legal-num " +
                         (s.done
                           ? "bg-[var(--ss-pine)] text-[var(--ss-lime)]"
                           : "border-2 border-dashed border-[var(--ss-green)]/40 text-[var(--ss-green-deep)]")
@@ -167,17 +195,23 @@ export function SsEdudigi() {
                     >
                       {s.num}
                     </span>
-                    <strong>{s.title}</strong>
-                    <span
-                      className={
-                        "rounded-full px-3.5 py-1.5 text-[11px] font-extrabold " +
-                        (s.done
-                          ? "bg-[var(--ss-mint)] text-[var(--ss-green-deep)]"
-                          : "bg-amber-100 text-amber-700")
-                      }
-                    >
-                      {s.status}
-                    </span>
+                    <div className="ss-legal-body">
+                      <div className="ss-legal-head">
+                        <strong>{s.title}</strong>
+                        <span
+                          className={
+                            "ss-legal-status " +
+                            (s.done
+                              ? "bg-[var(--ss-mint)] text-[var(--ss-green-deep)]"
+                              : "bg-amber-100 text-amber-700")
+                          }
+                        >
+                          {s.status}
+                        </span>
+                      </div>
+                      <p>{s.detail}</p>
+                      <small>{s.basis}</small>
+                    </div>
                   </li>
                 ))}
               </ol>

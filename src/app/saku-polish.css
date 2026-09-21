@@ -201,11 +201,18 @@ html[data-theme="dark"] .ss-hero-quote { padding: 12px; border-radius: 15px; bac
 .ss-edudigi-photo > blockquote { position: absolute; right: -16px; bottom: 27px; width: 190px; padding: 17px; border: 1px solid var(--ss-line); border-radius: 20px; background: var(--ss-card); color: var(--ss-green); font-family: Georgia, serif; font-size: 36px; line-height: 0.9; box-shadow: 0 12px 30px #082c1714; }
 .ss-edudigi-photo > blockquote > p { margin-top: 5px; color: var(--ss-ink); font-family: var(--pw-font-sans); font-size: 12px; line-height: 1.6; }
 .ss-edudigi-photo > blockquote > small { display: block; margin-top: 10px; padding-top: 10px; border-top: 2px solid #88ba66; color: var(--ss-muted); font-family: var(--pw-font-sans); font-size: 10px; line-height: 1.6; }
-.ss-legal-timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 28px; list-style: none; }
-.ss-legal-timeline > li { position: relative; display: flex; min-width: 0; flex-direction: column; align-items: flex-start; }
-.ss-legal-timeline > li:not(:last-child)::after { position: absolute; top: 22px; left: 54px; right: -3px; height: 1px; background: #86b79277; content: ""; }
-.ss-legal-timeline > li > strong { display: block; margin-top: 14px; margin-bottom: 12px; color: var(--ss-ink); font-size: 12px; line-height: 1.5; }
-.ss-legal-timeline > li > span:last-child { margin-top: auto; font-size: 9px; }
+/* Tahapan legalitas jadi daftar vertikal: empat kolom terlalu sempit untuk
+   memuat rincian isi dokumen dan dasar hukum tiap tahap. */
+.ss-legal-timeline { display: grid; gap: 0; margin-top: 28px; padding: 0; list-style: none; }
+.ss-legal-timeline > li { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding-bottom: 22px; }
+.ss-legal-timeline > li:not(:last-child)::after { position: absolute; top: 46px; bottom: 4px; left: 21px; width: 2px; background: linear-gradient(#86b792aa, #86b79233); content: ""; }
+.ss-legal-num { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; font-size: 13px; font-weight: 800; }
+.ss-legal-body { min-width: 0; padding-top: 2px; }
+.ss-legal-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.ss-legal-head > strong { color: var(--ss-ink); font-size: 14.5px; font-weight: 800; letter-spacing: -0.01em; }
+.ss-legal-status { flex-shrink: 0; padding: 4px 11px; border-radius: 99px; font-size: 10px; font-weight: 800; }
+.ss-legal-body > p { margin-top: 8px; color: var(--ss-muted); font-size: 13px; line-height: 1.65; }
+.ss-legal-body > small { display: block; margin-top: 7px; padding-left: 11px; border-left: 2px solid var(--ss-green); color: var(--ss-green-deep); font-size: 11.5px; line-height: 1.55; }
 .ss-edudigi-gallery .saku-gallery-thumbnails { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 .ss-registration { overflow: hidden; background: var(--ss-surface); }
@@ -573,7 +580,9 @@ html[data-theme="dark"] .ss-partner-support-strip li { margin-right: 14px; paddi
   .ss-summary-statistics strong { font-size: 32px; }
   .ss-edudigi-photo-label, .ss-edudigi-photo > blockquote { display: none; }
   .ss-edudigi-price > span:first-child { flex-basis: 100%; }
-  .ss-legal-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .ss-legal-timeline > li { grid-template-columns: 38px minmax(0, 1fr); gap: 13px; }
+  .ss-legal-num { width: 38px; height: 38px; font-size: 12px; }
+  .ss-legal-timeline > li:not(:last-child)::after { top: 40px; left: 18px; }
   .ss-edudigi-gallery > div { padding: 12px; }
   .ss-registration-inner { padding: 50px 20px 30px; }
   .ss-register-visual { display: flex; flex-direction: column-reverse; gap: 20px; }
@@ -630,4 +639,65 @@ html[data-theme="dark"] .ss-partner-support-strip li { margin-right: 14px; paddi
   .ss-trusted-track { animation: none; transform: none; }
   .ss-trusted-viewport { overflow-x: auto; mask-image: none; }
   .ss-trusted-group[aria-hidden="true"] { display: none; }
+}
+
+/* ============================================================
+   Halaman detail produk (/produk/[slug]).
+   Hero gelap mengikuti nuansa beranda, badan terang agar teks
+   panjang tetap nyaman dibaca.
+   ============================================================ */
+.ss-product-hero { position: relative; overflow: hidden; background: linear-gradient(160deg, #06251a, var(--ss-darker)); padding: 132px 20px 64px; }
+.ss-product-hero::before { position: absolute; inset: 0; background: radial-gradient(90% 80% at 68% 0%, #b7f34a26, transparent 68%); content: ""; }
+.ss-product-hero-inner { position: relative; width: 100%; max-width: 1240px; margin-inline: auto; }
+.ss-product-back { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 1px solid #ffffff2b; border-radius: 99px; color: #ffffffc4; font-size: 13px; font-weight: 700; transition: background-color 180ms, border-color 180ms, color 180ms; }
+.ss-product-back:hover { border-color: #ffffff59; background: #ffffff14; color: #fff; }
+.ss-product-hero-grid { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr); align-items: center; gap: 52px; margin-top: 34px; }
+.ss-product-eyebrow { color: var(--ss-lime); }
+.ss-product-title { margin-top: 15px; color: #fff; font-size: clamp(33px, 3.6vw, 54px); font-weight: 800; line-height: 1.08; letter-spacing: -0.035em; }
+.ss-product-title > span { color: var(--ss-lime); }
+.ss-product-lead { max-width: 500px; margin-top: 20px; color: #ffffffd6; font-size: 16px; line-height: 1.65; }
+.ss-product-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+.ss-product-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 40px; padding-top: 26px; border-top: 1px solid #ffffff1f; }
+.ss-product-stats dt { color: var(--ss-lime); font-size: 25px; font-weight: 800; letter-spacing: -0.03em; }
+.ss-product-stats dd { margin-top: 5px; color: #ffffff9e; font-size: 12px; line-height: 1.5; }
+.ss-product-hero-art { min-width: 0; }
+.ss-product-hero-art img { width: 100%; height: auto; border: 1px solid #ffffff1f; border-radius: 24px; }
+
+.ss-product-body { background: var(--ss-surface); padding: 64px 20px 76px; }
+.ss-product-body-inner { display: grid; width: 100%; max-width: 1240px; margin-inline: auto; gap: 56px; }
+.ss-product-prose p { max-width: 74ch; margin-top: 16px; color: var(--ss-muted); font-size: 15.5px; line-height: 1.75; }
+.ss-product-steps ol { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin: 24px 0 0; padding: 0; list-style: none; }
+.ss-product-steps li { display: flex; gap: 14px; padding: 22px 20px; border: 1px solid var(--ss-line); border-radius: 18px; background: var(--ss-mist); }
+.ss-product-step-number { display: grid; width: 38px; height: 38px; flex-shrink: 0; place-items: center; border-radius: 50%; background: var(--ss-pine); color: var(--ss-lime); font-size: 12.5px; font-weight: 800; }
+.ss-product-steps strong { display: block; color: var(--ss-ink); font-size: 14.5px; font-weight: 800; }
+.ss-product-steps small { display: block; margin-top: 6px; color: var(--ss-muted); font-size: 12.5px; line-height: 1.6; }
+.ss-product-benefits ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; margin: 24px 0 0; padding: 0; list-style: none; }
+.ss-product-benefits li { display: flex; gap: 13px; }
+.ss-product-benefits svg { flex-shrink: 0; margin-top: 2px; color: var(--ss-green); }
+.ss-product-benefits strong { display: block; color: var(--ss-ink); font-size: 14.5px; font-weight: 800; }
+.ss-product-benefits small { display: block; margin-top: 5px; color: var(--ss-muted); font-size: 12.5px; line-height: 1.6; }
+.ss-product-notes { padding: 26px 24px; border: 1px solid var(--ss-line); border-left: 3px solid var(--ss-green); border-radius: 0 18px 18px 0; background: var(--ss-mint); }
+.ss-product-notes ul { margin: 14px 0 0; padding-left: 20px; color: var(--ss-muted); font-size: 13.5px; line-height: 1.7; }
+.ss-product-notes li + li { margin-top: 8px; }
+.ss-product-faq details { margin-top: 12px; border: 1px solid var(--ss-line); border-radius: 16px; background: var(--ss-card); }
+.ss-product-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; color: var(--ss-ink); font-size: 14.5px; font-weight: 700; cursor: pointer; list-style: none; }
+.ss-product-faq summary::-webkit-details-marker { display: none; }
+.ss-product-faq summary > svg { flex-shrink: 0; color: var(--ss-green); transition: transform 200ms; }
+.ss-product-faq details[open] summary > svg { transform: rotate(90deg); }
+.ss-product-faq p { margin: 0; padding: 0 20px 20px; color: var(--ss-muted); font-size: 13.5px; line-height: 1.7; }
+.ss-product-next ul { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; padding: 0; list-style: none; }
+.ss-product-next a { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border: 1px solid var(--ss-line); border-radius: 99px; background: var(--ss-card); color: var(--ss-green-deep); font-size: 13px; font-weight: 700; transition: transform 180ms, border-color 180ms; }
+.ss-product-next a:hover { transform: translateY(-2px); border-color: var(--ss-green); }
+
+@media (max-width: 1023px) {
+  .ss-product-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .ss-product-hero-art { max-width: 560px; }
+}
+@media (max-width: 639px) {
+  .ss-product-hero { padding: 112px 16px 48px; }
+  .ss-product-body { padding: 48px 16px 60px; }
+  .ss-product-body-inner { gap: 42px; }
+  .ss-product-stats { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .ss-product-stats > div { display: flex; align-items: baseline; gap: 10px; }
+  .ss-product-stats dd { margin-top: 0; }
 }

@@ -1,4 +1,4 @@
-import { SsBgVideo } from "./SsBgVideo";
+import Image from "next/image";
 import { SsReveal } from "./SsReveal";
 import { SsPhonePreview } from "./SsPhonePreview";
 import { SsVideoLauncher } from "./SsVideoModal";
@@ -7,8 +7,17 @@ import { IcArrowUpRight, IcPlay } from "./ss-icons";
 export function SsHero() {
   return (
     <section id="beranda" className="ss-reference-hero relative isolate overflow-hidden bg-[var(--ss-dark)]">
+      {/* Latar lanskap statis: tidak ada video yang perlu diunduh dan
+          didekode terus-menerus saat halaman terbuka. */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
-        <SsBgVideo src="/videos/payway/header.mp4" poster="/images/saku/hero-bg.jpg" className="ss-hero-background h-full w-full object-cover" />
+        <Image
+          src="/images/saku/hero-bg-home.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="ss-hero-background object-cover"
+        />
         <div className="ss-reference-hero-scrim absolute inset-0" />
       </div>
 

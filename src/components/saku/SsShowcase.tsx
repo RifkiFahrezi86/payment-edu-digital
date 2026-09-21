@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { SsReveal } from "./SsReveal";
@@ -72,10 +73,10 @@ function PanelEdudigi() {
             EduDigi adalah program edukasi digital SAKU SULTAN, yang dirancang untuk membantu kamu memahami teknologi, mengelola keuangan digital, dan memanfaatkan peluang di era digital.
           </p>
           <div className="mt-7 flex flex-wrap gap-3.5">
-            <a href="#edudigi" className="ss-btn ss-btn-lime !py-3">
+            <Link href="/produk/edudigi" className="ss-btn ss-btn-lime !py-3">
               Pelajari EduDigi
               <IcArrowRight width={16} height={16} />
-            </a>
+            </Link>
             <a href="#fasilitas" className="ss-btn ss-btn-outline-dark !py-3">
               Lihat Program
             </a>

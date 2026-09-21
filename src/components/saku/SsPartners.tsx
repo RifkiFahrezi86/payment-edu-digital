@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { SsReveal } from "./SsReveal";
 import { IcArrowRight, IcGift, IcGraduation, IcShieldCheck } from "./ss-icons";
-import { CORE_PARTNERS } from "./ss-partners-data";
+import { BILLER_PARTNERS, CORE_PARTNERS, PAYMENT_PARTNERS, REGULATOR_PARTNERS } from "./ss-partners-data";
 
 const PARTNERS = [
   ...CORE_PARTNERS,
+  ...REGULATOR_PARTNERS,
   { name: "QRIS", sub: "Standar Pembayaran Nasional", logo: "/images/payway/pay/qris.svg" },
 ];
 
@@ -32,10 +33,23 @@ export function SsPartners() {
             <details className="ss-partners-more">
               <summary>Lihat Metode Pembayaran <IcArrowRight width={15} height={15} /></summary>
               <div className="ss-partner-methods">
-                {[
-                  ["bca", "BCA"], ["mandiri", "Mandiri"], ["bri", "BRI"], ["bni", "BNI"],
-                  ["dana", "DANA"], ["gopay", "GoPay"], ["ovo", "OVO"], ["shopeepay", "ShopeePay"],
-                ].map(([file, label]) => <div key={file}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src={`/images/payway/pay/${file}.svg`} alt={label} width={90} height={30} loading="lazy" /></div>)}
+                {PAYMENT_PARTNERS.map(({ name, logo }) => (
+                  <div key={name}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={logo} alt={name} width={90} height={30} loading="lazy" decoding="async" />
+                  </div>
+                ))}
+              </div>
+            </details>
+            <details className="ss-partners-more">
+              <summary>Lihat Tagihan yang Dilayani <IcArrowRight width={15} height={15} /></summary>
+              <div className="ss-partner-methods">
+                {BILLER_PARTNERS.map(({ name, logo }) => (
+                  <div key={name}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={logo} alt={name} width={90} height={30} loading="lazy" decoding="async" />
+                  </div>
+                ))}
               </div>
             </details>
           </div>
@@ -54,7 +68,7 @@ export function SsPartners() {
             </Link>
           </SsReveal>
           <SsReveal delay={80}>
-            <a href="#edudigi" className="ss-program-card">
+            <Link href="/produk/edudigi" className="ss-program-card">
               <div className="ss-program-copy">
                 <IcGraduation width={24} height={24} />
                 <h3>EduDigi</h3>
@@ -62,7 +76,7 @@ export function SsPartners() {
                 <span>Jelajahi EduDigi <IcArrowRight width={14} height={14} /></span>
               </div>
               <div className="ss-program-art ss-program-scene"><Image src="/images/saku/card-edudigi.webp" alt="" width={225} height={280} loading="lazy" /></div>
-            </a>
+            </Link>
           </SsReveal>
           <SsReveal delay={160}>
             <a href="#fasilitas" className="ss-program-card">

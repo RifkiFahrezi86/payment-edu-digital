@@ -6,6 +6,20 @@ export const CORE_PARTNERS: PartnerLogo[] = [
   { name: "BMT", logo: "/images/payway/pay/bmt-reference.png" },
 ];
 
+/** Lembaga pengawas dan jaringan pembayaran nasional. */
+export const REGULATOR_PARTNERS: PartnerLogo[] = [
+  { name: "OJK", logo: "/images/payway/pay/ojk.svg", sub: "Otoritas Jasa Keuangan" },
+  { name: "BI-FAST", logo: "/images/payway/pay/bi-fast.svg", sub: "Transfer Real-Time Nasional" },
+];
+
+/** Tagihan layanan publik yang dilayani menu PPOB. */
+export const BILLER_PARTNERS: PartnerLogo[] = [
+  { name: "PLN", logo: "/images/payway/pay/pln.svg" },
+  { name: "PDAM", logo: "/images/payway/pay/pdam.svg" },
+  { name: "BPJS Kesehatan", logo: "/images/payway/pay/bpjs-kesehatan.svg" },
+  { name: "BPJS Ketenagakerjaan", logo: "/images/payway/pay/bpjs-ketenagakerjaan.svg" },
+];
+
 export const PAYMENT_PARTNERS: PartnerLogo[] = [
   { name: "Mandiri", logo: "/images/payway/pay/mandiri.svg" },
   { name: "BRI", logo: "/images/payway/pay/bri.svg" },
@@ -26,4 +40,9 @@ export const PAYMENT_PARTNERS: PartnerLogo[] = [
   { name: "Smartfren", logo: "/images/payway/pay/smartfren.svg" },
 ];
 
-export const TRUSTED_PARTNERS = [...CORE_PARTNERS, ...PAYMENT_PARTNERS];
+export const TRUSTED_PARTNERS = [
+  ...CORE_PARTNERS,
+  ...REGULATOR_PARTNERS,
+  ...PAYMENT_PARTNERS,
+  ...BILLER_PARTNERS,
+];
