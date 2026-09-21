@@ -207,7 +207,7 @@ export function SsEdudigi() {
           </SsReveal>
         </div>
 
-        <SsPartnerSupport heading="Dasar Legalitas" logos={LEGAL_PARTNERS} />
+        <SsPartnerSupport heading="Ekosistem Terpercaya" logos={LEGAL_PARTNERS} />
 
         <details className="ss-edudigi-gallery">
           <summary><span>Kenali EduDigi lebih dekat<small>Profil, tujuan, praktik, visi & misi, dan legalitas.</small></span><IcArrowRight width={20} height={20} /></summary>

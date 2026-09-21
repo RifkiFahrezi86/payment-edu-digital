@@ -7,26 +7,25 @@ export const CORE_PARTNERS: PartnerLogo[] = [
 ];
 
 /**
- * Lembaga pengawas dan jaringan pembayaran. Setiap berkas berasal dari sumber
- * resmi (Wikimedia Commons, Wikipedia Indonesia, zonalogo, publikasi BI) dan
- * latarnya dihapus lewat flood fill supaya menyatu di tema terang maupun gelap.
- *
- * Hanya logo berbentuk wordmark yang masuk daftar ini: strip pendukung
- * menyusunnya dalam satu baris, sehingga lambang bujur sangkar akan memecah
- * tinggi baris. Logo lembaga berbentuk lencana dipakai di tempat lain.
+ * Lembaga pengawas dan pembina. Setiap berkas berasal dari sumber resmi
+ * (Wikimedia Commons, Wikipedia Indonesia, zonalogo, publikasi BI, laman
+ * kementerian) dan latarnya dihapus supaya menyatu di tema terang maupun gelap.
+ * Semuanya berbentuk wordmark agar tinggi barisnya seragam.
  */
 export const REGULATOR_PARTNERS: PartnerLogo[] = [
   { name: "OJK", logo: "/images/payway/pay/ojk.webp", sub: "Otoritas Jasa Keuangan" },
   { name: "BI-FAST", logo: "/images/payway/pay/bi-fast.webp", sub: "Transfer Real-Time Nasional" },
+  { name: "Kemendikbudristek", logo: "/images/payway/pay/kemendikbudristek.webp", sub: "Pembinaan Pendidikan Nonformal" },
 ];
 
 /**
- * Penanda legalitas EduDigi. Dipakai pada strip di bawah tahapan legalitas —
- * isinya harus sejalan dengan dokumen yang disebut di sana (OSS menerbitkan
- * NIB dengan klasifikasi KBLI), bukan mitra pembayaran.
+ * Penanda legalitas EduDigi. Urutannya mengikuti alur pada tahapan legalitas:
+ * kementerian pembina lebih dulu, lalu sistem perizinan (OSS) yang menerbitkan
+ * NIB dengan klasifikasi KBLI, ditutup lambang penyelenggara.
  */
 export const LEGAL_PARTNERS: PartnerLogo[] = [
-  { name: "OSS", logo: "/images/payway/pay/oss.svg", sub: "Perizinan Berusaha Terintegrasi" },
+  { name: "Kemendikbudristek", logo: "/images/payway/pay/kemendikbudristek.webp", sub: "Pembinaan Pendidikan Nonformal" },
+  { name: "OSS", logo: "/images/payway/pay/oss.webp", sub: "Perizinan Berusaha Terintegrasi" },
   { name: "NIB", logo: "/images/payway/pay/nib.svg", sub: "Nomor Induk Berusaha" },
   { name: "KBLI", logo: "/images/payway/pay/kbli.svg", sub: "Klasifikasi Lapangan Usaha" },
   { name: "Saku Sultan", logo: "/images/payway/pay/saku-sultan.webp", sub: "Ekosistem Digital" },
