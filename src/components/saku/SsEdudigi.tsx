@@ -1,13 +1,15 @@
 import { SsReveal } from "./SsReveal";
+import { PwPosterGallery } from "@/components/payway/PwPosterGallery";
+import { EDUDIGI_CLASS_POSTER, EDUDIGI_POSTERS } from "@/components/payway/pw-campaign-posters";
+import { PwEduDigiBrand } from "@/components/payway/pw-edudigi-brand";
+import { SsReferenceArtwork } from "./SsReferenceArtwork";
+import { SsPartnerSupport } from "./SsPartnerSupport";
 import {
   IcArrowRight,
   IcBook,
   IcChart,
-  IcCheckCircle,
   IcFileText,
   IcGraduation,
-  IcQuote,
-  IcShieldCheck,
   IcSparkle,
   IcUsers,
   IcZap,
@@ -35,20 +37,8 @@ const LEGAL_STEPS = [
 
 function EdudigiLockup() {
   return (
-    <div className="flex flex-wrap items-center gap-4">
-      <div className="flex items-center gap-3">
-        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--ss-green)] text-white shadow-[0_10px_26px_rgba(18,135,75,.35)]">
-          <IcGraduation width={22} height={22} />
-        </span>
-        <div className="leading-tight">
-          <p className="text-[19px] font-extrabold text-[var(--ss-ink)]">
-            Edu<span className="text-[var(--ss-green)]">Digi</span>
-          </p>
-          <p className="text-[9.5px] font-bold uppercase tracking-[0.16em] text-[var(--ss-muted)]">
-            Solusi Penguatan Literasi Digital
-          </p>
-        </div>
-      </div>
+    <div className="ss-edudigi-lockup flex flex-wrap items-center gap-4">
+      <PwEduDigiBrand id="ss-program-brand" />
       <span className="hidden h-8 w-px bg-[var(--ss-line)] sm:block" />
       <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--ss-green)]">
         Belajar • Praktik • Produktif
@@ -82,7 +72,7 @@ export function SsEdudigi() {
               </p>
             </SsReveal>
             <SsReveal delay={220}>
-              <div className="mt-7 flex items-end gap-3">
+              <div className="ss-edudigi-price mt-7 flex flex-wrap items-end gap-3">
                 <span className="text-[13px] font-bold text-[var(--ss-muted)]">Mulai dari</span>
                 <span className="text-[clamp(2rem,4vw,3rem)] font-extrabold leading-none tracking-tight text-[var(--ss-ink)]">
                   Rp200.000
@@ -104,7 +94,7 @@ export function SsEdudigi() {
             </SsReveal>
             <SsReveal delay={340}>
               <div className="mt-8 flex flex-wrap gap-4">
-                <a href="#bantuan" className="ss-btn ss-btn-lime">
+                <a href="https://play.google.com/store/apps/details?id=com.saku_sultan" target="_blank" rel="noopener noreferrer" className="ss-btn ss-btn-lime">
                   Daftar Kelas Sekarang
                   <IcArrowRight width={16} height={16} />
                 </a>
@@ -115,33 +105,9 @@ export function SsEdudigi() {
             </SsReveal>
           </div>
 
-          {/* Foto + kartu mengambang */}
+          {/* Complete illustration group, including every text callout. */}
           <SsReveal delay={200}>
-            <div className="relative mx-auto w-full max-w-[500px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/saku/edudigi-students.jpg"
-                alt="Peserta kelas EduDigi belajar bersama"
-                className="aspect-[4/3.2] w-full rounded-[32px] object-cover shadow-[0_36px_80px_rgba(8,23,15,.2)]"
-              />
-              <div className="ss-float absolute -top-6 right-6 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-[0_18px_44px_rgba(8,23,15,.16)]">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--ss-mint)] text-[var(--ss-green-deep)]">
-                  <IcGraduation width={18} height={18} />
-                </span>
-                <span className="text-[12.5px] font-extrabold leading-tight text-[var(--ss-ink)]">
-                  Investasi Ilmu untuk Masa Depan
-                  <br />
-                  <span className="text-[var(--ss-green)]">yang Lebih Baik</span>
-                </span>
-              </div>
-              <div className="ss-float-slow absolute -bottom-7 -left-4 max-w-[280px] rounded-2xl border border-[var(--ss-line)] bg-white p-4 shadow-[0_18px_44px_rgba(8,23,15,.14)]">
-                <IcQuote width={20} height={20} className="text-[var(--ss-green)]" />
-                <p className="mt-1.5 text-[12.5px] font-semibold leading-relaxed text-[var(--ss-ink)]/85">
-                  Skill digital membuka lebih banyak peluang untuk masa depan — bersama EduDigi, kamu bisa lebih
-                  siap.
-                </p>
-              </div>
-            </div>
+            <SsReferenceArtwork kind="program" />
           </SsReveal>
         </div>
 
@@ -175,7 +141,7 @@ export function SsEdudigi() {
         </div>
 
         {/* Legalitas & kelembagaan */}
-        <div className="mt-24 grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div id="legalitas-edudigi" className="mt-24 grid scroll-mt-24 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <SsReveal>
               <p className="ss-eyebrow text-[var(--ss-green)]">Legalitas & Kelembagaan</p>
@@ -188,9 +154,9 @@ export function SsEdudigi() {
               </p>
             </SsReveal>
             <SsReveal delay={120}>
-              <ol className="mt-8 space-y-5">
+              <ol className="ss-legal-timeline">
                 {LEGAL_STEPS.map((s) => (
-                  <li key={s.num} className="flex items-center gap-4">
+                  <li key={s.num}>
                     <span
                       className={
                         "flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[13px] font-extrabold " +
@@ -201,7 +167,7 @@ export function SsEdudigi() {
                     >
                       {s.num}
                     </span>
-                    <span className="flex-1 text-[14.5px] font-extrabold text-[var(--ss-ink)]">{s.title}</span>
+                    <strong>{s.title}</strong>
                     <span
                       className={
                         "rounded-full px-3.5 py-1.5 text-[11px] font-extrabold " +
@@ -219,12 +185,12 @@ export function SsEdudigi() {
             <SsReveal delay={200}>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="https://wa.me/6281100000000?text=Halo%2C%20saya%20ingin%20melihat%20dokumen%20legalitas%20EduDigi"
+                  href="/images/IMAGE/7.jpeg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ss-btn ss-btn-dark"
                 >
-                  Lihat Dokumen Legalitas
+                  Lihat Informasi Legalitas
                   <IcFileText width={16} height={16} />
                 </a>
                 <a href="#edudigi" className="ss-btn ss-btn-outline-dark">
@@ -234,50 +200,18 @@ export function SsEdudigi() {
             </SsReveal>
           </div>
 
-          {/* Mockup dokumen */}
+          {/* Document illustration with the Saku Sultan logo. */}
           <SsReveal delay={180}>
-            <div className="relative mx-auto w-full max-w-[440px]">
-              <div className="rounded-[32px] bg-gradient-to-br from-[var(--ss-mint)] to-[#f6faf4] p-8">
-                <div className="relative mx-auto max-w-[300px]">
-                  <div className="rotate-[-4deg] rounded-2xl border border-[var(--ss-line)] bg-white p-5 shadow-[0_20px_50px_rgba(8,23,15,.12)]">
-                    <p className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[var(--ss-muted)]">
-                      Republik Indonesia
-                    </p>
-                    <p className="mt-1 text-[14px] font-extrabold text-[var(--ss-ink)]">Akta Pendirian Yayasan EDUDIGI</p>
-                    <div className="mt-3 space-y-1.5">
-                      <span className="block h-1.5 w-full rounded bg-[var(--ss-mist)]" />
-                      <span className="block h-1.5 w-4/5 rounded bg-[var(--ss-mist)]" />
-                      <span className="block h-1.5 w-11/12 rounded bg-[var(--ss-mist)]" />
-                      <span className="block h-1.5 w-3/5 rounded bg-[var(--ss-mist)]" />
-                    </div>
-                  </div>
-                  <div className="mt-4 rotate-[3deg] rounded-2xl border border-[var(--ss-line)] bg-white p-5 shadow-[0_20px_50px_rgba(8,23,15,.12)]">
-                    <div className="flex items-center justify-between">
-                      <p className="text-[14px] font-extrabold text-[var(--ss-ink)]">NIB & KBLI</p>
-                      <span className="rounded-full bg-[var(--ss-mint)] px-2.5 py-1 text-[9.5px] font-extrabold text-[var(--ss-green-deep)]">
-                        TERBIT
-                      </span>
-                    </div>
-                    <div className="mt-3 space-y-1.5">
-                      <span className="block h-1.5 w-full rounded bg-[var(--ss-mist)]" />
-                      <span className="block h-1.5 w-2/3 rounded bg-[var(--ss-mist)]" />
-                    </div>
-                  </div>
-                  <span className="absolute -right-6 -top-6 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--ss-pine)] text-[var(--ss-lime)] shadow-[0_14px_36px_rgba(12,59,42,.4)]">
-                    <IcShieldCheck width={24} height={24} />
-                  </span>
-                </div>
-                <p className="ss-script mt-6 text-center text-[22px] leading-tight text-[var(--ss-green)]">
-                  Pendidikan Digital untuk Masa Depan yang Lebih Baik
-                </p>
-              </div>
-              <div className="ss-float absolute -bottom-5 left-1/2 flex w-max max-w-[90%] -translate-x-1/2 items-center gap-2.5 rounded-full bg-[var(--ss-pine)] px-5 py-3 text-white shadow-[0_18px_44px_rgba(12,59,42,.35)]">
-                <IcCheckCircle width={16} height={16} className="text-[var(--ss-lime)]" />
-                <span className="text-[12px] font-extrabold">Terdaftar & Dikelola Sesuai Regulasi Pemerintah</span>
-              </div>
-            </div>
+            <SsReferenceArtwork kind="legal" />
           </SsReveal>
         </div>
+
+        <SsPartnerSupport />
+
+        <details className="ss-edudigi-gallery">
+          <summary><span>Kenali EduDigi lebih dekat<small>Profil, tujuan, praktik, visi & misi, dan legalitas.</small></span><IcArrowRight width={20} height={20} /></summary>
+          <div><PwPosterGallery posters={[...EDUDIGI_POSTERS, EDUDIGI_CLASS_POSTER]} /></div>
+        </details>
 
         {/* Bar penutup */}
         <SsReveal delay={120}>

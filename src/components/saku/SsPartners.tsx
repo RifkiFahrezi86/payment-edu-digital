@@ -1,138 +1,77 @@
+import Link from "next/link";
 import { SsReveal } from "./SsReveal";
-import { IcArrowRight, IcChart, IcGraduation, IcShieldCheck } from "./ss-icons";
+import { IcArrowRight, IcGift, IcGraduation, IcShieldCheck } from "./ss-icons";
+import { CORE_PARTNERS } from "./ss-partners-data";
 
 const PARTNERS = [
-  { name: "BANK INDONESIA", sub: "Regulator Pembayaran" },
-  { name: "BRICK", sub: "Infrastruktur Finansial" },
-  { name: "BMT", sub: "Buana Media Teknologi" },
+  ...CORE_PARTNERS,
   { name: "QRIS", sub: "Standar Pembayaran Nasional", logo: "/images/payway/pay/qris.svg" },
 ];
 
-/** Kolaborasi Strategis — mitra + 3 kartu (Keamanan, EduDigi, Sistem VTN). */
 export function SsPartners() {
   return (
-    <section id="mitra" className="scroll-mt-24 bg-white">
-      <div className="mx-auto w-full max-w-[1320px] px-5 py-20 md:px-8 lg:py-24">
-        <div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
-          <SsReveal>
-            <p className="ss-eyebrow flex items-center gap-3 text-[var(--ss-green)]">
-              <span className="h-px w-9 bg-[var(--ss-green)]/60" />
-              Kolaborasi Strategis
-            </p>
-            <h2 className="ss-h2 mt-4 max-w-[640px] text-[var(--ss-ink)]">
-              Bersama Mitra Terpercaya untuk <span className="text-[var(--ss-green)]">Layanan Terbaik</span>
-            </h2>
-            <p className="mt-4 max-w-[560px] text-[15px] leading-relaxed text-[var(--ss-muted)]">
-              Kami berkolaborasi dengan regulator dan penyedia teknologi terkemuka agar setiap transaksi Anda aman,
-              cepat, dan sesuai standar nasional.
-            </p>
+    <section id="mitra" className="ss-reference-partners scroll-mt-24">
+      <div className="ss-partners-inner">
+        <div className="ss-partners-heading">
+          <SsReveal className="ss-partners-copy">
+            <p className="ss-eyebrow">Kolaborasi Strategis</p>
+            <h2>Bersama Mitra Terpercaya<br />untuk Layanan Terbaik</h2>
+            <p>Bersama mitra dan penyedia teknologi untuk menghadirkan pengalaman transaksi yang lebih mudah, aman, dan nyaman.</p>
           </SsReveal>
-          <SsReveal delay={120}>
-            <a
-              href="#mitra"
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--ss-mint)] px-6 py-3 text-[13.5px] font-extrabold text-[var(--ss-green-deep)] transition-colors hover:bg-[var(--ss-pine)] hover:text-[var(--ss-lime)]"
-            >
-              Lihat Semua Mitra
-              <IcArrowRight width={15} height={15} />
-            </a>
-          </SsReveal>
+          <div className="ss-partners-directory">
+            <ul className="ss-partner-marks">
+              {PARTNERS.map(partner => (
+                <li key={partner.name} data-partner={partner.name}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={partner.logo} alt={`Logo ${partner.name}`} width={136} height={44} className="ss-partner-original-logo" />
+                  {partner.sub && <small>{partner.sub}</small>}
+                </li>
+              ))}
+            </ul>
+            <details className="ss-partners-more">
+              <summary>Lihat Metode Pembayaran <IcArrowRight width={15} height={15} /></summary>
+              <div className="ss-partner-methods">
+                {[
+                  ["bca", "BCA"], ["mandiri", "Mandiri"], ["bri", "BRI"], ["bni", "BNI"],
+                  ["dana", "DANA"], ["gopay", "GoPay"], ["ovo", "OVO"], ["shopeepay", "ShopeePay"],
+                ].map(([file, label]) => <div key={file}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src={`/images/payway/pay/${file}.svg`} alt={label} width={90} height={30} loading="lazy" /></div>)}
+              </div>
+            </details>
+          </div>
         </div>
 
-        {/* Logo mitra */}
-        <SsReveal delay={140}>
-          <ul className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {PARTNERS.map((p) => (
-              <li
-                key={p.name}
-                className="flex items-center justify-center gap-3 rounded-2xl border border-[var(--ss-line)] bg-[var(--ss-mist)] px-5 py-5 text-center"
-              >
-                {p.logo ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={p.logo} alt={p.name} className="h-7 w-auto" />
-                ) : (
-                  <span className="leading-tight">
-                    <span className="block text-[15px] font-extrabold tracking-wide text-[var(--ss-ink)]/80">
-                      {p.name}
-                    </span>
-                    <span className="block text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--ss-muted)]">
-                      {p.sub}
-                    </span>
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </SsReveal>
-
-        {/* 3 kartu program */}
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          <SsReveal delay={0}>
-            <a href="/kebijakan-privasi" className="block h-full">
-              <article className="group flex h-full flex-col overflow-hidden rounded-[28px] bg-gradient-to-br from-[var(--ss-pine)] to-[#04130c] p-8 text-white transition-transform duration-300 hover:-translate-y-1">
-              <span className="flex h-24 w-24 items-center justify-center self-center rounded-[28px] bg-[var(--ss-lime)]/12 text-[var(--ss-lime)]">
-                <IcShieldCheck width={46} height={46} />
-              </span>
-              <h3 className="mt-8 text-[21px] font-extrabold">
-                Keamanan, <span className="text-[var(--ss-lime)]">Prioritas Kami</span>
-              </h3>
-              <p className="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-white/70">
-                Transaksi Anda dilindungi teknologi keamanan terstandar industri — enkripsi, verifikasi berlapis,
-                dan pemantauan 24/7.
-              </p>
-                <span className="mt-6 inline-flex items-center gap-2 text-[13.5px] font-extrabold text-[var(--ss-lime)]">
-                  Pelajari Keamanan
-                  <IcArrowRight width={15} height={15} className="transition-transform group-hover:translate-x-1" />
-                </span>
-              </article>
+        <div className="ss-program-cards">
+          <SsReveal>
+            <Link href="/kebijakan-privasi" className="ss-program-card">
+              <div className="ss-program-copy">
+                <IcShieldCheck width={24} height={24} />
+                <h3>Keamanan<br />Prioritas Kami</h3>
+                <p>Kenali cara kami menjaga data dan kenyamanan Anda dalam bertransaksi.</p>
+                <span>Pelajari Keamanan <IcArrowRight width={14} height={14} /></span>
+              </div>
+              <div className="ss-program-art ss-program-shield" aria-hidden="true"><IcShieldCheck width={108} height={108} /></div>
+            </Link>
+          </SsReveal>
+          <SsReveal delay={80}>
+            <a href="#edudigi" className="ss-program-card">
+              <div className="ss-program-copy">
+                <IcGraduation width={24} height={24} />
+                <h3>EduDigi</h3>
+                <p>Literasi digital untuk semua. Tingkatkan pengetahuan dan keterampilan bersama EduDigi.</p>
+                <span>Jelajahi EduDigi <IcArrowRight width={14} height={14} /></span>
+              </div>
+              <div className="ss-program-art ss-program-student">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/IMAGE/4.jpeg" alt="Peserta program EduDigi" loading="lazy" /></div>
             </a>
           </SsReveal>
-
-          <SsReveal delay={100}>
-            <a href="#edudigi" className="block h-full">
-              <article className="group flex h-full flex-col overflow-hidden rounded-[28px] border border-[var(--ss-line)] bg-white shadow-[0_16px_44px_rgba(8,23,15,.07)] transition-transform duration-300 hover:-translate-y-1">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/saku/edudigi-students.jpg"
-                alt="Peserta EduDigi"
-                className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="flex flex-1 flex-col p-7">
-                <span className="inline-flex w-max items-center gap-2 rounded-full bg-[var(--ss-mint)] px-3.5 py-1.5 text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-[var(--ss-green-deep)]">
-                  <IcGraduation width={13} height={13} /> EduDigi
-                </span>
-                <h3 className="mt-4 text-[21px] font-extrabold text-[var(--ss-ink)]">
-                  Literasi Digital <span className="text-[var(--ss-green)]">untuk Semua</span>
-                </h3>
-                <p className="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-[var(--ss-muted)]">
-                  Tingkatkan pengetahuan dan keterampilan digital Anda bersama program EduDigi.
-                </p>
-                <span className="mt-6 inline-flex items-center gap-2 text-[13.5px] font-extrabold text-[var(--ss-green)]">
-                  Jelajahi EduDigi
-                  <IcArrowRight width={15} height={15} className="transition-transform group-hover:translate-x-1" />
-                </span>
-                </div>
-              </article>
-            </a>
-          </SsReveal>
-
-          <SsReveal delay={200}>
-            <a href="#vtn" className="block h-full">
-              <article className="group flex h-full flex-col overflow-hidden rounded-[28px] bg-[var(--ss-mint)] p-8 transition-shadow hover:shadow-[0_24px_60px_rgba(8,23,15,.12)]">
-                <span className="flex h-24 w-24 items-center justify-center self-center rounded-[28px] bg-white text-[var(--ss-green-deep)] shadow-[0_14px_36px_rgba(8,23,15,.1)]">
-                  <IcChart width={46} height={46} />
-                </span>
-                <h3 className="mt-8 text-[21px] font-extrabold text-[var(--ss-ink)]">
-                  Sistem <span className="text-[var(--ss-green)]">VTN</span>
-                </h3>
-                <p className="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-[var(--ss-muted)]">
-                  Volume Transaksi Nasional — setiap transaksi memperkuat ekosistem dan membuka peluang lebih luas
-                  bagi seluruh pengguna.
-                </p>
-                <span className="mt-6 inline-flex items-center gap-2 text-[13.5px] font-extrabold text-[var(--ss-green)]">
-                  Pelajari VTN
-                  <IcArrowRight width={15} height={15} className="transition-transform group-hover:translate-x-1" />
-                </span>
-              </article>
+          <SsReveal delay={160}>
+            <a href="#fasilitas" className="ss-program-card">
+              <div className="ss-program-copy">
+                <IcGift width={24} height={24} />
+                <h3>Program & Manfaat</h3>
+                <p>Temukan kelas, fasilitas, dan berbagai peluang dalam ekosistem Saku Sultan.</p>
+                <span>Lihat Program <IcArrowRight width={14} height={14} /></span>
+              </div>
+              <div className="ss-program-art ss-program-gift" aria-hidden="true"><IcGift width={105} height={105} /></div>
             </a>
           </SsReveal>
         </div>

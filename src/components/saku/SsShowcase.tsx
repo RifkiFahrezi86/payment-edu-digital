@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { SsReveal } from "./SsReveal";
+import { PwEduDigiCards } from "@/components/payway/PwEduDigiCards";
+import { SsReferenceArtwork } from "./SsReferenceArtwork";
+import { PwEduDigiBrand } from "@/components/payway/pw-edudigi-brand";
 import { SHOWCASE_TAB_EVENT, type ShowcaseTab } from "./ss-showcase-bus";
 import {
   IcArrowRight,
@@ -12,6 +15,7 @@ import {
   IcCheckCircle,
   IcChevronRight,
   IcGraduation,
+  IcGift,
   IcGrid,
   IcHeartHand,
   IcPhoneSignal,
@@ -35,13 +39,13 @@ const TABS: { key: TabKey; label: string; icon: (p: React.SVGProps<SVGSVGElement
   { key: "qtra", label: "Q-Tra", icon: IcScan },
   { key: "transfer", label: "Transfer", icon: IcSend },
   { key: "ppob", label: "PPOB", icon: IcReceipt },
-  { key: "passolo", label: "Passolo", icon: IcHeartHand },
+  { key: "passolo", label: "Passolo", icon: IcGift },
   { key: "merchant", label: "Merchant", icon: IcBuilding },
 ];
 
 function Feature({ icon: Icon, title, desc }: { icon: typeof IcBook; title: string; desc: string }) {
   return (
-    <li className="flex items-start gap-3.5">
+    <li className="ss-showcase-benefit flex items-start gap-3.5">
       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--ss-mint)] text-[var(--ss-green-deep)]">
         <Icon width={19} height={19} />
       </span>
@@ -57,29 +61,14 @@ function Feature({ icon: Icon, title, desc }: { icon: typeof IcBook; title: stri
 function PanelEdudigi() {
   return (
     <div>
-      <div className="grid gap-10 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
+      <div className="ss-edudigi-showcase grid gap-10 p-7 sm:p-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center">
         <div>
-          <div className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--ss-green)] text-white">
-              <IcGraduation width={20} height={20} />
-            </span>
-            <div className="leading-tight">
-              <p className="text-[16px] font-extrabold text-[var(--ss-ink)]">
-                Edu<span className="text-[var(--ss-green)]">Digi</span>
-              </p>
-              <p className="text-[9.5px] font-bold uppercase tracking-[0.16em] text-[var(--ss-muted)]">
-                Solusi Penguatan Literasi Digital
-              </p>
-            </div>
-          </div>
+          <div className="ss-edudigi-lockup"><PwEduDigiBrand id="ss-showcase-brand" /></div>
           <h3 className="ss-h3 mt-6 text-[var(--ss-ink)]">
-            Belajar Digital,
-            <br />
-            <span className="text-[var(--ss-green)]">Lebih Aman dan Produktif.</span>
+            Belajar Digital<br /><span className="text-[var(--ss-green)]">Lebih Aman dan Produktif.</span>
           </h3>
           <p className="mt-4 max-w-[440px] text-[14.5px] leading-relaxed text-[var(--ss-muted)]">
-            Program pembelajaran untuk meningkatkan literasi digital — memahami transaksi yang aman, memanfaatkan
-            teknologi, dan membuka peluang produktif bersama ekosistem SAKU SULTAN.
+            EduDigi adalah program edukasi digital SAKU SULTAN, yang dirancang untuk membantu kamu memahami teknologi, mengelola keuangan digital, dan memanfaatkan peluang di era digital.
           </p>
           <div className="mt-7 flex flex-wrap gap-3.5">
             <a href="#edudigi" className="ss-btn ss-btn-lime !py-3">
@@ -90,40 +79,16 @@ function PanelEdudigi() {
               Lihat Program
             </a>
           </div>
-          <ul className="mt-8 grid gap-5 sm:grid-cols-3">
-            <Feature icon={IcBook} title="Materi Praktis" desc="Modul relevan dan mudah dipahami" />
-            <Feature icon={IcShieldCheck} title="Transaksi Aman" desc="Pahami keamanan digital" />
-            <Feature icon={IcChart} title="Dukung Produktivitas" desc="Skill siap pakai di dunia kerja" />
+          <ul className="ss-showcase-benefits mt-8 grid gap-5 sm:grid-cols-3">
+            <Feature icon={IcBook} title="Materi Praktis dan Relevan" desc="Disusun dengan bahasa yang mudah dipahami untuk semua kalangan." />
+            <Feature icon={IcShieldCheck} title="Transaksi Lebih Aman" desc="Pelajari cara menjaga PIN, OTP, dan data pribadi di dunia digital." />
+            <Feature icon={IcChart} title="Dukung Produktivitas" desc="Manfaatkan teknologi untuk aktivitas, usaha, dan masa depan yang lebih baik." />
           </ul>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[460px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/saku/edudigi-students.jpg"
-            alt="Peserta EduDigi belajar bersama"
-            className="aspect-[4/3.4] w-full rounded-3xl object-cover shadow-[0_30px_70px_rgba(8,23,15,.18)]"
-          />
-          <div className="ss-float absolute -left-5 top-6 flex items-center gap-2.5 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(8,23,15,.16)]">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--ss-mint)] text-[var(--ss-green-deep)]">
-              <IcSmartphone width={16} height={16} />
-            </span>
-            <span className="text-[12px] font-extrabold leading-tight text-[var(--ss-ink)]">
-              Belajar Kapan Saja
-              <br />
-              <span className="font-semibold text-[var(--ss-muted)]">di Mana Saja</span>
-            </span>
-          </div>
-          <div className="ss-float-slow absolute -bottom-5 -right-3 flex items-center gap-2.5 rounded-2xl bg-[var(--ss-pine)] px-4 py-3 text-white shadow-[0_16px_40px_rgba(8,23,15,.28)]">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--ss-lime)]/20 text-[var(--ss-lime)]">
-              <IcCheckCircle width={16} height={16} />
-            </span>
-            <span className="text-[12px] font-extrabold leading-tight">
-              Sertifikat
-              <br />
-              <span className="font-semibold text-white/70">Sebagai Bukti Kompetensi</span>
-            </span>
-          </div>
+        <div className="min-w-0 w-full">
+          <SsReferenceArtwork kind="edudigi" />
+          <details className="ss-membership-disclosure"><summary>Kartu EduDigi & Startup<IcChevronRight width={17} height={17} /></summary><div><PwEduDigiCards /></div></details>
         </div>
       </div>
 
@@ -169,7 +134,7 @@ function PanelQtra() {
             Selesai dalam hitungan detik.
           </p>
           <div className="mt-7 flex flex-wrap gap-3.5">
-            <a href="#bantuan" className="ss-btn ss-btn-lime !py-3">
+            <a href="#registrasi" className="ss-btn ss-btn-lime !py-3">
               Coba QTRA
               <IcArrowRight width={16} height={16} />
             </a>
@@ -197,44 +162,22 @@ function PanelQtra() {
             ))}
           </ol>
 
-          <ul className="mt-8 grid gap-5 sm:grid-cols-3">
+          <ul className="ss-showcase-benefits mt-8 grid gap-5 sm:grid-cols-3">
             <Feature icon={IcZap} title="Proses Sederhana" desc="Tanpa langkah berbelit" />
             <Feature icon={IcSmartphone} title="Kapan Saja" desc="Transfer 24/7 real-time" />
             <Feature icon={IcReceipt} title="Riwayat Tercatat" desc="Semua transaksi terekam rapi" />
           </ul>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[460px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/payway/Q-tra.jpg"
-            alt="Q-Tra Quick Transfer"
-            className="aspect-square w-full rounded-3xl object-cover shadow-[0_30px_70px_rgba(8,23,15,.18)]"
-          />
-          <div className="ss-float absolute -bottom-6 left-1/2 w-[86%] -translate-x-1/2 rounded-2xl bg-white p-4 shadow-[0_20px_50px_rgba(8,23,15,.2)]">
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--ss-mint)] text-[var(--ss-green)]">
-                <IcCheckCircle width={19} height={19} />
-              </span>
-              <div className="flex-1 leading-tight">
-                <p className="text-[13px] font-extrabold text-[var(--ss-ink)]">Transfer Berhasil!</p>
-                <p className="text-[11.5px] font-semibold text-[var(--ss-muted)]">
-                  Rp 500.000 dikirim ke Muhammad Arif
-                </p>
-              </div>
-              <span className="text-[11px] font-extrabold text-[var(--ss-green)]">Lihat Detail</span>
-            </div>
-          </div>
-          <div className="ss-float-slow absolute -right-4 top-6 flex items-center gap-2 rounded-2xl bg-[var(--ss-pine)] px-4 py-2.5 text-white shadow-[0_14px_36px_rgba(8,23,15,.3)]">
-            <IcShieldCheck width={15} height={15} className="text-[var(--ss-lime)]" />
-            <span className="text-[11.5px] font-extrabold">Aman dan Terpercaya</span>
-          </div>
+        <div className="relative min-w-0 w-full">
+          <SsReferenceArtwork kind="qtra" />
+          <details className="ss-product-original"><summary>Lihat ilustrasi Q-Tra <IcArrowRight width={15} height={15} /></summary><a href="/images/IMAGE/12.jpeg" target="_blank" rel="noopener noreferrer">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/IMAGE/12.jpeg" alt="Q-Tra — transfer dana lebih cepat dan mudah" loading="lazy" /></a></details>
         </div>
       </div>
 
       <div className="flex flex-col items-center gap-5 border-t border-[var(--ss-line)] bg-[var(--ss-mist)] px-7 py-6 lg:flex-row lg:justify-between">
         <p className="text-[13.5px] font-extrabold text-[var(--ss-ink)]">Terhubung dengan Berbagai Bank di Indonesia</p>
-        <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+        <ul className="ss-bank-logos flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
           {["bca", "bri", "mandiri", "bni", "cimb-niaga"].map((b) => (
             <li key={b}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -254,10 +197,11 @@ function PanelQtra() {
 /* ---------- Panel: Passolo ---------- */
 function PanelPassolo() {
   return (
-    <div className="grid gap-10 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
+    <div>
+    <div className="ss-passolo-panel grid gap-10 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
       <div>
-        <span className="inline-flex items-center gap-2 rounded-full bg-[#f7edd8] px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#8a6a1f]">
-          <IcHeartHand width={14} height={14} /> Passolo — Tanda Kasih Digital
+        <span className="inline-flex items-center gap-2 rounded-full bg-[var(--ss-mint)] px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.18em] text-[var(--ss-green-deep)]">
+          <IcGift width={14} height={14} /> PASSOLO
         </span>
         <h3 className="ss-h3 mt-5 text-[var(--ss-ink)]">
           Tanda Kasih,
@@ -265,11 +209,15 @@ function PanelPassolo() {
           <span className="text-[var(--ss-green)]">Kini Lebih Praktis.</span>
         </h3>
         <p className="mt-4 max-w-[440px] text-[14.5px] leading-relaxed text-[var(--ss-muted)]">
-          Budaya lokal dalam bentuk digital — kirim tanda kasih untuk pernikahan, syukuran, dan momen berharga
-          lainnya sebagai bentuk turut berbahagia, langsung dari aplikasi SAKU SULTAN.
+          Kirim tanda kasih untuk momen penting dalam hidup melalui SAKU SULTAN dengan cara yang mudah, aman, dan tercatat. Karena setiap kebaikan selalu berarti.
         </p>
+        <h4 className="mt-5 text-sm font-bold text-[var(--ss-ink)]">Untuk Berbagai Momen Kehidupan</h4>
+        <ul className="ss-passolo-moments">{[
+          { label: "Pernikahan", icon: IcHeartHand }, { label: "Pendidikan", icon: IcGraduation },
+          { label: "Kedukaan", icon: IcUsers }, { label: "Bencana", icon: IcShieldCheck },
+        ].map(({ label, icon: Icon }) => <li key={label}><Icon width={16} height={16} />{label}</li>)}</ul>
         <div className="mt-7 flex flex-wrap gap-3.5">
-          <a href="#bantuan" className="ss-btn ss-btn-lime !py-3">
+          <a href="#registrasi" className="ss-btn ss-btn-lime !py-3">
             Kirim Passolo
             <IcArrowRight width={16} height={16} />
           </a>
@@ -277,30 +225,17 @@ function PanelPassolo() {
             Pelajari Passolo
           </a>
         </div>
-        <ul className="mt-8 grid gap-5 sm:grid-cols-3">
-          <Feature icon={IcHeartHand} title="Momen Pernikahan" desc="Bersama di setiap langkah kehidupan" />
-          <Feature icon={IcSparkle} title="Syukuran & Hajatan" desc="Turut berbahagia lebih mudah" />
-          <Feature icon={IcTrendingUp} title="Loyalitas Komunitas" desc="Gerakan sesama pengguna" />
+        <ul className="ss-showcase-benefits mt-8 grid gap-5 sm:grid-cols-3">
+          <Feature icon={IcGift} title="Kirim Tanda Kasih" desc="Untuk berbagai momen penting dengan proses yang praktis." />
+          <Feature icon={IcUsers} title="Tetap Terhubung" desc="Tetap dapat memberikan perhatian meski tidak hadir secara langsung." />
+          <Feature icon={IcReceipt} title="Riwayat Tercatat" desc="Lihat kembali aktivitas Passolo dengan lebih mudah." />
         </ul>
       </div>
-      <div className="relative mx-auto w-full max-w-[440px]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/payway/Passolo.jpeg"
-          alt="Passolo — bersama di setiap langkah kehidupan"
-          className="w-full rounded-3xl object-cover shadow-[0_30px_70px_rgba(8,23,15,.18)]"
-        />
-        <div className="ss-float absolute -bottom-5 -left-4 flex items-center gap-2.5 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(8,23,15,.16)]">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f7edd8] text-[#8a6a1f]">
-            <IcHeartHand width={16} height={16} />
-          </span>
-          <span className="text-[12px] font-extrabold leading-tight text-[var(--ss-ink)]">
-            Bersama di Setiap
-            <br />
-            <span className="font-semibold text-[var(--ss-muted)]">Langkah Kehidupan</span>
-          </span>
-        </div>
+      <div className="relative min-w-0 w-full">
+        <SsReferenceArtwork kind="passolo" />
       </div>
+    </div>
+    <div className="ss-passolo-trust"><span><strong>100K+</strong>Tanda Kasih Terkirim</span><span><strong>1M+</strong>Penerima Merasakan Manfaat</span><span><IcShieldCheck width={24} height={24} />Transaksi Aman dan Terpercaya</span><a href="#testimoni">Lihat Cerita Mereka<IcArrowRight width={16} height={16} /></a></div>
     </div>
   );
 }
@@ -338,12 +273,12 @@ function PanelSimple({
         </h3>
         <p className="mt-4 max-w-[440px] text-[14.5px] leading-relaxed text-[var(--ss-muted)]">{desc}</p>
         <div className="mt-7">
-          <a href="#bantuan" className="ss-btn ss-btn-lime !py-3">
+          <a href="#registrasi" className="ss-btn ss-btn-lime !py-3">
             {cta}
             <IcArrowRight width={16} height={16} />
           </a>
         </div>
-        <ul className="mt-8 grid gap-5 sm:grid-cols-3">
+        <ul className="ss-showcase-benefits mt-8 grid gap-5 sm:grid-cols-3">
           {features.map((f) => (
             <Feature key={f.title} icon={f.icon} title={f.title} desc={f.desc} />
           ))}
@@ -398,12 +333,29 @@ export function SsShowcase() {
 
         {/* Tab pills */}
         <SsReveal delay={120}>
-          <div className="ss-noscrollbar mt-10 flex justify-start gap-3 overflow-x-auto pb-2 lg:justify-center">
+          <div role="tablist" aria-label="Produk Saku Sultan" className="ss-noscrollbar mt-10 flex justify-start gap-3 overflow-x-auto pb-2 lg:justify-center">
             {TABS.map(({ key, label, icon: Icon }) => (
               <button
                 key={key}
                 type="button"
+                role="tab"
+                id={`ss-product-tab-${key}`}
+                aria-controls="ss-product-panel"
+                aria-selected={active === key}
+                tabIndex={active === key ? 0 : -1}
                 onClick={() => setActive(key)}
+                onKeyDown={event => {
+                  const index = TABS.findIndex(tab => tab.key === key);
+                  let next = index;
+                  if (event.key === "ArrowRight") next = (index + 1) % TABS.length;
+                  else if (event.key === "ArrowLeft") next = (index - 1 + TABS.length) % TABS.length;
+                  else if (event.key === "Home") next = 0;
+                  else if (event.key === "End") next = TABS.length - 1;
+                  else return;
+                  event.preventDefault();
+                  setActive(TABS[next].key);
+                  document.getElementById(`ss-product-tab-${TABS[next].key}`)?.focus();
+                }}
                 aria-pressed={active === key}
                 className={cn(
                   "flex shrink-0 items-center gap-2.5 rounded-full border px-5 py-2.5 text-[13.5px] font-extrabold transition-all duration-200",
@@ -423,6 +375,10 @@ export function SsShowcase() {
         <SsReveal delay={180}>
           <div
             key={active}
+            id="ss-product-panel"
+            role="tabpanel"
+            aria-labelledby={`ss-product-tab-${active}`}
+            tabIndex={0}
             className="mt-8 overflow-hidden rounded-[32px] border border-[var(--ss-line)] bg-white shadow-[0_30px_80px_rgba(8,23,15,.08)]"
           >
             {active === "edudigi" ? <PanelEdudigi /> : null}

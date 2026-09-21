@@ -1,4 +1,5 @@
 import { SsReveal } from "./SsReveal";
+import { SsPartnerMarquee } from "./SsPartnerMarquee";
 import {
   IcArrowRight,
   IcLock,
@@ -28,22 +29,12 @@ const STATS = [
   { icon: IcUsers, value: "100K+", label: "Pengguna Aktif", sub: "Bergabung di ekosistem SAKU SULTAN" },
 ];
 
-const PARTNER_LOGOS = [
-  "/images/payway/pay/mandiri.svg",
-  "/images/payway/pay/bri.svg",
-  "/images/payway/pay/bca.svg",
-  "/images/payway/pay/qris.svg",
-  "/images/payway/pay/ovo.svg",
-  "/images/payway/pay/gopay.svg",
-  "/images/payway/pay/dana.svg",
-];
-
 /** Ringkasan Layanan — kartu aktivitas harian + headline "Cuan di setiap transaksi." */
 export function SsRingkasan() {
   return (
-    <section className="bg-white">
+    <section id="ringkasan" className="bg-white scroll-mt-24">
       <div className="mx-auto w-full max-w-[1320px] px-5 py-20 md:px-8 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="ss-summary-layout">
           {/* Kartu mint kiri */}
           <SsReveal>
             <div className="rounded-[32px] bg-[var(--ss-mint)] p-7 sm:p-9">
@@ -112,15 +103,11 @@ export function SsRingkasan() {
               tagihan, transfer, hingga belanja online, semua memberi nilai lebih untukmu.
             </p>
 
-            <ul className="mt-9 grid gap-6 sm:grid-cols-3">
+             <ul className="ss-summary-statistics">
               {STATS.map(({ icon: Icon, value, label, sub }) => (
-                <li key={label}>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--ss-mint)] text-[var(--ss-green-deep)]">
-                    <Icon width={18} height={18} />
-                  </span>
-                  <p className="mt-3 text-[24px] font-extrabold tracking-tight text-[var(--ss-ink)]">{value}</p>
-                  <p className="text-[13px] font-bold text-[var(--ss-ink)]/85">{label}</p>
-                  <p className="mt-1 text-[11.5px] font-medium leading-snug text-[var(--ss-muted)]">{sub}</p>
+                <li key={label} className={value === "4.8" ? "ss-summary-rating" : undefined}>
+                  <div><span><Icon width={25} height={25} /></span><strong>{value}</strong></div>
+                  <p>{label}</p><small>{sub}</small>
                 </li>
               ))}
             </ul>
@@ -129,30 +116,7 @@ export function SsRingkasan() {
 
         {/* Mitra terpercaya */}
         <SsReveal delay={100}>
-          <div className="mt-16 flex flex-col items-center gap-6 rounded-3xl border border-[var(--ss-line)] bg-[var(--ss-mist)] px-7 py-7 lg:flex-row lg:justify-between">
-            <p className="text-[13.5px] font-extrabold uppercase tracking-[0.14em] text-[var(--ss-ink)]/70">
-              Didukung oleh Mitra Terpercaya
-            </p>
-            <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-              {PARTNER_LOGOS.map((src) => (
-                <li key={src}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={src}
-                    alt=""
-                    className="h-6 w-auto opacity-70 grayscale transition-all duration-200 hover:opacity-100 hover:grayscale-0"
-                  />
-                </li>
-              ))}
-            </ul>
-            <a
-              href="#mitra"
-              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[var(--ss-line)] bg-white px-5 py-2.5 text-[13px] font-extrabold text-[var(--ss-ink)] transition-colors hover:border-[var(--ss-green)] hover:text-[var(--ss-green)]"
-            >
-              Lihat Semua Mitra
-              <IcArrowRight width={14} height={14} />
-            </a>
-          </div>
+          <SsPartnerMarquee />
         </SsReveal>
       </div>
     </section>

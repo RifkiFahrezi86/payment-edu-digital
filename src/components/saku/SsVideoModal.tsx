@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { IcX } from "./ss-icons";
 
 /** Tombol yang membuka modal pemutar video (Escape/klik luar untuk menutup). */
@@ -16,32 +17,35 @@ export function SsVideoLauncher({
   children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    document.addEventListener("keydown", onKey);
+    const dialog = dialogRef.current;
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    dialog?.showModal();
+    dialog?.querySelector<HTMLButtonElement>("button")?.focus();
     return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      if (dialog?.open) dialog.close();
+      document.body.style.overflow = previousOverflow;
+      triggerRef.current?.focus({ preventScroll: true });
     };
   }, [open]);
 
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className={className}>
+      <button ref={triggerRef} type="button" onClick={() => setOpen(true)} className={className}>
         {children}
       </button>
-      {open ? (
-        <div
-          role="dialog"
-          aria-modal="true"
+      {open ? createPortal(
+        <dialog
+          ref={dialogRef}
           aria-label={title}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#02120b]/92 p-4 backdrop-blur-sm"
-          onClick={() => setOpen(false)}
+          className="ss-video-dialog"
+          onCancel={() => setOpen(false)}
+          onClick={event => { if (event.target === event.currentTarget) setOpen(false); }}
         >
           <div className="w-full max-w-[960px]" onClick={(e) => e.stopPropagation()}>
             <div className="mb-3 flex items-center justify-between">
@@ -64,7 +68,8 @@ export function SsVideoLauncher({
               className="max-h-[78vh] w-full rounded-2xl bg-black shadow-[0_40px_120px_rgba(0,0,0,.6)]"
             />
           </div>
-        </div>
+        </dialog>,
+        document.body,
       ) : null}
     </>
   );

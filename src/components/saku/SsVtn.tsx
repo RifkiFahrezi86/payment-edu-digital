@@ -1,4 +1,7 @@
 import { SsReveal } from "./SsReveal";
+import { PwCampaignPoster } from "@/components/payway/pw-campaign-poster";
+import { VTN_POSTER } from "@/components/payway/pw-campaign-posters";
+import { SsVtnMap } from "./SsVtnMap";
 import {
   IcArrowRight,
   IcChart,
@@ -56,12 +59,11 @@ const HOW = [
   },
 ];
 
-const BARS = [34, 46, 42, 58, 70, 88];
-
 /** VTN — Volume Transaksi Nasional (section gelap + cara kerja). */
 export function SsVtn() {
   return (
-    <section id="vtn" className="ss-grid-glow scroll-mt-24 overflow-hidden bg-[#04130c]">
+    <section id="sistem-vtn" className="ss-grid-glow relative scroll-mt-24 overflow-hidden bg-[#04130c]">
+      <span id="vtn" className="ss-anchor" aria-hidden="true" />
       <div className="mx-auto w-full max-w-[1320px] px-5 pb-16 pt-20 md:px-8 lg:pb-20 lg:pt-24">
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Kiri */}
@@ -112,39 +114,16 @@ export function SsVtn() {
             </SsReveal>
           </div>
 
-          {/* Kanan: peta + kartu statistik */}
+          {/* Connected map and growth card following the detailed reference. */}
           <SsReveal delay={200}>
-            <div className="relative">
-              <div className="absolute -inset-6 -z-10 rounded-full bg-[var(--ss-lime)]/10 blur-[90px]" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/payway/vtn-network.svg" alt="Jaringan transaksi Saku Sultan di Indonesia" className="w-full" />
-              <p className="ss-script absolute left-2 top-2 w-max -rotate-3 text-[24px] leading-[1.25] text-white">
-                Transaksi Menghubungkan
-                <br />
-                <span className="text-[var(--ss-lime)]">Indonesia</span>
-              </p>
-              <div className="ss-float absolute -bottom-4 right-0 w-[240px] rounded-2xl border border-white/10 bg-[#071f16]/95 p-4 shadow-[0_24px_60px_rgba(0,0,0,.5)] backdrop-blur">
-                <p className="text-[11px] font-bold text-white/60">Aktivitas Transaksi Terus Bertumbuh</p>
-                <p className="mt-1 text-[20px] font-extrabold text-[var(--ss-lime)]">
-                  +42%{" "}
-                  <span className="text-[10.5px] font-bold text-white/60">Pertumbuhan Volume Transaksi YoY</span>
-                </p>
-                <div className="mt-3 flex h-16 items-end gap-1.5">
-                  {BARS.map((h, i) => (
-                    <span
-                      key={i}
-                      style={{ height: `${h}%` }}
-                      className={
-                        "flex-1 rounded-t " + (i === BARS.length - 1 ? "bg-[var(--ss-lime)]" : "bg-[var(--ss-lime)]/30")
-                      }
-                    />
-                  ))}
-                </div>
-                <div className="mt-1.5 flex justify-between text-[8.5px] font-bold text-white/40">
-                  {["Jan", "Feb", "Mar", "Apr", "Mei", "Jun"].map((m) => (
-                    <span key={m}>{m}</span>
-                  ))}
-                </div>
+            <div className="ss-vtn-map-visual">
+              <p className="ss-script">Transaksi Menghubungkan<br /><span>Indonesia</span></p>
+              <SsVtnMap />
+              <div className="ss-vtn-growth-card">
+                <p><IcChart width={19} height={19} />Aktivitas transaksi<br />terus bertumbuh</p>
+                <strong>+42%</strong><span>Pertumbuhan Volume<br />Transaksi YoY</span>
+                <div className="ss-vtn-growth-bars" aria-hidden="true">{[34, 46, 42, 58, 70, 88].map((height, index) => <i key={index} style={{ height: `${height}%` }} />)}</div>
+                <div className="ss-vtn-growth-months">{["Jan", "Feb", "Mar", "Apr", "Mei", "Jun"].map(month => <span key={month}>{month}</span>)}</div>
               </div>
             </div>
           </SsReveal>
@@ -229,7 +208,7 @@ export function SsVtn() {
               ))}
             </ul>
             <a
-              href="#bantuan"
+              href="#registrasi"
               className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--ss-lime)] text-[var(--ss-ink)] transition-transform hover:scale-105"
               aria-label="Bergabung dalam ekosistem"
             >
@@ -237,6 +216,11 @@ export function SsVtn() {
             </a>
           </div>
         </SsReveal>
+
+        <details className="ss-vtn-gallery">
+          <summary>Lihat ilustrasi lengkap Sistem VTN <IcArrowRight width={17} height={17} /></summary>
+          <div><PwCampaignPoster poster={VTN_POSTER} /><a href={VTN_POSTER.src} target="_blank" rel="noopener noreferrer">Buka gambar ukuran penuh <IcArrowRight width={15} height={15} /></a></div>
+        </details>
       </div>
     </section>
   );
