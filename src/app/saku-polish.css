@@ -201,18 +201,12 @@ html[data-theme="dark"] .ss-hero-quote { padding: 12px; border-radius: 15px; bac
 .ss-edudigi-photo > blockquote { position: absolute; right: -16px; bottom: 27px; width: 190px; padding: 17px; border: 1px solid var(--ss-line); border-radius: 20px; background: var(--ss-card); color: var(--ss-green); font-family: Georgia, serif; font-size: 36px; line-height: 0.9; box-shadow: 0 12px 30px #082c1714; }
 .ss-edudigi-photo > blockquote > p { margin-top: 5px; color: var(--ss-ink); font-family: var(--pw-font-sans); font-size: 12px; line-height: 1.6; }
 .ss-edudigi-photo > blockquote > small { display: block; margin-top: 10px; padding-top: 10px; border-top: 2px solid #88ba66; color: var(--ss-muted); font-family: var(--pw-font-sans); font-size: 10px; line-height: 1.6; }
-/* Tahapan legalitas jadi daftar vertikal: empat kolom terlalu sempit untuk
-   memuat rincian isi dokumen dan dasar hukum tiap tahap. */
-.ss-legal-timeline { display: grid; gap: 0; margin-top: 28px; padding: 0; list-style: none; }
-.ss-legal-timeline > li { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding-bottom: 22px; }
-.ss-legal-timeline > li:not(:last-child)::after { position: absolute; top: 46px; bottom: 4px; left: 21px; width: 2px; background: linear-gradient(#86b792aa, #86b79233); content: ""; }
-.ss-legal-num { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; font-size: 13px; font-weight: 800; }
-.ss-legal-body { min-width: 0; padding-top: 2px; }
-.ss-legal-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-.ss-legal-head > strong { color: var(--ss-ink); font-size: 14.5px; font-weight: 800; letter-spacing: -0.01em; }
-.ss-legal-status { flex-shrink: 0; padding: 4px 11px; border-radius: 99px; font-size: 10px; font-weight: 800; }
-.ss-legal-body > p { margin-top: 8px; color: var(--ss-muted); font-size: 13px; line-height: 1.65; }
-.ss-legal-body > small { display: block; margin-top: 7px; padding-left: 11px; border-left: 2px solid var(--ss-green); color: var(--ss-green-deep); font-size: 11.5px; line-height: 1.55; }
+.ss-legal-timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 28px; padding: 0; list-style: none; }
+.ss-legal-timeline > li { position: relative; display: flex; min-width: 0; flex-direction: column; align-items: flex-start; }
+.ss-legal-timeline > li:not(:last-child)::after { position: absolute; top: 22px; left: 54px; right: -3px; height: 1px; background: #86b79277; content: ""; }
+.ss-legal-num { display: grid; width: 44px; height: 44px; flex-shrink: 0; place-items: center; border-radius: 50%; font-size: 13px; font-weight: 800; }
+.ss-legal-timeline strong { display: block; margin-top: 14px; margin-bottom: 12px; color: var(--ss-ink); font-size: 12px; line-height: 1.5; }
+.ss-legal-status { margin-top: auto; padding: 5px 12px; border-radius: 99px; font-size: 9px; font-weight: 800; }
 .ss-edudigi-gallery .saku-gallery-thumbnails { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 .ss-registration { overflow: hidden; background: var(--ss-surface); }
@@ -580,9 +574,7 @@ html[data-theme="dark"] .ss-partner-support-strip li { margin-right: 14px; paddi
   .ss-summary-statistics strong { font-size: 32px; }
   .ss-edudigi-photo-label, .ss-edudigi-photo > blockquote { display: none; }
   .ss-edudigi-price > span:first-child { flex-basis: 100%; }
-  .ss-legal-timeline > li { grid-template-columns: 38px minmax(0, 1fr); gap: 13px; }
-  .ss-legal-num { width: 38px; height: 38px; font-size: 12px; }
-  .ss-legal-timeline > li:not(:last-child)::after { top: 40px; left: 18px; }
+  .ss-legal-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .ss-edudigi-gallery > div { padding: 12px; }
   .ss-registration-inner { padding: 50px 20px 30px; }
   .ss-register-visual { display: flex; flex-direction: column-reverse; gap: 20px; }

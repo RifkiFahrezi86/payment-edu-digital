@@ -6,16 +6,21 @@ export const CORE_PARTNERS: PartnerLogo[] = [
   { name: "BMT", logo: "/images/payway/pay/bmt-reference.png" },
 ];
 
-/** Lembaga pengawas dan jaringan pembayaran nasional. */
+/**
+ * Lembaga pengawas dan jaringan pembayaran. Setiap berkas berasal dari sumber
+ * resmi (Wikimedia Commons, Wikipedia Indonesia, zonalogo, publikasi BI) dan
+ * latarnya dihapus lewat flood fill supaya menyatu di tema terang maupun gelap.
+ */
 export const REGULATOR_PARTNERS: PartnerLogo[] = [
-  { name: "OJK", logo: "/images/payway/pay/ojk.svg", sub: "Otoritas Jasa Keuangan" },
-  { name: "BI-FAST", logo: "/images/payway/pay/bi-fast.svg", sub: "Transfer Real-Time Nasional" },
+  { name: "OJK", logo: "/images/payway/pay/ojk.webp", sub: "Otoritas Jasa Keuangan" },
+  { name: "BI-FAST", logo: "/images/payway/pay/bi-fast.webp", sub: "Transfer Real-Time Nasional" },
+  { name: "Kemendikbudristek", logo: "/images/payway/pay/kemendikbudristek.svg", sub: "Pembinaan Pendidikan Nonformal" },
 ];
 
 /** Tagihan layanan publik yang dilayani menu PPOB. */
 export const BILLER_PARTNERS: PartnerLogo[] = [
   { name: "PLN", logo: "/images/payway/pay/pln.svg" },
-  { name: "PDAM", logo: "/images/payway/pay/pdam.svg" },
+  { name: "PDAM", logo: "/images/payway/pay/pdam.webp" },
   { name: "BPJS Kesehatan", logo: "/images/payway/pay/bpjs-kesehatan.svg" },
   { name: "BPJS Ketenagakerjaan", logo: "/images/payway/pay/bpjs-ketenagakerjaan.svg" },
 ];

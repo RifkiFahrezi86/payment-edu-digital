@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SsReveal } from "./SsReveal";
 import { IcArrowRight, IcGift, IcGraduation, IcShieldCheck } from "./ss-icons";
 import { BILLER_PARTNERS, CORE_PARTNERS, PAYMENT_PARTNERS, REGULATOR_PARTNERS } from "./ss-partners-data";
+import { SsPartnerSupport, TRUSTED_ECOSYSTEM } from "./SsPartnerSupport";
 
 const PARTNERS = [
   ...CORE_PARTNERS,
@@ -54,6 +55,10 @@ export function SsPartners() {
             </details>
           </div>
         </div>
+
+        <SsReveal>
+          <SsPartnerSupport heading="Ekosistem Terpercaya" logos={TRUSTED_ECOSYSTEM} />
+        </SsReveal>
 
         <div className="ss-program-cards">
           <SsReveal>
