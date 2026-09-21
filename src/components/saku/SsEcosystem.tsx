@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SsReveal } from "./SsReveal";
 import { IcArrowUpRight, IcSparkle, IcTrendingUp, IcZap } from "./ss-icons";
 
@@ -14,8 +15,12 @@ export function SsEcosystem() {
         <SsReveal className="ss-ecosystem-device">
           <div className="ss-ecosystem-brand-phone" aria-hidden="true">
             <span className="ss-ecosystem-notch" />
+<<<<<<< HEAD
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/saku-sultan-app-icon.png" alt="" width={74} height={74} />
+=======
+            <Image src="/images/saku-sultan-app-icon.webp" alt="" width={74} height={74} loading="lazy" />
+>>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
             <strong>SAKU SULTAN</strong>
             <small>Dompet Digital,<br />Sumber Cuan</small>
           </div>

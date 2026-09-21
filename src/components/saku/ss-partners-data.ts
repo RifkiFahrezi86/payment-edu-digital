@@ -6,6 +6,42 @@ export const CORE_PARTNERS: PartnerLogo[] = [
   { name: "BMT", logo: "/images/payway/pay/bmt-reference.png" },
 ];
 
+<<<<<<< HEAD
+=======
+/**
+ * Lembaga pengawas dan pembina. Setiap berkas berasal dari sumber resmi
+ * (Wikimedia Commons, Wikipedia Indonesia, zonalogo, publikasi BI, laman
+ * kementerian) dan latarnya dihapus supaya menyatu di tema terang maupun gelap.
+ * Semuanya berbentuk wordmark agar tinggi barisnya seragam.
+ */
+export const REGULATOR_PARTNERS: PartnerLogo[] = [
+  { name: "OJK", logo: "/images/payway/pay/ojk.webp", sub: "Otoritas Jasa Keuangan" },
+  { name: "BI-FAST", logo: "/images/payway/pay/bi-fast.webp", sub: "Transfer Real-Time Nasional" },
+  { name: "Kemendikbudristek", logo: "/images/payway/pay/kemendikbudristek.webp", sub: "Pembinaan Pendidikan Nonformal" },
+];
+
+/**
+ * Penanda legalitas EduDigi. Urutannya mengikuti alur pada tahapan legalitas:
+ * kementerian pembina lebih dulu, lalu sistem perizinan (OSS) yang menerbitkan
+ * NIB dengan klasifikasi KBLI, ditutup lambang penyelenggara.
+ */
+export const LEGAL_PARTNERS: PartnerLogo[] = [
+  { name: "Kemendikbudristek", logo: "/images/payway/pay/kemendikbudristek.webp", sub: "Pembinaan Pendidikan Nonformal" },
+  { name: "OSS", logo: "/images/payway/pay/oss.webp", sub: "Perizinan Berusaha Terintegrasi" },
+  { name: "NIB", logo: "/images/payway/pay/nib.svg", sub: "Nomor Induk Berusaha" },
+  { name: "KBLI", logo: "/images/payway/pay/kbli.svg", sub: "Klasifikasi Lapangan Usaha" },
+  { name: "Saku Sultan", logo: "/images/payway/pay/saku-sultan.webp", sub: "Ekosistem Digital" },
+];
+
+/** Tagihan layanan publik yang dilayani menu PPOB. */
+export const BILLER_PARTNERS: PartnerLogo[] = [
+  { name: "PLN", logo: "/images/payway/pay/pln.svg" },
+  { name: "PDAM", logo: "/images/payway/pay/pdam.webp" },
+  { name: "BPJS Kesehatan", logo: "/images/payway/pay/bpjs-kesehatan.svg" },
+  { name: "BPJS Ketenagakerjaan", logo: "/images/payway/pay/bpjs-ketenagakerjaan.svg" },
+];
+
+>>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
 export const PAYMENT_PARTNERS: PartnerLogo[] = [
   { name: "Mandiri", logo: "/images/payway/pay/mandiri.svg" },
   { name: "BRI", logo: "/images/payway/pay/bri.svg" },
@@ -26,4 +62,13 @@ export const PAYMENT_PARTNERS: PartnerLogo[] = [
   { name: "Smartfren", logo: "/images/payway/pay/smartfren.svg" },
 ];
 
+<<<<<<< HEAD
 export const TRUSTED_PARTNERS = [...CORE_PARTNERS, ...PAYMENT_PARTNERS];
+=======
+export const TRUSTED_PARTNERS = [
+  ...CORE_PARTNERS,
+  ...REGULATOR_PARTNERS,
+  ...PAYMENT_PARTNERS,
+  ...BILLER_PARTNERS,
+];
+>>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee

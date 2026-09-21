@@ -222,7 +222,7 @@ export function PwHeroNavigation() {
             aria-label="Saku Sultan, kembali ke beranda"
           >
             <Image
-              src="/images/saku-sultan-app-icon.png"
+              src="/images/saku-sultan-app-icon.webp"
               alt=""
               width={36}
               height={36}

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { SsReveal } from "./SsReveal";
@@ -71,10 +73,10 @@ function PanelEdudigi() {
             EduDigi adalah program edukasi digital SAKU SULTAN, yang dirancang untuk membantu kamu memahami teknologi, mengelola keuangan digital, dan memanfaatkan peluang di era digital.
           </p>
           <div className="mt-7 flex flex-wrap gap-3.5">
-            <a href="#edudigi" className="ss-btn ss-btn-lime !py-3">
+            <Link href="/produk/edudigi" className="ss-btn ss-btn-lime !py-3">
               Pelajari EduDigi
               <IcArrowRight width={16} height={16} />
-            </a>
+            </Link>
             <a href="#fasilitas" className="ss-btn ss-btn-outline-dark !py-3">
               Lihat Program
             </a>
@@ -171,7 +173,11 @@ function PanelQtra() {
 
         <div className="relative min-w-0 w-full">
           <SsReferenceArtwork kind="qtra" />
+<<<<<<< HEAD
           <details className="ss-product-original"><summary>Lihat ilustrasi Q-Tra <IcArrowRight width={15} height={15} /></summary><a href="/images/IMAGE/12.jpeg" target="_blank" rel="noopener noreferrer">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/IMAGE/12.jpeg" alt="Q-Tra — transfer dana lebih cepat dan mudah" loading="lazy" /></a></details>
+=======
+          <details className="ss-product-original"><summary>Lihat ilustrasi Q-Tra <IcArrowRight width={15} height={15} /></summary><a href="/images/saku/qtra-poster.webp" target="_blank" rel="noopener noreferrer">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/saku/qtra-poster.webp" alt="Q-Tra — transfer dana lebih cepat dan mudah" loading="lazy" /></a></details>
+>>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
         </div>
       </div>
 
@@ -181,7 +187,7 @@ function PanelQtra() {
           {["bca", "bri", "mandiri", "bni", "cimb-niaga"].map((b) => (
             <li key={b}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`/images/payway/pay/${b}.svg`} alt={b.toUpperCase()} className="h-5 w-auto opacity-75" />
+              <img src={`/images/payway/pay/${b}.svg`} alt={b.toUpperCase()} width={40} height={20} loading="lazy" decoding="async" className="h-5 w-auto opacity-75" />
             </li>
           ))}
         </ul>
@@ -250,6 +256,8 @@ function PanelSimple({
   cta,
   features,
   tiles,
+  art,
+  artAlt,
 }: {
   badge: string;
   badgeIcon: typeof IcSend;
@@ -259,6 +267,9 @@ function PanelSimple({
   cta: string;
   features: { icon: typeof IcSend; title: string; desc: string }[];
   tiles: { icon: typeof IcSend; label: string }[];
+  /** Berkas di /images/saku; render 3D kampanye, bukan ilustrasi vektor. */
+  art: string;
+  artAlt: string;
 }) {
   return (
     <div className="grid gap-10 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
@@ -284,18 +295,20 @@ function PanelSimple({
           ))}
         </ul>
       </div>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-2">
-        {tiles.map(({ icon: Icon, label }) => (
-          <div
-            key={label}
-            className="flex flex-col items-start gap-3 rounded-2xl border border-[var(--ss-line)] bg-[var(--ss-mist)] p-5 transition-transform duration-200 hover:-translate-y-1"
-          >
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--ss-pine)] text-[var(--ss-lime)]">
-              <Icon width={19} height={19} />
-            </span>
-            <span className="text-[14px] font-extrabold text-[var(--ss-ink)]">{label}</span>
-          </div>
-        ))}
+      <div className="min-w-0">
+        <figure className="ss-panel-art-frame">
+          <Image src={art} alt={artAlt} width={880} height={620} sizes="(min-width: 1024px) 560px, 92vw" className="ss-panel-art" />
+        </figure>
+        <ul className="ss-panel-tiles">
+          {tiles.map(({ icon: Icon, label }) => (
+            <li key={label}>
+              <span>
+                <Icon width={17} height={17} />
+              </span>
+              {label}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
@@ -403,6 +416,8 @@ export function SsShowcase() {
                   { icon: IcUsers, label: "Sesama Sultan" },
                   { icon: IcQr, label: "Via QR" },
                 ]}
+                art="/images/saku/panel-transfer.webp"
+                artAlt="Transfer Rp 250.000 dari aplikasi Saku Sultan ke rekening bank, e-wallet, dan sesama pengguna"
               />
             ) : null}
             {active === "ppob" ? (
@@ -424,6 +439,8 @@ export function SsShowcase() {
                   { icon: IcShieldCheck, label: "BPJS" },
                   { icon: IcGrid, label: "PDAM & Lainnya" },
                 ]}
+                art="/images/saku/panel-ppob.webp"
+                artAlt="Total tagihan Rp 283.800 untuk pulsa, token PLN, BPJS, dan PDAM dibayar sekaligus"
               />
             ) : null}
             {active === "merchant" ? (
@@ -445,6 +462,8 @@ export function SsShowcase() {
                   { icon: IcChart, label: "Analitik Usaha" },
                   { icon: IcWallet, label: "Settlement Fleksibel" },
                 ]}
+                art="/images/saku/panel-merchant.webp"
+                artAlt="Standee QRIS Saku Sultan di konter usaha dengan penjualan harian Rp 1.482.000 dan laporan mingguan"
               />
             ) : null}
           </div>

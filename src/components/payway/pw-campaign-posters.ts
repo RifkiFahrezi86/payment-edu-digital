@@ -45,7 +45,7 @@ export const VTN_POSTER: CampaignPoster = {
 
 export const MEMBERSHIP_POSTERS: CampaignPoster[] = [
   {
-    src: `${IMAGE_PATH}/KARTU%20(2).png`, width: 699, height: 463,
+    src: `${IMAGE_PATH}/KARTU (2).png`, width: 699, height: 463,
     title: "Kartu EduDigi",
     description: "Belajar, praktik, produktif. Bersama EduDigi membangun generasi digital Indonesia.",
   },

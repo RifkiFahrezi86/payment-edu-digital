@@ -40,7 +40,7 @@ export function PwLegalIllustration() {
         </div>
         <div className="edu-notary-book">
           <div className="edu-notary-cover">
-            <Image src="/images/saku-sultan-app-icon.png" alt="" width={64} height={64} className="edu-notary-logo" />
+            <Image src="/images/saku-sultan-app-icon.webp" alt="" width={64} height={64} className="edu-notary-logo" />
             <span className="edu-notary-brand">SAKU SULTAN</span>
             <span className="edu-notary-heading">Akta Pendirian<br />Yayasan</span>
             <strong>EDUDIGI</strong>

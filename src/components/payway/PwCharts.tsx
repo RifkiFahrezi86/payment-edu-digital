@@ -97,7 +97,7 @@ export function PwCharts() {
                 <div className="w-full h-full rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-[0_16px_40px_rgba(4,39,24,0.25)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/saku-sultan-app-icon.png"
+                    src="/images/saku-sultan-app-icon.webp"
                     alt="Ikon aplikasi Saku Sultan"
                     className="w-full h-full object-cover"
                   />

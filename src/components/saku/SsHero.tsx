@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SsReveal } from "./SsReveal";
 import { SsPhonePreview } from "./SsPhonePreview";
 import { SsVideoLauncher } from "./SsVideoModal";
@@ -6,10 +7,24 @@ import { IcArrowUpRight, IcPlay } from "./ss-icons";
 export function SsHero() {
   return (
     <section id="beranda" className="ss-reference-hero relative isolate overflow-hidden bg-[var(--ss-dark)]">
+<<<<<<< HEAD
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         <video autoPlay muted loop playsInline preload="metadata" poster="/images/saku/hero-bg.jpg" className="ss-hero-background h-full w-full object-cover">
           <source src="/videos/payway/header.mp4" type="video/mp4" />
         </video>
+=======
+      {/* Latar lanskap statis: tidak ada video yang perlu diunduh dan
+          didekode terus-menerus saat halaman terbuka. */}
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        <Image
+          src="/images/saku/hero-bg-home.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="ss-hero-background object-cover"
+        />
+>>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
         <div className="ss-reference-hero-scrim absolute inset-0" />
       </div>
 

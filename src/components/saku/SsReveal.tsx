@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { observeReveal } from "./ss-reveal-observer";
 
 /** Pembungkus reveal-on-scroll ringan berbasis IntersectionObserver. */
 export function SsReveal({
@@ -20,19 +21,8 @@ export function SsReveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            el.classList.add("is-in");
-            io.disconnect();
-          }
-        }
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    // delay sudah ditangani transitionDelay di CSS, jadi cukup pasang kelas.
+    return observeReveal(el, { cls: "is-in", rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
   }, []);
 
   return (

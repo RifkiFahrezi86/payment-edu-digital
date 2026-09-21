@@ -4,6 +4,10 @@ import { EDUDIGI_CLASS_POSTER, EDUDIGI_POSTERS } from "@/components/payway/pw-ca
 import { PwEduDigiBrand } from "@/components/payway/pw-edudigi-brand";
 import { SsReferenceArtwork } from "./SsReferenceArtwork";
 import { SsPartnerSupport } from "./SsPartnerSupport";
+<<<<<<< HEAD
+=======
+import { LEGAL_PARTNERS } from "./ss-partners-data";
+>>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
 import {
   IcArrowRight,
   IcBook,
@@ -159,7 +163,7 @@ export function SsEdudigi() {
                   <li key={s.num}>
                     <span
                       className={
-                        "flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[13px] font-extrabold " +
+                        "ss-legal-num " +
                         (s.done
                           ? "bg-[var(--ss-pine)] text-[var(--ss-lime)]"
                           : "border-2 border-dashed border-[var(--ss-green)]/40 text-[var(--ss-green-deep)]")
@@ -170,7 +174,7 @@ export function SsEdudigi() {
                     <strong>{s.title}</strong>
                     <span
                       className={
-                        "rounded-full px-3.5 py-1.5 text-[11px] font-extrabold " +
+                        "ss-legal-status " +
                         (s.done
                           ? "bg-[var(--ss-mint)] text-[var(--ss-green-deep)]"
                           : "bg-amber-100 text-amber-700")
@@ -206,7 +210,11 @@ export function SsEdudigi() {
           </SsReveal>
         </div>
 
+<<<<<<< HEAD
         <SsPartnerSupport />
+=======
+        <SsPartnerSupport heading="Ekosistem Terpercaya" logos={LEGAL_PARTNERS} />
+>>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
 
         <details className="ss-edudigi-gallery">
           <summary><span>Kenali EduDigi lebih dekat<small>Profil, tujuan, praktik, visi & misi, dan legalitas.</small></span><IcArrowRight width={20} height={20} /></summary>

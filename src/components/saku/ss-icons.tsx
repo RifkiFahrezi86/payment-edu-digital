@@ -235,3 +235,6 @@ export const IcTiktok = (p: IconProps) => (
 export const IcX = (p: IconProps) => (
   <svg {...base(p)}><path d="m4 4 16 16M20 4 4 20" /></svg>
 );
+export const IcXSocial = (p: IconProps) => (
+  <svg {...base({ ...p, fill: "currentColor", stroke: "none" })}><path d="M17.5 3h3.1l-6.8 7.7L21.5 21h-5.9l-4.1-5.4L6.6 21H3.5l7.1-8.1L3 3h6l3.8 5 4.7-5Zm-1.1 16h1.7L7.4 4.7H5.6l10.8 14.3Z" /></svg>
+);
