@@ -9,10 +9,6 @@ const outputDirectory = path.resolve(__dirname, "../public/images/saku");
 
 const artworks = [
   { source: "4.png", output: "reference-edudigi-program.png", crop: { left: 760, top: 105, width: 760, height: 520 } },
-<<<<<<< HEAD
-  { source: "4.png", output: "reference-edudigi-portrait.png", crop: { left: 1055, top: 247, width: 257, height: 338 } },
-=======
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
   { source: "6.png", output: "reference-edudigi-showcase.png", crop: { left: 646, top: 334, width: 874, height: 590 } },
   { source: "7.png", output: "reference-passolo.png", crop: { left: 83, top: 183, width: 740, height: 681 } },
   { source: "8.png", output: "reference-qtra.png", crop: { left: 704, top: 154, width: 818, height: 715 }, cleanMargin: true },

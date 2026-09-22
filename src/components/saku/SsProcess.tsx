@@ -22,11 +22,7 @@ function StepPreview({ step }: { step: number }) {
     <div className="ss-register-download">
       <div>
         <div className="ss-register-app-brand">
-<<<<<<< HEAD
-          <Image src="/images/saku-sultan-app-icon.png" alt="" width={48} height={48} />
-=======
           <Image src="/images/saku-sultan-app-icon.webp" alt="" width={48} height={48} />
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
           <span><strong>Saku Sultan</strong><small>Dompet Digital untuk Semua</small><span className="ss-register-rating"><IcStar width={13} height={13} />4.8 · Rating Play Store</span></span>
         </div>
         <a href={PLAY_STORE} target="_blank" rel="noopener noreferrer" className="ss-register-store">
@@ -36,11 +32,7 @@ function StepPreview({ step }: { step: number }) {
       </div>
       <a href={PLAY_STORE} target="_blank" rel="noopener noreferrer" className="ss-register-qr" aria-label="Unduh Saku Sultan di Google Play, atau pindai kode QR">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-<<<<<<< HEAD
-        <img src="/images/saku/app-download-qr.svg" alt="Kode QR unduh Saku Sultan di Google Play" width={112} height={112} />
-=======
         <img src="/images/saku/app-download-qr.svg" alt="Kode QR unduh Saku Sultan di Google Play" width={112} height={112} loading="lazy" decoding="async" />
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
         <strong>Scan QR</strong><small>untuk download</small>
       </a>
     </div>
@@ -86,11 +78,7 @@ export function SsProcess() {
               </ul>
               <div className="ss-register-device" aria-hidden="true">
                 <div className="ss-register-device-halo" />
-<<<<<<< HEAD
-                <Image src="/images/saku/phone-back.png" alt="" fill sizes="(min-width: 1024px) 300px, 280px" className="object-cover" />
-=======
                 <Image src="/images/saku/phone-back.webp" alt="" fill sizes="(min-width: 1024px) 300px, 280px" className="object-cover" />
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
                 <p className="ss-script">Dompet Digital<br />untuk Masa Depan<br />Lebih Baik</p>
               </div>
             </div>

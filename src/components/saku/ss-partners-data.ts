@@ -6,8 +6,6 @@ export const CORE_PARTNERS: PartnerLogo[] = [
   { name: "BMT", logo: "/images/payway/pay/bmt-reference.png" },
 ];
 
-<<<<<<< HEAD
-=======
 /**
  * Lembaga pengawas dan pembina. Setiap berkas berasal dari sumber resmi
  * (Wikimedia Commons, Wikipedia Indonesia, zonalogo, publikasi BI, laman
@@ -41,7 +39,6 @@ export const BILLER_PARTNERS: PartnerLogo[] = [
   { name: "BPJS Ketenagakerjaan", logo: "/images/payway/pay/bpjs-ketenagakerjaan.svg" },
 ];
 
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
 export const PAYMENT_PARTNERS: PartnerLogo[] = [
   { name: "Mandiri", logo: "/images/payway/pay/mandiri.svg" },
   { name: "BRI", logo: "/images/payway/pay/bri.svg" },
@@ -62,13 +59,9 @@ export const PAYMENT_PARTNERS: PartnerLogo[] = [
   { name: "Smartfren", logo: "/images/payway/pay/smartfren.svg" },
 ];
 
-<<<<<<< HEAD
-export const TRUSTED_PARTNERS = [...CORE_PARTNERS, ...PAYMENT_PARTNERS];
-=======
 export const TRUSTED_PARTNERS = [
   ...CORE_PARTNERS,
   ...REGULATOR_PARTNERS,
   ...PAYMENT_PARTNERS,
   ...BILLER_PARTNERS,
 ];
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee

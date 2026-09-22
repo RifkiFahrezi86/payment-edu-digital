@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-=======
 import Image from "next/image";
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
 import Link from "next/link";
 import { SsStoreLinks } from "./SsStoreLinks";
 import { SsFeatureLink } from "./SsFeatureLink";
 import type { ShowcaseTab } from "./ss-showcase-bus";
-<<<<<<< HEAD
-import { IcArrowUpRight, IcFacebook, IcGlobe, IcInstagram, IcX, IcYoutube } from "./ss-icons";
-=======
 import { IcArrowUpRight, IcFacebook, IcGlobe, IcInstagram, IcXSocial, IcYoutube } from "./ss-icons";
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
 
 type FooterLink = { label: string; href: string; tab?: ShowcaseTab };
 const FOOTER_COLS: { title: string; links: FooterLink[] }[] = [
@@ -46,11 +39,7 @@ const SOCIALS = [
   { label: "YouTube", href: "https://www.youtube.com/channel/UCxnNwYx24S0y9Subcv04OIA", icon: IcYoutube },
   { label: "Instagram", href: "https://www.instagram.com/sakusultanind/", icon: IcInstagram },
   { label: "Facebook", href: "https://web.facebook.com/sakusultanind", icon: IcFacebook },
-<<<<<<< HEAD
-  { label: "X", href: "https://twitter.com/sakusultanind", icon: IcX },
-=======
   { label: "X", href: "https://x.com/sakusultanind", icon: IcXSocial },
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
 ];
 
 export function SsCtaFooter() {
@@ -64,12 +53,7 @@ export function SsCtaFooter() {
         <div className="ss-footer-grid">
           <div className="ss-footer-brand">
             <Link href="#beranda" className="ss-nav-brand" aria-label="Saku Sultan, kembali ke beranda">
-<<<<<<< HEAD
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/saku-sultan-app-icon.png" alt="" width={42} height={42} />
-=======
               <Image src="/images/saku-sultan-app-icon.webp" alt="" width={42} height={42} loading="lazy" />
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
               <span><strong>SAKU SULTAN</strong><small>Dompet Digital, Sumber Cuan</small></span>
             </Link>
             <p>Melangkah lebih awal, bergerak secara digital. Bersama SAKU SULTAN, wujudkan masa depan yang lebih baik.</p>

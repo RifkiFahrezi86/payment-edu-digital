@@ -1,9 +1,6 @@
 "use client";
 
-<<<<<<< HEAD
-=======
 import Image from "next/image";
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -93,12 +90,7 @@ export function SsNav() {
     <header ref={headerRef} className="ss-header" data-scrolled={scrolled}>
       <nav className="ss-nav" aria-label="Navigasi utama">
         <Link href={resolveHref("#beranda")} onClick={closeMenus} className="ss-nav-brand" aria-label="Saku Sultan, kembali ke beranda">
-<<<<<<< HEAD
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/saku-sultan-app-icon.png" alt="" width={42} height={42} />
-=======
           <Image src="/images/saku-sultan-app-icon.webp" alt="" width={42} height={42} priority />
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
           <span><strong>SAKU SULTAN</strong><small>Dompet Digital, Sumber Cuan</small></span>
         </Link>
 

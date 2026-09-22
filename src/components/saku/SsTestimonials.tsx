@@ -142,11 +142,7 @@ export function SsTestimonials() {
               <article className="flex h-full flex-col rounded-3xl border border-[var(--ss-line)] bg-white p-7 shadow-[0_12px_36px_rgba(8,23,15,.05)]">
                 <div className="flex flex-wrap items-center gap-3.5">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-<<<<<<< HEAD
-                  <img src={t.avatar} alt={t.name} className="h-12 w-12 rounded-full object-cover" />
-=======
                   <img src={t.avatar} alt={t.name} width={48} height={48} loading="lazy" decoding="async" className="h-12 w-12 rounded-full object-cover" />
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
                   <div className="min-w-[100px] flex-1 basis-[110px] leading-tight">
                     <p className="text-[14.5px] font-extrabold text-[var(--ss-ink)]">{t.name}</p>
                     <p className="text-[11.5px] font-semibold text-[var(--ss-muted)]">{t.role}</p>

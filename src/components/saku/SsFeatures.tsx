@@ -56,16 +56,8 @@ export function SsFeatures() {
         <div className="ss-reference-feature-grid">
           {FEATURES.map(({ title, desc, icon: Icon, tab }, i) => (
             <SsReveal key={title} delay={i * 90}>
-<<<<<<< HEAD
-              <button
-                type="button"
-                onClick={() => openShowcaseTab(tab)}
-                className="ss-reference-feature-card"
-              >
-=======
               {/* Slug rute sama dengan kunci tab showcase, jadi tidak perlu peta terpisah. */}
               <Link href={`/produk/${tab}`} className="ss-reference-feature-card">
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
                 <span>
                   <Icon width={24} height={24} />
                 </span>

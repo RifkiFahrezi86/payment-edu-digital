@@ -4,10 +4,7 @@ import { EDUDIGI_CLASS_POSTER, EDUDIGI_POSTERS } from "@/components/payway/pw-ca
 import { PwEduDigiBrand } from "@/components/payway/pw-edudigi-brand";
 import { SsReferenceArtwork } from "./SsReferenceArtwork";
 import { SsPartnerSupport } from "./SsPartnerSupport";
-<<<<<<< HEAD
-=======
 import { LEGAL_PARTNERS } from "./ss-partners-data";
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
 import {
   IcArrowRight,
   IcBook,
@@ -210,11 +207,7 @@ export function SsEdudigi() {
           </SsReveal>
         </div>
 
-<<<<<<< HEAD
-        <SsPartnerSupport />
-=======
         <SsPartnerSupport heading="Ekosistem Terpercaya" logos={LEGAL_PARTNERS} />
->>>>>>> 0b800e0aa4c3c6928feecc52ecfec250dd8a36ee
 
         <details className="ss-edudigi-gallery">
           <summary><span>Kenali EduDigi lebih dekat<small>Profil, tujuan, praktik, visi & misi, dan legalitas.</small></span><IcArrowRight width={20} height={20} /></summary>
