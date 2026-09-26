@@ -9,7 +9,7 @@ type FooterLink = { label: string; href: string; tab?: ShowcaseTab };
 const FOOTER_COLS: { title: string; links: FooterLink[] }[] = [
   { title: "Produk & Fitur", links: [
     { label: "Transfer", href: "#fitur", tab: "transfer" },
-    { label: "QRIS", href: "#fitur", tab: "qtra" },
+    { label: "QRIS", href: "#fitur", tab: "qris" },
     { label: "Q-Tra", href: "#fitur", tab: "qtra" },
     { label: "Pulsa & Data", href: "#fitur", tab: "ppob" },
     { label: "PPOB", href: "#fitur", tab: "ppob" },
@@ -18,7 +18,7 @@ const FOOTER_COLS: { title: string; links: FooterLink[] }[] = [
   { title: "Perusahaan", links: [
     { label: "Tentang Kami", href: "#tentang" },
     { label: "EduDigi", href: "#edudigi" },
-    { label: "Sistem VTN", href: "#sistem-vtn" },
+    { label: "Promo VTN", href: "#sistem-vtn" },
     { label: "Mitra Kami", href: "#mitra" },
     { label: "Kontak", href: "mailto:cs@sakusultan.id" },
   ] },

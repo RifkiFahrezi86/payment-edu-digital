@@ -218,7 +218,7 @@ export function SsVtn() {
         </SsReveal>
 
         <details className="ss-vtn-gallery">
-          <summary>Lihat ilustrasi lengkap Sistem VTN <IcArrowRight width={17} height={17} /></summary>
+          <summary>Lihat ilustrasi lengkap Promo VTN <IcArrowRight width={17} height={17} /></summary>
           <div><PwCampaignPoster poster={VTN_POSTER} /><a href={VTN_POSTER.src} target="_blank" rel="noopener noreferrer">Buka gambar ukuran penuh <IcArrowRight width={15} height={15} /></a></div>
         </details>
       </div>

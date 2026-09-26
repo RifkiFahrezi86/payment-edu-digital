@@ -15,7 +15,7 @@ import {
 
 const ITEMS: { label: string; icon: typeof IcSend; tab: ShowcaseTab }[] = [
   { label: "Transfer", icon: IcSend, tab: "transfer" },
-  { label: "QRIS", icon: IcQr, tab: "qtra" },
+  { label: "QRIS", icon: IcQr, tab: "qris" },
   { label: "Q-Tra", icon: IcScan, tab: "qtra" },
   { label: "Pulsa & Data", icon: IcPhoneSignal, tab: "ppob" },
   { label: "Token PLN", icon: IcZap, tab: "ppob" },

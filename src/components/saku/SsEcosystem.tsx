@@ -27,7 +27,7 @@ export function SsEcosystem() {
           <a href="#registrasi" className="ss-btn ss-btn-lime">Mulai Sekarang <IcArrowUpRight width={17} height={17} /></a>
         </SsReveal>
         <div className="ss-ecosystem-values-wrap">
-          <p className="ss-script ss-ecosystem-hashtag">#CUANPERDETIK</p>
+          <p className="ss-ecosystem-hashtag">#CUANPERDETIK</p>
           <div className="ss-ecosystem-values">
             {VALUES.map(({ icon: Icon, title, description }, index) => (
               <SsReveal key={title} delay={index * 80}>

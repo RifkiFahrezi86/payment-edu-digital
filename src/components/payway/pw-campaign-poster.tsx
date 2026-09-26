@@ -3,6 +3,9 @@ import Image from "next/image";
 export type CampaignPoster = {
   src: string;
   mobileSrc?: string;
+  /** Dimensi mobileSrc bila rasionya berbeda dari src (mencegah lompatan layout). */
+  mobileWidth?: number;
+  mobileHeight?: number;
   width: number;
   height: number;
   title: string;
@@ -18,7 +21,7 @@ export function PwCampaignPoster({
 }) {
   return (
     <picture className="saku-poster-picture">
-      {poster.mobileSrc && <source media="(max-width: 639px)" srcSet={poster.mobileSrc} />}
+      {poster.mobileSrc && <source media="(max-width: 639px)" srcSet={poster.mobileSrc} width={poster.mobileWidth} height={poster.mobileHeight} />}
       <Image
         src={poster.src}
         alt={thumbnail ? "" : `${poster.title}. ${poster.description}`}

@@ -11,7 +11,7 @@ import type { ShowcaseTab } from "@/components/saku/ss-showcase-bus";
 
 type Params = { params: Promise<{ slug: string }> };
 
-/** Enam halaman produk dirender statis; tidak ada slug lain yang sah. */
+/** Tujuh halaman produk dirender statis; tidak ada slug lain yang sah. */
 export function generateStaticParams() {
   return PRODUCT_SLUGS.map(slug => ({ slug }));
 }

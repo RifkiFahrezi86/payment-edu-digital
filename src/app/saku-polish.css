@@ -243,7 +243,8 @@ html[data-theme="dark"] .ss-hero-quote { padding: 12px; border-radius: 15px; bac
 .ss-register-app-brand small { display: block; margin-top: 3px; color: var(--ss-muted); font-size: 10px; line-height: 1.5; }
 .ss-register-rating { display: flex; align-items: center; gap: 5px; margin-top: 7px; color: var(--ss-muted); font-size: 10px; }
 .ss-register-rating > svg { color: #f2b629; fill: #f2b629; }
-.ss-register-store { display: flex; min-height: 58px; align-items: center; gap: 10px; margin-top: 19px; padding: 11px 16px; border-radius: 13px; background: #063e27; color: #fff; }
+.ss-register-stores { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 19px; }
+.ss-register-store { display: flex; flex: 1 1 150px; min-height: 58px; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 13px; background: #063e27; color: #fff; }
 .ss-register-store small { display: block; font-size: 10px; }
 .ss-register-store strong { display: block; font-size: 18px; font-weight: 700; white-space: nowrap; }
 .ss-register-qr { display: flex; align-items: center; flex-direction: column; padding: 8px; border-radius: 14px; background: #fff; color: #082b1b; text-align: center; }
@@ -340,7 +341,7 @@ html[data-theme="dark"] .ss-qtra-brand > strong { color: #dceaff; }
 .ss-ecosystem-copy > h2 { margin-top: 12px; color: #fff; font-size: clamp(26px, 2.3vw, 35px); font-weight: 800; line-height: 1.16; letter-spacing: -0.03em; }
 .ss-ecosystem-copy > p:not(.ss-eyebrow) { max-width: 380px; margin-top: 13px; color: #e0eae2; font-size: 13px; line-height: 1.65; }
 .ss-ecosystem-copy .ss-btn { margin-top: 20px; padding-inline: 24px; font-size: 13px; }
-.ss-ecosystem-hashtag { margin-bottom: 16px; color: #fff; font-size: 31px; text-align: right; }
+.ss-ecosystem-hashtag { margin-bottom: 16px; color: var(--ss-lime); font-size: 30px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; text-align: right; text-transform: uppercase; }
 .ss-ecosystem-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
 .ss-ecosystem-value { height: 100%; min-height: 205px; padding: 23px 19px; border: 1px solid #76b26e4d; border-radius: 15px; background: #00180d36; }
 .ss-ecosystem-value > svg { color: #b7f34a; }
@@ -560,7 +561,7 @@ html[data-theme="dark"] .ss-partner-support-strip li { margin-right: 14px; paddi
   .ss-ecosystem-value > svg { width: 30px; height: 30px; }
   .ss-ecosystem-value > h3 { font-size: 12px; line-height: 1.5; margin-top: 12px; }
   .ss-ecosystem-value > p { display: none; }
-  .ss-ecosystem-hashtag { font-size: 27px; }
+  .ss-ecosystem-hashtag { font-size: 24px; }
   .ss-partners-inner { padding: 36px 20px; }
   .ss-partner-marks { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .ss-partner-methods { grid-template-columns: repeat(2, minmax(0, 1fr)); }

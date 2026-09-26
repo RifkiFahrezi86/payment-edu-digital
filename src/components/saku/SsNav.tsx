@@ -11,10 +11,10 @@ type NavLink = { label: string; href: string; children?: { label: string; tab: S
 const NAV_LINKS: NavLink[] = [
   { label: "Beranda", href: "#beranda" },
   { label: "Produk & Fitur", href: "#fitur", children: [
-    { label: "Transfer", tab: "transfer" }, { label: "QRIS & Q-Tra", tab: "qtra" },
+    { label: "Transfer", tab: "transfer" }, { label: "QRIS", tab: "qris" }, { label: "Q-Tra", tab: "qtra" },
     { label: "PPOB", tab: "ppob" }, { label: "Passolo", tab: "passolo" }, { label: "EduDigi", tab: "edudigi" },
   ] },
-  { label: "Sistem VTN", href: "#sistem-vtn" },
+  { label: "Promo VTN", href: "#sistem-vtn" },
   { label: "Tentang Kami", href: "#tentang" },
   { label: "Bantuan", href: "#bantuan" },
   { label: "Syarat & Ketentuan", href: "/syarat-ketentuan" },
@@ -24,7 +24,7 @@ const SHORTCUTS = [
   { label: "Transfer, QRIS & Q-Tra", href: "#fitur" },
   { label: "Pulsa, Data & Tagihan PPOB", href: "#layanan-utama" },
   { label: "Registrasi Saku Sultan", href: "#registrasi" },
-  { label: "Sistem VTN", href: "#sistem-vtn" },
+  { label: "Promo VTN", href: "#sistem-vtn" },
   { label: "Kelas dan Legalitas EduDigi", href: "#edudigi" },
   { label: "Mitra & Keamanan", href: "#mitra" },
   { label: "FAQ & Bantuan", href: "#bantuan" },

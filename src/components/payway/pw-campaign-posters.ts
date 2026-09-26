@@ -38,8 +38,10 @@ export const EDUDIGI_CLASS_POSTER: CampaignPoster = {
 };
 
 export const VTN_POSTER: CampaignPoster = {
-  src: `${IMAGE_PATH}/8.jpeg`, mobileSrc: `${IMAGE_PATH}/11.jpeg`, width: 1600, height: 900,
-  title: "Sistem VTN — Volume Transaksi Nasional",
+  src: `${IMAGE_PATH}/8.jpeg`, width: 1600, height: 900,
+  // Versi potret hasil scripts/build-vtn-mobile-poster.cjs agar teks terbaca di HP.
+  mobileSrc: "/images/saku/vtn-poster-mobile.webp", mobileWidth: 900, mobileHeight: 2086,
+  title: "Promo VTN — Volume Transaksi Nasional",
   description: "Transaksi menggerakkan Indonesia. Layanan belanja, pulsa, PLN, PDAM, internet, transportasi, perbankan, dan donasi dalam ekosistem transaksi nasional.",
 };
 

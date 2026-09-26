@@ -1,0 +1,165 @@
+<!doctype html>
+<!--
+  Sumber ilustrasi panel QRIS (880×620). Dirender ke PNG lewat browser:
+  buka berkas ini pada viewport 880×620, screenshot elemen #art ke
+  public/images/saku/source/campaign-qris.png, lalu jalankan
+  node scripts/build-display-assets.cjs untuk menghasilkan panel-qris.webp.
+-->
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 880px; height: 620px; overflow: hidden; background: #041a10; }
+  body { font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif; color: #fff; }
+  #art { position: relative; width: 880px; height: 620px; overflow: hidden;
+    background:
+      radial-gradient(ellipse 60% 55% at 62% 42%, #1b7a48 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 15% 90%, #0e5a36 0%, transparent 70%),
+      linear-gradient(160deg, #0b3d27 0%, #062a1b 55%, #04150d 100%); }
+  .grid { position: absolute; inset: 0;
+    background-image: linear-gradient(#ffffff0e 1px, transparent 1px), linear-gradient(90deg, #ffffff0e 1px, transparent 1px);
+    background-size: 44px 44px; mask-image: radial-gradient(ellipse 70% 70% at 55% 50%, #000 30%, transparent 100%); }
+  .leaf { position: absolute; width: 260px; height: 260px; border-radius: 0 60% 0 60%; background: radial-gradient(circle at 30% 30%, #1d7f4b, #0a3a24 70%); opacity: .55; filter: blur(1px); }
+  .leaf.a { left: -110px; top: -120px; transform: rotate(-25deg); }
+  .leaf.b { right: -120px; bottom: -130px; transform: rotate(160deg); }
+  .leaf.c { left: -60px; bottom: -90px; width: 190px; height: 190px; transform: rotate(35deg); opacity: .4; }
+
+  .badge { position: absolute; left: 44px; top: 42px; display: flex; gap: 14px; align-items: flex-start; }
+  .badge .ic { width: 62px; height: 62px; border-radius: 18px; background: #cdf463; display: grid; place-items: center; color: #0c3b2a; box-shadow: 0 10px 30px #cdf46340; }
+  .badge h1 { font-size: 15px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #cdf463; line-height: 1.3; }
+  .badge p { margin-top: 6px; font-size: 12.5px; font-weight: 500; color: #d7e6da; line-height: 1.5; width: 220px; }
+
+  .standee { position: absolute; left: 72px; top: 178px; width: 236px; padding: 18px 18px 16px; border-radius: 22px; background: #fff; color: #0b2a1c; text-align: center; box-shadow: 0 30px 60px #00110866, 0 2px 0 #ffffff inset; transform: rotate(-4deg); }
+  .standee .shop { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 800; }
+  .standee .shop i { width: 22px; height: 22px; border-radius: 7px; background: #12874b; display: grid; place-items: center; }
+  .standee .qr { margin: 14px auto 10px; width: 176px; height: 176px; padding: 8px; border: 2px solid #e1ebe4; border-radius: 12px; background: #fff; }
+  .standee .qr canvas { width: 100%; height: 100%; display: block; }
+  .standee .logo { height: 22px; display: block; margin: 0 auto; }
+  .standee small { display: block; margin-top: 8px; font-size: 9.5px; font-weight: 700; letter-spacing: .2em; color: #4d6b58; }
+  .standee .nmid { margin-top: 6px; font-size: 9px; color: #7a9384; letter-spacing: .04em; font-weight: 600; }
+  .stand-leg { position: absolute; left: 150px; top: 522px; width: 90px; height: 16px; border-radius: 8px; background: linear-gradient(#0f4a2f, #06251a); box-shadow: 0 10px 20px #0008; }
+
+  .phone { position: absolute; left: 366px; top: 34px; width: 268px; height: 560px; border-radius: 44px; background: #0a1e16; border: 8px solid #1a2f26; box-shadow: 0 40px 80px #00120a99, 0 0 0 1px #3a5648 inset; overflow: hidden; }
+  .phone .notch { position: absolute; left: 50%; top: 10px; width: 92px; height: 24px; transform: translateX(-50%); border-radius: 14px; background: #06110c; }
+  .phone .bar { position: absolute; top: 48px; left: 22px; right: 22px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 700; color: #cdf463; }
+  .phone .bar b { font-weight: 800; color: #fff; font-size: 13px; }
+  .cam { position: absolute; left: 0; right: 0; top: 84px; bottom: 120px; background:
+      radial-gradient(ellipse at 50% 55%, #2c6a45 0%, #123a27 55%, #0b2418 100%); }
+  .cam .dim { position: absolute; inset: 0; background: #00000055; mask: linear-gradient(#000 0 0) exclude, linear-gradient(#000 0 0) 50% 44% / 178px 178px no-repeat; -webkit-mask: linear-gradient(#000 0 0), linear-gradient(#000 0 0) 50% 44% / 178px 178px no-repeat; -webkit-mask-composite: xor; mask-composite: exclude; }
+  .cam .frame { position: absolute; left: 50%; top: 44%; width: 178px; height: 178px; transform: translate(-50%, -50%); }
+  .cam .frame i { position: absolute; width: 34px; height: 34px; border: 4px solid #cdf463; }
+  .cam .frame i:nth-child(1) { left: -4px; top: -4px; border-right: 0; border-bottom: 0; border-radius: 12px 0 0 0; }
+  .cam .frame i:nth-child(2) { right: -4px; top: -4px; border-left: 0; border-bottom: 0; border-radius: 0 12px 0 0; }
+  .cam .frame i:nth-child(3) { left: -4px; bottom: -4px; border-right: 0; border-top: 0; border-radius: 0 0 0 12px; }
+  .cam .frame i:nth-child(4) { right: -4px; bottom: -4px; border-left: 0; border-top: 0; border-radius: 0 0 12px 0; }
+  .cam .frame canvas { position: absolute; left: 14px; top: 14px; width: 150px; height: 150px; opacity: .92; filter: drop-shadow(0 6px 14px #0008); }
+  .cam .laser { position: absolute; left: 12px; right: 12px; top: 58%; height: 3px; background: linear-gradient(90deg, transparent, #cdf463, transparent); box-shadow: 0 0 18px #cdf463; }
+  .cam .hint { position: absolute; left: 0; right: 0; bottom: 22px; text-align: center; font-size: 11px; font-weight: 600; color: #e6f3ea; }
+  .cam .hint b { display: block; font-size: 12.5px; font-weight: 800; color: #fff; margin-bottom: 3px; }
+  .phone .bottom { position: absolute; left: 0; right: 0; bottom: 0; height: 120px; padding: 16px 20px; background: #0d2a1e; }
+  .phone .bottom .row { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #b9cfc0; font-weight: 600; }
+  .phone .bottom .row b { color: #fff; font-size: 13px; font-weight: 800; }
+  .phone .btn { margin-top: 14px; height: 42px; border-radius: 14px; background: #cdf463; color: #0c3b2a; display: grid; place-items: center; font-size: 13px; font-weight: 800; letter-spacing: .02em; }
+
+  .toast { position: absolute; left: 618px; top: 408px; width: 240px; padding: 16px 16px 14px; border-radius: 20px; background: #fff; color: #0b2a1c; box-shadow: 0 30px 60px #00110866; transform: rotate(3deg); }
+  .toast .top { display: flex; align-items: center; gap: 10px; }
+  .toast .ok { width: 34px; height: 34px; border-radius: 50%; background: #12874b; display: grid; place-items: center; }
+  .toast .top b { display: block; font-size: 13px; font-weight: 800; }
+  .toast .top small { font-size: 10.5px; color: #5a775e; font-weight: 600; }
+  .toast .amt { margin-top: 12px; font-size: 24px; font-weight: 800; letter-spacing: -.02em; }
+  .toast .meta { margin-top: 6px; font-size: 10.5px; color: #5a775e; font-weight: 600; display: flex; justify-content: space-between; }
+  .toast .meta em { font-style: normal; color: #12874b; font-weight: 800; }
+
+  .chips { position: absolute; left: 640px; top: 62px; width: 214px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+  .chips span { padding: 8px 12px; border-radius: 999px; border: 1px solid #ffffff2e; background: #ffffff12; backdrop-filter: blur(6px); font-size: 11px; font-weight: 700; color: #e6f3ea; white-space: nowrap; }
+  .script { position: absolute; left: 662px; top: 176px; width: 190px; text-align: right; font-family: "Caveat", cursive; font-size: 28px; line-height: 1.05; color: #fff; transform: rotate(-6deg); }
+  .script span { color: #cdf463; }
+
+  .coin { position: absolute; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #6b4a00; font-size: 20px;
+    background: radial-gradient(circle at 35% 30%, #ffe680, #f2b629 55%, #c98a10 100%); box-shadow: 0 14px 30px #0009, 0 0 0 4px #d99c1a inset, 0 0 0 6px #ffd76a66 inset; }
+  .coin.small { width: 46px; height: 46px; font-size: 15px; }
+  .coin.a { left: 292px; top: 128px; transform: rotate(-18deg); }
+  .coin.b { left: 36px; top: 468px; transform: rotate(14deg); }
+  .coin.c { left: 806px; top: 296px; }
+  .spark { position: absolute; color: #cdf463; }
+  .spark.a { left: 336px; top: 70px; width: 26px; }
+  .spark.b { left: 830px; top: 30px; width: 18px; }
+  .spark.c { left: 332px; top: 500px; width: 20px; }
+  .spark.d { left: 570px; top: 596px; width: 16px; }
+</style>
+</head>
+<body>
+<div id="art">
+  <div class="grid"></div>
+  <div class="leaf a"></div><div class="leaf b"></div><div class="leaf c"></div>
+
+  <div class="badge">
+    <div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><rect x="7" y="7" width="4" height="4"/><rect x="13" y="7" width="4" height="4"/><rect x="7" y="13" width="4" height="4"/><path d="M13 13h2v2h-2zM15 15h2v2h-2z"/></svg></div>
+    <div><h1>Satu QRIS<br>Semua Pembayaran</h1><p>Scan kode QRIS di kasir, bayar langsung dari saldo Saku Sultan.</p></div>
+  </div>
+
+  <div class="chips"><span>Tanpa uang tunai</span><span>Semua merchant QRIS</span><span>Standar Bank Indonesia</span></div>
+  <p class="script">Scan, bayar,<br><span>selesai.</span></p>
+
+  <div class="standee">
+    <div class="shop"><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/></svg></i>Kopi Nusantara</div>
+    <div class="qr"><canvas id="qr1" width="160" height="160"></canvas></div>
+    <img class="logo" src="../public/images/payway/pay/qris.svg" alt="" />
+    <small>SCAN UNTUK BAYAR</small>
+    <div class="nmid">NMID · ID10234567890</div>
+  </div>
+  <div class="stand-leg"></div>
+
+  <div class="phone">
+    <div class="notch"></div>
+    <div class="bar"><b>Scan QRIS</b><span>Saldo Rp 1.250.000</span></div>
+    <div class="cam">
+      <div class="dim"></div>
+      <div class="frame"><i></i><i></i><i></i><i></i><canvas id="qr2" width="160" height="160"></canvas><div class="laser"></div></div>
+      <p class="hint"><b>Arahkan kamera ke kode QRIS</b>Berlaku di semua merchant berlogo QRIS</p>
+    </div>
+    <div class="bottom">
+      <div class="row"><span>Kopi Nusantara</span><b>Rp 45.000</b></div>
+      <div class="btn">Bayar Sekarang</div>
+    </div>
+  </div>
+
+  <div class="toast">
+    <div class="top"><div class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><div><b>Pembayaran Berhasil</b><small>Kopi Nusantara · QRIS</small></div></div>
+    <div class="amt">Rp 45.000</div>
+    <div class="meta"><span>Hari ini, 10.42</span><em>Tercatat</em></div>
+  </div>
+
+  <div class="coin a">Rp</div><div class="coin b small">Rp</div><div class="coin c small">Rp</div>
+  <svg class="spark a" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+  <svg class="spark b" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+  <svg class="spark c" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+  <svg class="spark d" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+</div>
+<script>
+  // Pola menyerupai QR (bukan kode valid): tiga finder pattern + modul acak deterministik.
+  function drawQr(id, seed, dark) {
+    const n = 25, c = document.getElementById(id), ctx = c.getContext("2d"), s = c.width / n;
+    let r = seed;
+    const rnd = () => (r = (r * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.fillStyle = dark;
+    const finder = (x, y) => {
+      ctx.fillRect(x * s, y * s, 7 * s, 7 * s);
+      ctx.clearRect((x + 1) * s, (y + 1) * s, 5 * s, 5 * s);
+      ctx.fillRect((x + 2) * s, (y + 2) * s, 3 * s, 3 * s);
+    };
+    for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
+      const inFinder = (x < 8 && y < 8) || (x > n - 9 && y < 8) || (x < 8 && y > n - 9);
+      if (!inFinder && rnd() < 0.46) ctx.fillRect(x * s, y * s, s, s);
+    }
+    finder(0, 0); finder(n - 7, 0); finder(0, n - 7);
+  }
+  drawQr("qr1", 7, "#0b2a1c");
+  drawQr("qr2", 7, "#f2fbf3");
+</script>
+</body>
+</html>

@@ -6,13 +6,14 @@ import { SsReveal } from "./SsReveal";
 import { IcArrowRight, IcChart, IcCheckCircle, IcDownload, IcSend, IcShieldCheck, IcStar, IcUsers, IcZap } from "./ss-icons";
 
 const PLAY_STORE = "https://play.google.com/store/apps/details?id=com.saku_sultan";
+const APP_STORE = "https://apps.apple.com/id/app/saku-sultan/id6444094885?l=id";
 const BENEFITS = [
   { icon: IcZap, title: "Cepat & Praktis", desc: "Transaksi kapan saja dan di mana saja." },
   { icon: IcShieldCheck, title: "Aman & Terpercaya", desc: "Keamanan berlapis untuk setiap kebutuhan digital." },
   { icon: IcChart, title: "Lebih Banyak Peluang", desc: "Jadi bagian dari ekosistem yang terus berkembang." },
 ];
 const STEPS = [
-  { title: "Download Aplikasi", desc: "Unduh Saku Sultan gratis di Google Play Store.", icon: IcDownload },
+  { title: "Download Aplikasi", desc: "Unduh Saku Sultan gratis di Google Play atau App Store.", icon: IcDownload },
   { title: "Daftar Akun", desc: "Daftar menggunakan nomor ponsel dan lengkapi profil Anda di aplikasi.", icon: IcUsers },
   { title: "Mulai Transaksi", desc: "Pilih layanan favorit dan lakukan transaksi pertama Anda.", icon: IcSend },
 ];
@@ -25,10 +26,16 @@ function StepPreview({ step }: { step: number }) {
           <Image src="/images/saku-sultan-app-icon.webp" alt="" width={48} height={48} />
           <span><strong>Saku Sultan</strong><small>Dompet Digital untuk Semua</small><span className="ss-register-rating"><IcStar width={13} height={13} />4.8 · Rating Play Store</span></span>
         </div>
-        <a href={PLAY_STORE} target="_blank" rel="noopener noreferrer" className="ss-register-store">
-          <Image src="/images/payway/google-play.svg" alt="" width={28} height={28} />
-          <span><small>Dapatkan di</small><strong>Google Play</strong></span>
-        </a>
+        <div className="ss-register-stores">
+          <a href={PLAY_STORE} target="_blank" rel="noopener noreferrer" className="ss-register-store">
+            <Image src="/images/payway/google-play.svg" alt="" width={28} height={28} />
+            <span><small>Dapatkan di</small><strong>Google Play</strong></span>
+          </a>
+          <a href={APP_STORE} target="_blank" rel="noopener noreferrer" className="ss-register-store">
+            <Image src="/images/payway/app-store.svg" alt="" width={28} height={28} />
+            <span><small>Download di</small><strong>App Store</strong></span>
+          </a>
+        </div>
       </div>
       <a href={PLAY_STORE} target="_blank" rel="noopener noreferrer" className="ss-register-qr" aria-label="Unduh Saku Sultan di Google Play, atau pindai kode QR">
         {/* eslint-disable-next-line @next/next/no-img-element */}

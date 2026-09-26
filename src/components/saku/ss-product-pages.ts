@@ -3,7 +3,7 @@ import type { ShowcaseTab } from "@/components/saku/ss-showcase-bus";
 /**
  * Isi halaman detail produk (/produk/[slug]).
  *
- * Satu sumber untuk enam produk supaya rute, navigasi, dan tautan "Pelajari"
+ * Satu sumber untuk tujuh produk supaya rute, navigasi, dan tautan "Pelajari"
  * pada kartu fitur tidak perlu peta terpisah — slug memakai kunci tab showcase.
  */
 
@@ -71,6 +71,51 @@ export const PRODUCT_PAGES: Record<ShowcaseTab, ProductPage> = {
       { q: "Bagaimana jika salah memasukkan nomor rekening?", a: "Halaman konfirmasi menampilkan nama penerima sebelum transaksi diteruskan. Bila data tidak sesuai, batalkan dan ulangi dari langkah pertama." },
     ],
     cta: { label: "Coba QTRA", href: "#registrasi" },
+  },
+
+  qris: {
+    eyebrow: "QRIS — Bayar dengan Scan",
+    title: "Scan QRIS di Mana Saja,",
+    titleAccent: "Satu Aplikasi Cukup.",
+    lead: "QRIS adalah standar kode QR pembayaran nasional dari Bank Indonesia. Pindai kode di kasir, periksa nama merchant dan nominal, lalu bayar dari saldo Saku Sultan.",
+    art: "/images/saku/panel-qris.webp",
+    artAlt: "Standee QRIS di kasir dipindai dari aplikasi Saku Sultan, pembayaran berhasil tercatat",
+    stats: [
+      { value: "1", label: "kode QR untuk semua aplikasi pembayaran" },
+      { value: "Rp0", label: "biaya tambahan bagi pembeli" },
+      { value: "30 juta+", label: "merchant QRIS di Indonesia" },
+    ],
+    body: [
+      "QRIS (Quick Response Code Indonesian Standard) adalah standar kode QR untuk pembayaran yang ditetapkan Bank Indonesia bersama Asosiasi Sistem Pembayaran Indonesia dan berlaku nasional sejak 1 Januari 2020. Dengan satu standar, sebuah kode QRIS di kasir dapat dibayar dari aplikasi pembayaran mana pun yang terdaftar — e-wallet maupun mobile banking.",
+      "Bagi pengguna SAKU SULTAN, QRIS berarti cukup satu aplikasi untuk membayar di warung, kafe, toko, hingga pedagang kaki lima yang memasang logo QRIS. Tidak perlu uang tunai, tidak perlu menunggu kembalian, dan tidak perlu memasang banyak aplikasi.",
+      "Ada dua bentuk kode yang umum dijumpai. QRIS statis adalah kode tetap yang dicetak dan dipasang di kasir; pembeli mengisi nominal sendiri. QRIS dinamis dibuat per transaksi oleh kasir dengan nominal yang sudah tertera sehingga pembeli cukup memeriksa dan mengonfirmasi.",
+    ],
+    steps: [
+      { title: "Buka Scan QRIS", detail: "Pilih menu Scan pada beranda aplikasi SAKU SULTAN." },
+      { title: "Pindai Kode", detail: "Arahkan kamera ke kode QRIS di kasir, atau unggah gambar kode dari galeri." },
+      { title: "Periksa Nama & Nominal", detail: "Pastikan nama merchant sesuai tempat Anda bertransaksi. Isi nominal bila kode bersifat statis." },
+      { title: "Konfirmasi", detail: "Masukkan PIN. Bukti pembayaran langsung tersimpan dan dapat ditunjukkan ke kasir." },
+    ],
+    benefits: [
+      { title: "Satu kode untuk semua aplikasi", detail: "Berlaku di seluruh merchant berlogo QRIS tanpa memandang aplikasi pembayaran yang dipakai." },
+      { title: "Tanpa biaya tambahan bagi pembeli", detail: "Biaya layanan QRIS ditanggung merchant sesuai ketentuan Bank Indonesia." },
+      { title: "Cepat dan tanpa uang tunai", detail: "Bayar dengan nominal pas; tidak ada antre kembalian." },
+      { title: "Nama merchant tampil sebelum bayar", detail: "Halaman konfirmasi menampilkan nama merchant terdaftar sehingga salah bayar dapat dihindari." },
+      { title: "Riwayat tercatat rapi", detail: "Setiap pembayaran tersimpan otomatis sebagai bukti transaksi." },
+    ],
+    notes: [
+      "Batas nominal per transaksi QRIS mengikuti ketentuan Bank Indonesia yang berlaku serta pengaturan pada aplikasi SAKU SULTAN.",
+      "Selalu periksa nama merchant pada layar konfirmasi. Waspadai stiker QRIS yang ditempel menutupi kode asli di kasir.",
+      "Kode QRIS dinamis hanya berlaku untuk satu transaksi dan memiliki masa berlaku singkat; minta kasir membuat kode baru bila sudah kedaluwarsa.",
+    ],
+    faq: [
+      { q: "Apa itu QRIS?", a: "QRIS adalah standar nasional kode QR pembayaran yang ditetapkan Bank Indonesia. Satu kode QRIS dapat dibayar dari semua aplikasi pembayaran yang terdaftar, termasuk SAKU SULTAN." },
+      { q: "Apa beda QRIS statis dan dinamis?", a: "QRIS statis adalah kode tetap di kasir dan pembeli mengisi nominal sendiri. QRIS dinamis dibuat per transaksi dengan nominal yang sudah tertera, sehingga pembeli cukup memeriksa lalu mengonfirmasi." },
+      { q: "Apakah ada biaya saat membayar dengan QRIS?", a: "Tidak ada biaya tambahan bagi pembeli. Biaya layanan (MDR) dibebankan kepada merchant sesuai ketentuan Bank Indonesia." },
+      { q: "Apa beda QRIS dengan Q-Tra?", a: "QRIS dipakai untuk membayar ke merchant dengan memindai kode QR. Q-Tra (Quick Transfer) adalah alur cepat untuk mengirim dana ke rekening bank atau e-wallet." },
+      { q: "Saldo terpotong tetapi kasir belum menerima, bagaimana?", a: "Buka riwayat transaksi. Bila statusnya berhasil, tunjukkan bukti pembayaran kepada kasir. Bila statusnya tertunda atau gagal, dana dikembalikan sesuai ketentuan; hubungi layanan pelanggan dengan menyertakan nomor referensi transaksi." },
+    ],
+    cta: { label: "Bayar dengan QRIS", href: "#registrasi" },
   },
 
   passolo: {
@@ -287,6 +332,7 @@ export const PRODUCT_SLUGS = Object.keys(PRODUCT_PAGES) as ShowcaseTab[];
 export const PRODUCT_LABELS: Record<ShowcaseTab, string> = {
   edudigi: "EduDigi",
   qtra: "Q-Tra",
+  qris: "QRIS",
   transfer: "Transfer",
   ppob: "PPOB",
   passolo: "Passolo",

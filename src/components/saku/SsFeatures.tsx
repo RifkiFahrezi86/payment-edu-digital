@@ -14,7 +14,7 @@ const FEATURES: { title: string; desc: string; icon: typeof IcSend; tab: Showcas
     title: "QRIS",
     desc: "Bayar di jutaan merchant seluruh Indonesia dengan satu scan.",
     icon: IcQr,
-    tab: "qtra",
+    tab: "qris",
   },
   {
     title: "Q-Tra",

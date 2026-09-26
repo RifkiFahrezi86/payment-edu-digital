@@ -1,4 +1,4 @@
-export type ShowcaseTab = "edudigi" | "qtra" | "transfer" | "ppob" | "passolo" | "merchant";
+export type ShowcaseTab = "edudigi" | "qtra" | "qris" | "transfer" | "ppob" | "passolo" | "merchant";
 
 export const SHOWCASE_TAB_EVENT = "ss-showcase-tab";
 

@@ -13,17 +13,17 @@ BASE = r"C:\KKP\payment-edu-digital\public\images"
 
 JOBS = [
     {
-        # frame menghadap ke kiri -> ponsel DEPAN (dashboard LIGHT)
+        # frame menghadap ke kiri -> ponsel DEPAN (beranda aplikasi)
         "src": BASE + r"\payway\ChatGPT Image Sep 18, 2026, 10_42_33 PM.png",
-        "shot": BASE + r"\LIGHT.jpeg",
+        "shot": BASE + r"\Tampilan 1.jpeg",
         "out": BASE + r"\saku\phone-front.png",
         "name": "front",
         "disp_w": 620.0,  # lebar render container (px CSS)
     },
     {
-        # frame menghadap ke kanan -> ponsel BELAKANG (DARK)
+        # frame menghadap ke kanan -> ponsel BELAKANG (halaman transfer)
         "src": BASE + r"\payway\ChatGPT Image Sep 18, 2026, 10_44_29 PM.png",
-        "shot": BASE + r"\DARK.jpeg",
+        "shot": BASE + r"\Tampilan 2.jpeg",
         "out": BASE + r"\saku\phone-back.png",
         "name": "back",
         "disp_w": 520.0,

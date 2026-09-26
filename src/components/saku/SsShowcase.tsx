@@ -26,6 +26,7 @@ import {
   IcScan,
   IcSend,
   IcShieldCheck,
+  IcShoppingBag,
   IcSmartphone,
   IcSparkle,
   IcTrendingUp,
@@ -39,6 +40,7 @@ type TabKey = ShowcaseTab;
 const TABS: { key: TabKey; label: string; icon: (p: React.SVGProps<SVGSVGElement>) => React.JSX.Element }[] = [
   { key: "edudigi", label: "EduDigi", icon: IcGraduation },
   { key: "qtra", label: "Q-Tra", icon: IcScan },
+  { key: "qris", label: "QRIS", icon: IcQr },
   { key: "transfer", label: "Transfer", icon: IcSend },
   { key: "ppob", label: "PPOB", icon: IcReceipt },
   { key: "passolo", label: "Passolo", icon: IcGift },
@@ -393,6 +395,29 @@ export function SsShowcase() {
             {active === "edudigi" ? <PanelEdudigi /> : null}
             {active === "qtra" ? <PanelQtra /> : null}
             {active === "passolo" ? <PanelPassolo /> : null}
+            {active === "qris" ? (
+              <PanelSimple
+                badge="QRIS — Bayar dengan Scan"
+                badgeIcon={IcQr}
+                title="Scan QRIS di Mana Saja,"
+                titleAccent="Satu Aplikasi Cukup."
+                desc="QRIS adalah standar kode QR pembayaran nasional dari Bank Indonesia. Pindai kode QRIS di kasir, periksa nama merchant dan nominal, lalu bayar dari saldo Saku Sultan — berlaku di semua merchant berlogo QRIS."
+                cta="Bayar dengan QRIS"
+                features={[
+                  { icon: IcQr, title: "Satu Kode untuk Semua", desc: "Berlaku di semua merchant QRIS" },
+                  { icon: IcZap, title: "Tanpa Uang Tunai", desc: "Bayar pas, tanpa repot kembalian" },
+                  { icon: IcShieldCheck, title: "Terverifikasi", desc: "Nama merchant tampil sebelum bayar" },
+                ]}
+                tiles={[
+                  { icon: IcQr, label: "QRIS Statis" },
+                  { icon: IcScan, label: "QRIS Dinamis" },
+                  { icon: IcShoppingBag, label: "Toko, Warung & Kafe" },
+                  { icon: IcReceipt, label: "Bukti Tersimpan" },
+                ]}
+                art="/images/saku/panel-qris.webp"
+                artAlt="Standee QRIS di kasir Kopi Nusantara dipindai dari aplikasi Saku Sultan, pembayaran Rp 45.000 berhasil"
+              />
+            ) : null}
             {active === "transfer" ? (
               <PanelSimple
                 badge="Transfer — Semua Bank"

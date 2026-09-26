@@ -11,7 +11,7 @@ const PLAY_STORE_URL =
 const NAV_LINKS = [
   { label: "Beranda", href: "#beranda" },
   { label: "Produk & Fitur", href: "#fitur" },
-  { label: "Sistem VTN", href: "#sistem-vtn" },
+  { label: "Promo VTN", href: "#sistem-vtn" },
   { label: "Bantuan", href: "#bantuan" },
   { label: "Syarat & Ketentuan", href: "/syarat-ketentuan" },
 ] as const;

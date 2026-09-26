@@ -37,6 +37,8 @@ const assets = [
   { source: "images/saku/source/campaign-cards.webp", output: "images/saku/card-security.webp", width: 300, crop: { left: 320, top: 390, width: 215, height: 280 } },
   { source: "images/saku/source/campaign-cards.webp", output: "images/saku/card-edudigi.webp", width: 300, crop: { left: 790, top: 390, width: 225, height: 280 } },
   { source: "images/saku/source/campaign-cards.webp", output: "images/saku/card-program.webp", width: 300, crop: { left: 1255, top: 385, width: 250, height: 285 } },
+  // Ilustrasi QRIS dirender dari scripts/panel-qris-art.html (screenshot 880×620 @1x).
+  { source: "images/saku/source/campaign-qris.png", output: "images/saku/panel-qris.webp", width: 880 },
 ];
 
 (async () => {
