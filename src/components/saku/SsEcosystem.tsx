@@ -17,7 +17,7 @@ export function SsEcosystem() {
             <span className="ss-ecosystem-notch" />
             <Image src="/images/saku-sultan-app-icon.webp" alt="" width={74} height={74} loading="lazy" />
             <strong>SAKU SULTAN</strong>
-            <small>Dompet Digital,<br />Sumber Cuan</small>
+            <small>Transaksi Untuk<br />Masa Depan Lebih Baik</small>
           </div>
         </SsReveal>
         <SsReveal className="ss-ecosystem-copy" delay={100}>

@@ -53,8 +53,8 @@ export function SsCtaFooter() {
         <div className="ss-footer-grid">
           <div className="ss-footer-brand">
             <Link href="#beranda" className="ss-nav-brand" aria-label="Saku Sultan, kembali ke beranda">
-              <Image src="/images/saku-sultan-app-icon.webp" alt="" width={42} height={42} loading="lazy" />
-              <span><strong>SAKU SULTAN</strong><small>Dompet Digital, Sumber Cuan</small></span>
+              <Image src="/images/saku-sultan-app-icon.webp" alt="" width={48} height={48} loading="lazy" />
+              <span><strong>SAKU SULTAN</strong><small>Transaksi Untuk Masa Depan Lebih Baik</small></span>
             </Link>
             <p>Melangkah lebih awal, bergerak secara digital. Bersama SAKU SULTAN, wujudkan masa depan yang lebih baik.</p>
             <ul className="ss-footer-socials">
