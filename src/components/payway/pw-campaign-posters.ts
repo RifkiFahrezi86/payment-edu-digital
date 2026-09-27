@@ -34,7 +34,7 @@ export const EDUDIGI_POSTERS: CampaignPoster[] = [
 export const EDUDIGI_CLASS_POSTER: CampaignPoster = {
   src: `${IMAGE_PATH}/5.jpeg`, width: 1365, height: 768,
   title: "Bergabung dengan Ekosistem EduDigi",
-  description: "Kelas Rp200.000 dengan voucher EduDigi, modul, sertifikat, dan dukungan sponsor Saku Sultan berupa saldo Rp50.000.",
+  description: "Kelas Rp250.000 dengan voucher EduDigi senilai Rp250.000, modul, sertifikat, dan dukungan sponsor Saku Sultan berupa saldo Rp50.000.",
 };
 
 export const VTN_POSTER: CampaignPoster = {

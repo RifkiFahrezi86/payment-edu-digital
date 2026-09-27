@@ -11,8 +11,8 @@ export function PwPricing() {
         <div className="saku-class-offer">
           <div>
             <p className="saku-poster-kicker">Bergabung dengan ekosistem EduDigi</p>
-            <h2 id="edudigi-join-title">Join Kelas EduDigi <span>Rp200.000</span></h2>
-            <p>Voucher, modul, sertifikat, dan dukungan saldo Saku Sultan Rp50.000.</p>
+            <h2 id="edudigi-join-title">Join Kelas EduDigi <span>Rp250.000</span></h2>
+            <p>Voucher EduDigi senilai Rp250.000, modul, sertifikat, dan dukungan saldo Saku Sultan Rp50.000.</p>
           </div>
           <div className="saku-class-actions">
             <PwButton href="https://play.google.com/store/apps/details?id=com.saku_sultan">Join Kelas EduDigi</PwButton>

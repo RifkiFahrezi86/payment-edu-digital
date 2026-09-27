@@ -288,7 +288,7 @@ export const PRODUCT_PAGES: Record<ShowcaseTab, ProductPage> = {
     eyebrow: "EduDigi — Edukasi Digital",
     title: "Belajar Digital,",
     titleAccent: "Bertransaksi Aman.",
-    lead: "Lembaga pendidikan dan pelatihan digital nonformal untuk membangun masyarakat yang cakap, aman, produktif, dan adaptif.",
+    lead: "Program edukasi digital dari LKP EduDigi Internasional yang bekerja sama dengan SAKU SULTAN untuk membangun masyarakat yang cakap, aman, dan produktif.",
     art: "/images/saku/reference-edudigi-showcase.webp",
     artAlt: "Belajar kapan saja dengan materi digital, rekomendasi kelas, dan sertifikat EduDigi",
     stats: [
@@ -297,7 +297,7 @@ export const PRODUCT_PAGES: Record<ShowcaseTab, ProductPage> = {
       { value: "4", label: "tahap legalitas kelembagaan" },
     ],
     body: [
-      "EduDigi merupakan program edukasi pada aplikasi SAKU SULTAN yang dirancang untuk meningkatkan pengetahuan dan keterampilan digital para mitra serta masyarakat. Program ini menyajikan pembelajaran yang praktis dan mudah dipahami, khususnya mengenai penggunaan layanan keuangan digital secara bijak, aman, dan bertanggung jawab.",
+      "EduDigi merupakan program edukasi digital yang diselenggarakan LKP EduDigi Internasional bekerja sama dengan SAKU SULTAN. Program ini membantu pengguna memahami teknologi, mengelola keuangan digital, dan memanfaatkan peluang di era digital melalui kelas yang praktis dan mudah dipahami.",
       "Melalui EduDigi, pengguna dapat mempelajari cara bertransaksi digital, menjaga kerahasiaan PIN dan kode OTP, melindungi data pribadi, mengenali modus penipuan daring, serta memanfaatkan teknologi untuk mengembangkan usaha.",
       "Kehadiran EduDigi menegaskan bahwa SAKU SULTAN tidak hanya menyediakan layanan transaksi, tetapi juga turut membangun masyarakat yang semakin cakap dan aman di era digital.",
     ],
@@ -314,11 +314,11 @@ export const PRODUCT_PAGES: Record<ShowcaseTab, ProductPage> = {
       { title: "Komunitas aktif", detail: "Terhubung dengan peserta lain di berbagai daerah di Indonesia." },
     ],
     notes: [
-      "Biaya kelas, jadwal, dan fasilitas yang disertakan mengikuti ketentuan resmi program EduDigi pada aplikasi SAKU SULTAN.",
+      "Biaya kelas EduDigi Rp250.000 per peserta; fasilitasnya termasuk voucher EduDigi senilai Rp250.000. Jadwal dan ketentuan terbaru mengikuti informasi resmi di aplikasi.",
       "Sertifikat diterbitkan setelah peserta menyelesaikan rangkaian modul kelas.",
     ],
     faq: [
-      { q: "Apakah EduDigi berbayar?", a: "Program kelas EduDigi memiliki biaya pendaftaran beserta fasilitas modul dan sertifikat. Rincian terbaru ditampilkan pada halaman program di aplikasi." },
+      { q: "Apakah EduDigi berbayar?", a: "Pendaftaran akun SAKU SULTAN gratis. Biaya mengikuti kelas EduDigi Rp250.000 per peserta, dengan fasilitas voucher EduDigi senilai Rp250.000, modul, dan sertifikat." },
       { q: "Siapa yang dapat mengikuti?", a: "Terbuka untuk mitra SAKU SULTAN maupun masyarakat umum yang ingin meningkatkan keterampilan digital." },
       { q: "Apakah peserta mendapat sertifikat?", a: "Ya. Sertifikat diberikan setelah peserta menyelesaikan rangkaian modul pembelajaran." },
     ],

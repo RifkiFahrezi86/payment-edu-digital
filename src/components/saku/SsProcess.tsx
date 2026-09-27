@@ -14,7 +14,7 @@ const BENEFITS = [
 ];
 const STEPS = [
   { title: "Download Aplikasi", desc: "Unduh Saku Sultan gratis di Google Play atau App Store.", icon: IcDownload },
-  { title: "Daftar Akun", desc: "Daftar menggunakan nomor ponsel dan lengkapi profil Anda di aplikasi.", icon: IcUsers },
+  { title: "Daftar Akun", desc: "Registrasi gratis menggunakan nomor ponsel dan lengkapi profil Anda di aplikasi.", icon: IcUsers },
   { title: "Mulai Transaksi", desc: "Pilih layanan favorit dan lakukan transaksi pertama Anda.", icon: IcSend },
 ];
 

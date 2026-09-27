@@ -23,7 +23,7 @@ const MINI_FEATURES = [
 ];
 
 const FACILITIES = [
-  { icon: IcSparkle, title: "Voucher EduDigi", desc: "Senilai Rp200.000 untuk pembelajaran." },
+  { icon: IcSparkle, title: "Voucher EduDigi", desc: "Senilai Rp250.000 untuk pembelajaran." },
   { icon: IcBook, title: "Modul Pembelajaran", desc: "Materi lengkap dan mudah dipahami." },
   { icon: IcGraduation, title: "Sertifikat EduDigi", desc: "Sebagai bukti keikutsertaan program." },
   { icon: IcUsers, title: "Support Master", desc: "Bimbingan dan komunitas dari ekosistem SAKU SULTAN." },
@@ -76,7 +76,7 @@ export function SsEdudigi() {
               <div className="ss-edudigi-price mt-7 flex flex-wrap items-end gap-3">
                 <span className="text-[13px] font-bold text-[var(--ss-muted)]">Mulai dari</span>
                 <span className="text-[clamp(2rem,4vw,3rem)] font-extrabold leading-none tracking-tight text-[var(--ss-ink)]">
-                  Rp200.000
+                  Rp250.000
                 </span>
                 <span className="mb-1 text-[13px] font-bold text-[var(--ss-muted)]">per peserta</span>
               </div>
