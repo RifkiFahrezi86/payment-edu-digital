@@ -1,23 +1,22 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { isDisplayMode, THEME_STORAGE_KEY, type DisplayMode, type WebsiteTheme } from "@/lib/theme";
+import { isWebsiteTheme, THEME_STORAGE_KEY, type WebsiteTheme } from "@/lib/theme";
 
 type ThemeContextValue = {
-  mode: DisplayMode;
+  mode: WebsiteTheme;
   websiteTheme: WebsiteTheme;
-  setMode: (mode: DisplayMode) => void;
+  setMode: (mode: WebsiteTheme) => void;
 };
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function PwThemeProvider({ children }: { children: React.ReactNode }) {
-  const [mode, setModeState] = useState<DisplayMode>("auto");
+  const [mode, setModeState] = useState<WebsiteTheme>("light");
 
-  const applyMode = useCallback((nextMode: DisplayMode, persist = true) => {
+  const applyMode = useCallback((nextMode: WebsiteTheme, persist = true) => {
     setModeState(nextMode);
-    document.documentElement.dataset.theme = nextMode === "dark" ? "dark" : "light";
-    document.documentElement.dataset.displayMode = nextMode;
+    document.documentElement.dataset.theme = nextMode;
     if (persist) {
       try { localStorage.setItem(THEME_STORAGE_KEY, nextMode); } catch {}
     }
@@ -26,11 +25,11 @@ export function PwThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     let saved: string | null = null;
     try { saved = localStorage.getItem(THEME_STORAGE_KEY); } catch {}
-    applyMode(isDisplayMode(saved) ? saved : "auto", false);
+    applyMode(isWebsiteTheme(saved) ? saved : "light", false);
 
     const onStorage = (event: StorageEvent) => {
       if (event.key === THEME_STORAGE_KEY || event.key === null) {
-        applyMode(isDisplayMode(event.newValue) ? event.newValue : "auto", false);
+        applyMode(isWebsiteTheme(event.newValue) ? event.newValue : "light", false);
       }
     };
     window.addEventListener("storage", onStorage);
@@ -39,7 +38,7 @@ export function PwThemeProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo<ThemeContextValue>(() => ({
     mode,
-    websiteTheme: mode === "dark" ? "dark" : "light",
+    websiteTheme: mode,
     setMode: applyMode,
   }), [mode, applyMode]);
 

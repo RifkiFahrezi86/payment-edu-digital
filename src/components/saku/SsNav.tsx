@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { PwThemeToggle } from "@/components/payway/PwThemeToggle";
 import { IcArrowUpRight, IcChevronDown, IcSearch, IcX } from "./ss-icons";
 import { openShowcaseTab, type ShowcaseTab } from "./ss-showcase-bus";
 
@@ -129,6 +130,7 @@ export function SsNav() {
               </div>
             )}
           </div>
+          <PwThemeToggle />
           <Link href={resolveHref("#registrasi")} className="ss-btn ss-nav-register" onClick={closeMenus}>Daftar Sekarang<IcArrowUpRight width={17} height={17} /></Link>
           <button ref={menuRef} type="button" aria-label={open ? "Tutup menu navigasi" : "Buka menu navigasi"} aria-expanded={open} aria-controls="ss-mobile-menu" onClick={() => { setOpen(value => !value); setQuickOpen(false); }} className="ss-nav-icon-button ss-nav-burger">
             {open ? <IcX width={20} height={20} /> : <span aria-hidden="true"><i /><i /><i /></span>}
