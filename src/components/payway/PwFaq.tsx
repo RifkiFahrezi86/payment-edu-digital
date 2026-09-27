@@ -44,7 +44,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     category: "Tentang Saku Sultan",
     q: "Apakah pendaftaran SAKU SULTAN berbayar?",
-    a: "Tidak. Pendaftaran akun SAKU SULTAN gratis. Biaya mengikuti kelas EduDigi Rp200.000 per peserta adalah biaya program edukasi, bukan biaya registrasi aplikasi. Layanan paket dan komisi dari mitra Sultan Promosindo merupakan program terpisah.",
+    a: "Daftar SAKU SULTAN GRATIS \u2014 tanpa biaya pendaftaran.\n\nCaranya mudah:\n\nDOWNLOAD \u2192 DAFTAR \u2192 TOP UP \u2192 TRANSAKSI\n\nSetelah saldo terisi, gunakan SAKU SULTAN untuk bertransaksi melalui berbagai menu layanan yang tersedia.\n\nMulai dari kebutuhan transaksi harian hingga berbagai pembayaran dalam satu aplikasi.\n\nDownload. Daftar Gratis. Isi Saldo. Mulai Transaksi.\n\nSAKU SULTAN\nSaku Digital untuk Indonesia",
   },
   {
     category: "Tentang Saku Sultan",
