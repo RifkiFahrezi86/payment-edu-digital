@@ -123,6 +123,26 @@ export const IcBook = (p: IconProps) => (
 export const IcChart = (p: IconProps) => (
   <svg {...base(p)}><path d="M4 20V10M10 20V4M16 20v-8M21 20H3" /></svg>
 );
+export const IcCart = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M2.5 4h2.4l2.3 10.4h10.6L20 7.5H6.2" /><circle cx="9" cy="19" r="1.6" /><circle cx="16.5" cy="19" r="1.6" />
+  </svg>
+);
+export const IcBank = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="m3 9 9-5.5L21 9H3ZM4 20.5h16M5.5 9v8.5M10 9v8.5M14 9v8.5M18.5 9v8.5" />
+  </svg>
+);
+export const IcInfinity = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M12 12c-1.8-2.6-3.3-4-5.4-4a4 4 0 0 0 0 8c2.1 0 3.6-1.4 5.4-4Zm0 0c1.8 2.6 3.3 4 5.4 4a4 4 0 0 0 0-8c-2.1 0-3.6 1.4-5.4 4Z" />
+  </svg>
+);
+export const IcDots = (p: IconProps) => (
+  <svg {...base({ ...p, fill: "currentColor", stroke: "none" })}>
+    <circle cx="5" cy="12" r="2" /><circle cx="12" cy="12" r="2" /><circle cx="19" cy="12" r="2" />
+  </svg>
+);
 export const IcGift = (p: IconProps) => (
   <svg {...base(p)}>
     <rect x="4" y="8" width="16" height="4" rx="1" /><path d="M6 12v8h12v-8M12 8v12M12 8s-1.5-4.5-4-4.5S5.5 8 8 8h4ZM12 8s1.5-4.5 4-4.5S18.5 8 16 8h-4Z" />
