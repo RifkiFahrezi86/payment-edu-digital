@@ -17,14 +17,15 @@ import {
 } from "./ss-icons";
 
 // Urutan, label (termasuk pemenggalan baris), dan warna mengikuti panel "Sumber VTN" pada desain HP.
+// \u00AD (soft hyphen) dan \u200B hanya aktif bila kolom terlalu sempit (layar ≤360px).
 const SOURCES = [
-  { label: "Belanja\nOnline/Offline", icon: IcCart, tone: "green" },
+  { label: "Belanja\nOnline/\u200BOffline", icon: IcCart, tone: "green" },
   { label: "Pulsa & Data", icon: IcPhoneSignal, tone: "blue" },
   { label: "PLN", icon: IcZap, tone: "green" },
   { label: "PDAM", icon: IcDroplet, tone: "blue" },
   { label: "TV & Internet", icon: IcTv, tone: "green" },
-  { label: "Tiket\nTransportasi", icon: IcPlane, tone: "blue" },
-  { label: "Travel &\nPariwisata", icon: IcUsers, tone: "orange" },
+  { label: "Tiket\nTranspor\u00ADtasi", icon: IcPlane, tone: "blue" },
+  { label: "Travel &\nPari\u00ADwisata", icon: IcUsers, tone: "orange" },
   { label: "Perbankan", icon: IcBank, tone: "green" },
   { label: "Donasi &\nSosial", icon: IcHeartHand, tone: "red" },
   { label: "Lainnya", icon: IcDots, tone: "gray" },

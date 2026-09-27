@@ -315,9 +315,9 @@ html[data-theme="dark"] .ss-hero-quote { padding: 12px; border-radius: 15px; bac
 .ss-vtnm-panel > h3 { display: flex; align-items: center; justify-content: center; gap: 16px; font-size: 21px; font-weight: 800; letter-spacing: -0.02em; }
 .ss-vtnm-panel > h3::before, .ss-vtnm-panel > h3::after { width: 42px; height: 2px; border-radius: 2px; background: var(--vtnm-line); content: ""; }
 .ss-vtnm-panel > ul { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px 2px; margin-top: 22px; }
-/* Label dibiarkan sedikit lebih lebar dari kolomnya agar kata seperti "Transportasi" tidak terpotong. */
-.ss-vtnm-panel li { display: flex; flex-direction: column; align-items: center; gap: 9px; margin-inline: -6px; color: var(--vtnm-ink); font-size: 10.5px; font-weight: 600; line-height: 1.3; text-align: center; white-space: pre-line; }
-.ss-vtnm-panel li > span { display: grid; width: 54px; height: 54px; place-items: center; border-radius: 50%; background: var(--tone-bg); color: var(--tone-fg); }
+/* Label dibiarkan sedikit lebih lebar dari kolomnya agar kata seperti "Transportasi" tidak terpotong; di bawah 390px ukuran ikut mengecil. */
+.ss-vtnm-panel li { display: flex; flex-direction: column; align-items: center; gap: 9px; margin-inline: -6px; color: var(--vtnm-ink); font-size: clamp(9px, 2.7vw, 10.5px); font-weight: 600; line-height: 1.3; text-align: center; white-space: pre-line; }
+.ss-vtnm-panel li > span { display: grid; width: clamp(44px, 13.8vw, 54px); height: clamp(44px, 13.8vw, 54px); place-items: center; border-radius: 50%; background: var(--tone-bg); color: var(--tone-fg); }
 .ss-vtnm-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
 .ss-vtnm-cards > li { display: flex; align-items: center; gap: 10px; min-height: 72px; padding: 12px 11px; border: 1px solid var(--tone-line); border-radius: 14px; background: var(--tone-bg); color: var(--tone-fg); }
 .ss-vtnm-cards > li > svg { flex-shrink: 0; }
@@ -344,6 +344,10 @@ html[data-theme="dark"] .ss-hero-quote { padding: 12px; border-radius: 15px; bac
 .ss-vtnm-foot > div > span:last-child::before { width: 30px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #0c5c35, #35b35a); content: ""; }
 @media (min-width: 500px) {
   .ss-vtnm-foot > p > i { display: block; }
+}
+@media (max-width: 339px) {
+  /* Kolom terlalu sempit: label dipersempit agar "Transpor-tasi" memenggal di soft hyphen, bukan menabrak tetangganya. */
+  .ss-vtnm-panel li { margin-inline: -3px; }
 }
 @media (max-width: 639px) {
   /* Menimpa bg-[#04130c] + .ss-grid-glow milik tata letak desktop. */
