@@ -125,9 +125,9 @@ function PanelQtra() {
     <div>
       <div className="grid gap-10 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full bg-[var(--ss-mint)] px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.18em] text-[var(--ss-green-deep)]">
-            <IcScan width={14} height={14} /> QTRA — Quick Transfer
-          </span>
+          <div className="ss-qtra-lockup">
+            <Image src="/images/saku/qtra-logo.webp" alt="QTRA — Quick Transfer" width={351} height={162} className="ss-qtra-lockup-logo" />
+          </div>
           <h3 className="ss-h3 mt-5 text-[var(--ss-ink)]">
             Transfer Lebih Cepat.
             <br />
