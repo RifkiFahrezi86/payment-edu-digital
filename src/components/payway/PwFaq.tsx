@@ -44,7 +44,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     category: "Tentang Saku Sultan",
     q: "Apakah pendaftaran SAKU SULTAN berbayar?",
-    a: "Tidak. Pendaftaran akun SAKU SULTAN gratis. Biaya mengikuti kelas EduDigi Rp250.000 per peserta adalah biaya program edukasi, bukan biaya registrasi aplikasi. Layanan paket dan komisi dari mitra Sultan Promosindo merupakan program terpisah.",
+    a: "Tidak. Pendaftaran akun SAKU SULTAN gratis. Biaya mengikuti kelas EduDigi Rp200.000 per peserta adalah biaya program edukasi, bukan biaya registrasi aplikasi. Layanan paket dan komisi dari mitra Sultan Promosindo merupakan program terpisah.",
   },
   {
     category: "Tentang Saku Sultan",
@@ -54,7 +54,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     category: "Tentang Saku Sultan",
     q: "Apa itu kelas EduDigi dan berapa biayanya?",
-    a: "EduDigi adalah program edukasi digital dari LKP EduDigi Internasional yang bekerja sama dengan SAKU SULTAN. Biaya kelas Rp250.000 per peserta, dengan fasilitas voucher EduDigi senilai Rp250.000, modul pembelajaran, dan sertifikat. Pendaftaran akun SAKU SULTAN tetap gratis.",
+    a: "EduDigi adalah program edukasi digital dari LKP EduDigi Internasional yang bekerja sama dengan SAKU SULTAN. Biaya kelas Rp200.000 per peserta, dengan fasilitas voucher EduDigi senilai Rp250.000, modul pembelajaran, dan sertifikat. Pendaftaran akun SAKU SULTAN tetap gratis.",
   },
   {
     category: "Tentang Saku Sultan",
