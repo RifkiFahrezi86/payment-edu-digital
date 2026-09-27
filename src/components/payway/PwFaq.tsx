@@ -401,7 +401,7 @@ export function PwFaq() {
                 <p className="font-sans text-lg text-[#042718] opacity-70 leading-normal">Tim support kami siap membantu Anda 24/7. <br className="hidden sm:block" /> Hubungi kami via WhatsApp.</p>
               </div>
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6282396309889"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-[32px] bg-[#042718] hover:bg-[#063a24] text-white pl-8 pr-4 py-4 rounded-full transition-all duration-300 shadow-lg"

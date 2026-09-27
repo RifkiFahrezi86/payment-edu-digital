@@ -23,7 +23,7 @@ function StepPreview({ step }: { step: number }) {
     <div className="ss-register-download">
       <div>
         <div className="ss-register-app-brand">
-          <Image src="/images/saku-sultan-app-icon.webp" alt="" width={48} height={48} />
+          <Image src="/images/saku-sultan-mark.webp" alt="" width={48} height={48} />
           <span><strong>Saku Sultan</strong><small>Dompet Digital untuk Semua</small><span className="ss-register-rating"><IcStar width={13} height={13} />4.8 · Rating Play Store</span></span>
         </div>
         <div className="ss-register-stores">

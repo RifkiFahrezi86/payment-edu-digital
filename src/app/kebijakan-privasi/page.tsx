@@ -362,7 +362,7 @@ const SECTIONS: PolicySection[] = [
         ],
       },
       { label: "Ketidakberlakuan:", text: "Kebatalan atas suatu ketentuan dalam Kebijakan Privasi ini karena diberlakukannya suatu peraturan perundang-undangan atau alasan lainnya tidak akan secara otomatis membatalkan keberlakuan atas ketentuan-ketentuan lainnya dalam Kebijakan Privasi ini." },
-      { label: "Kontak Kami:", text: "Jika Anda memiliki pertanyaan atau keluhan seputar penerapan Kebijakan Privasi ini, Anda dapat menghubungi Kami melalui Kontak Kami yang tertera di bawah ini: Nomor telepon: 082396309889; Email: cs@sakusultan.id; Pusat Bantuan di Aplikasi SAKU SULTAN; Twitter (@sakusultanind); Facebook (@sakusultanind); atau Instagram (@sakusultaind)." },
+      { label: "Kontak Kami:", text: "Jika Anda memiliki pertanyaan atau keluhan seputar penerapan Kebijakan Privasi ini, Anda dapat menghubungi Kami melalui Kontak Kami yang tertera di bawah ini: Nomor telepon: 082396309889; Email: minsu@sakusultan.com; Pusat Bantuan di Aplikasi SAKU SULTAN; Twitter (@sakusultanind); Facebook (@sakusultanind); atau Instagram (@sakusultaind)." },
       { label: "Bahasa:", text: "Kebijakan Privasi dapat dibuat dalam Bahasa Indonesia." },
       { label: "Hukum Yang Berlaku:", text: "Seluruh ketentuan dalam Kebijakan Privasi tunduk pada dan ditafsirkan sesuai hukum yang berlaku di wilayah Republik Indonesia." },
       { label: "Versi:", text: "Ketentuan-ketentuan dalam Kebijakan Privasi ini merupakan versi yang Kami tetapkan dan berlakukan per tanggal 1 Agustus 2022." },

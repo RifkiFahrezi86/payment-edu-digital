@@ -91,7 +91,7 @@ export function SsNav() {
     <header ref={headerRef} className="ss-header" data-scrolled={scrolled}>
       <nav className="ss-nav" aria-label="Navigasi utama">
         <Link href={resolveHref("#beranda")} onClick={closeMenus} className="ss-nav-brand" aria-label="Saku Sultan, kembali ke beranda">
-          <Image src="/images/saku-sultan-app-icon.webp" alt="" width={48} height={48} priority />
+          <Image src="/images/saku-sultan-mark.webp" alt="" width={48} height={48} priority />
           <span><strong>SAKU SULTAN</strong><small>Transaksi Untuk Masa Depan Lebih Baik</small></span>
         </Link>
 

@@ -20,12 +20,12 @@ const FOOTER_COLS: { title: string; links: FooterLink[] }[] = [
     { label: "EduDigi", href: "#edudigi" },
     { label: "Promo VTN", href: "#sistem-vtn" },
     { label: "Mitra Kami", href: "#mitra" },
-    { label: "Kontak", href: "mailto:cs@sakusultan.id" },
+    { label: "Kontak", href: "mailto:minsu@sakusultan.com" },
   ] },
   { title: "Bantuan", links: [
     { label: "FAQ", href: "#bantuan" },
     { label: "Cara Registrasi", href: "#registrasi" },
-    { label: "Pusat Bantuan", href: "mailto:cs@sakusultan.id" },
+    { label: "Pusat Bantuan", href: "mailto:minsu@sakusultan.com" },
     { label: "Keamanan", href: "/kebijakan-privasi" },
   ] },
   { title: "Legal", links: [
@@ -48,12 +48,12 @@ export function SsCtaFooter() {
       <div className="ss-footer-inner">
         <div className="ss-footer-contact">
           <div><p className="ss-eyebrow">Langkah kecil, peluang lebih besar.</p><h2>Siap bergerak secara digital?</h2></div>
-          <a href="mailto:cs@sakusultan.id">cs@sakusultan.id<IcArrowUpRight width={22} height={22} /></a>
+          <a href="mailto:minsu@sakusultan.com">minsu@sakusultan.com<IcArrowUpRight width={22} height={22} /></a>
         </div>
         <div className="ss-footer-grid">
           <div className="ss-footer-brand">
             <Link href="#beranda" className="ss-nav-brand" aria-label="Saku Sultan, kembali ke beranda">
-              <Image src="/images/saku-sultan-app-icon.webp" alt="" width={48} height={48} loading="lazy" />
+              <Image src="/images/saku-sultan-mark.webp" alt="" width={48} height={48} loading="lazy" />
               <span><strong>SAKU SULTAN</strong><small>Transaksi Untuk Masa Depan Lebih Baik</small></span>
             </Link>
             <p>Melangkah lebih awal, bergerak secara digital. Bersama SAKU SULTAN, wujudkan masa depan yang lebih baik.</p>

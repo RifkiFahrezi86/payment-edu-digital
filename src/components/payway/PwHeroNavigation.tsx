@@ -223,13 +223,13 @@ export function PwHeroNavigation() {
             aria-label="Saku Sultan, kembali ke beranda"
           >
             <Image
-              src="/images/saku-sultan-app-icon.webp"
+              src="/images/saku-sultan-mark.webp"
               alt=""
               width={36}
               height={36}
               priority
               quality={100}
-              className="h-9 w-9 shrink-0 rounded-[9px]"
+              className="h-9 w-9 shrink-0 object-contain"
             />
             <span className="whitespace-nowrap text-[15px] font-bold tracking-[0.015em] text-white sm:text-base">
               SAKU SULTAN

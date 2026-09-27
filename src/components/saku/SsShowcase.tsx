@@ -72,7 +72,7 @@ function PanelEdudigi() {
             Belajar Digital<br /><span className="text-[var(--ss-green)]">Lebih Aman dan Produktif.</span>
           </h3>
           <p className="mt-4 max-w-[440px] text-[14.5px] leading-relaxed text-[var(--ss-muted)]">
-            EduDigi adalah program edukasi digital SAKU SULTAN, yang dirancang untuk membantu kamu memahami teknologi, mengelola keuangan digital, dan memanfaatkan peluang di era digital.
+            EduDigi adalah program edukasi digital yang diselenggarakan oleh LKP EduDigi Internasional yang bekerja sama dengan SAKU SULTAN, dirancang untuk membantu pengguna dalam memahami teknologi, mengelola keuangan digital dan memanfaatkan peluang di era digital.
           </p>
           <div className="mt-7 flex flex-wrap gap-3.5">
             <Link href="/produk/edudigi" className="ss-btn ss-btn-lime !py-3">
