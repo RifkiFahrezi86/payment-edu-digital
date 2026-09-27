@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Tanpa ini Next memblokir /_next/webpack-hmr saat halaman dibuka lewat IP
   // LAN atau 127.0.0.1, sehingga hot reload mati dan perubahan tidak tampil.
-  allowedDevOrigins: ["127.0.0.1", "localhost", "192.168.100.27"],
+  allowedDevOrigins: ["127.0.0.1", "localhost", "192.168.100.27", "192.168.18.162"],
   experimental: {
     // `next build` spawn 1 worker per core (24 di mesin ini) dan tiap worker boot
     // isolate V8 sendiri, jadi RAM sistem habis sebelum build/render selesai.
