@@ -67,7 +67,7 @@ function PanelEdudigi() {
     <div>
       <div className="ss-edudigi-showcase grid gap-10 p-7 sm:p-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center">
         <div>
-          <div className="ss-edudigi-lockup"><PwEduDigiBrand id="ss-showcase-brand" /></div>
+          <div className="ss-edudigi-lockup"><PwEduDigiBrand /></div>
           <h3 className="ss-h3 mt-6 text-[var(--ss-ink)]">
             Belajar Digital<br /><span className="text-[var(--ss-green)]">Lebih Aman dan Produktif.</span>
           </h3>
