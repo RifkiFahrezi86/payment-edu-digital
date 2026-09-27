@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "use client";
 
 import { useState } from "react";
@@ -9,14 +8,6 @@ export function SsPartnerMarquee() {
   const [paused, setPaused] = useState(false);
   return (
     <div className="ss-trusted-band" data-paused={paused}>
-=======
-import { TRUSTED_PARTNERS } from "./ss-partners-data";
-import { IcArrowRight } from "./ss-icons";
-
-export function SsPartnerMarquee() {
-  return (
-    <div className="ss-trusted-band">
->>>>>>> 1293b1d (Update project)
       <p>Didukung oleh<br /><strong>Mitra Terpercaya</strong></p>
       <div className="ss-trusted-viewport">
         <div className="ss-trusted-track">
@@ -28,12 +19,9 @@ export function SsPartnerMarquee() {
         </div>
       </div>
       <div className="ss-trusted-actions">
-<<<<<<< HEAD
         <button type="button" className="ss-marquee-control" aria-pressed={paused} aria-label={paused ? "Lanjutkan pergerakan logo" : "Jeda pergerakan logo"} onClick={() => setPaused(value => !value)}>
           {paused ? <IcPlay width={15} height={15} /> : <svg aria-hidden="true" width="15" height="15" viewBox="0 0 20 20" fill="currentColor"><rect x="4" y="3" width="4" height="14" rx="1" /><rect x="12" y="3" width="4" height="14" rx="1" /></svg>}
         </button>
-=======
->>>>>>> 1293b1d (Update project)
         <a href="#mitra">Lihat Semua Mitra<IcArrowRight width={15} height={15} /></a>
       </div>
     </div>
