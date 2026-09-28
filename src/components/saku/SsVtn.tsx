@@ -6,30 +6,21 @@ import {
   IcArrowRight,
   IcChart,
   IcGlobe,
-  IcGrid,
-  IcHeartHand,
-  IcPhoneSignal,
-  IcPlane,
   IcQr,
-  IcSend,
-  IcShoppingBag,
   IcTrendingUp,
-  IcTv,
   IcUsers,
-  IcWallet,
-  IcZap,
 } from "./ss-icons";
 
 const SERVICES = [
-  { label: "Transfer Uang", icon: IcSend },
-  { label: "Pulsa & Data", icon: IcPhoneSignal },
-  { label: "PLN", icon: IcZap },
-  { label: "PDAM", icon: IcWallet },
-  { label: "TV & Internet", icon: IcTv },
-  { label: "Belanja Online", icon: IcShoppingBag },
-  { label: "Travel & Transportasi", icon: IcPlane },
-  { label: "Donasi & Sosial", icon: IcHeartHand },
-  { label: "Lainnya", icon: IcGrid },
+  { label: "Transfer Uang", image: "transfer" },
+  { label: "Pulsa & Data", image: "pulsa" },
+  { label: "PLN", image: "pln" },
+  { label: "PDAM", image: "pdam" },
+  { label: "TV & Internet", image: "tv" },
+  { label: "Belanja Online", image: "belanja" },
+  { label: "Travel & Transportasi", image: "travel" },
+  { label: "Donasi & Sosial", image: "donasi" },
+  { label: "Lainnya", image: "lainnya" },
 ];
 
 const HOW = [
@@ -132,13 +123,13 @@ export function SsVtn() {
 
         {/* Strip layanan */}
         <SsReveal delay={140}>
-          <ul className="ss-noscrollbar mt-16 flex items-center gap-3 overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.04] px-5 py-5 backdrop-blur">
-            {SERVICES.map(({ label, icon: Icon }) => (
+          <ul className="ss-vtn-services ss-noscrollbar mt-16 flex items-center gap-3 overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.04] px-5 py-5 backdrop-blur">
+            {SERVICES.map(({ label, image }) => (
               <li
                 key={label}
                 className="flex shrink-0 items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2.5 transition-colors hover:border-[var(--ss-lime)]/50"
               >
-                <Icon width={15} height={15} className="text-[var(--ss-lime)]" />
+                <img src={`/images/saku/vtn-icon-${image}.png`} alt="" width={32} height={32} />
                 <span className="text-[12.5px] font-bold text-white/85">{label}</span>
               </li>
             ))}

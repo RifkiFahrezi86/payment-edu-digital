@@ -289,6 +289,10 @@ html[data-theme="dark"] .ss-hero-quote { padding: 12px; border-radius: 15px; bac
 .ss-vtn-growth-bars { display: flex; height: 66px; align-items: flex-end; gap: 9px; margin-top: 18px; border-bottom: 1px solid #cde3ce44; }
 .ss-vtn-growth-bars > i { flex: 1; min-height: 8px; border-radius: 3px 3px 0 0; background: linear-gradient(#c7f45b, #235c3c); }
 .ss-vtn-growth-months { display: flex; justify-content: space-between; margin-top: 6px; color: #dbe5dc; font-size: 8px; }
+.ss-vtn-services { justify-content: space-between; gap: 10px; }
+.ss-vtn-services > li { flex: 1; justify-content: center; min-width: max-content; border: 0; border-radius: 0; background: transparent; padding: 5px 7px; }
+.ss-vtn-services > li + li { border-left: 1px solid #ffffff24; }
+.ss-vtn-services > li img { flex-shrink: 0; width: 32px; height: 32px; object-fit: contain; }
 .ss-vtn-gallery { margin-top: 26px; border: 1px solid #b7f34a33; border-radius: 18px; color: #fff; }
 .ss-vtn-gallery > summary { display: flex; min-height: 62px; align-items: center; justify-content: space-between; gap: 18px; padding: 16px 24px; color: var(--ss-lime); font-size: 14px; font-weight: 700; cursor: pointer; list-style: none; }
 .ss-vtn-gallery > summary::-webkit-details-marker { display: none; }
