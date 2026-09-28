@@ -1,7 +1,6 @@
 import { SsReveal } from "./SsReveal";
 import { PwCampaignPoster } from "@/components/payway/pw-campaign-poster";
 import { VTN_POSTER } from "@/components/payway/pw-campaign-posters";
-import { SsVtnMap } from "./SsVtnMap";
 import { SsVtnMobile } from "./SsVtnMobile";
 import {
   IcArrowRight,
@@ -67,7 +66,7 @@ export function SsVtn() {
       <span id="vtn" className="ss-anchor" aria-hidden="true" />
       <SsVtnMobile />
       <div className="mx-auto w-full max-w-[1320px] px-5 pb-16 pt-20 max-sm:hidden md:px-8 lg:pb-20 lg:pt-24">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid items-center gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Kiri */}
           <div>
             <SsReveal>
@@ -120,7 +119,7 @@ export function SsVtn() {
           <SsReveal delay={200}>
             <div className="ss-vtn-map-visual">
               <p className="ss-script">Transaksi Menghubungkan<br /><span>Indonesia</span></p>
-              <SsVtnMap />
+              <img className="ss-vtn-map" src="/images/saku/vtn-map-desktop.png" alt="Peta jaringan transaksi Indonesia yang menghubungkan Medan, Jakarta, Surabaya, dan Makassar" />
               <div className="ss-vtn-growth-card">
                 <p><IcChart width={19} height={19} />Aktivitas transaksi<br />terus bertumbuh</p>
                 <strong>+42%</strong><span>Pertumbuhan Volume<br />Transaksi YoY</span>

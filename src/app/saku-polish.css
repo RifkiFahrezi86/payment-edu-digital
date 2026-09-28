@@ -277,11 +277,11 @@ html[data-theme="dark"] .ss-hero-quote { padding: 12px; border-radius: 15px; bac
 .ss-register-bottom > div { display: flex; flex-wrap: wrap; gap: 19px; }
 .ss-register-bottom > div > span { display: inline-flex; align-items: center; gap: 6px; }
 .ss-register-bottom svg, .ss-register-bottom > strong { color: var(--ss-green-deep); }
-.ss-vtn-map-visual { position: relative; padding: 45px 0 140px; }
-.ss-vtn-map-visual > .ss-script { position: absolute; top: 0; left: 15%; color: #fff; font-size: 27px; line-height: 1.15; }
+.ss-vtn-map-visual { position: relative; padding: 48px 0 70px; }
+.ss-vtn-map-visual > .ss-script { position: absolute; top: 0; left: 48%; color: #fff; font-size: 27px; line-height: 1.15; transform: rotate(-5deg); }
 .ss-vtn-map-visual > .ss-script > span { color: var(--ss-lime); }
 .ss-vtn-map { display: block; width: 100%; height: auto; }
-.ss-vtn-growth-card { position: absolute; right: 0; bottom: 0; width: 210px; padding: 21px; border: 1px solid #b7f34a3b; border-radius: 23px; background: linear-gradient(150deg, #0c3b2bdf, #041b13f2); box-shadow: 0 22px 45px #00140c44; color: #fff; }
+.ss-vtn-growth-card { position: absolute; right: 0; bottom: 8px; width: 210px; padding: 21px; border: 1px solid #b7f34a3b; border-radius: 23px; background: linear-gradient(150deg, #0c3b2bdf, #041b13f2); box-shadow: 0 22px 45px #00140c44; color: #fff; }
 .ss-vtn-growth-card > p { display: flex; align-items: center; gap: 10px; font-size: 11px; line-height: 1.5; }
 .ss-vtn-growth-card > p > svg { flex-shrink: 0; color: #a9e69d; }
 .ss-vtn-growth-card > strong { display: block; margin-top: 14px; font-size: 36px; font-weight: 800; line-height: 1.2; }
