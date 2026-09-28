@@ -192,8 +192,8 @@ html[data-theme="dark"] .ss-hero-quote { padding: 12px; border-radius: 15px; bac
 .ss-edudigi-lockup .edu-brand-wordmark { color: var(--ss-ink); font-size: 36px; }
 .ss-edudigi-lockup .edu-brand-wordmark > span { color: var(--ss-green); }
 .ss-edudigi-lockup .edu-brand-caption { color: var(--ss-muted); font-size: 7px; }
-.ss-qtra-lockup { display: inline-flex; align-items: center; border-radius: 12px; background: #fff; }
-.ss-qtra-lockup-logo { display: block; width: 184px; height: auto; border-radius: 12px; }
+.ss-qtra-lockup { display: inline-flex; align-items: center; }
+.ss-qtra-lockup-logo { display: block; width: 200px; height: auto; }
 .ss-edudigi-photo { position: relative; width: 100%; aspect-ratio: 4 / 3.2; }
 .ss-edudigi-photo-crop { position: absolute; inset: 0; overflow: hidden; border-radius: 28px; box-shadow: 0 22px 55px #082c1b20; }
 .ss-edudigi-photo-crop > img { position: absolute; top: 0; right: 0; width: 215%; max-width: none; height: 100%; object-fit: cover; }

@@ -126,7 +126,7 @@ function PanelQtra() {
       <div className="grid gap-10 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
         <div>
           <div className="ss-qtra-lockup">
-            <Image src="/images/saku/qtra-logo.webp" alt="QTRA — Quick Transfer" width={351} height={162} className="ss-qtra-lockup-logo" />
+            <Image src="/images/Logo%20QTRA.png" alt="QTRA — Quick Transfer" width={2155} height={730} className="ss-qtra-lockup-logo" />
           </div>
           <h3 className="ss-h3 mt-5 text-[var(--ss-ink)]">
             Transfer Lebih Cepat.
