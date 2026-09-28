@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SsReveal } from "./SsReveal";
 import { PwCampaignPoster } from "@/components/payway/pw-campaign-poster";
 import { VTN_POSTER } from "@/components/payway/pw-campaign-posters";
@@ -95,10 +96,10 @@ export function SsVtn() {
             </SsReveal>
             <SsReveal delay={320}>
               <div className="mt-8 flex flex-wrap gap-4">
-                <a href="#cara-vtn" className="ss-btn ss-btn-lime">
+                <Link href="/vtn" className="ss-btn ss-btn-lime">
                   Pelajari Tentang VTN
                   <IcArrowRight width={16} height={16} />
-                </a>
+                </Link>
                 <a href="#vtn-data" className="ss-btn ss-btn-outline-light">
                   Lihat Data & Insight
                 </a>
