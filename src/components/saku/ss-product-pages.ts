@@ -314,11 +314,11 @@ export const PRODUCT_PAGES: Record<ShowcaseTab, ProductPage> = {
       { title: "Komunitas aktif", detail: "Terhubung dengan peserta lain di berbagai daerah di Indonesia." },
     ],
     notes: [
-      "Biaya kelas EduDigi Rp200.000 per peserta; fasilitasnya termasuk voucher EduDigi senilai Rp250.000. Jadwal dan ketentuan terbaru mengikuti informasi resmi di aplikasi.",
+      "Biaya kelas EduDigi Rp250.000 per peserta; fasilitasnya termasuk voucher EduDigi senilai Rp250.000. Jadwal dan ketentuan terbaru mengikuti informasi resmi di aplikasi.",
       "Sertifikat diterbitkan setelah peserta menyelesaikan rangkaian modul kelas.",
     ],
     faq: [
-      { q: "Apakah EduDigi berbayar?", a: "Pendaftaran akun SAKU SULTAN gratis. Biaya mengikuti kelas EduDigi Rp200.000 per peserta, dengan fasilitas voucher EduDigi senilai Rp250.000, modul, dan sertifikat." },
+      { q: "Apakah EduDigi berbayar?", a: "Pendaftaran akun SAKU SULTAN gratis. Biaya mengikuti kelas EduDigi Rp250.000 per peserta, dengan fasilitas voucher EduDigi senilai Rp250.000, modul, dan sertifikat." },
       { q: "Siapa yang dapat mengikuti?", a: "Terbuka untuk mitra SAKU SULTAN maupun masyarakat umum yang ingin meningkatkan keterampilan digital." },
       { q: "Apakah peserta mendapat sertifikat?", a: "Ya. Sertifikat diberikan setelah peserta menyelesaikan rangkaian modul pembelajaran." },
     ],

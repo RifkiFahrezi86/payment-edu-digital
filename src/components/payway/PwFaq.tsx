@@ -54,7 +54,7 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     category: "Tentang Saku Sultan",
     q: "Apa itu kelas EduDigi dan berapa biayanya?",
-    a: "EduDigi adalah program edukasi digital dari LKP EduDigi Internasional yang bekerja sama dengan SAKU SULTAN. Biaya kelas Rp200.000 per peserta, dengan fasilitas voucher EduDigi senilai Rp250.000, modul pembelajaran, dan sertifikat. Pendaftaran akun SAKU SULTAN tetap gratis.",
+    a: "EduDigi adalah program edukasi digital dari LKP EduDigi Internasional yang bekerja sama dengan SAKU SULTAN. Biaya kelas Rp250.000 per peserta, dengan fasilitas voucher EduDigi senilai Rp250.000, modul pembelajaran, dan sertifikat. Pendaftaran akun SAKU SULTAN tetap gratis.",
   },
   {
     category: "Tentang Saku Sultan",

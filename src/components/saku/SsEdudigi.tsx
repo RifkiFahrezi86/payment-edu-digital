@@ -77,7 +77,7 @@ export function SsEdudigi() {
               <div className="ss-edudigi-price mt-7 flex flex-wrap items-end gap-3">
                 <span className="text-[13px] font-bold text-[var(--ss-muted)]">Mulai dari</span>
                 <span className="text-[clamp(2rem,4vw,3rem)] font-extrabold leading-none tracking-tight text-[var(--ss-ink)]">
-                  Rp200.000
+                  Rp250.000
                 </span>
                 <span className="mb-1 text-[13px] font-bold text-[var(--ss-muted)]">per peserta</span>
               </div>
