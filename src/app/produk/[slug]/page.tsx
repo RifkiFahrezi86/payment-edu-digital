@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PwHeroNavigation } from "@/components/payway/PwHeroNavigation";
+import { PwEduDigiCards } from "@/components/payway/PwEduDigiCards";
 import { PwCtaFooter } from "@/components/payway/PwCtaFooter";
 import { SsReveal } from "@/components/saku/SsReveal";
 import { IcArrowRight, IcArrowUpRight, IcCheckCircle, IcChevronRight } from "@/components/saku/ss-icons";
@@ -98,6 +99,18 @@ export default async function ProductPage({ params }: Params) {
               <p key={paragraph.slice(0, 40)}>{paragraph}</p>
             ))}
           </SsReveal>
+
+          {slug === "edudigi" && (
+            <SsReveal delay={60} className="ss-product-cards-section my-10">
+              <h2 className="ss-h2 mb-4">Kartu EduDigi & Startup Member</h2>
+              <p className="mb-6 max-w-[560px] text-[14.5px] leading-relaxed text-[var(--ss-muted)]">
+                Setiap peserta program EduDigi mendapatkan kartu keanggotaan resmi yang terintegrasi langsung dalam ekosistem digital SAKU SULTAN dan Sultan Promosindo.
+              </p>
+              <div className="flex justify-center rounded-3xl border border-[var(--ss-line)] bg-[var(--ss-mist)] p-6 sm:p-10">
+                <PwEduDigiCards />
+              </div>
+            </SsReveal>
+          )}
 
           <SsReveal delay={80} className="ss-product-steps">
             <h2 className="ss-h2">Cara Kerjanya</h2>
