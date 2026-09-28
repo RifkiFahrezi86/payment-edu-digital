@@ -395,20 +395,17 @@ html[data-theme="dark"] .ss-qtra-brand > strong { color: #dceaff; }
 
 /* Compact ecosystem story and three benefits, following the reference rhythm. */
 .ss-reference-ecosystem { position: relative; overflow: hidden; background: radial-gradient(ellipse at 12% 80%, #125638, transparent 55%), #05271b; }
-.ss-ecosystem-layout { display: grid; grid-template-columns: 170px minmax(230px, 0.8fr) minmax(0, 1.3fr); align-items: center; gap: 30px; max-width: 1320px; margin: auto; padding: 40px 32px; }
-.ss-ecosystem-brand-phone { position: relative; display: flex; width: 162px; height: 305px; align-items: center; flex-direction: column; justify-content: center; gap: 14px; transform: rotate(-8deg); border: 5px solid #06110c; border-radius: 28px; outline: 1px solid #77937e80; background: radial-gradient(ellipse at 60% 60%, #125834, #041e14 80%); box-shadow: 5px 8px 0 #010c08, 18px 22px 35px #00180d77; text-align: center; }
-.ss-ecosystem-brand-phone > img { width: 65px; height: 65px; object-fit: contain; }
-.ss-ecosystem-brand-phone > strong { color: #fff; font-size: 15px; font-weight: 800; }
-.ss-ecosystem-brand-phone > small { color: #d7e6da; font-size: 10px; line-height: 1.45; }
-.ss-ecosystem-notch { position: absolute; top: 6px; left: calc(50% - 27px); width: 54px; height: 12px; border-radius: 12px; background: #010805; }
-.ss-ecosystem-copy .ss-eyebrow { color: #c5fc8c; font-size: 10px; letter-spacing: 0.16em; }
+.ss-ecosystem-layout { display: grid; grid-template-columns: 240px minmax(230px, 0.8fr) minmax(0, 1.3fr); align-items: center; gap: 30px; max-width: 1320px; margin: auto; padding: 40px 32px; }
+.ss-ecosystem-hand { width: 100%; max-width: 230px; height: auto; object-fit: contain; filter: drop-shadow(12px 16px 30px rgba(0,24,13,.45)); }
+.ss-ecosystem-copy .ss-eyebrow { color: #bdfd6e; font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 2px; }
 .ss-ecosystem-copy > h2 { margin-top: 12px; color: #fff; font-size: clamp(26px, 2.3vw, 35px); font-weight: 800; line-height: 1.16; letter-spacing: -0.03em; }
 .ss-ecosystem-copy > p:not(.ss-eyebrow) { max-width: 380px; margin-top: 13px; color: #e0eae2; font-size: 13px; line-height: 1.65; }
 .ss-ecosystem-copy .ss-btn { margin-top: 20px; padding-inline: 24px; font-size: 13px; }
 .ss-ecosystem-hashtag { margin-bottom: 16px; color: var(--ss-lime); font-size: 30px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; text-align: right; text-transform: uppercase; }
 .ss-ecosystem-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
 .ss-ecosystem-value { height: 100%; min-height: 205px; padding: 23px 19px; border: 1px solid #76b26e4d; border-radius: 15px; background: #00180d36; }
-.ss-ecosystem-value > svg { color: #b7f34a; }
+.ss-ecosystem-icon { width: 52px; height: 52px; object-fit: contain; }
+.ss-ecosystem-value:first-child .ss-ecosystem-icon { width: 62px; height: 62px; }
 .ss-ecosystem-value > h3 { margin-top: 18px; color: #fff; font-size: 16px; font-weight: 700; line-height: 1.45; }
 .ss-ecosystem-value > p { margin-top: 8px; color: #d6e6da; font-size: 11px; line-height: 1.65; }
 
@@ -530,8 +527,8 @@ html[data-theme="dark"] .ss-partner-support-strip li { margin-right: 14px; paddi
   .ss-device-preview { width: min(100%, 470px); }
   .ss-reference-feature-layout { grid-template-columns: minmax(220px, 0.8fr) minmax(0, 2fr); gap: 28px; }
   .ss-reference-feature-card { padding: 20px 14px; }
-  .ss-ecosystem-layout { grid-template-columns: 150px minmax(220px, 0.9fr) minmax(0, 1.2fr); gap: 24px; }
-  .ss-ecosystem-brand-phone { width: 145px; height: 280px; }
+  .ss-ecosystem-layout { grid-template-columns: 180px minmax(220px, 0.9fr) minmax(0, 1.2fr); gap: 24px; }
+  .ss-ecosystem-hand { width: 170px; }
   .ss-ecosystem-value { padding: 20px 14px; }
   .ss-footer-grid { gap: 18px; grid-template-columns: 1.45fr repeat(4, minmax(0, 0.8fr)) 1.15fr; }
 }
@@ -574,7 +571,7 @@ html[data-theme="dark"] .ss-partner-support-strip li { margin-right: 14px; paddi
   .ss-reference-feature-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .ss-ecosystem-layout { grid-template-columns: 170px minmax(0, 1fr); gap: 30px; }
   .ss-ecosystem-values-wrap { grid-column: 1 / -1; }
-  .ss-ecosystem-brand-phone { margin-left: 8px; }
+  .ss-ecosystem-hand { width: 160px; margin-left: 8px; }
   .ss-ecosystem-values { gap: 16px; }
   .ss-ecosystem-value { min-height: 180px; }
   .ss-partners-heading { grid-template-columns: minmax(0, 1fr); gap: 25px; }
@@ -622,7 +619,7 @@ html[data-theme="dark"] .ss-partner-support-strip li { margin-right: 14px; paddi
   .ss-ecosystem-device { display: none; }
   .ss-ecosystem-values { gap: 8px; }
   .ss-ecosystem-value { min-height: 142px; padding: 17px 11px; }
-  .ss-ecosystem-value > svg { width: 30px; height: 30px; }
+  .ss-ecosystem-icon { width: 30px; height: 30px; }
   .ss-ecosystem-value > h3 { font-size: 12px; line-height: 1.5; margin-top: 12px; }
   .ss-ecosystem-value > p { display: none; }
   .ss-ecosystem-hashtag { font-size: 24px; }
