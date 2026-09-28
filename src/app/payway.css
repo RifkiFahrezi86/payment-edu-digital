@@ -314,44 +314,6 @@ html {
   opacity: 1;
 }
 
-.saku-phone-theme-controls {
-  display: flex;
-  width: fit-content;
-  gap: 4px;
-  margin: 16px auto 0;
-  padding: 4px;
-  border: 1px solid #ffffff38;
-  border-radius: 999px;
-  background: #082a20e6;
-  box-shadow: 0 5px 18px #001a1833;
-}
-
-.saku-phone-theme-controls > button {
-  min-width: 62px;
-  min-height: 40px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 180ms, color 180ms;
-}
-
-.saku-phone-theme-controls > button:hover {
-  background: #ffffff1a;
-}
-
-.saku-phone-theme-controls > button[aria-pressed="true"] {
-  background: var(--saku-lime);
-  color: #042718;
-}
-
-.saku-phone-theme-controls > button:focus-visible {
-  outline: 2px solid #d9f36a;
-  outline-offset: 2px;
-}
-
 .saku-hero-phone-frame {
   position: relative;
   width: 100%;
@@ -817,8 +779,7 @@ html {
     animation: none;
   }
 
-  .saku-phone-theme-image,
-  .saku-phone-theme-controls > button {
+  .saku-phone-theme-image {
     transition: none;
   }
 

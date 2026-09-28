@@ -67,12 +67,12 @@ function PanelEdudigi() {
     <div>
       <div className="ss-edudigi-showcase grid gap-10 p-7 sm:p-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center">
         <div>
-          <div className="ss-edudigi-lockup"><PwEduDigiBrand id="ss-showcase-brand" /></div>
+          <div className="ss-edudigi-lockup"><PwEduDigiBrand /></div>
           <h3 className="ss-h3 mt-6 text-[var(--ss-ink)]">
             Belajar Digital<br /><span className="text-[var(--ss-green)]">Lebih Aman dan Produktif.</span>
           </h3>
           <p className="mt-4 max-w-[440px] text-[14.5px] leading-relaxed text-[var(--ss-muted)]">
-            EduDigi adalah program edukasi digital SAKU SULTAN, yang dirancang untuk membantu kamu memahami teknologi, mengelola keuangan digital, dan memanfaatkan peluang di era digital.
+            EduDigi adalah program edukasi digital yang diselenggarakan oleh LKP EduDigi Internasional yang bekerja sama dengan SAKU SULTAN, dirancang untuk membantu pengguna dalam memahami teknologi, mengelola keuangan digital dan memanfaatkan peluang di era digital.
           </p>
           <div className="mt-7 flex flex-wrap gap-3.5">
             <Link href="/produk/edudigi" className="ss-btn ss-btn-lime !py-3">
@@ -125,9 +125,9 @@ function PanelQtra() {
     <div>
       <div className="grid gap-10 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full bg-[var(--ss-mint)] px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.18em] text-[var(--ss-green-deep)]">
-            <IcScan width={14} height={14} /> QTRA — Quick Transfer
-          </span>
+          <div className="ss-qtra-lockup">
+            <Image src="/images/saku/qtra-logo.webp" alt="QTRA — Quick Transfer" width={351} height={162} className="ss-qtra-lockup-logo" />
+          </div>
           <h3 className="ss-h3 mt-5 text-[var(--ss-ink)]">
             Transfer Lebih Cepat.
             <br />

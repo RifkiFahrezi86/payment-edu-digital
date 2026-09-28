@@ -44,10 +44,10 @@ export function PwCtaFooter() {
       <div className="relative z-10 w-full pt-[60px] md:pt-[100px] lg:pt-[130px]">
         <PwReveal className="content-container mx-auto px-6 lg:px-12 flex flex-col items-center">
           <a
-            href="mailto:cs@sakusultan.id"
+            href="mailto:minsu@sakusultan.com"
             className="font-semibold text-white text-[24px] sm:text-[40px] md:text-[52px] lg:text-[68px] leading-[1.2] lg:leading-[80px] tracking-[-0.6px] sm:tracking-[-1px] lg:tracking-[-2.2px] hover:scale-105 transition-transform duration-300"
           >
-            cs@sakusultan.id
+            minsu@sakusultan.com
           </a>
           <div className="grid grid-cols-1 md:grid-cols-3 items-center w-full gap-6 md:gap-4 border-t border-white/20 mt-12 md:mt-20 lg:mt-24 pt-8 md:pt-10">
             <p className="text-sm md:text-lg text-white/90 text-center md:text-left order-2 md:order-1">

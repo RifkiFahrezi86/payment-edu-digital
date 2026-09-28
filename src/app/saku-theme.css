@@ -1,4 +1,4 @@
-/* Light follows the landscape reference. Auto always uses this website palette. */
+/* Light follows the landscape reference; Dark uses the alternate website palette. */
 :root {
   color-scheme: light;
   --saku-theme-surface: #fff;
@@ -15,7 +15,7 @@
   text-shadow: 0 1px 5px #042718cc;
 }
 
-/* Only the root attribute controls the website; the phone has its own theme. */
+/* The root attribute controls both the website palette and the phone preview. */
 html[data-theme="dark"] {
   color-scheme: dark;
   --pw-surface: #0b0f0e;

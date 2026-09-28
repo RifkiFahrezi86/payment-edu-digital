@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { PwThemeToggle } from "./PwThemeToggle";
 
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.saku_sultan";
@@ -222,13 +223,13 @@ export function PwHeroNavigation() {
             aria-label="Saku Sultan, kembali ke beranda"
           >
             <Image
-              src="/images/saku-sultan-app-icon.webp"
+              src="/images/saku-sultan-mark.webp"
               alt=""
               width={36}
               height={36}
               priority
               quality={100}
-              className="h-9 w-9 shrink-0 rounded-[9px]"
+              className="h-9 w-9 shrink-0 object-contain"
             />
             <span className="whitespace-nowrap text-[15px] font-bold tracking-[0.015em] text-white sm:text-base">
               SAKU SULTAN
@@ -257,38 +258,41 @@ export function PwHeroNavigation() {
           </div>
         </div>
 
-        <div className="hidden items-center gap-5 xl:flex">
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="saku-glass-action saku-nav-register group flex h-12 items-center gap-4 rounded-xl border py-1.5 pl-5 pr-1.5 text-sm font-semibold backdrop-blur-sm transition-[transform,background-color] duration-200 hover:-translate-y-0.5"
-          >
-            Daftar Sekarang
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#073B24] text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-                <path d="M7 17 17 7" />
-                <path d="M7 7h10v10" />
-              </svg>
-            </span>
-          </a>
-        </div>
+        <div className="flex items-center gap-3">
+          <PwThemeToggle />
+          <div className="hidden items-center gap-5 xl:flex">
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="saku-glass-action saku-nav-register group flex h-12 items-center gap-4 rounded-xl border py-1.5 pl-5 pr-1.5 text-sm font-semibold backdrop-blur-sm transition-[transform,background-color] duration-200 hover:-translate-y-0.5"
+            >
+              Daftar Sekarang
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#073B24] text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                  <path d="M7 17 17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </span>
+            </a>
+          </div>
 
-        <button
-          ref={menuButtonRef}
-          type="button"
-          aria-expanded={isOpen}
-          aria-controls="hero-mobile-menu"
-          onClick={() => setIsOpen((current) => !current)}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-[#062B1B] text-white shadow-[0_10px_22px_rgba(4,39,24,0.14)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/30 xl:hidden"
-        >
-          <span className="sr-only">{isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}</span>
-          <span aria-hidden="true" className="relative block h-4 w-5">
-            <span className={`absolute left-0 top-0.5 h-0.5 w-5 rounded-full bg-current transition-transform duration-200 ${isOpen ? "translate-y-[6px] rotate-45" : ""}`} />
-            <span className={`absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-current transition-opacity duration-200 ${isOpen ? "opacity-0" : "opacity-100"}`} />
-            <span className={`absolute bottom-0.5 left-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-200 ${isOpen ? "-translate-y-[6px] -rotate-45" : ""}`} />
-          </span>
-        </button>
+          <button
+            ref={menuButtonRef}
+            type="button"
+            aria-expanded={isOpen}
+            aria-controls="hero-mobile-menu"
+            onClick={() => setIsOpen((current) => !current)}
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#062B1B] text-white shadow-[0_10px_22px_rgba(4,39,24,0.14)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#168344]/30 xl:hidden"
+          >
+            <span className="sr-only">{isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}</span>
+            <span aria-hidden="true" className="relative block h-4 w-5">
+              <span className={`absolute left-0 top-0.5 h-0.5 w-5 rounded-full bg-current transition-transform duration-200 ${isOpen ? "translate-y-[6px] rotate-45" : ""}`} />
+              <span className={`absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-current transition-opacity duration-200 ${isOpen ? "opacity-0" : "opacity-100"}`} />
+              <span className={`absolute bottom-0.5 left-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-200 ${isOpen ? "-translate-y-[6px] -rotate-45" : ""}`} />
+            </span>
+          </button>
+        </div>
 
         {isOpen ? (
           <div

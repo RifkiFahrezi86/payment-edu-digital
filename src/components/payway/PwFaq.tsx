@@ -27,15 +27,34 @@ import { SsBgVideo } from "@/components/saku/SsBgVideo";
 type FaqItem = { category: string; q: string; a: string };
 
 /**
- * Konten diambil verbatim dari halaman Pusat Bantuan sakusultan.id
- * (https://sakusultan.id/saku-sultan/pusat-bantuan/), dikelompokkan
- * persis sesuai 4 kategori aslinya.
+ * Pertanyaan umum dari Pusat Bantuan sakusultan.id, dilengkapi profil dan
+ * klarifikasi biaya dari dokumen "Apa itu SAKU SULTAN?" milik customer.
  */
 const FAQ_ITEMS: FaqItem[] = [
   {
     category: "Tentang Saku Sultan",
     q: "Apa itu Saku Sultan ?",
-    a: "adalah Brand dari PT. Ide Kreatif Asia yang merupakan Saku digital Indonesia yang didesain untuk menjadikan setiap transaksi non-tunai dan non-kartu secara digital, baik online maupun offline dapat berjalan dengan cepat, praktis dan tetap terjamin keamanannya, serta akan bertransformasi menjadi Aset Digital Masa Depan.\n\nDengan Saku Sultan, masyarakat bisa menjadi lebih produktif, efisien, dan kompeten. Saku Sultan juga dapat dioptimalkan untuk mendukung komitmen pemerintah menghemat biaya produksi dan distribusi uang fisik, serta meningkatkan literasi dan inklusi keuangan masyarakat Indonesia.",
+    a: "SAKU SULTAN adalah merek dan platform aplikasi digital milik PT IDE KREATIF ASIA. Aplikasi ini menyediakan antarmuka untuk mengakses berbagai layanan transaksi dan pembayaran. Pelaksanaan layanan sistem pembayaran dilakukan melalui integrasi dan kerja sama dengan Penyedia Jasa Pembayaran (PJP) mitra sesuai ketentuan Bank Indonesia; SAKU SULTAN bukan perusahaan PJP.",
+  },
+  {
+    category: "Tentang Saku Sultan",
+    q: "Bagaimana legalitas SAKU SULTAN?",
+    a: "SAKU SULTAN adalah platform milik PT IDE KREATIF ASIA dengan NIB 022000215226 dan Tanda Daftar PSE Domestik Nomor PB-UMKU 022000215226600000003 untuk KBLI 63122. Layanan pembayaran dijalankan melalui kerja sama dengan PJP mitra sesuai lingkup izin dan kesiapan integrasinya. Mitra yang disebutkan meliputi sistem BRICK dari PT Eastern Transglobal Remittance untuk penerimaan dan pengiriman dana, serta Gudang Voucher dari PT Buana Media Teknologi untuk layanan berbasis kode QR dan pengiriman non-bank.",
+  },
+  {
+    category: "Tentang Saku Sultan",
+    q: "Apakah pendaftaran SAKU SULTAN berbayar?",
+    a: "Daftar SAKU SULTAN GRATIS \u2014 tanpa biaya pendaftaran.\n\nCaranya mudah:\n\nDOWNLOAD \u2192 DAFTAR \u2192 TOP UP \u2192 TRANSAKSI\n\nSetelah saldo terisi, gunakan SAKU SULTAN untuk bertransaksi melalui berbagai menu layanan yang tersedia.\n\nMulai dari kebutuhan transaksi harian hingga berbagai pembayaran dalam satu aplikasi.\n\nDownload. Daftar Gratis. Isi Saldo. Mulai Transaksi.\n\nSAKU SULTAN\nSaku Digital untuk Indonesia",
+  },
+  {
+    category: "Tentang Saku Sultan",
+    q: "Apa saja layanan yang tersedia di SAKU SULTAN?",
+    a: "Layanan yang diperkenalkan meliputi PPOB untuk pembayaran tagihan dan pembelian produk digital; transfer melalui bank dan BI-FAST; QRIS untuk pembayaran dengan kode QR, termasuk pembayaran jarak jauh menggunakan gambar QRIS; QTRA untuk transfer yang lebih praktis; EduDigi untuk pembelajaran digital bersama LKP EduDigi Internasional; serta program afiliasi bersama Sultan Promosindo. Ketersediaan masing-masing layanan mengikuti ketentuan mitra dan informasi terbaru dalam aplikasi.",
+  },
+  {
+    category: "Tentang Saku Sultan",
+    q: "Apa itu kelas EduDigi dan berapa biayanya?",
+    a: "EduDigi adalah program edukasi digital dari LKP EduDigi Internasional yang bekerja sama dengan SAKU SULTAN. Biaya kelas Rp200.000 per peserta, dengan fasilitas voucher EduDigi senilai Rp250.000, modul pembelajaran, dan sertifikat. Pendaftaran akun SAKU SULTAN tetap gratis.",
   },
   {
     category: "Tentang Saku Sultan",
@@ -361,17 +380,16 @@ export function PwFaq() {
             </div>
           </div>
 
-          {/* Kolom kiri — foto support + CTA (order-2 di mobile) */}
+          {/* Kolom kiri — foto peserta belajar + CTA (order-2 di mobile) */}
           <div className="order-2 lg:order-1 w-full min-w-0 flex flex-col gap-12 items-start mt-8 lg:mt-0">
             <PwReveal className="w-full h-[300px] sm:h-[400px] lg:h-[480px] rounded-[24px] overflow-hidden shadow-xl relative">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                alt="Smart male customer support representative"
-                referrerPolicy="no-referrer"
+                alt="Empat peserta belajar dan berdiskusi bersama menggunakan laptop"
                 loading="lazy"
                 decoding="async"
                 className="object-cover grayscale-[0.05] hover:grayscale-0 transition-all duration-700 hover:scale-105 absolute inset-0 h-full w-full text-transparent"
-                src="/images/payway/unsplash-photo-1543269865-cbf427effbad.jpg"
+                src="/images/saku/faq-team.webp"
               />
             </PwReveal>
             <div className="flex flex-col items-start gap-[48px]">
@@ -383,7 +401,7 @@ export function PwFaq() {
                 <p className="font-sans text-lg text-[#042718] opacity-70 leading-normal">Tim support kami siap membantu Anda 24/7. <br className="hidden sm:block" /> Hubungi kami via WhatsApp.</p>
               </div>
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6282396309889"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-[32px] bg-[#042718] hover:bg-[#063a24] text-white pl-8 pr-4 py-4 rounded-full transition-all duration-300 shadow-lg"

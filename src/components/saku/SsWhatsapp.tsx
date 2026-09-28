@@ -4,7 +4,7 @@ import { IcWhatsapp } from "./ss-icons";
 export function SsWhatsapp() {
   return (
     <a
-      href="https://wa.me/6281100000000?text=Halo%20Saku%20Sultan%2C%20saya%20butuh%20bantuan"
+      href="https://wa.me/6282396309889?text=Halo%20Saku%20Sultan%2C%20saya%20butuh%20bantuan"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Hubungi kami via WhatsApp"

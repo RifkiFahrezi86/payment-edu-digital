@@ -2,6 +2,7 @@ import { SsReveal } from "./SsReveal";
 import { PwCampaignPoster } from "@/components/payway/pw-campaign-poster";
 import { VTN_POSTER } from "@/components/payway/pw-campaign-posters";
 import { SsVtnMap } from "./SsVtnMap";
+import { SsVtnMobile } from "./SsVtnMobile";
 import {
   IcArrowRight,
   IcChart,
@@ -59,12 +60,13 @@ const HOW = [
   },
 ];
 
-/** VTN — Volume Transaksi Nasional (section gelap + cara kerja). */
+/** VTN — Volume Transaksi Nasional (section gelap + cara kerja; layar HP memakai SsVtnMobile). */
 export function SsVtn() {
   return (
-    <section id="sistem-vtn" className="ss-grid-glow relative scroll-mt-24 overflow-hidden bg-[#04130c]">
+    <section id="sistem-vtn" className="ss-vtn-section ss-grid-glow relative scroll-mt-24 overflow-hidden bg-[#04130c]">
       <span id="vtn" className="ss-anchor" aria-hidden="true" />
-      <div className="mx-auto w-full max-w-[1320px] px-5 pb-16 pt-20 md:px-8 lg:pb-20 lg:pt-24">
+      <SsVtnMobile />
+      <div className="mx-auto w-full max-w-[1320px] px-5 pb-16 pt-20 max-sm:hidden md:px-8 lg:pb-20 lg:pt-24">
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Kiri */}
           <div>

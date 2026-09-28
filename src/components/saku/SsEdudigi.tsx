@@ -23,7 +23,7 @@ const MINI_FEATURES = [
 ];
 
 const FACILITIES = [
-  { icon: IcSparkle, title: "Voucher EduDigi", desc: "Senilai Rp200.000 untuk pembelajaran." },
+  { icon: IcSparkle, title: "Voucher EduDigi", desc: "Senilai Rp250.000 untuk pembelajaran." },
   { icon: IcBook, title: "Modul Pembelajaran", desc: "Materi lengkap dan mudah dipahami." },
   { icon: IcGraduation, title: "Sertifikat EduDigi", desc: "Sebagai bukti keikutsertaan program." },
   { icon: IcUsers, title: "Support Master", desc: "Bimbingan dan komunitas dari ekosistem SAKU SULTAN." },
@@ -39,7 +39,7 @@ const LEGAL_STEPS = [
 function EdudigiLockup() {
   return (
     <div className="ss-edudigi-lockup flex flex-wrap items-center gap-4">
-      <PwEduDigiBrand id="ss-program-brand" />
+      <PwEduDigiBrand />
       <span className="hidden h-8 w-px bg-[var(--ss-line)] sm:block" />
       <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[var(--ss-green)]">
         Belajar • Praktik • Produktif

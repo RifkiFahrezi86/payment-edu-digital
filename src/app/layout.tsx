@@ -49,7 +49,6 @@ export default function PaywayRootLayout({
     <html
       lang="id"
       data-theme="light"
-      data-display-mode="auto"
       suppressHydrationWarning
       className={`${plusJakartaSans.variable} ${instrumentSerif.variable} ${caveat.variable}`}
     >

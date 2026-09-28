@@ -14,7 +14,7 @@ const BENEFITS = [
 ];
 const STEPS = [
   { title: "Download Aplikasi", desc: "Unduh Saku Sultan gratis di Google Play atau App Store.", icon: IcDownload },
-  { title: "Daftar Akun", desc: "Daftar menggunakan nomor ponsel dan lengkapi profil Anda di aplikasi.", icon: IcUsers },
+  { title: "Daftar Akun", desc: "Registrasi gratis menggunakan nomor ponsel dan lengkapi profil Anda di aplikasi.", icon: IcUsers },
   { title: "Mulai Transaksi", desc: "Pilih layanan favorit dan lakukan transaksi pertama Anda.", icon: IcSend },
 ];
 
@@ -23,7 +23,7 @@ function StepPreview({ step }: { step: number }) {
     <div className="ss-register-download">
       <div>
         <div className="ss-register-app-brand">
-          <Image src="/images/saku-sultan-app-icon.webp" alt="" width={48} height={48} />
+          <Image src="/images/saku-sultan-mark.webp" alt="" width={48} height={48} />
           <span><strong>Saku Sultan</strong><small>Dompet Digital untuk Semua</small><span className="ss-register-rating"><IcStar width={13} height={13} />4.8 · Rating Play Store</span></span>
         </div>
         <div className="ss-register-stores">

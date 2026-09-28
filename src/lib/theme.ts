@@ -1,19 +1,17 @@
-export type DisplayMode = "light" | "dark" | "auto";
 export type WebsiteTheme = "light" | "dark";
 
 export const THEME_STORAGE_KEY = "saku-sultan-display-mode";
 
-export function isDisplayMode(value: string | null): value is DisplayMode {
-  return value === "light" || value === "dark" || value === "auto";
+export function isWebsiteTheme(value: string | null): value is WebsiteTheme {
+  return value === "light" || value === "dark";
 }
 
-// Apply the saved website theme before paint. Auto always means a light website.
+// Apply the saved website theme before paint. Old "auto" preferences fall back to light.
 export const THEME_INIT_SCRIPT = `(() => {
-  let mode = "auto";
+  let mode = "light";
   try {
     const saved = localStorage.getItem(${JSON.stringify(THEME_STORAGE_KEY)});
-    if (saved === "light" || saved === "dark" || saved === "auto") mode = saved;
+    if (saved === "dark") mode = "dark";
   } catch {}
-  document.documentElement.dataset.theme = mode === "dark" ? "dark" : "light";
-  document.documentElement.dataset.displayMode = mode;
+  document.documentElement.dataset.theme = mode;
 })();`;

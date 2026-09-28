@@ -15,7 +15,7 @@ export function SsEcosystem() {
         <SsReveal className="ss-ecosystem-device">
           <div className="ss-ecosystem-brand-phone" aria-hidden="true">
             <span className="ss-ecosystem-notch" />
-            <Image src="/images/saku-sultan-app-icon.webp" alt="" width={74} height={74} loading="lazy" />
+            <Image src="/images/saku-sultan-mark.webp" alt="" width={74} height={74} loading="lazy" />
             <strong>SAKU SULTAN</strong>
             <small>Transaksi Untuk<br />Masa Depan Lebih Baik</small>
           </div>
@@ -23,7 +23,7 @@ export function SsEcosystem() {
         <SsReveal className="ss-ecosystem-copy" delay={100}>
           <p className="ss-eyebrow">Lebih dari transaksi</p>
           <h2>Ekosistem yang<br />Memberikan Peluang</h2>
-          <p>Bergabunglah dan rasakan lebih dari kemudahan transaksi. Bangun keterampilan dan temukan berbagai peluang melalui ekosistem SAKU SULTAN.</p>
+          <p>SAKU SULTAN adalah platform digital PT IDE KREATIF ASIA yang menghubungkan pengguna dengan layanan transaksi dan pembayaran melalui mitra penyedia jasa pembayaran berizin. Bangun keterampilan dan temukan peluang melalui ekosistemnya.</p>
           <a href="#registrasi" className="ss-btn ss-btn-lime">Mulai Sekarang <IcArrowUpRight width={17} height={17} /></a>
         </SsReveal>
         <div className="ss-ecosystem-values-wrap">
