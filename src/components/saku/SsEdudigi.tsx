@@ -11,13 +11,13 @@ import {
   IcArrowRight,
   IcBook,
   IcChart,
+  IcCheckCircle,
   IcFileText,
   IcGraduation,
   IcSparkle,
   IcUsers,
   IcZap,
 } from "./ss-icons";
-
 const MINI_FEATURES = [
   { icon: IcUsers, label: "Kelas dibuka per 50 peserta" },
   { icon: IcBook, label: "Akses materi fleksibel" },
@@ -25,19 +25,42 @@ const MINI_FEATURES = [
 ];
 
 const FACILITIES = [
-  { icon: IcSparkle, title: "Voucher EduDigi", desc: "Senilai Rp250.000 untuk pembelajaran." },
-  { icon: IcBook, title: "Modul Pembelajaran", desc: "Materi lengkap dan mudah dipahami." },
-  { icon: IcGraduation, title: "Sertifikat EduDigi", desc: "Sebagai bukti keikutsertaan program." },
-  { icon: IcUsers, title: "Support Master", desc: "Bimbingan dan komunitas dari ekosistem SAKU SULTAN." },
+  { icon: "/images/saku/icon-fasilitas-voucher.webp", title: "Voucher EduDigi", desc: "Senilai Rp250.000 untuk pembelajaran." },
+  { icon: "/images/saku/icon-fasilitas-modul.webp", title: "Modul Pembelajaran", desc: "Materi lengkap dan mudah dipahami." },
+  { icon: "/images/saku/icon-fasilitas-sertifikat.webp", title: "Sertifikat EduDigi", desc: "Sebagai bukti keikutsertaan program." },
+  { icon: "/images/saku/icon-fasilitas-support.webp", title: "Support Master", desc: "Bimbingan dan komunitas dari ekosistem SAKU SULTAN." },
 ];
 
 const LEGAL_STEPS = [
-  { num: "01", title: "Akta Pendirian", status: "Terbit", done: true },
-  { num: "02", title: "Administrasi & Identitas Kelembagaan", status: "Selesai", done: true },
-  { num: "03", title: "NIB & KBLI", status: "Terbit", done: true },
-  { num: "04", title: "Perizinan Operasional", status: "Dalam Proses", done: false },
+  {
+    num: "01",
+    title: "Akta Pendirian",
+    desc: "Yayasan EduDigi Notaris",
+    status: "Terbit",
+    done: true,
+  },
+  {
+    num: "02",
+    title: "Administrasi & Identitas Kelembagaan",
+    desc: "Data lembaga dan struktur organisasi",
+    status: "Selesai",
+    done: true,
+  },
+  {
+    num: "03",
+    title: "NIB & KBLI",
+    desc: "Registrasi usaha melalui sistem OSS",
+    status: "Terbit",
+    done: true,
+  },
+  {
+    num: "04",
+    title: "Perizinan Operasional",
+    desc: "Pendidikan/Kursus dan Pelatihan",
+    status: "Dalam Proses",
+    done: false,
+  },
 ];
-
 function EdudigiLockup() {
   return (
     <div className="ss-edudigi-lockup flex flex-wrap items-center gap-4">
@@ -130,11 +153,11 @@ export function SsEdudigi() {
           </div>
         </SsReveal>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {FACILITIES.map(({ icon: Icon, title, desc }, i) => (
+          {FACILITIES.map(({ icon, title, desc }, i) => (
             <SsReveal key={title} delay={i * 80}>
               <article className="h-full rounded-3xl border border-[var(--ss-line)] bg-[var(--ss-mist)] p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_20px_50px_rgba(8,23,15,.1)]">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--ss-pine)] text-[var(--ss-lime)]">
-                  <Icon width={20} height={20} />
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e6f4ea] p-2.5">
+                  <Image src={icon} alt="" width={32} height={32} className="h-full w-full object-contain" />
                 </span>
                 <h4 className="mt-4 text-[16px] font-extrabold text-[var(--ss-ink)]">{title}</h4>
                 <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--ss-muted)]">{desc}</p>
@@ -160,25 +183,42 @@ export function SsEdudigi() {
               <ol className="ss-legal-timeline">
                 {LEGAL_STEPS.map((s) => (
                   <li key={s.num}>
-                    <span
-                      className={
-                        "ss-legal-num " +
-                        (s.done
-                          ? "bg-[var(--ss-pine)] text-[var(--ss-lime)]"
-                          : "border-2 border-dashed border-[var(--ss-green)]/40 text-[var(--ss-green-deep)]")
-                      }
-                    >
-                      {s.num}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={
+                          "ss-legal-num " +
+                          (s.done
+                            ? "bg-[#e6f4ea] text-[var(--ss-green-deep)]"
+                            : "border border-dashed border-[var(--ss-green)]/40 bg-[#f4fcf6] text-[var(--ss-green-deep)]")
+                        }
+                      >
+                        {s.num}
+                      </span>
+                      {s.done ? (
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--ss-green)] text-white">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                        </span>
+                      ) : (
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-100 text-amber-600">
+                          <span className="text-[10px] leading-none font-bold">···</span>
+                        </span>
+                      )}
+                    </div>
                     <strong>{s.title}</strong>
+                    <p className="ss-legal-desc">{s.desc}</p>
                     <span
                       className={
-                        "ss-legal-status " +
+                        "ss-legal-status inline-flex items-center gap-1.5 " +
                         (s.done
                           ? "bg-[var(--ss-mint)] text-[var(--ss-green-deep)]"
                           : "bg-amber-100 text-amber-700")
                       }
                     >
+                      {s.done ? (
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                      ) : (
+                        <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+                      )}
                       {s.status}
                     </span>
                   </li>
@@ -187,17 +227,16 @@ export function SsEdudigi() {
             </SsReveal>
             <SsReveal delay={200}>
               <div className="mt-8 flex flex-wrap gap-4">
-                 <Link href="/legalitas-edudigi" className="ss-btn ss-btn-dark">
-                   Lihat Informasi Legalitas
-                   <IcFileText width={16} height={16} />
-                 </Link>
+                <Link href="/legalitas-edudigi" className="ss-btn ss-btn-dark">
+                  Lihat Informasi Legalitas
+                  <IcFileText width={16} height={16} />
+                </Link>
                 <a href="#edudigi" className="ss-btn ss-btn-outline-dark">
                   Tentang EduDigi
                 </a>
               </div>
             </SsReveal>
           </div>
-
           {/* Document illustration with the Saku Sultan logo. */}
           <SsReveal delay={180}>
             <SsReferenceArtwork kind="legal" />

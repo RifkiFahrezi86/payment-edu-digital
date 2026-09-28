@@ -205,9 +205,10 @@ html[data-theme="dark"] .ss-hero-quote { padding: 12px; border-radius: 15px; bac
 .ss-edudigi-photo > blockquote > small { display: block; margin-top: 10px; padding-top: 10px; border-top: 2px solid #88ba66; color: var(--ss-muted); font-family: var(--pw-font-sans); font-size: 10px; line-height: 1.6; }
 .ss-legal-timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 28px; padding: 0; list-style: none; }
 .ss-legal-timeline > li { position: relative; display: flex; min-width: 0; flex-direction: column; align-items: flex-start; }
-.ss-legal-timeline > li:not(:last-child)::after { position: absolute; top: 22px; left: 54px; right: -3px; height: 1px; background: #86b79277; content: ""; }
+.ss-legal-timeline > li:not(:last-child)::after { position: absolute; top: 22px; left: 74px; right: -8px; height: 1px; background: #86b79277; content: ""; }
 .ss-legal-num { display: grid; width: 44px; height: 44px; flex-shrink: 0; place-items: center; border-radius: 50%; font-size: 13px; font-weight: 800; }
-.ss-legal-timeline strong { display: block; margin-top: 14px; margin-bottom: 12px; color: var(--ss-ink); font-size: 12px; line-height: 1.5; }
+.ss-legal-timeline strong { display: block; margin-top: 14px; margin-bottom: 4px; color: var(--ss-ink); font-size: 12.5px; font-weight: 800; line-height: 1.35; }
+.ss-legal-desc { margin-bottom: 12px; color: var(--ss-muted); font-size: 11px; line-height: 1.45; }
 .ss-legal-status { margin-top: auto; padding: 5px 12px; border-radius: 99px; font-size: 9px; font-weight: 800; }
 .ss-edudigi-gallery .saku-gallery-thumbnails { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
