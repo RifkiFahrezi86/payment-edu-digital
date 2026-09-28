@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SsReveal } from "./SsReveal";
 import { PwPosterGallery } from "@/components/payway/PwPosterGallery";
 import { EDUDIGI_CLASS_POSTER, EDUDIGI_POSTERS } from "@/components/payway/pw-campaign-posters";
@@ -185,15 +186,10 @@ export function SsEdudigi() {
             </SsReveal>
             <SsReveal delay={200}>
               <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="/images/IMAGE/7.jpeg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ss-btn ss-btn-dark"
-                >
-                  Lihat Informasi Legalitas
-                  <IcFileText width={16} height={16} />
-                </a>
+                 <Link href="/legalitas-edudigi" className="ss-btn ss-btn-dark">
+                   Lihat Informasi Legalitas
+                   <IcFileText width={16} height={16} />
+                 </Link>
                 <a href="#edudigi" className="ss-btn ss-btn-outline-dark">
                   Tentang EduDigi
                 </a>

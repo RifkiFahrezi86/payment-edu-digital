@@ -142,9 +142,9 @@ function PanelQtra() {
               Coba QTRA
               <IcArrowRight width={16} height={16} />
             </a>
-            <a href="#proses" className="ss-btn ss-btn-outline-dark !py-3">
+            <Link href="/produk/qtra" className="ss-btn ss-btn-outline-dark !py-3">
               Pelajari QTRA
-            </a>
+            </Link>
           </div>
 
           <p className="mt-8 text-[12px] font-extrabold uppercase tracking-[0.18em] text-[var(--ss-muted)]">
@@ -225,9 +225,9 @@ function PanelPassolo() {
             Kirim Passolo
             <IcArrowRight width={16} height={16} />
           </a>
-          <a href="#proses" className="ss-btn ss-btn-outline-dark !py-3">
+          <Link href="/produk/passolo" className="ss-btn ss-btn-outline-dark !py-3">
             Pelajari Passolo
-          </a>
+          </Link>
         </div>
         <ul className="ss-showcase-benefits mt-8 grid gap-5 sm:grid-cols-3">
           <Feature icon={IcGift} title="Kirim Tanda Kasih" desc="Untuk berbagai momen penting dengan proses yang praktis." />
@@ -246,6 +246,7 @@ function PanelPassolo() {
 
 /* ---------- Panel generik (Transfer, PPOB, Merchant) ---------- */
 function PanelSimple({
+  slug,
   badge,
   badgeIcon: BadgeIcon,
   title,
@@ -257,6 +258,7 @@ function PanelSimple({
   art,
   artAlt,
 }: {
+  slug: ShowcaseTab;
   badge: string;
   badgeIcon: typeof IcSend;
   title: string;
@@ -281,11 +283,14 @@ function PanelSimple({
           <span className="text-[var(--ss-green)]">{titleAccent}</span>
         </h3>
         <p className="mt-4 max-w-[440px] text-[14.5px] leading-relaxed text-[var(--ss-muted)]">{desc}</p>
-        <div className="mt-7">
+        <div className="mt-7 flex flex-wrap gap-3.5">
           <a href="#registrasi" className="ss-btn ss-btn-lime !py-3">
             {cta}
             <IcArrowRight width={16} height={16} />
           </a>
+          <Link href={`/produk/${slug}`} className="ss-btn ss-btn-outline-dark !py-3">
+            Pelajari {badge.split(" — ")[0]}
+          </Link>
         </div>
         <ul className="ss-showcase-benefits mt-8 grid gap-5 sm:grid-cols-3">
           {features.map((f) => (
@@ -397,6 +402,7 @@ export function SsShowcase() {
             {active === "passolo" ? <PanelPassolo /> : null}
             {active === "qris" ? (
               <PanelSimple
+                slug="qris"
                 badge="QRIS — Bayar dengan Scan"
                 badgeIcon={IcQr}
                 title="Scan QRIS di Mana Saja,"
@@ -420,6 +426,7 @@ export function SsShowcase() {
             ) : null}
             {active === "transfer" ? (
               <PanelSimple
+                slug="transfer"
                 badge="Transfer — Semua Bank"
                 badgeIcon={IcSend}
                 title="Kirim Uang ke Mana Saja,"
@@ -443,6 +450,7 @@ export function SsShowcase() {
             ) : null}
             {active === "ppob" ? (
               <PanelSimple
+                slug="ppob"
                 badge="PPOB — Bayar & Beli"
                 badgeIcon={IcReceipt}
                 title="Semua Tagihan,"
@@ -466,6 +474,7 @@ export function SsShowcase() {
             ) : null}
             {active === "merchant" ? (
               <PanelSimple
+                slug="merchant"
                 badge="Merchant — Mitra Usaha"
                 badgeIcon={IcBuilding}
                 title="Kembangkan Usaha,"

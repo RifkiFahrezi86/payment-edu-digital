@@ -2,26 +2,15 @@
 
 import { SsReveal } from "./SsReveal";
 import { openShowcaseTab, type ShowcaseTab } from "./ss-showcase-bus";
-import {
-  IcGrid,
-  IcPhoneSignal,
-  IcQr,
-  IcReceipt,
-  IcScan,
-  IcSend,
-  IcWallet,
-  IcZap,
-} from "./ss-icons";
-
-const ITEMS: { label: string; icon: typeof IcSend; tab: ShowcaseTab }[] = [
-  { label: "Transfer", icon: IcSend, tab: "transfer" },
-  { label: "QRIS", icon: IcQr, tab: "qris" },
-  { label: "Q-Tra", icon: IcScan, tab: "qtra" },
-  { label: "Pulsa & Data", icon: IcPhoneSignal, tab: "ppob" },
-  { label: "Token PLN", icon: IcZap, tab: "ppob" },
-  { label: "PPOB", icon: IcReceipt, tab: "ppob" },
-  { label: "E-Wallet", icon: IcWallet, tab: "transfer" },
-  { label: "Lainnya", icon: IcGrid, tab: "merchant" },
+const ITEMS: { label: string; image: string; tab: ShowcaseTab }[] = [
+  { label: "Transfer", image: "transfer", tab: "transfer" },
+  { label: "QRIS", image: "qris", tab: "qris" },
+  { label: "Q-Tra", image: "qtra", tab: "qtra" },
+  { label: "Pulsa & Data", image: "pulsa", tab: "ppob" },
+  { label: "Token PLN", image: "pln", tab: "ppob" },
+  { label: "PPOB", image: "ppob", tab: "ppob" },
+  { label: "E-Wallet", image: "ewallet", tab: "transfer" },
+  { label: "Lainnya", image: "lainnya", tab: "merchant" },
 ];
 
 /** Strip putih "Semua Kebutuhan Digital dalam Satu Aplikasi". */
@@ -39,7 +28,7 @@ export function SsQuickBar() {
         </SsReveal>
         <SsReveal delay={120} className="flex-1">
           <ul className="grid grid-cols-4 gap-x-4 gap-y-6 sm:grid-cols-4 md:grid-cols-8">
-            {ITEMS.map(({ label, icon: Icon, tab }) => (
+            {ITEMS.map(({ label, image, tab }) => (
               <li key={label}>
                 <button
                   type="button"
@@ -47,8 +36,8 @@ export function SsQuickBar() {
                   onClick={() => openShowcaseTab(tab)}
                   className="group flex w-full cursor-pointer flex-col items-center gap-2.5 text-center"
                 >
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--ss-mint)] text-[var(--ss-green-deep)] transition-all duration-200 group-hover:-translate-y-1 group-hover:bg-[var(--ss-pine)] group-hover:text-[var(--ss-lime)]">
-                    <Icon width={22} height={22} />
+                  <span className="flex h-14 w-14 items-center justify-center transition-transform duration-200 group-hover:-translate-y-1">
+                    <img src={`/images/home-icon-${image}.png`} alt="" width={56} height={50} className="h-14 w-14 object-contain" />
                   </span>
                   <span className="text-[12px] font-bold text-[var(--ss-ink)]/80">{label}</span>
                 </button>
