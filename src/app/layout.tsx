@@ -35,11 +35,17 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://payment-edu-digital.vercel.app"),
   title: "Saku Sultan — Melangkah Lebih Awal, Bergerak Secara Digital",
   description:
     "Cuan di setiap transaksi bersama Saku Sultan. Jelajahi layanan digital, kelas EduDigi, dan ekosistem Volume Transaksi Nasional. #CUANPERDETIK",
   robots: { index: false, follow: false },
   icons: { icon: "/images/saku-sultan-app-icon.webp", apple: "/images/saku-sultan-app-icon.webp" },
+  openGraph: {
+    title: "Saku Sultan — Melangkah Lebih Awal, Bergerak Secara Digital",
+    description: "Cuan di setiap transaksi bersama Saku Sultan. Jelajahi layanan digital, kelas EduDigi, dan ekosistem Volume Transaksi Nasional. #CUANPERDETIK",
+    images: [{ url: "/images/saku-sultan-app-icon.png", width: 512, height: 512, alt: "Logo Saku Sultan" }],
+  },
 };
 
 export default function PaywayRootLayout({
