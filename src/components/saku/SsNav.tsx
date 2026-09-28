@@ -92,7 +92,7 @@ export function SsNav() {
       <nav className="ss-nav" aria-label="Navigasi utama">
         <Link href={resolveHref("#beranda")} onClick={closeMenus} className="ss-nav-brand" aria-label="Saku Sultan, kembali ke beranda">
           <Image src="/images/saku-sultan-mark.webp" alt="" width={48} height={48} priority />
-           <span><strong>SAKU SULTAN</strong><small>Dompet Digital, Sumber Cuan</small></span>
+          <span><strong>SAKU SULTAN</strong><small>Saku Digital untuk Indonesia</small></span>
         </Link>
 
         <ul className="ss-nav-desktop">
