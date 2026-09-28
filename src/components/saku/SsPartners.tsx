@@ -62,7 +62,7 @@ export function SsPartners() {
 
         <div className="ss-program-cards">
           <SsReveal>
-            <Link href="/kebijakan-privasi" className="ss-program-card">
+            <Link href="/kebijakan-privasi" className="ss-program-card ss-program-card-centered">
               <div className="ss-program-copy">
                 <IcShieldCheck width={24} height={24} />
                 <h3>Keamanan<br />Prioritas Kami</h3>
@@ -73,7 +73,7 @@ export function SsPartners() {
             </Link>
           </SsReveal>
           <SsReveal delay={80}>
-            <Link href="/produk/edudigi" className="ss-program-card">
+            <Link href="/produk/edudigi" className="ss-program-card ss-program-card-centered">
               <div className="ss-program-copy">
                 <IcGraduation width={24} height={24} />
                 <h3>EduDigi</h3>
@@ -84,7 +84,7 @@ export function SsPartners() {
             </Link>
           </SsReveal>
           <SsReveal delay={160}>
-            <a href="#fasilitas" className="ss-program-card">
+            <a href="#fasilitas" className="ss-program-card ss-program-card-centered">
               <div className="ss-program-copy">
                 <IcGift width={24} height={24} />
                 <h3>Program & Manfaat</h3>

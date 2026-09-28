@@ -273,10 +273,10 @@ export function PwFaq() {
                                     toggleQuestion(item.q);
                                   }
                                 }}
-                                className={
-                                  open
-                                    ? "w-full cursor-pointer transition-all duration-500 overflow-hidden relative p-5 md:p-6 rounded-[16px] border border-black/5 bg-[#042718] shadow-[0_4px_20px_0_rgba(0,0,0,0.06)]"
-                                    : "w-full cursor-pointer transition-all duration-300 overflow-hidden relative px-4 md:px-6 py-3.5 md:py-4 rounded-[16px] flex items-center border border-transparent hover:border-[#0427181a] hover:bg-[#0427180a]"
+                                 className={
+                                   "pw-faq-item " + (open
+                                     ? "w-full cursor-pointer transition-all duration-500 overflow-hidden relative p-5 md:p-6 rounded-[16px] border border-black/5 bg-[#042718] shadow-[0_4px_20px_0_rgba(0,0,0,0.06)]"
+                                     : "w-full cursor-pointer transition-all duration-300 overflow-hidden relative px-4 md:px-6 py-3.5 md:py-4 rounded-[16px] flex items-center border border-transparent hover:border-[#0427181a] hover:bg-[#0427180a]")
                                 }
                               >
                                 {open ? (
@@ -295,7 +295,7 @@ export function PwFaq() {
                                     }`}
                                   >
                                     <span
-                                      className={`shrink-0 font-heading font-semibold text-xl md:text-2xl leading-[26px] md:leading-[30px] tracking-[-0.6px] md:tracking-[-0.8px] ${
+                                       className={`pw-faq-number shrink-0 font-heading font-semibold text-xl md:text-2xl leading-[26px] md:leading-[30px] tracking-[-0.6px] md:tracking-[-0.8px] ${
                                         open ? "text-white" : "text-[#042718]"
                                       }`}
                                     >
@@ -303,7 +303,7 @@ export function PwFaq() {
                                     </span>
                                     <div className="flex min-w-0 flex-1 flex-col gap-[8px] md:gap-[10px]">
                                       <h4
-                                        className={`font-heading font-semibold text-xl md:text-2xl leading-[26px] md:leading-[30px] tracking-[-0.6px] md:tracking-[-0.8px] ${
+                                         className={`pw-faq-question font-heading font-semibold text-xl md:text-2xl leading-[26px] md:leading-[30px] tracking-[-0.6px] md:tracking-[-0.8px] ${
                                           open ? "text-white" : "text-[#042718]"
                                         }`}
                                       >
