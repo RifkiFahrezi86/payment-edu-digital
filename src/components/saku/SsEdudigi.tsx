@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SsReveal } from "./SsReveal";
 import { PwPosterGallery } from "@/components/payway/PwPosterGallery";
@@ -204,6 +205,54 @@ export function SsEdudigi() {
         </div>
 
         <SsPartnerSupport heading="Ekosistem Terpercaya" logos={LEGAL_PARTNERS} />
+
+        {/* Bar info keunggulan kelembagaan & kurikulum EduDigi */}
+        <SsReveal delay={140}>
+          <div className="ss-edu-pillars-bar mt-8 flex flex-col items-stretch justify-between gap-6 rounded-2xl border border-[var(--ss-line)] bg-white/70 p-4 shadow-sm backdrop-blur-sm md:flex-row md:items-center md:gap-4 md:p-5">
+            <div className="flex flex-1 items-center gap-3.5">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e6f4ea] p-2.5">
+                <Image src="/images/saku/icon-edu-lembaga.webp" alt="" width={40} height={40} className="h-full w-full object-contain" />
+              </span>
+              <div>
+                <h4 className="text-[14px] font-bold text-[var(--ss-ink)]">Kelembagaan yang Jelas</h4>
+                <p className="mt-0.5 text-[12px] leading-snug text-[var(--ss-muted)]">Didukung struktur organisasi dan tata kelola yang transparan.</p>
+              </div>
+            </div>
+
+            <span className="hidden h-10 w-px bg-[var(--ss-line)] md:block" />
+
+            <div className="flex flex-1 items-center gap-3.5">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e6f4ea] p-2.5">
+                <Image src="/images/saku/icon-edu-kurikulum.webp" alt="" width={40} height={40} className="h-full w-full object-contain" />
+              </span>
+              <div>
+                <h4 className="text-[14px] font-bold text-[var(--ss-ink)]">Kurikulum Relevan</h4>
+                <p className="mt-0.5 text-[12px] leading-snug text-[var(--ss-muted)]">Program pembelajaran sesuai kebutuhan industri dan perkembangan teknologi.</p>
+              </div>
+            </div>
+
+            <span className="hidden h-10 w-px bg-[var(--ss-line)] md:block" />
+
+            <div className="flex flex-1 items-center gap-3.5">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e6f4ea] p-2.5">
+                <Image src="/images/saku/icon-edu-masadepan.webp" alt="" width={40} height={40} className="h-full w-full object-contain" />
+              </span>
+              <div>
+                <h4 className="text-[14px] font-bold text-[var(--ss-ink)]">Menuju Masa Depan</h4>
+                <p className="mt-0.5 text-[12px] leading-snug text-[var(--ss-muted)]">Mencetak talenta digital yang siap berkarya dan berdaya saing.</p>
+              </div>
+            </div>
+
+            <span className="hidden h-10 w-px bg-[var(--ss-line)] md:block" />
+
+            <div className="flex shrink-0 items-center md:pl-2">
+              <Link href="/legalitas-edudigi" className="inline-flex items-center gap-2 text-[13px] font-bold text-[var(--ss-green-deep)] transition-colors hover:text-[var(--ss-ink)]">
+                Pelajari Lebih Lanjut
+                <Image src="/images/saku/icon-edu-arrow.webp" alt="" width={16} height={16} className="h-4 w-4 object-contain" />
+              </Link>
+            </div>
+          </div>
+        </SsReveal>
 
         <details className="ss-edudigi-gallery">
           <summary><span>Kenali EduDigi lebih dekat<small>Profil, tujuan, praktik, visi & misi, dan legalitas.</small></span><IcArrowRight width={20} height={20} /></summary>
