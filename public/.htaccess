@@ -1,0 +1,9 @@
+# Disalin apa adanya ke ./out saat `next build` (output: "export") untuk Apache/cPanel.
+ErrorDocument 404 /404.html
+Options -Indexes
+
+# Berkas di /_next/static/ ber-hash, aman di-cache lama.
+<IfModule mod_headers.c>
+  SetEnvIf Request_URI "^/_next/static/" long_cache
+  Header set Cache-Control "public, max-age=31536000, immutable" env=long_cache
+</IfModule>

@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Hosting cPanel (Apache) tidak menjalankan Node: seluruh situs diekspor jadi
+  // HTML statis ke ./out. trailingSlash membuat /vtn -> /vtn/index.html sehingga
+  // Apache bisa melayaninya tanpa aturan rewrite.
+  output: "export",
+  trailingSlash: true,
   // Tanpa ini Next memblokir /_next/webpack-hmr saat halaman dibuka lewat IP
   // LAN atau 127.0.0.1, sehingga hot reload mati dan perubahan tidak tampil.
   allowedDevOrigins: ["127.0.0.1", "localhost", "192.168.100.27", "192.168.18.162"],

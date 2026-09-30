@@ -35,7 +35,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://payment-edu-digital.vercel.app"),
+  metadataBase: new URL("https://sakusultan.id"),
   title: "Saku Sultan — Melangkah Lebih Awal, Bergerak Secara Digital",
   description:
     "Cuan di setiap transaksi bersama Saku Sultan. Jelajahi layanan digital, kelas EduDigi, dan ekosistem Volume Transaksi Nasional. #CUANPERDETIK",

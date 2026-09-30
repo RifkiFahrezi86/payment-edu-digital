@@ -4,6 +4,7 @@
 # next.js
 /.next/
 /out/
+/saku-sultan-static.zip
 
 # production
 /build
