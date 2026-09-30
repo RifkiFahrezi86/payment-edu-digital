@@ -18,6 +18,7 @@ const NAV_LINKS: NavLink[] = [
   { label: "Promo VTN", href: "#sistem-vtn" },
   { label: "Tentang Kami", href: "#tentang" },
   { label: "Bantuan", href: "#bantuan" },
+  { label: "Hubungi Kami", href: "/kontak" },
   { label: "Syarat & Ketentuan", href: "/syarat-ketentuan" },
 ];
 

@@ -20,12 +20,13 @@ const FOOTER_COLS: { title: string; links: FooterLink[] }[] = [
     { label: "EduDigi", href: "#edudigi" },
     { label: "Promo VTN", href: "#sistem-vtn" },
     { label: "Mitra Kami", href: "#mitra" },
-    { label: "Kontak", href: "mailto:minsu@sakusultan.com" },
+    { label: "Kontak", href: "/kontak" },
   ] },
   { title: "Bantuan", links: [
     { label: "FAQ", href: "#bantuan" },
     { label: "Cara Registrasi", href: "#registrasi" },
-    { label: "Pusat Bantuan", href: "mailto:minsu@sakusultan.com" },
+    { label: "Pusat Bantuan", href: "/kontak" },
+    { label: "Hapus Akun & Masukan", href: "/kontak" },
     { label: "Keamanan", href: "/kebijakan-privasi" },
   ] },
   { title: "Legal", links: [
