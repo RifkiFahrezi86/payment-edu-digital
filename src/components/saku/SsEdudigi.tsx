@@ -6,6 +6,7 @@ import { EDUDIGI_CLASS_POSTER, EDUDIGI_POSTERS } from "@/components/payway/pw-ca
 import { PwEduDigiBrand } from "@/components/payway/pw-edudigi-brand";
 import { SsReferenceArtwork } from "./SsReferenceArtwork";
 import { SsPartnerSupport } from "./SsPartnerSupport";
+import { SsVideoLauncher } from "./SsVideoModal";
 import { LEGAL_PARTNERS } from "./ss-partners-data";
 import {
   IcArrowRight,
@@ -14,6 +15,7 @@ import {
   IcCheckCircle,
   IcFileText,
   IcGraduation,
+  IcPlay,
   IcSparkle,
   IcUsers,
   IcZap,
@@ -127,6 +129,10 @@ export function SsEdudigi() {
                 <a href="#fasilitas" className="ss-btn ss-btn-outline-dark">
                   Pelajari Program
                 </a>
+                <SsVideoLauncher src="/videos/payway/tentang-edudigi.mp4" title="Video Tentang EduDigi" className="ss-btn ss-btn-outline-dark">
+                  <IcPlay width={16} height={16} />
+                  Tonton Video Tentang EduDigi
+                </SsVideoLauncher>
               </div>
             </SsReveal>
           </div>

@@ -58,7 +58,7 @@ export function SsHero() {
             Dari Indonesia<br />untuk masa depan<br />yang lebih baik.
             <span aria-hidden="true" />
           </blockquote>
-          <SsVideoLauncher src="/videos/payway/header.mp4" title="Video Tentang Saku Sultan" className="ss-hero-video-card">
+          <SsVideoLauncher src="/videos/payway/tentang-sakusultan.mp4" title="Video Tentang Saku Sultan" className="ss-hero-video-card">
             <span className="ss-hero-play"><IcPlay width={17} height={17} /></span>
             <span><strong>Tonton Video</strong><small>Tentang Saku Sultan</small></span>
           </SsVideoLauncher>
