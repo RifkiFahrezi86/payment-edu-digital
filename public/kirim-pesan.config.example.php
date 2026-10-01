@@ -1,8 +1,10 @@
 <?php
 /**
  * Contoh konfigurasi SMTP untuk kirim-pesan.php.
- * Salin menjadi kirim-pesan.config.php (berkas itu di-ignore Git), lalu isi
- * dengan akun email yang dibuat di cPanel sakusultan.id > Email Accounts.
+ * Di hosting, simpan sebagai /home/<user>/kirim-pesan.config.php (satu level di
+ * atas public_html) agar tidak hilang saat public_html diganti build baru.
+ * Untuk uji lokal boleh disalin ke public/kirim-pesan.config.php (di-ignore Git).
+ * Isi dengan akun email yang dibuat di cPanel sakusultan.id > Email Accounts.
  * Sesuai panduan Rumahweb: host mail.<domain>, port 465 (SSL), user = alamat email.
  */
 return [

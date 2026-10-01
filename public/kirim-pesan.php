@@ -5,8 +5,9 @@
  *
  * Hosting Rumahweb menonaktifkan mail() PHP, jadi email dikirim lewat SMTP
  * ter-autentikasi memakai akun email domain (cPanel > Email Accounts).
- * Kredensialnya dibaca dari kirim-pesan.config.php di folder ini — tidak ikut
- * Git, salin dari kirim-pesan.config.example.php lalu isi.
+ * Kredensialnya dibaca dari kirim-pesan.config.php — dicari dulu satu level di
+ * atas public_html (/home/<user>/, tidak ikut tertimpa saat deploy ulang),
+ * lalu di folder ini. Tidak ikut Git; salin dari kirim-pesan.config.example.php.
  * Disalin apa adanya dari public/ ke out/ saat `next build`; tidak berjalan
  * di `next dev` (di sana formulir jatuh ke tautan mailto cadangan).
  */
@@ -160,7 +161,13 @@ $isi = implode("\n", [
     'Dikirim ' . date('d M Y H:i') . ' WIB dari IP ' . ($_SERVER['REMOTE_ADDR'] ?? '-'),
 ]);
 
-$smtp = @include __DIR__ . '/kirim-pesan.config.php';
+$smtp = false;
+foreach ([dirname(__DIR__) . '/kirim-pesan.config.php', __DIR__ . '/kirim-pesan.config.php'] as $berkasKonfig) {
+    if (is_file($berkasKonfig)) {
+        $smtp = include $berkasKonfig;
+        break;
+    }
+}
 if (!is_array($smtp) || empty($smtp['host']) || empty($smtp['port']) || empty($smtp['user']) || empty($smtp['pass'])) {
     error_log('kirim-pesan: kirim-pesan.config.php belum ada atau belum lengkap');
     jawab(500, ['ok' => false, 'error' => 'Pengiriman pesan belum dikonfigurasi. Silakan kirim lewat email.']);
