@@ -2,6 +2,11 @@
 ErrorDocument 404 /404.html
 Options -Indexes
 
+# Kredensial SMTP formulir kontak hanya boleh dibaca kirim-pesan.php, bukan lewat URL.
+<Files "kirim-pesan.config.php">
+  Require all denied
+</Files>
+
 # Berkas di /_next/static/ ber-hash, aman di-cache lama.
 <IfModule mod_headers.c>
   SetEnvIf Request_URI "^/_next/static/" long_cache

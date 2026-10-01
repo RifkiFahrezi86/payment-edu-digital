@@ -1,15 +1,18 @@
 <?php
 /**
  * Penerima formulir /kontak. Dipanggil SsContactForm lewat fetch POST dan
- * meneruskan isian ke kotak masuk admin melalui mail() server cPanel.
+ * meneruskan isian ke kotak masuk admin.
+ *
+ * Hosting Rumahweb menonaktifkan mail() PHP, jadi email dikirim lewat SMTP
+ * ter-autentikasi memakai akun email domain (cPanel > Email Accounts).
+ * Kredensialnya dibaca dari kirim-pesan.config.php di folder ini — tidak ikut
+ * Git, salin dari kirim-pesan.config.example.php lalu isi.
  * Disalin apa adanya dari public/ ke out/ saat `next build`; tidak berjalan
  * di `next dev` (di sana formulir jatuh ke tautan mailto cadangan).
  */
 declare(strict_types=1);
 
 const PENERIMA  = 'admin@sakusultan.com';
-// Alamat domain sendiri agar lolos SPF server; balasan diarahkan ke pengunjung via Reply-To.
-const PENGIRIM  = 'noreply@sakusultan.id';
 // Harus sama dengan daftar KEPERLUAN di SsContactForm.tsx.
 const KEPERLUAN = ['Permohonan penghapusan akun', 'Pertanyaan layanan', 'Masukan dan saran', 'Lainnya'];
 
@@ -40,6 +43,75 @@ function header_mime(string $teks): string
 {
     $teks = preg_replace('/[\r\n\t]+/', ' ', $teks);
     return '=?UTF-8?B?' . base64_encode($teks) . '?=';
+}
+
+/**
+ * Kirim satu email teks lewat SMTP (AUTH LOGIN di atas SSL, port 465 sesuai
+ * panduan Rumahweb). Mengembalikan null bila sukses, atau keterangan kegagalan
+ * untuk error_log. Pengirim = akun SMTP agar diterima Exim cPanel.
+ */
+function smtp_kirim(array $smtp, string $ke, string $subjek, string $isi, string $balasKe): ?string
+{
+    $user   = (string) $smtp['user'];
+    $errno  = 0;
+    $errstr = '';
+    $fp = @stream_socket_client('ssl://' . $smtp['host'] . ':' . $smtp['port'], $errno, $errstr, 15);
+    if ($fp === false) {
+        return "koneksi ke {$smtp['host']}:{$smtp['port']} gagal: $errstr ($errno)";
+    }
+    stream_set_timeout($fp, 15);
+
+    // Satu balasan server bisa beberapa baris "250-..." yang ditutup "250 ...".
+    $balasan = static function () use ($fp): string {
+        $teks = '';
+        while (($baris = fgets($fp, 1024)) !== false) {
+            $teks .= $baris;
+            if (!isset($baris[3]) || $baris[3] !== '-') {
+                break;
+            }
+        }
+        return trim($teks) !== '' ? trim($teks) : '(tidak ada balasan)';
+    };
+
+    // Isi dikodekan base64 supaya baris pendek dan karakter apa pun aman dikirim.
+    $pesan = implode("\r\n", [
+        'Date: ' . date('r'),
+        'From: Formulir Kontak Saku Sultan <' . $user . '>',
+        'To: <' . $ke . '>',
+        'Reply-To: ' . $balasKe,
+        'Subject: ' . $subjek,
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Transfer-Encoding: base64',
+        '',
+        rtrim(chunk_split(base64_encode($isi), 76, "\r\n")),
+    ]);
+
+    // [label untuk log, perintah (null = hanya tunggu salam), kode balasan yang diharapkan]
+    $langkah = [
+        ['salam',      null,                                   220],
+        ['EHLO',       'EHLO ' . (gethostname() ?: 'localhost'), 250],
+        ['AUTH',       'AUTH LOGIN',                           334],
+        ['AUTH user',  base64_encode($user),                   334],
+        ['AUTH sandi', base64_encode((string) $smtp['pass']),  235],
+        ['MAIL FROM',  'MAIL FROM:<' . $user . '>',            250],
+        ['RCPT TO',    'RCPT TO:<' . $ke . '>',                250],
+        ['DATA',       'DATA',                                 354],
+        ['isi pesan',  $pesan . "\r\n.",                      250],
+    ];
+    foreach ($langkah as [$label, $perintah, $kodeOk]) {
+        if ($perintah !== null) {
+            fwrite($fp, $perintah . "\r\n");
+        }
+        $teks = $balasan();
+        if ((int) substr($teks, 0, 3) !== $kodeOk) {
+            fclose($fp);
+            return "SMTP gagal pada langkah $label: $teks";
+        }
+    }
+    fwrite($fp, "QUIT\r\n");
+    fclose($fp);
+    return null;
 }
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
@@ -88,17 +160,18 @@ $isi = implode("\n", [
     'Dikirim ' . date('d M Y H:i') . ' WIB dari IP ' . ($_SERVER['REMOTE_ADDR'] ?? '-'),
 ]);
 
-$headers = implode("\r\n", [
-    'From: Formulir Kontak Saku Sultan <' . PENGIRIM . '>',
-    'Reply-To: ' . header_mime($nama) . ' <' . $email . '>',
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-    'Content-Transfer-Encoding: 8bit',
-]);
+$smtp = @include __DIR__ . '/kirim-pesan.config.php';
+if (!is_array($smtp) || empty($smtp['host']) || empty($smtp['port']) || empty($smtp['user']) || empty($smtp['pass'])) {
+    error_log('kirim-pesan: kirim-pesan.config.php belum ada atau belum lengkap');
+    jawab(500, ['ok' => false, 'error' => 'Pengiriman pesan belum dikonfigurasi. Silakan kirim lewat email.']);
+}
 
-$subjek = header_mime('[Kontak Web] ' . $keperluan . ' — ' . $nama);
+$subjek  = header_mime('[Kontak Web] ' . $keperluan . ' — ' . $nama);
+$balasKe = header_mime($nama) . ' <' . $email . '>';
 
-if (!mail(PENERIMA, $subjek, $isi, $headers, '-f' . PENGIRIM)) {
+$gagal = smtp_kirim($smtp, PENERIMA, $subjek, $isi, $balasKe);
+if ($gagal !== null) {
+    error_log('kirim-pesan: ' . $gagal);
     jawab(500, ['ok' => false, 'error' => 'Pesan belum bisa dikirim. Silakan coba lagi atau kirim lewat email.']);
 }
 
