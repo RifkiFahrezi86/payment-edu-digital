@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   description: "Kirim pertanyaan, masukan, atau permohonan penghapusan akun Saku Sultan.",
 };
 
-export default function KontakPage() {
+// URL /contact-us/ terdaftar di Google Play Console (Data safety > penghapusan
+// akun), jadi rutenya tidak boleh diganti nama tanpa memperbarui Play Console.
+export default function ContactUsPage() {
   return (
     <main className="ss-site w-full overflow-x-clip">
       <SsNav />
@@ -19,7 +21,7 @@ export default function KontakPage() {
           <Link href="/#bantuan" className="text-sm text-white/75 hover:text-white">← Kembali ke Bantuan</Link>
           <p className="ss-eyebrow mt-10 text-[var(--ss-lime)]">Hubungi Kami</p>
           <h1 className="ss-h1 mt-4">Kami siap <span className="text-[var(--ss-lime)]">mendengar.</span></h1>
-          <p className="mt-5 max-w-[600px] text-white/75">Ada pertanyaan, masukan, atau ingin mengajukan penghapusan akun? Isi formulir berikut agar tim kami dapat memahami kebutuhan Anda.</p>
+          <p className="mt-5 max-w-[600px] text-white/75">Ada pertanyaan, masukan, atau ingin mengajukan penghapusan akun aplikasi Saku Sultan? Isi formulir berikut agar tim kami dapat memahami kebutuhan Anda.</p>
         </div>
       </section>
       <section className="bg-[var(--ss-mist)] px-5 py-14 md:py-20">

@@ -23,7 +23,7 @@ function mailtoFallback(data: FormData): string {
   return `mailto:${EMAIL_TUJUAN}?subject=${encodeURIComponent(subjek)}&body=${encodeURIComponent(baris)}`;
 }
 
-/** Formulir /kontak: mengirim isian ke kotak masuk admin lewat endpoint PHP di hosting. */
+/** Formulir /contact-us: mengirim isian ke kotak masuk admin lewat endpoint PHP di hosting. */
 export function SsContactForm() {
   const [status, setStatus] = useState<Status>({ state: "idle" });
   const [sentTo, setSentTo] = useState("");

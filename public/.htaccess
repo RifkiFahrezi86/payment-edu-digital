@@ -2,6 +2,9 @@
 ErrorDocument 404 /404.html
 Options -Indexes
 
+# Halaman kontak pindah ke /contact-us/ (URL yang terdaftar di Google Play Console).
+RedirectMatch 301 ^/kontak/?$ /contact-us/
+
 # Kredensial SMTP formulir kontak hanya boleh dibaca kirim-pesan.php, bukan lewat URL.
 <Files "kirim-pesan.config.php">
   Require all denied

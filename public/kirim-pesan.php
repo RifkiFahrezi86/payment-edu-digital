@@ -1,6 +1,6 @@
 <?php
 /**
- * Penerima formulir /kontak. Dipanggil SsContactForm lewat fetch POST dan
+ * Penerima formulir /contact-us. Dipanggil SsContactForm lewat fetch POST dan
  * meneruskan isian ke kotak masuk admin.
  *
  * Hosting Rumahweb menonaktifkan mail() PHP, jadi email dikirim lewat SMTP
