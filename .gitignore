@@ -5,6 +5,7 @@
 /.next/
 /out/
 /saku-sultan-static.zip
+/deploy-logs/
 
 # production
 /build

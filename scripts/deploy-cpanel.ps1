@@ -32,7 +32,17 @@ $stamp = Get-Date -Format "yyyyMMdd-HHmmss"
 $staging = "public_html_new_$stamp"
 $backup = "public_html_prev_$stamp"
 
-function Log([string]$msg) { Write-Host ("[{0}] {1}" -f (Get-Date -Format "HH:mm:ss"), $msg) }
+# Catatan deploy per-run di deploy-logs/ (di-gitignore); tidak pernah memuat password/cookie.
+$logDir = Join-Path (Split-Path $PSScriptRoot -Parent) "deploy-logs"
+New-Item -ItemType Directory -Force -Path $logDir | Out-Null
+$logFile = Join-Path $logDir "deploy-cpanel-$stamp.log"
+
+function Log([string]$msg) {
+  $line = "[{0}] {1}" -f (Get-Date -Format "yyyy-MM-dd HH:mm:ss"), $msg
+  Write-Host $line
+  Add-Content -Path $logFile -Value $line -Encoding UTF8
+}
+Log "Deploy $zipName -> $CpUser@$CpHost (staging $staging, cadangan $backup)"
 
 # --- Login -> security token + cookie sesi -----------------------------------
 if ($env:CPANEL_PASS) {
@@ -128,9 +138,13 @@ try {
     Log ("{0,-14} -> {1}" -f $p, $status)
   }
   Log "Selesai. Rollback: pindahkan $backup kembali menjadi public_html lewat File Manager."
+} catch {
+  Log "GAGAL: $($_.Exception.Message)"
+  throw
 } finally {
   $ErrorActionPreference = "Continue"
   try { & curl.exe -s -o NUL -b $jar "$base$token/logout/" } catch {}
   # Remove-Item PS 5.1 gagal bila TEMP memakai nama pendek 8.3 (C:\Users\ACERID~1).
   try { [IO.File]::Delete($jar) } catch {}
+  Write-Host "Catatan deploy: $logFile"
 }
