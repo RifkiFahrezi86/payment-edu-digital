@@ -45,22 +45,24 @@ if ($env:CPANEL_PASS) {
 }
 
 Log "Login ke $base ..."
+# Invoke-WebRequest (PS 5.1) tidak menyimpan cookie cpsession; pakai cookie jar curl.
+$jar = Join-Path ([IO.Path]::GetTempPath()) ("cpanel-" + [Guid]::NewGuid().ToString("N") + ".cookies")
+$body = "user=$([Uri]::EscapeDataString($CpUser))&pass=$([Uri]::EscapeDataString($pass))"
+$pass = $null
 try {
-  $login = Invoke-WebRequest -Uri "$base/login/?login_only=1" -Method Post -Body @{ user = $CpUser; pass = $pass } `
-    -SessionVariable sess -UseBasicParsing
-} catch {
-  throw "Login cPanel gagal (periksa host/user/password): $($_.Exception.Message)"
+  $raw = $body | & curl.exe -sS --max-time 120 -c $jar -d "@-" "$base/login/?login_only=1"
 } finally {
-  $pass = $null
+  $body = $null
 }
-$loginJson = $login.Content | ConvertFrom-Json
-if (-not $loginJson.security_token) { throw "Login cPanel ditolak: $($login.Content)" }
+if ($LASTEXITCODE -ne 0) { throw "Login cPanel gagal (curl exit $LASTEXITCODE), periksa host/koneksi." }
+$raw = ($raw -join "`n")
+$loginJson = $raw | ConvertFrom-Json
+if (-not $loginJson.security_token) { throw "Login cPanel ditolak (periksa user/password): $raw" }
 $token = $loginJson.security_token
-$cookieHeader = ($sess.Cookies.GetCookies([Uri]$base) | ForEach-Object { "$($_.Name)=$($_.Value)" }) -join "; "
-if (-not $cookieHeader) { throw "Cookie sesi cPanel tidak diterima." }
+if (-not (Test-Path $jar) -or -not (Select-String -Path $jar -Pattern "cpsession" -Quiet)) { throw "Cookie sesi cPanel tidak diterima." }
 
 function Invoke-Curl([string[]]$CurlArgs) {
-  $raw = & curl.exe -sS --max-time 1800 -b $cookieHeader @CurlArgs
+  $raw = & curl.exe -sS --max-time 1800 -b $jar @CurlArgs
   if ($LASTEXITCODE -ne 0) { throw "curl gagal (exit $LASTEXITCODE)." }
   return ($raw -join "`n")
 }
@@ -128,5 +130,7 @@ try {
   Log "Selesai. Rollback: pindahkan $backup kembali menjadi public_html lewat File Manager."
 } finally {
   $ErrorActionPreference = "Continue"
-  try { & curl.exe -s -o NUL -b $cookieHeader "$base$token/logout/" } catch {}
+  try { & curl.exe -s -o NUL -b $jar "$base$token/logout/" } catch {}
+  # Remove-Item PS 5.1 gagal bila TEMP memakai nama pendek 8.3 (C:\Users\ACERID~1).
+  try { [IO.File]::Delete($jar) } catch {}
 }
